@@ -35,13 +35,33 @@
         <li><a href="https://github.com/harperlangston">GitHub</a></li>
         <li><a href="code/">Code &amp; repositories</a></li>
       </ul>
-      <p class="stats">31 publications · 15 patents · PhD, NYU Courant Institute</p>
+      <p class="stats">33 publications · 15 patents · PhD, NYU Courant Institute</p>
     </section>
 
     <section id="publications">
       <h2>Publications</h2>
       <h3 class="year">2026</h3>
       <div class="year-group">
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://neurips.cc/virtual/2026/loc/sydney/161540" target=_blank rel=noopener>Graph Coarsening Enables Escaping Local Optima in Compute-Constrained Nonconvex MAX-CUT</a></h3>
+          <p class="authors"><strong>M. Harper Langston</strong>, Pierre-David Letourneau, Dalton Jones, Harris Teague, Peter Scott, Mingu Lee, Richard A. Lethin, Christopher Lott, Roland Memisevic, Fatih Porikli</p>
+          <p class="venue">OPT 2026: Optimization for Machine Learning, NeurIPS 2026 Workshop (Sydney)</p>
+          <div class="links"><a href="https://neurips.cc/virtual/2026/loc/sydney/161540" target=_blank rel=noopener>NeurIPS</a></div>
+          <details><summary>Abstract</summary><p>Because its binary optimization landscape contains exponentially many local optima, MAX-CUT is highly sensitive to initialization. We study Particle Polynomial Relaxation (PPR), a moment-based nonconvex continuous reformulation possessing an advantageous optimization landscape. We warm-start PPR with Combinatorial Multigrid (CMG), a spectral graph-coarsening method that produces structure-aware initial solutions in near-linear time without training data. On t2g20 (n=400), a benchmark instance with known exact optimum, the combined CMG+PPR pipeline reaches 97.5% of optimum on average and 98.4% on the best run. An extended variant with discrete local-search refinement reaches the published optimum on all sixty Biq Mac instances evaluated by a recent neural branch-and-bound method. Using a sparse CSR representation, the same approach scales to G-set instances with up to 20,000 vertices, reducing memory requirements by up to 3333× while maintaining a consistent improvement over the CMG warm start. Gains are largest on sparse weighted graphs; on dense graphs we complement the pipeline with spectral sparsification.</p></details>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://neurips.cc/virtual/2026/loc/sydney/161525" target=_blank rel=noopener>Multiplicative vs. Additive State Coupling in Learned Optimizer Schedules</a></h3>
+          <p class="authors"><strong>M. Harper Langston</strong>, Pierre-David Letourneau, Dalton Jones, Roland Memisevic, Peter Scott, Mingu Lee, Richard A. Lethin, Christopher Lott, Fatih Porikli, Harris Teague</p>
+          <p class="venue">OPT 2026: Optimization for Machine Learning, NeurIPS 2026 Workshop (Sydney)</p>
+          <div class="links"><a href="https://neurips.cc/virtual/2026/loc/sydney/161525" target=_blank rel=noopener>NeurIPS</a></div>
+          <details><summary>Abstract</summary><p>We learn schedules for a continuous penalty relaxation of MAX-CUT by backpropagating through an unrolled classical solver. A state-blind schedule generalizes to instances substantially larger than those used for training. A state-adaptive bilinear schedule also generalizes out of distribution, outperforming its untrained baseline across 15 seeds (t=4.1). By contrast, an additive ablation with identical inputs and output heads is statistically indistinguishable from the bilinear model in distribution but performs worse than its own baseline out of distribution (t=−11.7). This separation appears without regularization and persists across a 30-round weight-decay sweep: the bilinear advantage remains significant at every tested value, whereas the additive model never recovers. The results in this setting isolate how solver state enters the schedule, rather than state adaptivity alone, as the architectural distinction associated with out-of-distribution transfer.</p></details>
+        </div>
+      </article>
       <article class="pub">
         <img class="thumb" src="papers/quoka.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
