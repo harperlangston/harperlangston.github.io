@@ -1,0 +1,118 @@
+\section{common/nummat.hpp File Reference}
+\label{nummat_8hpp}\index{common/nummat.hpp@{common/nummat.hpp}}
+
+
+\subsection{Detailed Description}
+
+
+Definition in file {\bf nummat.hpp}.
+
+{\tt \#include \char`\"{}numvec.hpp\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Num\-Mat$<$ F $>$}
+\begin{CompactList}\small\item\em Num\-Mat is a matrix made up of a size and data. The data can be made up of any type (ints, double, bools, etc.). \item\end{CompactList}\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf Num\-Mat}$<$ bool $>$ {\bf Bol\-Num\-Mat}
+\item 
+typedef {\bf Num\-Mat}$<$ int $>$ {\bf Int\-Num\-Mat}
+\item 
+typedef {\bf Num\-Mat}$<$ double $>$ {\bf Dbl\-Num\-Mat}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+template$<$class F$>$ ostream \& {\bf operator$<$$<$} (ostream \&os, const {\bf Num\-Mat}$<$ F $>$ \&mat)
+\item 
+template$<$class F$>$ void {\bf setvalue} ({\bf Num\-Mat}$<$ F $>$ \&M, F val)
+\item 
+template$<$class F$>$ void {\bf clear} ({\bf Num\-Mat}$<$ F $>$ \&M)
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{nummat.hpp@{nummat.hpp}!BolNumMat@{BolNumMat}}
+\index{BolNumMat@{BolNumMat}!nummat.hpp@{nummat.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Num\-Mat}$<$bool$>$ {\bf Bol\-Num\-Mat}}\label{nummat_8hpp_8c54e8636c83b13a7a2dd58b38d03bad_8c54e8636c83b13a7a2dd58b38d03bad}
+
+
+Bol\-Num\-Mat is a {\bf Num\-Mat}{\rm (p.\,\pageref{classNumMat})} whose entries are all bools 
+
+Definition at line 139 of file nummat.hpp.\index{nummat.hpp@{nummat.hpp}!DblNumMat@{DblNumMat}}
+\index{DblNumMat@{DblNumMat}!nummat.hpp@{nummat.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Num\-Mat}$<$double$>$ {\bf Dbl\-Num\-Mat}}\label{nummat_8hpp_18ed51e81f911a23442591467d7a83ca_18ed51e81f911a23442591467d7a83ca}
+
+
+Bol\-Num\-Mat is a {\bf Num\-Mat}{\rm (p.\,\pageref{classNumMat})} whose entries are all doubles 
+
+Definition at line 143 of file nummat.hpp.\index{nummat.hpp@{nummat.hpp}!IntNumMat@{IntNumMat}}
+\index{IntNumMat@{IntNumMat}!nummat.hpp@{nummat.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Num\-Mat}$<$int$>$ {\bf Int\-Num\-Mat}}\label{nummat_8hpp_89be19e57084d8db87343f10003f03b5_89be19e57084d8db87343f10003f03b5}
+
+
+Bol\-Num\-Mat is a {\bf Num\-Mat}{\rm (p.\,\pageref{classNumMat})} whose entries are all ints 
+
+Definition at line 141 of file nummat.hpp.
+
+\subsection{Function Documentation}
+\index{nummat.hpp@{nummat.hpp}!clear@{clear}}
+\index{clear@{clear}!nummat.hpp@{nummat.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void clear ({\bf Num\-Mat}$<$ F $>$ \& {\em M})\hspace{0.3cm}{\tt  [inline]}}\label{nummat_8hpp_fbcd982c57f29b050cc5e159366e7539_fbcd982c57f29b050cc5e159366e7539}
+
+
+Clear all of M's \_\-data values (set to zero) 
+
+Definition at line 133 of file nummat.hpp.
+
+References Num\-Mat$<$ F $>$::data(), Num\-Mat$<$ F $>$::m(), and Num\-Mat$<$ F $>$::n().
+
+\footnotesize\begin{verbatim}134 {
+135   memset(M.data(), 0, M.m()*M.n()*sizeof(F));
+136 }
+\end{verbatim}\normalsize 
+
+
+\index{nummat.hpp@{nummat.hpp}!operator<<@{operator$<$$<$}}
+\index{operator<<@{operator$<$$<$}!nummat.hpp@{nummat.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ ostream\& operator$<$$<$ (ostream \& {\em os}, const {\bf Num\-Mat}$<$ F $>$ \& {\em mat})\hspace{0.3cm}{\tt  [inline]}}\label{nummat_8hpp_7121427878ef172c90e34a6e0bc9e4bc_7121427878ef172c90e34a6e0bc9e4bc}
+
+
+Provides a way for streaming out contents of a matrix mat 
+
+Definition at line 114 of file nummat.hpp.
+
+\footnotesize\begin{verbatim}115 {
+116   os<<mat.m()<<" "<<mat.n()<<endl;
+117   os.setf(ios_base::scientific, ios_base::floatfield);
+118   for(int i=0; i<mat.m(); i++) {
+119          for(int j=0; j<mat.n(); j++)
+120                 os<<" "<<mat(i,j);
+121          os<<endl;
+122   }
+123   return os;
+124 }
+\end{verbatim}\normalsize 
+
+
+\index{nummat.hpp@{nummat.hpp}!setvalue@{setvalue}}
+\index{setvalue@{setvalue}!nummat.hpp@{nummat.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void setvalue ({\bf Num\-Mat}$<$ F $>$ \& {\em M}, F {\em val})\hspace{0.3cm}{\tt  [inline]}}\label{nummat_8hpp_a30cd53d0252eaa9877f7e78e982a3b6_a30cd53d0252eaa9877f7e78e982a3b6}
+
+
+set all of the entries of a {\bf Num\-Mat}{\rm (p.\,\pageref{classNumMat})} M's \_\-data to a value val. For example, can set all of a matrix to zero 
+
+Definition at line 126 of file nummat.hpp.
+
+References Num\-Mat$<$ F $>$::m(), and Num\-Mat$<$ F $>$::n().
+
+\footnotesize\begin{verbatim}127 {
+128   for(int i=0; i<M.m(); i++)
+129          for(int j=0; j<M.n(); j++)
+130                 M(i,j) = val;
+131 }
+\end{verbatim}\normalsize 
+
+

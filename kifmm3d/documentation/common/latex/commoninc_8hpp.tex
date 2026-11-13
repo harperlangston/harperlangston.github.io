@@ -1,0 +1,86 @@
+\section{common/commoninc.hpp File Reference}
+\label{commoninc_8hpp}\index{common/commoninc.hpp@{common/commoninc.hpp}}
+
+
+{\tt \#include $<$iostream$>$}\par
+{\tt \#include $<$fstream$>$}\par
+{\tt \#include $<$sstream$>$}\par
+{\tt \#include $<$cfloat$>$}\par
+{\tt \#include $<$cassert$>$}\par
+{\tt \#include $<$cmath$>$}\par
+{\tt \#include $<$string$>$}\par
+{\tt \#include $<$complex$>$}\par
+{\tt \#include $<$vector$>$}\par
+{\tt \#include $<$set$>$}\par
+{\tt \#include $<$map$>$}\par
+{\tt \#include $<$deque$>$}\par
+{\tt \#include $<$queue$>$}\par
+{\tt \#include $<$utility$>$}\par
+{\tt \#include $<$algorithm$>$}\par
+{\tt \#include \char`\"{}fftw3.h\char`\"{}}\par
+{\tt \#include \char`\"{}blas.h\char`\"{}}\par
+{\tt \#include \char`\"{}lapack.h\char`\"{}}\par
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf i\-C}(fun)~\{ int ierr=fun; assert(ierr==0); \}
+\item 
+\#define {\bf i\-A}(expr)~\{ if((expr)==0) \{ std::cerr$<$$<$\char`\"{}wrong\char`\"{}$<$$<$std::endl; assert(expr); \} \}
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef std::complex$<$ double $>$ {\bf cpx}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf pow2} (int l)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{commoninc.hpp@{commoninc.hpp}!iA@{iA}}
+\index{iA@{iA}!commoninc.hpp@{commoninc.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define i\-A(expr)~\{ if((expr)==0) \{ std::cerr$<$$<$\char`\"{}wrong\char`\"{}$<$$<$std::endl; assert(expr); \} \}}\label{commoninc_8hpp_262164ca6c8e6852a77a08288e89991d_262164ca6c8e6852a77a08288e89991d}
+
+
+i\-A asserts that an expression is not false - returns \char`\"{}wrong\char`\"{} if so 
+
+Definition at line 58 of file commoninc.hpp.
+
+Referenced by SVDRep::construct(), and SVDRep::dgemv().\index{commoninc.hpp@{commoninc.hpp}!iC@{iC}}
+\index{iC@{iC}!commoninc.hpp@{commoninc.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define i\-C(fun)~\{ int ierr=fun; assert(ierr==0); \}}\label{commoninc_8hpp_a84ea98a1635f0f20af7733b13389045_a84ea98a1635f0f20af7733b13389045}
+
+
+i\-C asserts that a function returns 0 on completion 
+
+Definition at line 56 of file commoninc.hpp.
+
+Referenced by daxpy(), dgemm(), dgemv(), SVDRep::dgemv(), dger(), and pinv().
+
+\subsection{Typedef Documentation}
+\index{commoninc.hpp@{commoninc.hpp}!cpx@{cpx}}
+\index{cpx@{cpx}!commoninc.hpp@{commoninc.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef std::complex$<$double$>$ {\bf cpx}}\label{commoninc_8hpp_18daf02e2b22e37361830dfc2e2aef26_18daf02e2b22e37361830dfc2e2aef26}
+
+
+Complex number 
+
+Definition at line 49 of file commoninc.hpp.
+
+\subsection{Function Documentation}
+\index{commoninc.hpp@{commoninc.hpp}!pow2@{pow2}}
+\index{pow2@{pow2}!commoninc.hpp@{commoninc.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int pow2 (int {\em l})\hspace{0.3cm}{\tt  [inline]}}\label{commoninc_8hpp_0b93292da4c9021812deec8f372b431e_0b93292da4c9021812deec8f372b431e}
+
+
+Power function: 2$^\wedge$l. Uses shifts 
+
+Definition at line 53 of file commoninc.hpp.
+
+\footnotesize\begin{verbatim}53 { assert(l>=0); return (1<<l); }
+\end{verbatim}\normalsize 
+
+

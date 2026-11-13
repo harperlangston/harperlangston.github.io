@@ -1,0 +1,111 @@
+\section{FMM3d\_\-MPI::Node\-Ext Class Reference}
+\label{classFMM3d__MPI_1_1NodeExt}\index{FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::NodeExt}}
+{\tt \#include $<$fmm3d\_\-mpi.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+Extra node information. Different from {\bf Let3d\_\-MPI::Node\-Ext}{\rm (p.\,\pageref{classLet3d__MPI_1_1NodeExt})}. 
+
+{\bf Node\-Ext}{\rm (p.\,\pageref{classFMM3d__MPI_1_1NodeExt})} stores information about V-lists and effective data 
+
+
+
+Definition at line 49 of file fmm3d\_\-mpi.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Node\-Ext} ()
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf \_\-v\-Lst\-In\-Num}
+\item 
+int {\bf \_\-v\-Lst\-In\-Cnt}
+\item 
+Dbl\-Num\-Vec {\bf \_\-eff\-Val}
+\item 
+int {\bf \_\-v\-Lst\-Oth\-Num}
+\item 
+int {\bf \_\-v\-Lst\-Oth\-Cnt}
+\item 
+Dbl\-Num\-Vec {\bf \_\-eff\-Den}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}!NodeExt@{NodeExt}}
+\index{NodeExt@{NodeExt}!FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FMM3d\_\-MPI::Node\-Ext::Node\-Ext ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d__MPI_1_1NodeExt_c0f80386fdfa6d2ef85f373b6c73c145_c0f80386fdfa6d2ef85f373b6c73c145}
+
+
+{\bf Node\-Ext}{\rm (p.\,\pageref{classFMM3d__MPI_1_1NodeExt})} constructor. Initializes Vin and Vot variables to zero 
+
+Definition at line 52 of file fmm3d\_\-mpi.hpp.
+
+\footnotesize\begin{verbatim}52 : _vLstInNum(0), _vLstInCnt(0), _vLstOthNum(0), _vLstOthCnt(0) {;}
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}!_effDen@{\_\-effDen}}
+\index{_effDen@{\_\-effDen}!FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Dbl\-Num\-Vec {\bf FMM3d\_\-MPI::Node\-Ext::\_\-eff\-Den}}\label{classFMM3d__MPI_1_1NodeExt_64b4391d323e2e6420f187c1fbd3182f_64b4391d323e2e6420f187c1fbd3182f}
+
+
+Effective densities (when using FFTs) 
+
+Definition at line 64 of file fmm3d\_\-mpi.hpp.
+
+Referenced by FMM3d\_\-MPI::Node::eff\-Den().\index{FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}!_effVal@{\_\-effVal}}
+\index{_effVal@{\_\-effVal}!FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Dbl\-Num\-Vec {\bf FMM3d\_\-MPI::Node\-Ext::\_\-eff\-Val}}\label{classFMM3d__MPI_1_1NodeExt_97a5333b1cb85d6a8bf1f48ee30ee513_97a5333b1cb85d6a8bf1f48ee30ee513}
+
+
+Effective Values (data used when using FFTs) 
+
+Definition at line 58 of file fmm3d\_\-mpi.hpp.
+
+Referenced by FMM3d\_\-MPI::Node::eff\-Val().\index{FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}!_vLstInCnt@{\_\-vLstInCnt}}
+\index{_vLstInCnt@{\_\-vLstInCnt}!FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf FMM3d\_\-MPI::Node\-Ext::\_\-v\-Lst\-In\-Cnt}}\label{classFMM3d__MPI_1_1NodeExt_b5044d3bf3d47e6de0e61d052f46482e_b5044d3bf3d47e6de0e61d052f46482e}
+
+
+Count of points in V-list of this box 
+
+Definition at line 56 of file fmm3d\_\-mpi.hpp.
+
+Referenced by FMM3d\_\-MPI::Node::v\-Lst\-In\-Cnt().\index{FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}!_vLstInNum@{\_\-vLstInNum}}
+\index{_vLstInNum@{\_\-vLstInNum}!FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf FMM3d\_\-MPI::Node\-Ext::\_\-v\-Lst\-In\-Num}}\label{classFMM3d__MPI_1_1NodeExt_baca27a63bfddc35f8cf78fd0c9bf79c_baca27a63bfddc35f8cf78fd0c9bf79c}
+
+
+Number of boxes in V-list of this node 
+
+Definition at line 54 of file fmm3d\_\-mpi.hpp.
+
+Referenced by FMM3d\_\-MPI::Node::v\-Lst\-In\-Num().\index{FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}!_vLstOthCnt@{\_\-vLstOthCnt}}
+\index{_vLstOthCnt@{\_\-vLstOthCnt}!FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf FMM3d\_\-MPI::Node\-Ext::\_\-v\-Lst\-Oth\-Cnt}}\label{classFMM3d__MPI_1_1NodeExt_85e50680c1c91c3af519f6408dcbc18d_85e50680c1c91c3af519f6408dcbc18d}
+
+
+Count of points affiliated with boxes which have this node in their V-lists 
+
+Definition at line 62 of file fmm3d\_\-mpi.hpp.
+
+Referenced by FMM3d\_\-MPI::Node::v\-Lst\-Oth\-Cnt().\index{FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}!_vLstOthNum@{\_\-vLstOthNum}}
+\index{_vLstOthNum@{\_\-vLstOthNum}!FMM3d_MPI::NodeExt@{FMM3d\_\-MPI::Node\-Ext}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf FMM3d\_\-MPI::Node\-Ext::\_\-v\-Lst\-Oth\-Num}}\label{classFMM3d__MPI_1_1NodeExt_bf022cfcbdeae8ed0e56d1d3dff79f4f_bf022cfcbdeae8ed0e56d1d3dff79f4f}
+
+
+Number of boxes which have this node in their V-lists 
+
+Definition at line 60 of file fmm3d\_\-mpi.hpp.
+
+Referenced by FMM3d\_\-MPI::Node::v\-Lst\-Oth\-Num().
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+fmm3d\_\-mpi/{\bf fmm3d\_\-mpi.hpp}\end{CompactItemize}

@@ -1,0 +1,114 @@
+\section{common/numvec.hpp File Reference}
+\label{numvec_8hpp}\index{common/numvec.hpp@{common/numvec.hpp}}
+
+
+\subsection{Detailed Description}
+
+
+Definition in file {\bf numvec.hpp}.
+
+{\tt \#include \char`\"{}commoninc.hpp\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Num\-Vec$<$ F $>$}
+\begin{CompactList}\small\item\em Num\-Vec is a vector made up of a size and data. The data can be made up of any type (ints, double, bools, etc.). \item\end{CompactList}\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf Num\-Vec}$<$ bool $>$ {\bf Bol\-Num\-Vec}
+\item 
+typedef {\bf Num\-Vec}$<$ int $>$ {\bf Int\-Num\-Vec}
+\item 
+typedef {\bf Num\-Vec}$<$ double $>$ {\bf Dbl\-Num\-Vec}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+template$<$class F$>$ ostream \& {\bf operator$<$$<$} (ostream \&os, const {\bf Num\-Vec}$<$ F $>$ \&vec)
+\item 
+template$<$class F$>$ void {\bf setvalue} ({\bf Num\-Vec}$<$ F $>$ \&V, F val)
+\item 
+template$<$class F$>$ void {\bf clear} ({\bf Num\-Vec}$<$ F $>$ \&V)
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{numvec.hpp@{numvec.hpp}!BolNumVec@{BolNumVec}}
+\index{BolNumVec@{BolNumVec}!numvec.hpp@{numvec.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Num\-Vec}$<$bool$>$ {\bf Bol\-Num\-Vec}}\label{numvec_8hpp_e7b334ad2709d68109d453b8e618c9cd_e7b334ad2709d68109d453b8e618c9cd}
+
+
+Numvec of bools 
+
+Definition at line 127 of file numvec.hpp.\index{numvec.hpp@{numvec.hpp}!DblNumVec@{DblNumVec}}
+\index{DblNumVec@{DblNumVec}!numvec.hpp@{numvec.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Num\-Vec}$<$double$>$ {\bf Dbl\-Num\-Vec}}\label{numvec_8hpp_440ba0a3cc36d52c2c5f9b540bed8ac5_440ba0a3cc36d52c2c5f9b540bed8ac5}
+
+
+Numvec of doubles 
+
+Definition at line 131 of file numvec.hpp.\index{numvec.hpp@{numvec.hpp}!IntNumVec@{IntNumVec}}
+\index{IntNumVec@{IntNumVec}!numvec.hpp@{numvec.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Num\-Vec}$<$int$>$ {\bf Int\-Num\-Vec}}\label{numvec_8hpp_d02385ca3d87c7e12eab3349354f41ef_d02385ca3d87c7e12eab3349354f41ef}
+
+
+Numvec of ints 
+
+Definition at line 129 of file numvec.hpp.
+
+\subsection{Function Documentation}
+\index{numvec.hpp@{numvec.hpp}!clear@{clear}}
+\index{clear@{clear}!numvec.hpp@{numvec.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void clear ({\bf Num\-Vec}$<$ F $>$ \& {\em V})\hspace{0.3cm}{\tt  [inline]}}\label{numvec_8hpp_e9a0f533123ffe65bbb091dd24094958_e9a0f533123ffe65bbb091dd24094958}
+
+
+Clear all values of {\bf Num\-Vec}{\rm (p.\,\pageref{classNumVec})} V 
+
+Definition at line 122 of file numvec.hpp.
+
+References Num\-Vec$<$ F $>$::data(), and Num\-Vec$<$ F $>$::m().
+
+\footnotesize\begin{verbatim}123 {
+124   memset(V.data(), 0, V.m()*sizeof(F));
+125 }
+\end{verbatim}\normalsize 
+
+
+\index{numvec.hpp@{numvec.hpp}!operator<<@{operator$<$$<$}}
+\index{operator<<@{operator$<$$<$}!numvec.hpp@{numvec.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ ostream\& operator$<$$<$ (ostream \& {\em os}, const {\bf Num\-Vec}$<$ F $>$ \& {\em vec})\hspace{0.3cm}{\tt  [inline]}}\label{numvec_8hpp_36c1ac071bd26869e8467036f9a51dc9_36c1ac071bd26869e8467036f9a51dc9}
+
+
+output stream operator $<$$<$ 
+
+Definition at line 107 of file numvec.hpp.
+
+\footnotesize\begin{verbatim}108 {
+109   os<<vec.m()<<endl;
+110   os.setf(ios_base::scientific, ios_base::floatfield);
+111   for(int i=0; i<vec.m(); i++)   os<<" "<<vec(i);
+112   os<<endl;
+113   return os;
+114 }
+\end{verbatim}\normalsize 
+
+
+\index{numvec.hpp@{numvec.hpp}!setvalue@{setvalue}}
+\index{setvalue@{setvalue}!numvec.hpp@{numvec.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void setvalue ({\bf Num\-Vec}$<$ F $>$ \& {\em V}, F {\em val})\hspace{0.3cm}{\tt  [inline]}}\label{numvec_8hpp_bd30a0851e742d36c69575eb38314181_bd30a0851e742d36c69575eb38314181}
+
+
+Set all members of a {\bf Num\-Vec}{\rm (p.\,\pageref{classNumVec})} V equal to val. That is, V(i) = V.\_\-data[i] = val for all i 
+
+Definition at line 116 of file numvec.hpp.
+
+References Num\-Vec$<$ F $>$::m().
+
+\footnotesize\begin{verbatim}117 {
+118   for(int i=0; i<V.m(); i++)
+119          V(i) = val;
+120 }
+\end{verbatim}\normalsize 
+
+

@@ -1,0 +1,130 @@
+\section{fmm3d\_\-mpi/tt0.cpp File Reference}
+\label{tt0_8cpp}\index{fmm3d_mpi/tt0.cpp@{fmm3d\_\-mpi/tt0.cpp}}
+
+
+{\tt \#include \char`\"{}fmm3d\_\-mpi.hpp\char`\"{}}\par
+\subsection*{Namespaces}
+\begin{CompactItemize}
+\item 
+namespace {\bf std}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf main} (int argc, char $\ast$$\ast$argv)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{tt0.cpp@{tt0.cpp}!main@{main}}
+\index{main@{main}!tt0.cpp@{tt0.cpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, char $\ast$$\ast$ {\em argv})}\label{tt0_8cpp_30c4c19ff69d905e8e4c750b3af23485_30c4c19ff69d905e8e4c750b3af23485}
+
+
+
+
+Definition at line 22 of file tt0.cpp.
+
+References p\-A, and p\-C.
+
+\footnotesize\begin{verbatim}23 {
+24   MPI_Init( &argc, &argv );
+25   PetscInitialize(&argc,&argv,"options_0",NULL);  //PetscTruth flg = PETSC_FALSE;
+26   
+27   MPI_Comm comm; comm = PETSC_COMM_WORLD;
+28   int mpirank;  MPI_Comm_rank(MPI_COMM_WORLD, &mpirank);
+29   int mpisize;  MPI_Comm_size(MPI_COMM_WORLD, &mpisize);
+30   int dim = 3;
+31   srand48( (long)( time(NULL)+mpirank ) );
+32   
+33   PetscTruth flg = PETSC_FALSE;
+34   pC( PetscPrintf(MPI_COMM_WORLD, "mpisize %d\n", mpisize) );
+35   printf( "Hello world from process %d of %d\n", mpirank, mpisize );
+36   
+37   //1. allocate random data
+38   int numsrc;  pC( PetscOptionsGetInt(PETSC_NULL, "-numsrc", &numsrc, &flg) ); pA(flg==PETSC_TRUE);
+39   int numtrg;  pC( PetscOptionsGetInt(PETSC_NULL, "-numtrg", &numtrg, &flg) ); pA(flg==PETSC_TRUE);
+40   int kt;  pC( PetscOptionsGetInt(PETSC_NULL, "-kt", &kt, &flg) ); pA(flg==PETSC_TRUE);
+41   
+42   vector<double> tmp(2);         tmp[0] = 1;     tmp[1] = 0.25; //coefs in the kernel, work for all examples
+43   Kernel3d_MPI knl(kt, tmp);
+44   
+45   int lclnumsrc = (numsrc+mpirank)/mpisize;
+46   int lclnumtrg = (numtrg+mpirank)/mpisize;
+47 
+48   printf( "Hello world from process %d of %d\n", mpirank, lclnumsrc );
+49   pC( PetscPrintf(MPI_COMM_WORLD, "luclnumsrc and lclnumtrg %d %d\n", lclnumsrc, lclnumtrg) );
+50   
+51   Vec srcPos;  pC( VecCreateMPI(comm, lclnumsrc*dim, PETSC_DETERMINE, &srcPos) );
+52   double* srcPosarr; pC( VecGetArray(srcPos, &srcPosarr) );
+53   for(int k=0; k<lclnumsrc*dim; k++){
+54          srcPosarr[k] = (2.0*drand48()-1.0);
+55   }
+56   pC( VecRestoreArray(srcPos, &srcPosarr) );
+57   
+58   Vec trgPos;  pC( VecCreateMPI(comm, lclnumtrg*dim, PETSC_DETERMINE, &trgPos) );
+59   double* trgPosarr; pC( VecGetArray(trgPos, &trgPosarr) );
+60   for(int k=0; k<lclnumtrg*dim; k++)
+61          trgPosarr[k] = (2.0*drand48()-1.0);
+62   pC( VecRestoreArray(trgPos, &trgPosarr) );
+63   
+64   int srcDOF = knl.srcDOF();
+65   int trgDOF = knl.trgDOF();
+66   Vec srcDen;  pC( VecCreateMPI(comm, lclnumsrc*srcDOF, PETSC_DETERMINE, &srcDen) );
+67   double* srcDenarr; pC( VecGetArray(srcDen, &srcDenarr) );
+68   for(int k=0; k<lclnumsrc*srcDOF; k++)
+69          srcDenarr[k] = drand48();
+70   pC( VecRestoreArray(srcDen, &srcDenarr) );
+71   
+72   Vec trgVal;  pC( VecCreateMPI(comm, lclnumtrg*trgDOF, PETSC_DETERMINE, &trgVal) );
+73   PetscScalar zero = 0;  pC( VecSet(trgVal, zero) );
+74   
+75   //2. allocate fmm 
+76   clock_t ck0, ck1;
+77   
+78   FMM3d_MPI* fmm = new FMM3d_MPI("fmm3d_");
+79   fmm->srcPos()=srcPos;
+80   fmm->srcNor()=srcPos;
+81   fmm->trgPos()=trgPos;
+82   fmm->ctr() = Point3(0,0,0); // CENTER OF THE TOPLEVEL BOX
+83   fmm->rootLevel() = 0;         // 2^(-rootlvl) is the RADIUS OF THE TOPLEVEL BOX
+84   fmm->knl() = knl;
+85   
+86   ck0 = clock();
+87   pC( fmm->setup() );
+88   ck1 = clock();  
+89   pC( PetscPrintf(MPI_COMM_WORLD, "fmm setup used %e secs\n", double(ck1-ck0)/CLOCKS_PER_SEC) );
+90   
+91   //3. run fmm
+92   for(int i=0; i<3; i++) {
+93          ck0 = clock();
+94          pC( fmm->evaluate(srcDen, trgVal) );
+95          ck1 = clock();
+96          pC( PetscPrintf(MPI_COMM_WORLD, "fmm eval used %e secs\n", double(ck1-ck0)/CLOCKS_PER_SEC) );
+97   }
+98   
+99   //4. check
+100   ck0 = clock();
+101   double rerr;
+102   pC( fmm->check(srcDen, trgVal, 20, rerr) );
+103   pC( PetscPrintf(MPI_COMM_WORLD, "relative %e\n", rerr) );
+104   ck1 = clock();
+105   pC( PetscPrintf(MPI_COMM_WORLD, "fmm check used %e secs\n", double(ck1-ck0)/CLOCKS_PER_SEC) );
+106   
+107   delete fmm;
+108   int tmp2;
+109   pC( VecGetSize(srcDen,&tmp2) );
+110   pC( PetscPrintf(MPI_COMM_WORLD, "%d \n", tmp2 ));
+111   pC( VecGetLocalSize(srcDen,&tmp2) );
+112   pC( PetscPrintf(MPI_COMM_WORLD, "%d \n", tmp2 ));
+113   pC( VecDestroy(srcPos) );
+114   pC( VecDestroy(trgPos) );
+115   pC( VecDestroy(srcDen) );
+116   pC( VecDestroy(trgVal) );
+117   
+118   PetscFinalize();
+119   return 0;
+120 }
+\end{verbatim}\normalsize 
+
+

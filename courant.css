@@ -1,0 +1,516 @@
+/*\*//*/
+  @import "ie5mac.css";
+/**/
+
+/*	Defaults, utilities, and wrapper
+---------------------------------------------------------------- */
+html, body {
+   background: #fff;
+   color: #000;
+   font-size: 12px;
+}
+
+html, body, h1, h2, h3, h4, h5, h6, div, p, ul, li, fieldset, input, form, button {
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+form, fieldset, input, button { padding: 0; margin: 0; border: 0; }
+
+em { font-weight: bold; }
+
+h1 { font-size: 20px; }
+
+h2 { font-size: 16px; }
+
+h3 { font-size: 14px; }
+
+h4 { font-size: 12px; }
+
+h5 { font-size: 10px; }
+
+hr {
+  border: none 0;
+  border-top: 1px solid #666; /*the border*/
+  margin: 5px 0;
+  height: 1px; /*whatever the total width of the border-top and border-bottom equal*/
+}
+
+a:link, a:visited, a:active {
+   /*color:  #C29F4C; */
+	 color: #3380CC;
+   text-decoration: none;
+}
+
+img.left { 
+   display: block; 
+   float: left; 
+   margin: 5px 8px 8px 0; 
+   padding: 0;
+}
+
+img.center { 
+   display : block; 
+   clear : both; 
+   margin : 8px auto;
+}
+
+img.right { 
+   display: block; 
+   float : right; 
+   margin : 5px 0 8px 8px;  
+}
+
+ul {
+   list-style: none;
+}
+
+thead {
+   display:table-header-group;
+}
+
+tbody {
+   display:table-row-group;
+}
+
+h1.bar {
+   display: block;
+   float: none;
+   clear: both;
+   line-height: 20px;
+   margin: 0;
+   padding: 0 10px;
+   background-color: #666;
+   color: #fff;
+   border-width: 0 0 0 20px; 
+   border-style: solid; 
+   border-color: #3380CC;
+   font-size: 11px;
+   text-align: left;
+   text-transform: uppercase;
+   font-weight: bold;
+   text-decoration: none;
+}
+
+
+/* Special formatting classes
+---------------------------------------------------------------- */
+
+.noborder { border-width: 0; }
+
+.border { border: 1px solid black; }
+
+.prop { float: right; width: 0; }
+
+.clear { clear: both; height: 1px; overflow: hidden; }
+
+.inline { display: inline; }
+
+.left { float: left; }
+
+.right { float: right; }
+
+.underline { text-decoration: underline; }
+
+.bold { font-weight: bold; }
+
+.smaller { font-size: smaller; }
+
+.reduced { font-size: 90%; }
+
+.increased { font-size: 120%; }
+
+.highlight { color: #961; }
+
+.indent { margin-right: 5%; margin-left: 5% }
+
+.center { text-align: center; }
+
+
+/* Table formatting classes
+---------------------------------------------------------------- */
+
+table.listing {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.listing th {
+  background-color: #666;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 4px;
+  border: 1px solid white;
+}
+
+table.listing td {
+  border: 1px solid white;
+  padding: 4px;
+  vertical-align: top;
+}
+
+table.listing tr.white td {
+   background-color: #fff;
+}
+
+table.listing tr.gray td {
+   background-color: #eee;
+}
+
+table.listing .skip_coloring td {
+  border-left: none;
+  border-right: none;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+table.calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.calendar th {
+  background-color: #666;
+  color: white;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+table.calendar td {
+  border: 1px solid black;
+  padding: 5px;
+  vertical-align: top;
+}
+
+
+/*	Containing Box
+---------------------------------------------------------------- */
+
+#container {
+   position: relative; 
+   display: block;
+   width: 742px; 
+   margin: 5px auto;
+   padding: 0;
+   border-width: 1px;
+   border-style: solid;
+   border-color: #666;
+}
+
+/*	Header Box
+---------------------------------------------------------------- */
+
+#header {
+   position: relative;
+   display: block;
+   width: 742px;
+   margin: 0;
+   padding: 0;
+   border-width: 0;
+   border-style: solid;
+   color: #666;
+   background-color: #fff;
+}
+
+#header h1, #header a {
+   display: block;
+   height: 156px;
+   margin: 0;
+   padding: 0;
+   background-image: url(/images/header01.png);
+   background-repeat: no-repeat;
+   background-color: transparent;
+}
+
+#header a {
+   background-position: bottom right;
+   background-image: url(/images/header02.png);
+}
+
+/* Schoolnav
+---------------------------------------------------------------- */
+
+#schoolnav {
+   position: relative;
+   display: block;
+   width: 742px;
+   margin: 0;
+   padding: 0;
+}
+
+#schoolnav table, #schoolnav tr, #schoolnav td {
+   margin: 0;
+   padding: 0;
+   border-spacing: 0;
+}
+
+#schoolnav table{
+  width: 742px;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #fff;
+  background-color: #666;
+}
+
+#schoolnav td {
+   border-collapse: collapse;
+   border-width: 0 1px 0 0;
+   border-style: solid;
+   border-color: #fff;
+}
+
+#schoolnav td.noborder{
+   border-width: 0;
+}
+
+#schoolnav a{
+   display: block;
+   width: 100%;
+   margin: 0;
+   padding: 4px 0;
+   font-size: 10px;
+   text-transform: uppercase;
+   text-align: center;
+   color: #fff;
+   background-color: #666;
+}
+
+#schoolnav a:hover {
+   background-color: #3380CC;
+}
+
+* html #schoolnav a {
+  margin: -2 -2px;
+}
+
+
+/* Subheader	
+---------------------------------------------------------------- */
+
+#subheader {
+   display: block;
+   position: relative;
+   float: left;
+   clear: both;
+   width: 732px;
+   margin: 10px 10px 10px 0;
+   padding: 0;
+   background-color: #fff;
+}
+
+#subheader .notsearch, #subheader .search { font-size: 11px; }
+
+#subheader .notsearch { padding-top: 3px; }
+
+#subheader .search {
+   border: 1px solid #666;
+   background-image: url(/images/bg.search.gif);
+   background-repeat : no-repeat;
+   background-position : right center;
+}
+
+#subheader ul {
+   list-style-type: none;
+   float: right;
+   padding: 0;
+   margin: 0;
+}
+
+#subheader li {
+   float: left;
+   padding: 0;
+   margin: 0 0 0 30px;
+}
+
+* html #subheader fieldset { float: left; }
+
+#subheader input, #subheader form, #subheader fieldset, #subheader button { font-size: 11px; }
+
+#subheader input, #subheader button { vertical-align: middle; border: 0; padding: 0; }
+
+#subheader input { width: 10em; padding: 1px 0 1px 4px; background-color: #fff;}
+
+#subheader button {
+   width: 15px;
+   text-indent: -9999px;
+   cursor: pointer;
+   background-color: transparent;
+}
+
+#subheader a {
+   color: #666;
+}
+
+#subheader a:hover {
+   color: #3380CC;
+}
+
+/* Common structural properties of page elements */
+
+#nav, #primary, #secondary {
+   display: block;
+   position: relative; 
+   margin: 0;
+   padding: 0 10px;
+}
+
+* html #nav, * html #primary, * html #secondary {
+   word-wrap: break-word; 
+}
+
+
+/*	Navigation
+---------------------------------------------------------------- */
+
+#nav {
+   width: 130px;
+   float: left;
+}
+
+#nav ul {
+	margin: 0; 
+	padding: 5px 0 0 0 ;
+	text-align: right;
+}
+
+#nav li {
+	margin: 0;
+	padding: 4px 0;
+        font-size: 11px;
+        text-decoration: none;
+	text-transform: uppercase;
+}
+
+#nav a { color: #666; }
+
+#nav a:hover { color: #3380CC; }
+
+
+/* Primary column
+---------------------------------------------------------------- */
+
+#primary {
+   float: left;
+   min-height: 640px;
+   border-style: solid;
+   border-color: #666;
+   background-color: #fff;
+}
+
+/* Hide from IE-Mac \*/
+* html #primary {
+   height: 640px;
+}
+/* End hide */
+
+.C1 { border-width: 0 0 0 1px; width: 571px; }
+
+* html .C1 {  border-width: 0 0 0 1px ; width: 568px; }
+
+.C1F { border-width: 0; width: 722px; }
+
+#primary p {
+   margin: 10px 10px 10px 0;
+   padding: 0;
+}
+
+#primary li {
+   padding: 3px 0;
+}
+
+#primary ul.inlist {
+   padding: 0;
+   margin: 0;
+}
+
+#primary .inlist li{
+    display: inline;
+    list-style-type: none;
+    list-style: none;
+    padding-right: 10px;
+}
+
+#primary input{
+  font-size: 12px;
+  padding: 2px 4px;
+  margin: 5px;
+  border: 1px solid #666;
+}
+
+#primary input[type=submit]:hover {
+cursor: pointer; cursor: hand; background-color: #fff;
+} 
+
+
+
+/* Secondary column
+---------------------------------------------------------------- */
+
+#secondary {
+   float: right;
+   clear: none;
+   width: 184px;
+   margin: 20px 0 10px 10px;
+   padding: 0;
+   border: 1px solid #666;
+   background-color: #fff;
+}
+
+#secondary ul {
+   margin: 5px 10px;
+   padding: 0;
+}
+
+#secondary li {
+   margin: 0 0 1px 0;
+   padding: 3px 0;
+   font-size: 11px;
+}
+
+#secondary li ul li {
+   margin-left: 10px;
+}
+
+
+
+/* Properties common to primary and secondary columns
+---------------------------------------------------------------- */
+
+#primary a, #secondary a {
+   text-decoration: underline;
+}
+
+#primary a:hover, #secondary a:hover {
+   text-decoration: underline;
+   color: #666;
+}
+
+#primary a:visited, #secondary a:visited {
+   text-decoration: underline;
+}   
+
+
+/*	Footer
+---------------------------------------------------------------- */
+#footer {
+   width: 742px;
+   margin: 0 auto;
+   clear: both;
+   text-align: right;
+}
+
+#footer p {
+   font-size: 0.8em;
+   color: #000;
+}
+
+#footer a {
+   font-size: 0.9em;
+   text-align: center;
+   margin-top: 10px;
+   color: #AEAEAE;
+   text-decoration: underline;
+}
+

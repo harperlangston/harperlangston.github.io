@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Code · M. Harper Langston</title>
+  <meta name="description" content="Public code and GitHub repositories by M. Harper Langston.">
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="../">M. Harper Langston</a>
+      <nav aria-label="Main">
+        <a href="../#publications">Publications</a>
+        <a href="../#reports">Reports</a>
+        <a href="../#patents">Patents</a>
+        <a href="../#education">Education</a>
+        <a href="./" aria-current="page">Code</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="profile">
+      <img id="avatar" src="https://github.com/harperlangston.png?size=176" alt="" width="88" height="88" onerror="this.hidden=true">
+      <div>
+        <h1>Code</h1>
+        <p>Public repositories on GitHub: research codes, tools and experiments.</p>
+        <ul class="contact">
+          <li><a href="https://github.com/harperlangston">github.com/harperlangston</a></li>
+          <li><a href="../kifmm3d/documentation/index.html">KIFMM3D documentation</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <span id="count">Public repositories</span>
+      <span>
+        <label><input type="checkbox" id="showForks"> Show forks</label>
+      </span>
+    </div>
+
+    <!-- This list is filled in automatically from GitHub when the page loads.
+         The cards below are a fallback, shown if GitHub can't be reached. -->
+    <div class="repos" id="repos">
+      <a class="repo" href="https://github.com/harperlangston/fmmvol3d" data-fork="false">
+        <h3>fmmvol3d</h3>
+        <p>Sequential Fast Multipole Method volume solver for free-space or periodic/Dirichlet boundary conditions in a box.</p>
+        <div class="meta"><span><span class="dot" style="background:#f34b7d"></span>C++</span></div>
+      </a>
+      <a class="repo" href="https://github.com/harperlangston/LIC" data-fork="false">
+        <h3>LIC</h3>
+        <p>Line Integral Convolution code based on the work of Cabral and Leedom.</p>
+        <div class="meta"><span><span class="dot" style="background:#f34b7d"></span>C++</span></div>
+      </a>
+      <a class="repo" href="https://github.com/harperlangston/cython_examples" data-fork="false">
+        <h3>cython_examples</h3>
+        <p>A simple example of using Cython, Python and C to call a C swap function from Python, passing by reference.</p>
+        <div class="meta"><span><span class="dot" style="background:#3572A5"></span>Python</span></div>
+      </a>
+      <a class="repo" href="https://github.com/harperlangston/nonblocksocket" data-fork="false">
+        <h3>nonblocksocket</h3>
+        <p>Non-blocking, multi-connection client-server socket using select and message buffer queues.</p>
+        <div class="meta"><span><span class="dot" style="background:#3572A5"></span>Python</span></div>
+      </a>
+      <a class="repo" href="https://github.com/harperlangston/HotShell" data-fork="false">
+        <h3>HotShell</h3>
+        <p>Tools that augment basic Unix commands using Perl and Korn shell.</p>
+        <div class="meta"><span><span class="dot" style="background:#0298c3"></span>Perl</span></div>
+      </a>
+      <a class="repo" href="https://github.com/harperlangston/rsyslog" data-fork="true" hidden>
+        <h3>rsyslog</h3>
+        <p>Fork of rsyslog: a rocket-fast system for log processing.</p>
+        <div class="meta"><span><span class="dot" style="background:#555555"></span>C</span><span class="tag">fork</span></div>
+      </a>
+    </div>
+    <p class="note" id="note"></p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© M. Harper Langston</span>
+      <span><a href="../">CV</a> · <a href="https://github.com/harperlangston">GitHub</a> · <a href="mailto:harperlangston@gmail.com">Email</a></span>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var USER = 'harperlangston';
+    // Repos to hide from this page (by name), and repos to pin to the top, in order.
+    var HIDE = [];
+    var PIN = ['fmmvol3d', 'LIC'];
+
+    var COLORS = { 'C++': '#f34b7d', 'C': '#555555', 'Python': '#3572A5', 'Perl': '#0298c3', 'Shell': '#89e051',
+      'JavaScript': '#f1e05a', 'TypeScript': '#3178c6', 'Fortran': '#4d41b1', 'Julia': '#a270ba', 'MATLAB': '#e16737',
+      'Jupyter Notebook': '#DA5B0B', 'Rust': '#dea584', 'Go': '#00ADD8', 'HTML': '#e34c26', 'CSS': '#563d7c', 'Cuda': '#3A4E3A' };
+    var grid = document.getElementById('repos');
+    var toggle = document.getElementById('showForks');
+    var count = document.getElementById('count');
+
+    function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : s; return d.innerHTML; }
+    function applyFilter() {
+      var cards = grid.querySelectorAll('.repo'), shown = 0;
+      cards.forEach(function (c) {
+        var hide = c.dataset.fork === 'true' && !toggle.checked;
+        c.hidden = hide; if (!hide) shown++;
+      });
+      count.textContent = shown + (shown === 1 ? ' public repository' : ' public repositories');
+    }
+    toggle.addEventListener('change', applyFilter);
+    applyFilter();
+
+    fetch('https://api.github.com/users/' + USER + '/repos?per_page=100&type=owner&sort=updated')
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (repos) {
+        repos = repos.filter(function (r) { return HIDE.indexOf(r.name) < 0; });
+        repos.sort(function (a, b) {
+          var pa = PIN.indexOf(a.name), pb = PIN.indexOf(b.name);
+          if (pa >= 0 || pb >= 0) return (pa < 0 ? 99 : pa) - (pb < 0 ? 99 : pb);
+          return new Date(b.pushed_at) - new Date(a.pushed_at);
+        });
+        grid.innerHTML = repos.map(function (r) {
+          var updated = new Date(r.pushed_at).toLocaleDateString(undefined, { year: 'numeric', month: 'short' });
+          var lang = r.language ? '<span><span class="dot" style="background:' + (COLORS[r.language] || '#8b949e') + '"></span>' + esc(r.language) + '</span>' : '';
+          var stars = r.stargazers_count ? '<span>★ ' + r.stargazers_count + '</span>' : '';
+          var tags = (r.fork ? '<span class="tag">fork</span>' : '') + (r.archived ? '<span class="tag">archived</span>' : '');
+          return '<a class="repo" href="' + esc(r.html_url) + '" data-fork="' + r.fork + '">' +
+            '<h3>' + esc(r.name) + '</h3>' +
+            '<p>' + esc(r.description || 'No description.') + '</p>' +
+            '<div class="meta">' + lang + stars + '<span>Updated ' + esc(updated) + '</span>' + tags + '</div></a>';
+        }).join('');
+        applyFilter();
+      })
+      .catch(function () {
+        document.getElementById('note').textContent = 'Showing a saved list. See GitHub for the latest repositories.';
+      });
+  })();
+  </script>
+</body>
+</html>

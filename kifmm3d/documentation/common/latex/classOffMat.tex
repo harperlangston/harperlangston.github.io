@@ -1,0 +1,362 @@
+\section{Off\-Mat$<$ F $>$ Class Template Reference}
+\label{classOffMat}\index{OffMat@{OffMat}}
+{\tt \#include $<$offmat.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class F$>$ class Off\-Mat$<$ F $>$}
+
+
+
+
+
+Definition at line 25 of file offmat.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Off\-Mat} (int m=0, int n=0, int s=0, int t=0)
+\item 
+{\bf Off\-Mat} (int m, int n, int s, int t, bool owndata, F $\ast$data)
+\item 
+{\bf Off\-Mat} (const {\bf Off\-Mat} \&C)
+\item 
+{\bf $\sim$Off\-Mat} ()
+\item 
+{\bf Off\-Mat} \& {\bf operator=} (const {\bf Off\-Mat} \&C)
+\item 
+void {\bf resize} (int m, int n, int s, int t)
+\item 
+const F \& {\bf operator()} (int i, int j) const 
+\item 
+F \& {\bf operator()} (int i, int j)
+\item 
+F $\ast$ {\bf data} () const 
+\item 
+F $\ast$ {\bf clmdata} (int j)
+\item 
+int {\bf m} () const 
+\item 
+int {\bf n} () const 
+\item 
+int {\bf s} () const 
+\item 
+int {\bf t} () const 
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf \_\-m}
+\item 
+int {\bf \_\-n}
+\item 
+int {\bf \_\-s}
+\item 
+int {\bf \_\-t}
+\item 
+bool {\bf \_\-owndata}
+\item 
+F $\ast$ {\bf \_\-data}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{OffMat@{Off\-Mat}!OffMat@{OffMat}}
+\index{OffMat@{OffMat}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Mat}$<$ F $>$::{\bf Off\-Mat} (int {\em m} = {\tt 0}, int {\em n} = {\tt 0}, int {\em s} = {\tt 0}, int {\em t} = {\tt 0})\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_63bedae3272fd1e86a28d5e60376f454_63bedae3272fd1e86a28d5e60376f454}
+
+
+
+
+Definition at line 33 of file offmat.hpp.
+
+References Off\-Mat$<$ F $>$::\_\-data, Off\-Mat$<$ F $>$::\_\-m, and Off\-Mat$<$ F $>$::\_\-n.
+
+\footnotesize\begin{verbatim}33                                             : _m(m), _n(n), _s(s), _t(t), _owndata(true) {
+34          if(_m>0 && _n>0) { _data = new F[_m*_n]; assert( _data!=NULL ); memset(_data, 0, _m*_n*sizeof(F)); } else _data=NULL;
+35   }
+\end{verbatim}\normalsize 
+
+
+\index{OffMat@{Off\-Mat}!OffMat@{OffMat}}
+\index{OffMat@{OffMat}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Mat}$<$ F $>$::{\bf Off\-Mat} (int {\em m}, int {\em n}, int {\em s}, int {\em t}, bool {\em owndata}, F $\ast$ {\em data})\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_90312012b1c48e498b74c50cc26b3fec_90312012b1c48e498b74c50cc26b3fec}
+
+
+
+
+Definition at line 36 of file offmat.hpp.
+
+\footnotesize\begin{verbatim}36                                                            : _m(m), _n(n), _s(s), _t(t), _owndata(owndata) {
+37          if(_owndata) {
+38                 if(_m>0 && _n>0) { _data = new F[_m*_n]; assert( _data!=NULL ); memset(_data, 0, _m*_n*sizeof(F)); } else _data=NULL;
+39                 if(_m>0 && _n>0) memcpy( _data, data, _m*_n*sizeof(F) );
+40          } else {
+41                 _data = data;
+42          }
+43   }
+\end{verbatim}\normalsize 
+
+
+\index{OffMat@{Off\-Mat}!OffMat@{OffMat}}
+\index{OffMat@{OffMat}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Mat}$<$ F $>$::{\bf Off\-Mat} (const {\bf Off\-Mat}$<$ F $>$ \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_e389b62b2f5bfa80c53f09bd1b220e8b_e389b62b2f5bfa80c53f09bd1b220e8b}
+
+
+
+
+Definition at line 44 of file offmat.hpp.
+
+References Off\-Mat$<$ F $>$::\_\-data.
+
+\footnotesize\begin{verbatim}44                          : _m(C._m), _n(C._n), _s(C._s), _t(C._t), _owndata(C._owndata) {
+45          if(_owndata) {
+46                 if(_m>0 && _n>0) { _data = new F[_m*_n]; assert( _data!=NULL ); memset(_data, 0, _m*_n*sizeof(F)); } else _data=NULL;
+47                 if(_m>0 && _n>0) memcpy( _data, C._data, _m*_n*sizeof(F) );
+48          } else {
+49                 _data = C._data;
+50          }
+51   }
+\end{verbatim}\normalsize 
+
+
+\index{OffMat@{Off\-Mat}!~OffMat@{$\sim$OffMat}}
+\index{~OffMat@{$\sim$OffMat}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Mat}$<$ F $>$::$\sim${\bf Off\-Mat} ()\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_6b175c3f417acb2dd0bf16fb2fc1386a_6b175c3f417acb2dd0bf16fb2fc1386a}
+
+
+
+
+Definition at line 52 of file offmat.hpp.
+
+\footnotesize\begin{verbatim}52             { 
+53          if(_owndata) { 
+54                 if(_m>0 && _n>0) { delete[] _data; _data = NULL; } 
+55          }
+56   }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{OffMat@{Off\-Mat}!clmdata@{clmdata}}
+\index{clmdata@{clmdata}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Off\-Mat}$<$ F $>$::clmdata (int {\em j})\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_29a94d113c6ed3f2191bb35c48a46e16_29a94d113c6ed3f2191bb35c48a46e16}
+
+
+
+
+Definition at line 88 of file offmat.hpp.
+
+\footnotesize\begin{verbatim}88 { return &(_data[j*_m]); }
+\end{verbatim}\normalsize 
+
+
+\index{OffMat@{Off\-Mat}!data@{data}}
+\index{data@{data}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Off\-Mat}$<$ F $>$::data () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_ad3b2b9598c8547b4f7afe7a79ed520c_ad3b2b9598c8547b4f7afe7a79ed520c}
+
+
+
+
+Definition at line 87 of file offmat.hpp.
+
+Referenced by clear().
+
+\footnotesize\begin{verbatim}87 { return _data; }
+\end{verbatim}\normalsize 
+
+
+\index{OffMat@{Off\-Mat}!m@{m}}
+\index{m@{m}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Mat}$<$ F $>$::m () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_6a2fa69c25bf8ed36e019d0fb3f5e966_6a2fa69c25bf8ed36e019d0fb3f5e966}
+
+
+
+
+Definition at line 89 of file offmat.hpp.
+
+Referenced by clear(), and setvalue().
+
+\footnotesize\begin{verbatim}89 { return _m; }
+\end{verbatim}\normalsize 
+
+
+\index{OffMat@{Off\-Mat}!n@{n}}
+\index{n@{n}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Mat}$<$ F $>$::n () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_611a0b095fab035a528671dd8cf7f3b7_611a0b095fab035a528671dd8cf7f3b7}
+
+
+
+
+Definition at line 90 of file offmat.hpp.
+
+Referenced by clear(), and setvalue().
+
+\footnotesize\begin{verbatim}90 { return _n; }
+\end{verbatim}\normalsize 
+
+
+\index{OffMat@{Off\-Mat}!operator()@{operator()}}
+\index{operator()@{operator()}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Off\-Mat}$<$ F $>$::operator() (int {\em i}, int {\em j})\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_743eed4071652374b372885106b9142f_743eed4071652374b372885106b9142f}
+
+
+
+
+Definition at line 82 of file offmat.hpp.
+
+\footnotesize\begin{verbatim}82                                {
+83          assert( i>=_s && i<_m+_s && j>=_t && j<_n+_t );
+84          return _data[(i-_s) + (j-_t)*_m];
+85   }
+\end{verbatim}\normalsize 
+
+
+\index{OffMat@{Off\-Mat}!operator()@{operator()}}
+\index{operator()@{operator()}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Off\-Mat}$<$ F $>$::operator() (int {\em i}, int {\em j}) const\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_08092f91032a8a0df0ad0870710e6a7a_08092f91032a8a0df0ad0870710e6a7a}
+
+
+
+
+Definition at line 78 of file offmat.hpp.
+
+\footnotesize\begin{verbatim}78                                            {
+79          assert( i>=_s && i<_m+_s && j>=_t && j<_n+_t );
+80          return _data[(i-_s) + (j-_t)*_m];
+81   }
+\end{verbatim}\normalsize 
+
+
+\index{OffMat@{Off\-Mat}!operator=@{operator=}}
+\index{operator=@{operator=}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Mat}\& {\bf Off\-Mat}$<$ F $>$::operator= (const {\bf Off\-Mat}$<$ F $>$ \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_eabbbf42ac0246befc8c8904ecb1977d_eabbbf42ac0246befc8c8904ecb1977d}
+
+
+
+
+Definition at line 57 of file offmat.hpp.
+
+\footnotesize\begin{verbatim}57                                      {
+58          if(_owndata) { 
+59                 if(_m>0 && _n>0) { delete[] _data; _data = NULL; } 
+60          }
+61          _m = C._m; _n=C._n; _s = C._s; _t=C._t; _owndata=C._owndata;
+62          if(_owndata) {
+63                 if(_m>0 && _n>0) { _data = new F[_m*_n]; assert( _data!=NULL ); memset(_data, 0, _m*_n*sizeof(F)); } else _data=NULL;
+64                 if(_m>0 && _n>0) memcpy( _data, C._data, _m*_n*sizeof(F) );
+65          } else {
+66                 _data = C._data;
+67          }
+68          return *this;
+69   }
+\end{verbatim}\normalsize 
+
+
+\index{OffMat@{Off\-Mat}!resize@{resize}}
+\index{resize@{resize}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void {\bf Off\-Mat}$<$ F $>$::resize (int {\em m}, int {\em n}, int {\em s}, int {\em t})\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_c18b6f68674e19e5a8222e14d33b8156_c18b6f68674e19e5a8222e14d33b8156}
+
+
+
+
+Definition at line 70 of file offmat.hpp.
+
+\footnotesize\begin{verbatim}70                                            {
+71          assert( _owndata==true );
+72          if(_m!=m || _n!=n) {
+73                 if(_m>0 && _n>0) { delete[] _data; _data = NULL; } 
+74                 _m = m; _n = n; _s = s; _t = t;
+75                 if(_m>0 && _n>0) { _data = new F[_m*_n]; assert( _data!=NULL ); memset(_data, 0, _m*_n*sizeof(F)); } else _data=NULL;
+76          }
+77   }
+\end{verbatim}\normalsize 
+
+
+\index{OffMat@{Off\-Mat}!s@{s}}
+\index{s@{s}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Mat}$<$ F $>$::s () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_718f9fe30c4c5a49a2c162d5d70c314b_718f9fe30c4c5a49a2c162d5d70c314b}
+
+
+
+
+Definition at line 91 of file offmat.hpp.
+
+Referenced by setvalue().
+
+\footnotesize\begin{verbatim}91 { return _s; }
+\end{verbatim}\normalsize 
+
+
+\index{OffMat@{Off\-Mat}!t@{t}}
+\index{t@{t}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Mat}$<$ F $>$::t () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffMat_0fd352f0e5ea01103675de15233b95bd_0fd352f0e5ea01103675de15233b95bd}
+
+
+
+
+Definition at line 92 of file offmat.hpp.
+
+Referenced by setvalue().
+
+\footnotesize\begin{verbatim}92 { return _t; }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{OffMat@{Off\-Mat}!_data@{\_\-data}}
+\index{_data@{\_\-data}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Off\-Mat}$<$ F $>$::{\bf \_\-data}}\label{classOffMat_7125153abbcb2e949a1b4f81cbe22af5_7125153abbcb2e949a1b4f81cbe22af5}
+
+
+
+
+Definition at line 31 of file offmat.hpp.
+
+Referenced by Off\-Mat$<$ F $>$::Off\-Mat().\index{OffMat@{Off\-Mat}!_m@{\_\-m}}
+\index{_m@{\_\-m}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Mat}$<$ F $>$::{\bf \_\-m}}\label{classOffMat_b781ae81625400d76d94420d3af2c230_b781ae81625400d76d94420d3af2c230}
+
+
+
+
+Definition at line 28 of file offmat.hpp.
+
+Referenced by Off\-Mat$<$ F $>$::Off\-Mat().\index{OffMat@{Off\-Mat}!_n@{\_\-n}}
+\index{_n@{\_\-n}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Mat}$<$ F $>$::{\bf \_\-n}}\label{classOffMat_b628b96b5cc160f67acf6b4673cdd8bb_b628b96b5cc160f67acf6b4673cdd8bb}
+
+
+
+
+Definition at line 28 of file offmat.hpp.
+
+Referenced by Off\-Mat$<$ F $>$::Off\-Mat().\index{OffMat@{Off\-Mat}!_owndata@{\_\-owndata}}
+\index{_owndata@{\_\-owndata}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool {\bf Off\-Mat}$<$ F $>$::{\bf \_\-owndata}}\label{classOffMat_4a613b2956a4a0ffff962e497a5d56e0_4a613b2956a4a0ffff962e497a5d56e0}
+
+
+
+
+Definition at line 30 of file offmat.hpp.\index{OffMat@{Off\-Mat}!_s@{\_\-s}}
+\index{_s@{\_\-s}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Mat}$<$ F $>$::{\bf \_\-s}}\label{classOffMat_c195aeabeeee007891190b9ff8a32c70_c195aeabeeee007891190b9ff8a32c70}
+
+
+
+
+Definition at line 29 of file offmat.hpp.\index{OffMat@{Off\-Mat}!_t@{\_\-t}}
+\index{_t@{\_\-t}!OffMat@{Off\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Mat}$<$ F $>$::{\bf \_\-t}}\label{classOffMat_05cb7dc333ca611d0a8969704e39a9f0_05cb7dc333ca611d0a8969704e39a9f0}
+
+
+
+
+Definition at line 29 of file offmat.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+common/{\bf offmat.hpp}\end{CompactItemize}

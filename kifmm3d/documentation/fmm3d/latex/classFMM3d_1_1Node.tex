@@ -1,0 +1,214 @@
+\section{FMM3d::Node Class Reference}
+\label{classFMM3d_1_1Node}\index{FMM3d::Node@{FMM3d::Node}}
+{\tt \#include $<$fmm3d.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+{\bf Node}{\rm (p.\,\pageref{classFMM3d_1_1Node})} Class for {\bf FMM3d}{\rm (p.\,\pageref{classFMM3d})}. 
+
+
+
+Definition at line 43 of file fmm3d.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Node} ()
+\item 
+int \& {\bf Vin\-Num} ()
+\item 
+int \& {\bf Vin\-Cnt} ()
+\item 
+Dbl\-Num\-Vec \& {\bf eff\-Val} ()
+\item 
+int \& {\bf Vot\-Num} ()
+\item 
+int \& {\bf Vot\-Cnt} ()
+\item 
+Dbl\-Num\-Vec \& {\bf eff\-Den} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf \_\-Vin\-Num}
+\item 
+int {\bf \_\-Vin\-Cnt}
+\item 
+Dbl\-Num\-Vec {\bf \_\-eff\-Val}
+\item 
+int {\bf \_\-Vot\-Num}
+\item 
+int {\bf \_\-Vot\-Cnt}
+\item 
+Dbl\-Num\-Vec {\bf \_\-eff\-Den}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{FMM3d::Node@{FMM3d::Node}!Node@{Node}}
+\index{Node@{Node}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FMM3d::Node::Node ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d_1_1Node_cbf468557fa59dd3c0d6c693d060cdcd_cbf468557fa59dd3c0d6c693d060cdcd}
+
+
+
+
+Definition at line 58 of file fmm3d.hpp.
+
+\footnotesize\begin{verbatim}58 : _VinNum(0), _VinCnt(0), _VotNum(0), _VotCnt(0) {;}
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{FMM3d::Node@{FMM3d::Node}!effDen@{effDen}}
+\index{effDen@{effDen}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Dbl\-Num\-Vec\& FMM3d::Node::eff\-Den ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d_1_1Node_d1db194d844074ad9ca4d3235b5303e5_d1db194d844074ad9ca4d3235b5303e5}
+
+
+Return effective densities 
+
+Definition at line 66 of file fmm3d.hpp.
+
+References \_\-eff\-Den.
+
+\footnotesize\begin{verbatim}66 { return _effDen; }
+\end{verbatim}\normalsize 
+
+
+\index{FMM3d::Node@{FMM3d::Node}!effVal@{effVal}}
+\index{effVal@{effVal}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Dbl\-Num\-Vec\& FMM3d::Node::eff\-Val ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d_1_1Node_3c1d2a87442a6fcbc47349d5ba993a8a_3c1d2a87442a6fcbc47349d5ba993a8a}
+
+
+Return effective values 
+
+Definition at line 62 of file fmm3d.hpp.
+
+References \_\-eff\-Val.
+
+\footnotesize\begin{verbatim}62 { return _effVal; }
+\end{verbatim}\normalsize 
+
+
+\index{FMM3d::Node@{FMM3d::Node}!VinCnt@{VinCnt}}
+\index{VinCnt@{VinCnt}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& FMM3d::Node::Vin\-Cnt ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d_1_1Node_4f9499c6aea34790aeca82a4587d9a1f_4f9499c6aea34790aeca82a4587d9a1f}
+
+
+
+
+Definition at line 60 of file fmm3d.hpp.
+
+References \_\-Vin\-Cnt.
+
+\footnotesize\begin{verbatim}60 { return _VinCnt; }
+\end{verbatim}\normalsize 
+
+
+\index{FMM3d::Node@{FMM3d::Node}!VinNum@{VinNum}}
+\index{VinNum@{VinNum}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& FMM3d::Node::Vin\-Num ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d_1_1Node_6dfec3b683cea3b7c55b64fba81657b5_6dfec3b683cea3b7c55b64fba81657b5}
+
+
+
+
+Definition at line 59 of file fmm3d.hpp.
+
+References \_\-Vin\-Num.
+
+\footnotesize\begin{verbatim}59 { return _VinNum; }
+\end{verbatim}\normalsize 
+
+
+\index{FMM3d::Node@{FMM3d::Node}!VotCnt@{VotCnt}}
+\index{VotCnt@{VotCnt}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& FMM3d::Node::Vot\-Cnt ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d_1_1Node_25c7cbb7d0fd512b817dd2b2091e63fe_25c7cbb7d0fd512b817dd2b2091e63fe}
+
+
+
+
+Definition at line 64 of file fmm3d.hpp.
+
+References \_\-Vot\-Cnt.
+
+\footnotesize\begin{verbatim}64 { return _VotCnt; }
+\end{verbatim}\normalsize 
+
+
+\index{FMM3d::Node@{FMM3d::Node}!VotNum@{VotNum}}
+\index{VotNum@{VotNum}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& FMM3d::Node::Vot\-Num ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d_1_1Node_a83b70cea55e7348666702e85e57f2b5_a83b70cea55e7348666702e85e57f2b5}
+
+
+
+
+Definition at line 63 of file fmm3d.hpp.
+
+References \_\-Vot\-Num.
+
+\footnotesize\begin{verbatim}63 { return _VotNum; }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{FMM3d::Node@{FMM3d::Node}!_effDen@{\_\-effDen}}
+\index{_effDen@{\_\-effDen}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Dbl\-Num\-Vec {\bf FMM3d::Node::\_\-eff\-Den}\hspace{0.3cm}{\tt  [protected]}}\label{classFMM3d_1_1Node_64b4391d323e2e6420f187c1fbd3182f_64b4391d323e2e6420f187c1fbd3182f}
+
+
+Effective Densities 
+
+Definition at line 56 of file fmm3d.hpp.
+
+Referenced by eff\-Den().\index{FMM3d::Node@{FMM3d::Node}!_effVal@{\_\-effVal}}
+\index{_effVal@{\_\-effVal}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Dbl\-Num\-Vec {\bf FMM3d::Node::\_\-eff\-Val}\hspace{0.3cm}{\tt  [protected]}}\label{classFMM3d_1_1Node_97a5333b1cb85d6a8bf1f48ee30ee513_97a5333b1cb85d6a8bf1f48ee30ee513}
+
+
+Effective Values 
+
+Definition at line 50 of file fmm3d.hpp.
+
+Referenced by eff\-Val().\index{FMM3d::Node@{FMM3d::Node}!_VinCnt@{\_\-VinCnt}}
+\index{_VinCnt@{\_\-VinCnt}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf FMM3d::Node::\_\-Vin\-Cnt}\hspace{0.3cm}{\tt  [protected]}}\label{classFMM3d_1_1Node_d6198c765494a3ae0f26c61b24164c8c_d6198c765494a3ae0f26c61b24164c8c}
+
+
+Count of sources in this node's v-list 
+
+Definition at line 48 of file fmm3d.hpp.
+
+Referenced by Vin\-Cnt().\index{FMM3d::Node@{FMM3d::Node}!_VinNum@{\_\-VinNum}}
+\index{_VinNum@{\_\-VinNum}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf FMM3d::Node::\_\-Vin\-Num}\hspace{0.3cm}{\tt  [protected]}}\label{classFMM3d_1_1Node_d22eb243315052f365c8cb917fe0b190_d22eb243315052f365c8cb917fe0b190}
+
+
+Number of nodes in this node's v-list 
+
+Definition at line 46 of file fmm3d.hpp.
+
+Referenced by Vin\-Num().\index{FMM3d::Node@{FMM3d::Node}!_VotCnt@{\_\-VotCnt}}
+\index{_VotCnt@{\_\-VotCnt}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf FMM3d::Node::\_\-Vot\-Cnt}\hspace{0.3cm}{\tt  [protected]}}\label{classFMM3d_1_1Node_1bef85f2365bf1dcefd0eb73446cdb8a_1bef85f2365bf1dcefd0eb73446cdb8a}
+
+
+Count of points affiliated with boxes which have this node in their V-lists 
+
+Definition at line 54 of file fmm3d.hpp.
+
+Referenced by Vot\-Cnt().\index{FMM3d::Node@{FMM3d::Node}!_VotNum@{\_\-VotNum}}
+\index{_VotNum@{\_\-VotNum}!FMM3d::Node@{FMM3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf FMM3d::Node::\_\-Vot\-Num}\hspace{0.3cm}{\tt  [protected]}}\label{classFMM3d_1_1Node_60c1e534c329f1c3ccf694b7fafea4db_60c1e534c329f1c3ccf694b7fafea4db}
+
+
+Number of nodes' v-lists that current node is in 
+
+Definition at line 52 of file fmm3d.hpp.
+
+Referenced by Vot\-Num().
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+fmm3d/{\bf fmm3d.hpp}\end{CompactItemize}

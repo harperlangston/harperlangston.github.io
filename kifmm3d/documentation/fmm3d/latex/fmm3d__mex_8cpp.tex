@@ -1,0 +1,96 @@
+\section{fmm3d/fmm3d\_\-mex.cpp File Reference}
+\label{fmm3d__mex_8cpp}\index{fmm3d/fmm3d_mex.cpp@{fmm3d/fmm3d\_\-mex.cpp}}
+
+
+{\tt \#include \char`\"{}mex.h\char`\"{}}\par
+{\tt \#include \char`\"{}matrix.h\char`\"{}}\par
+{\tt \#include \char`\"{}fmm3d.hpp\char`\"{}}\par
+{\tt \#include \char`\"{}mexaux.hpp\char`\"{}}\par
+\subsection*{Namespaces}
+\begin{CompactItemize}
+\item 
+namespace {\bf std}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf \_\-main} ()
+\item 
+void {\bf mex\-Function} (int nlhs, mx\-Array $\ast$plhs[$\,$], int nrhs, const mx\-Array $\ast$prhs[$\,$])
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{fmm3d_mex.cpp@{fmm3d\_\-mex.cpp}!_main@{\_\-main}}
+\index{_main@{\_\-main}!fmm3d_mex.cpp@{fmm3d\_\-mex.cpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void \_\-main ()}\label{fmm3d__mex_8cpp_852f4ac42d214a224d24320ae7d8826c_852f4ac42d214a224d24320ae7d8826c}
+
+
+\index{fmm3d_mex.cpp@{fmm3d\_\-mex.cpp}!mexFunction@{mexFunction}}
+\index{mexFunction@{mexFunction}!fmm3d_mex.cpp@{fmm3d\_\-mex.cpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void mex\-Function (int {\em nlhs}, mx\-Array $\ast$ {\em plhs}[$\,$], int {\em nrhs}, const mx\-Array $\ast$ {\em prhs}[$\,$])}\label{fmm3d__mex_8cpp_8a1c8275cf3717164b4982b238e876c6_8a1c8275cf3717164b4982b238e876c6}
+
+
+
+
+Definition at line 13 of file fmm3d\_\-mex.cpp.
+
+References Mat\-Mgnt3d::\_\-mmvec, and mex2cpp().
+
+\footnotesize\begin{verbatim}14 {
+15   if(nrhs!=9)
+16          mexErrMsgTxt("9 inputs required");
+17   if(nlhs!=2)
+18          mexErrMsgTxt("2 outputs required");
+19   
+20   DblNumMat srcpos; mex2cpp(prhs[0], srcpos);
+21   DblNumMat srcnor; mex2cpp(prhs[1], srcnor);
+22   DblNumMat trgpos; mex2cpp(prhs[2], trgpos);
+23   
+24   Point3 ctr; mex2cpp(prhs[3], ctr); //cerr<<ctr<<endl;
+25   int rootlvl; mex2cpp(prhs[4], rootlvl); //cerr<<rootlvl<<endl;
+26   Kernel3d knl; mex2cpp(prhs[5], knl); //cerr<<knl.kt()<<endl;
+27   int np; mex2cpp(prhs[6], np); iA(np==4 || np==6 || np==8); //cerr<<np<<endl;
+28   
+29   DblNumVec srcden; mex2cpp(prhs[7], srcden);
+30   
+31   mex2cpp(prhs[8], MatMgnt3d::_mmvec);
+32   
+33   char tmp[100];
+34   map<string, string> opts;
+35   if(       np==4) {
+36          sprintf(tmp, "%d", np); opts["-fmm3d_np"] = string(tmp);
+37          sprintf(tmp, "%d", 150);opts["-fmm3d_let3d_ptsmax"] = string(tmp);
+38          sprintf(tmp, "%d", 10); opts["-fmm3d_let3d_maxlevel"] = string(tmp);
+39   } else if(np==6) {
+40          sprintf(tmp, "%d", np); opts["-fmm3d_np"] = string(tmp);
+41          sprintf(tmp, "%d", 150);opts["-fmm3d_let3d_ptsmax"] = string(tmp);
+42          sprintf(tmp, "%d", 10); opts["-fmm3d_let3d_maxlevel"] = string(tmp);
+43   } else if(np==8) {
+44          sprintf(tmp, "%d", np); opts["-fmm3d_np"] = string(tmp);
+45          sprintf(tmp, "%d", 150);opts["-fmm3d_let3d_ptsmax"] = string(tmp);
+46          sprintf(tmp, "%d", 10); opts["-fmm3d_let3d_maxlevel"] = string(tmp);
+47   }
+48   
+49   FMM3d* fmm = new FMM3d("fmm3d_");
+50   fmm->srcpos()=&srcpos;  fmm->srcnor()=&srcpos;
+51   fmm->trgpos()=&trgpos;
+52   fmm->ctr() = Point3(0,0,0);  fmm->rootlvl() = 0;
+53   fmm->knl() = knl;
+54   iC( fmm->setup(opts) );
+55   
+56   iA( srcden.m()==knl.sdof()*srcpos.n()); //check size
+57   DblNumVec trgval(knl.tdof()*trgpos.n());
+58   iC( fmm->eval(srcden, trgval) );
+59   double rerr;  iC( fmm->check(srcden, trgval, 20, rerr) );  cout<<rerr<<endl;
+60   
+61   cpp2mex(trgval, plhs[0]);
+62   cpp2mex(MatMgnt3d::_mmvec, plhs[1]);
+63 
+64   delete fmm;
+65   
+66   return;
+67 }
+\end{verbatim}\normalsize 
+
+

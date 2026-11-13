@@ -1,0 +1,1097 @@
+\section{Mat\-Mgnt3d Class Reference}
+\label{classMatMgnt3d}\index{MatMgnt3d@{MatMgnt3d}}
+{\tt \#include $<$matmgnt3d.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+
+
+
+
+Definition at line 33 of file matmgnt3d.hpp.\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+enum \{ {\bf UE} = 0, 
+{\bf UC} = 1, 
+{\bf DE} = 2, 
+{\bf DC} = 3
+ \}
+\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Mat\-Mgnt3d} ()
+\item 
+{\bf $\sim$Mat\-Mgnt3d} ()
+\item 
+{\bf Kernel3d} \& {\bf knl} ()
+\item 
+int \& {\bf np} ()
+\item 
+double {\bf alt} ()
+\item 
+int {\bf src\-DOF} ()
+\item 
+int {\bf trg\-DOF} ()
+\item 
+int {\bf dim} ()
+\item 
+int {\bf setup} ()
+\item 
+int {\bf report} ()
+\item 
+int {\bf pln\-Dat\-Sze} (int tp)
+\item 
+int {\bf eff\-Dat\-Sze} (int tp)
+\item 
+int {\bf Upw\-Chk2Upw\-Equ\_\-dgemv} (int level, const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)
+\item 
+int {\bf Upw\-Equ2Upw\-Chk\_\-dgemv} (int level, Index3 ii, const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)
+\item 
+int {\bf Dwn\-Chk2Dwn\-Equ\_\-dgemv} (int level, const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)
+\item 
+int {\bf Dwn\-Equ2Dwn\-Chk\_\-dgemv} (int level, Index3 ii, const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)
+\item 
+int {\bf Upw\-Equ2Dwn\-Chk\_\-dgemv} (int level, Index3 ii, const Dbl\-Num\-Vec \&eff\-Den, Dbl\-Num\-Vec \&eff\-Val)
+\item 
+int {\bf pln\-Den2Eff\-Den} (int level, const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)
+\begin{CompactList}\small\item\em plain-$>$regular-$>$effective \item\end{CompactList}\item 
+int {\bf sam\-Den2Reg\-Den} (const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)
+\item 
+int {\bf eff\-Val2Pln\-Val} (int level, const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)
+\begin{CompactList}\small\item\em effective-$>$regular-$>$plain \item\end{CompactList}\item 
+int {\bf reg\-Val2Sam\-Val} (const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)
+\item 
+const Dbl\-Num\-Mat \& {\bf sam\-Pos} (int tp)
+\item 
+const Dbl\-Num\-Mat \& {\bf reg\-Pos} ()
+\item 
+int {\bf local\-Pos} (int, Point3, double, Dbl\-Num\-Mat \&)
+\item 
+int {\bf sam\-Pos\-Cal} (int n, double R, Dbl\-Num\-Mat \&ret)
+\item 
+int {\bf reg\-Pos\-Cal} (int n, double R, Dbl\-Num\-Mat \&ret)
+\item 
+int {\bf cptwvv} (int, double, fftw\_\-complex $\ast$, int, fftw\_\-complex $\ast$, int, fftw\_\-complex $\ast$, int)
+\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+static {\bf Mat\-Mgnt3d} $\ast$ {\bf getmmptr} ({\bf Kernel3d}, int)
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+{\bf Kernel3d} {\bf \_\-knl}
+\item 
+int {\bf \_\-np}
+\item 
+bool {\bf \_\-hom}
+\item 
+vector$<$ double $>$ {\bf \_\-deg\-Vec}
+\item 
+map$<$ int, Dbl\-Num\-Mat $>$ {\bf \_\-upw\-Chk2Upw\-Equ}
+\item 
+map$<$ int, Num\-Tns$<$ Dbl\-Num\-Mat $>$ $>$ {\bf \_\-upw\-Equ2Upw\-Chk}
+\item 
+map$<$ int, Dbl\-Num\-Mat $>$ {\bf \_\-dwn\-Chk2Dwn\-Equ}
+\item 
+map$<$ int, Num\-Tns$<$ Dbl\-Num\-Mat $>$ $>$ {\bf \_\-dwn\-Equ2Dwn\-Chk}
+\item 
+map$<$ int, Off\-Tns$<$ Dbl\-Num\-Mat $>$ $>$ {\bf \_\-upw\-Equ2Dwn\-Chk}
+\item 
+Dbl\-Num\-Mat {\bf \_\-sam\-Pos} [4]
+\item 
+Dbl\-Num\-Mat {\bf \_\-reg\-Pos}
+\end{CompactItemize}
+\subsection*{Static Public Attributes}
+\begin{CompactItemize}
+\item 
+static double {\bf \_\-wsbuf} [$\,$]
+\item 
+static vector$<$ {\bf Mat\-Mgnt3d} $>$ {\bf \_\-mmvec}
+\end{CompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{classMatMgnt3d_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef}
+
+
+UE = Upper Equivalent UC = Upper Check DE = Downward Equivalent DC = Downward Check \begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{UE@{UE}!MatMgnt3d@{MatMgnt3d}}\index{MatMgnt3d@{MatMgnt3d}!UE@{UE}}\item[{\em 
+UE\label{classMatMgnt3d_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef0612e93d65abcdaeed533a0876474251}
+}]\index{UC@{UC}!MatMgnt3d@{MatMgnt3d}}\index{MatMgnt3d@{MatMgnt3d}!UC@{UC}}\item[{\em 
+UC\label{classMatMgnt3d_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef6a2fb30a2dacdda4d74122697262a8b7}
+}]\index{DE@{DE}!MatMgnt3d@{MatMgnt3d}}\index{MatMgnt3d@{MatMgnt3d}!DE@{DE}}\item[{\em 
+DE\label{classMatMgnt3d_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef3a52f3c22ed6fcde5bf696a6c02c9e73}
+}]\index{DC@{DC}!MatMgnt3d@{MatMgnt3d}}\index{MatMgnt3d@{MatMgnt3d}!DC@{DC}}\item[{\em 
+DC\label{classMatMgnt3d_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efcf75e54791dd1f49f918345fdfe2430b}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 41 of file matmgnt3d.hpp.
+
+\footnotesize\begin{verbatim}41 {        UE=0,   UC=1,   DE=2,   DC=3,  };
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{MatMgnt3d@{Mat\-Mgnt3d}!MatMgnt3d@{MatMgnt3d}}
+\index{MatMgnt3d@{MatMgnt3d}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Mat\-Mgnt3d::Mat\-Mgnt3d ()}\label{classMatMgnt3d_f0b4e20a31097a5ff1315875944b0de9_f0b4e20a31097a5ff1315875944b0de9}
+
+
+
+
+Definition at line 28 of file matmgnt3d.cpp.
+
+\footnotesize\begin{verbatim}28                     : _np(6)
+29 {
+30 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!~MatMgnt3d@{$\sim$MatMgnt3d}}
+\index{~MatMgnt3d@{$\sim$MatMgnt3d}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Mat\-Mgnt3d::$\sim$Mat\-Mgnt3d ()}\label{classMatMgnt3d_f6b631909bd602076d7b4dcbc5b9a8c4_f6b631909bd602076d7b4dcbc5b9a8c4}
+
+
+
+
+Definition at line 32 of file matmgnt3d.cpp.
+
+\footnotesize\begin{verbatim}33 {
+34 }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{MatMgnt3d@{Mat\-Mgnt3d}!alt@{alt}}
+\index{alt@{alt}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Mat\-Mgnt3d::alt ()}\label{classMatMgnt3d_d3e453769e9e986f45d4fce5f3f4b9ad_d3e453769e9e986f45d4fce5f3f4b9ad}
+
+
+
+
+Definition at line 36 of file matmgnt3d.cpp.
+
+References \_\-np.
+
+Referenced by Dwn\-Chk2Dwn\-Equ\_\-dgemv(), and Upw\-Chk2Upw\-Equ\_\-dgemv().
+
+\footnotesize\begin{verbatim}37 {
+38   return pow(0.1, _np+1);
+39 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!cptwvv@{cptwvv}}
+\index{cptwvv@{cptwvv}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::cptwvv (int, double, fftw\_\-complex $\ast$, int, fftw\_\-complex $\ast$, int, fftw\_\-complex $\ast$, int)\hspace{0.3cm}{\tt  [inline]}}\label{classMatMgnt3d_a81bf8ce3d0c283d3bf63cae00ae99e6_a81bf8ce3d0c283d3bf63cae00ae99e6}
+
+
+
+
+Definition at line 445 of file matmgnt3d.cpp.
+
+References \_\-mmvec.
+
+\footnotesize\begin{verbatim}446 {
+447   for(int i=0; i<n; i++) {
+448          (*z)[0] += alpha * ( (*x)[0] * (*y)[0] - (*x)[1] * (*y)[1]);
+449          (*z)[1] += alpha * ( (*x)[0] * (*y)[1] + (*x)[1] * (*y)[0]);
+450          x = x + incrementX;
+451          y = y + incrementY;
+452          z = z + incrementZ;
+453   }  //iC( PetscLogFlops( 10*n ) );
+454   return 0;
+455 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!dim@{dim}}
+\index{dim@{dim}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::dim ()\hspace{0.3cm}{\tt  [inline]}}\label{classMatMgnt3d_e3f9953141ca7d7525b58c0ff1ef6b1f_e3f9953141ca7d7525b58c0ff1ef6b1f}
+
+
+dimension = 3 
+
+Definition at line 78 of file matmgnt3d.hpp.
+
+Referenced by Dwn\-Chk2Dwn\-Equ\_\-dgemv(), Dwn\-Equ2Dwn\-Chk\_\-dgemv(), local\-Pos(), reg\-Pos\-Cal(), sam\-Pos\-Cal(), Upw\-Chk2Upw\-Equ\_\-dgemv(), Upw\-Equ2Dwn\-Chk\_\-dgemv(), and Upw\-Equ2Upw\-Chk\_\-dgemv().
+
+\footnotesize\begin{verbatim}78 { return 3; }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!DwnChk2DwnEqu_dgemv@{DwnChk2DwnEqu\_\-dgemv}}
+\index{DwnChk2DwnEqu_dgemv@{DwnChk2DwnEqu\_\-dgemv}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::Dwn\-Chk2Dwn\-Equ\_\-dgemv (int {\em level}, const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)}\label{classMatMgnt3d_b3f2a5306c0edee2c9df2722feb84c6c_b3f2a5306c0edee2c9df2722feb84c6c}
+
+
+
+
+Definition at line 159 of file matmgnt3d.cpp.
+
+References \_\-dwn\-Chk2Dwn\-Equ, \_\-hom, \_\-knl, alt(), DC, DE, dim(), Kernel3d::kernel(), pln\-Dat\-Sze(), and sam\-Pos().
+
+\footnotesize\begin{verbatim}160 {
+161   DblNumMat& _DC2DE = (_hom==true) ? _dwnChk2DwnEqu[0]: _dwnChk2DwnEqu[l];
+162   double R = (_hom==true) ? 1 : 1.0/pow(2.0,l);
+163   //---------compute matrix
+164   if(_DC2DE.m()==0) {    //cerr<<"DwnChk2DwnEqu compute"<<endl;
+165          DblNumMat dd2c(plnDatSze(DC), plnDatSze(DE));
+166          DblNumMat chkPos(dim(),samPos(DC).n());                clear(chkPos);   iC( daxpy(R, samPos(DC), chkPos) ); //scale
+167          DblNumMat denPos(dim(),samPos(DE).n());                clear(denPos);   iC( daxpy(R, samPos(DE), denPos) ); //scale
+168          
+169          iC( _knl.kernel(denPos, denPos, chkPos, dd2c) );//matrix
+170          _DC2DE.resize(plnDatSze(DE), plnDatSze(DC)); //_memused[2] += plndnenum()*dof()*plndncnum()*dof()*sizeof(double);
+171          iC( pinv(dd2c, alt(), _DC2DE) );
+172   }
+173   //---------matvec
+174   if(_hom==true) {
+175          int srcDOF = this->srcDOF();
+176          DblNumVec tmpDen(srcDOF*samPos(DE).n(), false, _wsbuf);         clear(tmpDen);
+177          iC( dgemv(1.0, _DC2DE, chk, 1.0, tmpDen) );
+178          //scale
+179          vector<double> sclvec(srcDOF);  for(int s=0; s<srcDOF; s++)            sclvec[s] = pow(2.0, - l*_degVec[s]);
+180          int cnt = 0;
+181          for(int i=0; i<samPos(DE).n(); i++)
+182                 for(int s=0; s<srcDOF; s++) {
+183                   den(cnt) = den(cnt) + tmpDen(cnt) * sclvec[s];
+184                   cnt++;
+185                 }
+186   } else {
+187          iC( dgemv(1.0, _DC2DE, chk, 1.0, den) );
+188   }
+189   return 0;
+190 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!DwnEqu2DwnChk_dgemv@{DwnEqu2DwnChk\_\-dgemv}}
+\index{DwnEqu2DwnChk_dgemv@{DwnEqu2DwnChk\_\-dgemv}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::Dwn\-Equ2Dwn\-Chk\_\-dgemv (int {\em level}, Index3 {\em ii}, const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)}\label{classMatMgnt3d_87d8ed68b09cff332b257ad098ea81cc_87d8ed68b09cff332b257ad098ea81cc}
+
+
+
+
+Definition at line 192 of file matmgnt3d.cpp.
+
+References \_\-deg\-Vec, \_\-dwn\-Equ2Dwn\-Chk, \_\-hom, \_\-knl, \_\-wsbuf, DC, dim(), Kernel3d::kernel(), pln\-Dat\-Sze(), sam\-Pos(), and src\-DOF().
+
+\footnotesize\begin{verbatim}193 {
+194   NumTns<DblNumMat>& _DE2DC = (_hom==true) ? _dwnEqu2DwnChk[0] : _dwnEqu2DwnChk[l];
+195   double R = (_hom==true) ? 1 : 1.0/pow(2.0, l);  //OffTns<DblNumMat>& _DwnEqu2DwnChk = _de2DwnChk[l];  double R       = 1.0/pow(2.0, l);
+196   if(_DE2DC.m()==0)      _DE2DC.resize(2,2,2);
+197   DblNumMat& _DE2DCii = _DE2DC(idx[0], idx[1], idx[2]);
+198   
+199   //---------compute matrix
+200   if(_DE2DCii.m()==0) {  //cerr<<"DwnEqu2DwnChk compute"<<endl;
+201          _DE2DCii.resize(plnDatSze(DC), plnDatSze(DE)); //_memused[3] += plndncnum()*dof()*plndnenum()*dof()*sizeof(double);
+202          DblNumMat denPos(dim(),samPos(DE).n());                  clear(denPos);         iC( daxpy(R, samPos(DE), denPos) ); //scale
+203          DblNumMat chkPos(dim(),samPos(DC).n());                  clear(chkPos);         iC( daxpy(0.5*R, samPos(DC), chkPos) ); //scale
+204          for(int i=0; i<dim(); i++) for(int j=0; j<samPos(DC).n(); j++) chkPos(i,j) = chkPos(i,j) + (double(idx(i))-0.5)*R;
+205          
+206          iC( _knl.kernel(denPos, denPos, chkPos, _DE2DCii) );
+207   }
+208   //---------matvec
+209   if(_hom==true) {
+210          int srcDOF = this->srcDOF();
+211          DblNumVec tmpDen(srcDOF*samPos(DE).n(), false, _wsbuf);         clear(tmpDen);
+212          vector<double> sclvec(srcDOF);  for(int s=0; s<srcDOF; s++)            sclvec[s] = pow(2.0, l*_degVec[s]);
+213          int cnt = 0;
+214          for(int i=0; i<samPos(DE).n(); i++)
+215                 for(int s=0; s<srcDOF; s++) {
+216                   tmpDen(cnt) = den(cnt) * sclvec[s];
+217                   cnt++;
+218                 }
+219          iC( dgemv(1.0, _DE2DCii, tmpDen, 1.0, chk) );
+220   } else {
+221          iC( dgemv(1.0, _DE2DCii, den, 1.0, chk) );
+222   }
+223   return (0);
+224 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!effDatSze@{effDatSze}}
+\index{effDatSze@{effDatSze}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::eff\-Dat\-Sze (int {\em tp})}\label{classMatMgnt3d_2ce9326034b7f6cfc6196785759829e1_2ce9326034b7f6cfc6196785759829e1}
+
+
+the size of eff data (data stored when using FFT) 
+
+Definition at line 79 of file matmgnt3d.cpp.
+
+References \_\-np, DE, src\-DOF(), trg\-DOF(), and UE.
+
+\footnotesize\begin{verbatim}80 {
+81   //int et = eq().et();
+82   int effNum = (2*_np+2)*(2*_np)*(2*_np);
+83   if(tp==UE || tp==DE)
+84          return effNum*srcDOF();
+85   else
+86          return effNum*trgDOF();
+87 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!effVal2PlnVal@{effVal2PlnVal}}
+\index{effVal2PlnVal@{effVal2PlnVal}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::eff\-Val2Pln\-Val (int {\em level}, const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)}\label{classMatMgnt3d_17b8e15860d967b5e69c356d0b11a215_17b8e15860d967b5e69c356d0b11a215}
+
+
+effective-$>$regular-$>$plain 
+
+
+
+Definition at line 277 of file matmgnt3d.cpp.
+
+References \_\-np, reg\-Pos(), reg\-Val2Sam\-Val(), and trg\-DOF().
+
+\footnotesize\begin{verbatim}278 {
+279   DblNumVec regVal(regPos().n()*trgDOF());
+280   int nnn[3];  nnn[0] = 2*_np;  nnn[1] = 2*_np;  nnn[2] = 2*_np;
+281   fftw_plan invplan = fftw_plan_many_dft_c2r(3,nnn,trgDOF(), (fftw_complex*)(effVal.data()),NULL, trgDOF(),1, regVal.data(),NULL, trgDOF(),1, FFTW_ESTIMATE);
+282   fftw_execute(invplan);
+283   fftw_destroy_plan(invplan);  //rfftwnd_complex_to_real(_invplan, trgDOF(), (fftw_complex*)(effVal.data()), trgDOF(), 1, regVal.data(), trgDOF(), 1);
+284   
+285   iC( regVal2SamVal(regVal, plnVal) );
+286   return (0);
+287 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!getmmptr@{getmmptr}}
+\index{getmmptr@{getmmptr}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Mat\-Mgnt3d} $\ast$ Mat\-Mgnt3d::getmmptr ({\bf Kernel3d}, int)\hspace{0.3cm}{\tt  [static]}}\label{classMatMgnt3d_79ba0648e2167456e6cd634d046ab0d6_79ba0648e2167456e6cd634d046ab0d6}
+
+
+
+
+Definition at line 463 of file matmgnt3d.cpp.
+
+References \_\-mmvec, knl(), np(), and setup().
+
+\footnotesize\begin{verbatim}464 {
+465   for(int i=0; i<_mmvec.size(); i++)
+466          if(_mmvec[i].knl()==knl && _mmvec[i].np()==np)
+467                 return &(_mmvec[i]);
+468   
+469   _mmvec.push_back( MatMgnt3d() );
+470   int last = _mmvec.size()-1;
+471   MatMgnt3d* tmp = &(_mmvec[last]); //get the last one
+472   tmp->knl() = knl;  tmp->np() = np;
+473   tmp->setup();
+474   return tmp;
+475 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!knl@{knl}}
+\index{knl@{knl}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Kernel3d}\& Mat\-Mgnt3d::knl ()\hspace{0.3cm}{\tt  [inline]}}\label{classMatMgnt3d_d01911fc223ab4bc9604db12f942194e_d01911fc223ab4bc9604db12f942194e}
+
+
+
+
+Definition at line 69 of file matmgnt3d.hpp.
+
+References \_\-knl.
+
+Referenced by getmmptr().
+
+\footnotesize\begin{verbatim}69 { return _knl; }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!localPos@{localPos}}
+\index{localPos@{localPos}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::local\-Pos (int, Point3, double, Dbl\-Num\-Mat \&)}\label{classMatMgnt3d_8b933eb3b49b51a202cfc077e84dca67_8b933eb3b49b51a202cfc077e84dca67}
+
+
+return local position 
+
+Definition at line 387 of file matmgnt3d.cpp.
+
+References dim(), and sam\-Pos().
+
+Referenced by FMM3d::Dwn\-Equ2Trg\-Chk\_\-dgemv(), FMM3d::Src\-Equ2Dwn\-Chk\_\-dgemv(), FMM3d::Src\-Equ2Upw\-Chk\_\-dgemv(), and FMM3d::Upw\-Equ2Trg\-Chk\_\-dgemv().
+
+\footnotesize\begin{verbatim}388 {
+389   const DblNumMat& bas = samPos(tp);
+390   positions.resize(dim(), bas.n());
+391   for(int i=0; i<dim(); i++)
+392          for(int j=0; j<positions.n(); j++)
+393                 positions(i,j) = center(i) + radius * bas(i,j);
+394   return (0);
+395 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!np@{np}}
+\index{np@{np}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Mat\-Mgnt3d::np ()\hspace{0.3cm}{\tt  [inline]}}\label{classMatMgnt3d_79545716c1fbc95cbd811a65ffa9f767_79545716c1fbc95cbd811a65ffa9f767}
+
+
+
+
+Definition at line 70 of file matmgnt3d.hpp.
+
+References \_\-np.
+
+Referenced by getmmptr(), reg\-Val2Sam\-Val(), and sam\-Den2Reg\-Den().
+
+\footnotesize\begin{verbatim}70 { return _np; }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!plnDatSze@{plnDatSze}}
+\index{plnDatSze@{plnDatSze}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::pln\-Dat\-Sze (int {\em tp})}\label{classMatMgnt3d_7b6cc287face26f0d82bc4676e69fb83_7b6cc287face26f0d82bc4676e69fb83}
+
+
+the size of plainn data 
+
+Definition at line 71 of file matmgnt3d.cpp.
+
+References \_\-sam\-Pos, DE, src\-DOF(), trg\-DOF(), and UE.
+
+Referenced by FMM3d::dat\-Sze(), Dwn\-Chk2Dwn\-Equ\_\-dgemv(), Dwn\-Equ2Dwn\-Chk\_\-dgemv(), Upw\-Chk2Upw\-Equ\_\-dgemv(), and Upw\-Equ2Upw\-Chk\_\-dgemv().
+
+\footnotesize\begin{verbatim}72 {
+73   if(tp==UE || tp==DE)
+74          return _samPos[tp].n()*srcDOF();
+75   else
+76          return _samPos[tp].n()*trgDOF();
+77 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!plnDen2EffDen@{plnDen2EffDen}}
+\index{plnDen2EffDen@{plnDen2EffDen}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::pln\-Den2Eff\-Den (int {\em level}, const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)}\label{classMatMgnt3d_401736fd8ff6ae54a15badf8b0a91e33_401736fd8ff6ae54a15badf8b0a91e33}
+
+
+plain-$>$regular-$>$effective 
+
+
+
+Definition at line 226 of file matmgnt3d.cpp.
+
+References \_\-deg\-Vec, \_\-hom, \_\-wsbuf, reg\-Pos(), sam\-Den2Reg\-Den(), sam\-Pos(), and src\-DOF().
+
+\footnotesize\begin{verbatim}227 {
+228   DblNumVec regDen(regPos().n()*srcDOF()); clear(regDen);
+229   //iC( samDen2RegularDen(plnDen, regDen) );
+230   //rfftwnd_real_to_complex(_forplan, srcDOF(), regDen.data(), srcDOF(), 1, (fftw_complex*)(effDen.data()), srcDOF(), 1);
+231   if(_hom==true) {
+232          int srcDOF = this->srcDOF();
+233          DblNumVec tmpDen(srcDOF*samPos(UE).n(), false, _wsbuf);         clear(tmpDen);
+234          vector<double> sclvec(srcDOF);  for(int s=0; s<srcDOF; s++)            sclvec[s] = pow(2.0, l*_degVec[s]);
+235          int cnt = 0;
+236          for(int i=0; i<samPos(UE).n(); i++)
+237                 for(int s=0; s<srcDOF; s++) {
+238                   tmpDen(cnt) = plnDen(cnt) * sclvec[s];
+239                   cnt++;
+240                 }
+241          iC( samDen2RegDen(tmpDen, regDen) );
+242   } else {
+243          iC( samDen2RegDen(plnDen, regDen) );
+244   }
+245   
+246   int nnn[3];  nnn[0] = 2*_np;  nnn[1] = 2*_np;  nnn[2] = 2*_np;
+247   fftw_plan forplan = fftw_plan_many_dft_r2c(3,nnn,srcDOF(), regDen.data(),NULL, srcDOF(),1, (fftw_complex*)(effDen.data()),NULL, srcDOF(),1, FFTW_ESTIMATE);
+248   fftw_execute(forplan);
+249   fftw_destroy_plan(forplan);
+250   //rfftwnd_real_to_complex(_forplan, srcDOF(), regDen.data(), srcDOF(), 1, (fftw_complex*)(effDen.data()), srcDOF(), 1);
+251   
+252   return (0);
+253 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!regPos@{regPos}}
+\index{regPos@{regPos}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const Dbl\-Num\-Mat\& Mat\-Mgnt3d::reg\-Pos ()\hspace{0.3cm}{\tt  [inline]}}\label{classMatMgnt3d_3e4e5fb8bf4f06cf8295d32216124585_3e4e5fb8bf4f06cf8295d32216124585}
+
+
+return regular positions 
+
+Definition at line 108 of file matmgnt3d.hpp.
+
+References \_\-reg\-Pos.
+
+Referenced by eff\-Val2Pln\-Val(), pln\-Den2Eff\-Den(), and Upw\-Equ2Dwn\-Chk\_\-dgemv().
+
+\footnotesize\begin{verbatim}108 { return _regPos; }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!regPosCal@{regPosCal}}
+\index{regPosCal@{regPosCal}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::reg\-Pos\-Cal (int {\em n}, double {\em R}, Dbl\-Num\-Mat \& {\em ret})}\label{classMatMgnt3d_4169f2bfee02545e9e3579c703129d1f_4169f2bfee02545e9e3579c703129d1f}
+
+
+calculate the fft regular position grid 
+
+Definition at line 423 of file matmgnt3d.cpp.
+
+References dim().
+
+Referenced by setup().
+
+\footnotesize\begin{verbatim}424 {
+425   int n = 2*np*2*np*2*np;
+426   positions.resize(dim(), n);
+427   double step = 2.0/(np-1);
+428   int cnt = 0;
+429   for(int k=0; k<2*np; k++)
+430          for(int j=0; j<2*np; j++)
+431                 for(int i=0; i<2*np; i++) {
+432                   int gi = (i<np) ? i : i-2*np;
+433                   int gj = (j<np) ? j : j-2*np;
+434                   int gk = (k<np) ? k : k-2*np;
+435                   positions(0, cnt) = R * gi*step;
+436                   positions(1, cnt) = R * gj*step;
+437                   positions(2, cnt) = R * gk*step;
+438                   cnt ++;
+439                 }
+440   iA(cnt==n);
+441   return 0;
+442 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!regVal2SamVal@{regVal2SamVal}}
+\index{regVal2SamVal@{regVal2SamVal}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::reg\-Val2Sam\-Val (const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)}\label{classMatMgnt3d_157f482e203a0f8c33570e8f0fbccdc4_157f482e203a0f8c33570e8f0fbccdc4}
+
+
+
+
+Definition at line 289 of file matmgnt3d.cpp.
+
+References \_\-np, np(), and trg\-DOF().
+
+Referenced by eff\-Val2Pln\-Val().
+
+\footnotesize\begin{verbatim}290 {
+291   int np = _np;
+292   int rgnum = 2*np;
+293   int trgDOF = this->trgDOF();
+294   int cnt=0;
+295   //the order of iterating is the same as SampleGrid
+296   for(int i=0; i<np; i++)
+297          for(int j=0; j<np; j++)
+298                 for(int k=0; k<np; k++) {
+299                   if(i==0 || i==np-1 || j==0 || j==np-1 || k==0 || k==np-1) {
+300                          //the position is fortran style
+301                          int rgoff = (k+np/2)*rgnum*rgnum + (j+np/2)*rgnum + (i+np/2);
+302                          for(int f=0; f<trgDOF; f++) {
+303                                 samVal(trgDOF*cnt + f) += regVal(trgDOF*rgoff + f);
+304                          }
+305                          cnt++;
+306                   }
+307                 }
+308   return 0;
+309 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!report@{report}}
+\index{report@{report}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::report ()}\label{classMatMgnt3d_ae2b28144bd345f29a29ecd1b43d62b7_ae2b28144bd345f29a29ecd1b43d62b7}
+
+
+
+
+Definition at line 59 of file matmgnt3d.cpp.
+
+References \_\-dwn\-Chk2Dwn\-Equ, \_\-dwn\-Equ2Dwn\-Chk, \_\-upw\-Chk2Upw\-Equ, \_\-upw\-Equ2Dwn\-Chk, and \_\-upw\-Equ2Upw\-Chk.
+
+Referenced by FMM3d::evaluate().
+
+\footnotesize\begin{verbatim}60 {
+61   cerr << "matrix map size"<<endl;
+62   cerr << _upwEqu2UpwChk.size() << " ";
+63   cerr << _upwChk2UpwEqu.size() << " ";
+64   cerr << _dwnChk2DwnEqu.size() << " ";
+65   cerr << _dwnEqu2DwnChk.size() << " ";
+66   cerr << _upwEqu2DwnChk.size() << endl;
+67   return (0);
+68 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!samDen2RegDen@{samDen2RegDen}}
+\index{samDen2RegDen@{samDen2RegDen}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::sam\-Den2Reg\-Den (const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)}\label{classMatMgnt3d_fa20d80fbb117bd78c6bad8de4964df7_fa20d80fbb117bd78c6bad8de4964df7}
+
+
+
+
+Definition at line 255 of file matmgnt3d.cpp.
+
+References \_\-np, np(), and src\-DOF().
+
+Referenced by pln\-Den2Eff\-Den().
+
+\footnotesize\begin{verbatim}256 {
+257   int np = _np;
+258   int rgnum = 2*np;
+259   int srcDOF = this->srcDOF();
+260   int cnt=0;
+261   //the order of iterating is the same as SampleGrid
+262   for(int i=0; i<np; i++)
+263          for(int j=0; j<np; j++)
+264                 for(int k=0; k<np; k++) {
+265                   if(i==0 || i==np-1 || j==0 || j==np-1 || k==0 || k==np-1) {
+266                          //the position is fortran style
+267                          int rgoff = (k+np/2)*rgnum*rgnum + (j+np/2)*rgnum + (i+np/2);
+268                          for(int f=0; f<srcDOF; f++) {
+269                                 regDen(srcDOF*rgoff + f) += samDen(srcDOF*cnt + f);
+270                          }
+271                          cnt++;
+272                   }
+273                 }  //iC( PetscLogFlops(np*np*np*dof) );
+274   return 0;
+275 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!samPos@{samPos}}
+\index{samPos@{samPos}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const Dbl\-Num\-Mat\& Mat\-Mgnt3d::sam\-Pos (int {\em tp})\hspace{0.3cm}{\tt  [inline]}}\label{classMatMgnt3d_86bc928d5146f28060644f8132bfbadd_86bc928d5146f28060644f8132bfbadd}
+
+
+Return sample positions of UE=0,UC=1,DE=2, or DC=3 where UE = upward equivalent, UC = upward check, DE = downward equivalent, DC = downward check 
+
+Definition at line 106 of file matmgnt3d.hpp.
+
+References \_\-sam\-Pos.
+
+Referenced by Dwn\-Chk2Dwn\-Equ\_\-dgemv(), Dwn\-Equ2Dwn\-Chk\_\-dgemv(), local\-Pos(), pln\-Den2Eff\-Den(), Upw\-Chk2Upw\-Equ\_\-dgemv(), and Upw\-Equ2Upw\-Chk\_\-dgemv().
+
+\footnotesize\begin{verbatim}106 { return _samPos[tp]; }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!samPosCal@{samPosCal}}
+\index{samPosCal@{samPosCal}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::sam\-Pos\-Cal (int {\em n}, double {\em R}, Dbl\-Num\-Mat \& {\em ret})}\label{classMatMgnt3d_632bf1ef6adf396e012a69cc9d71a202_632bf1ef6adf396e012a69cc9d71a202}
+
+
+calculate various grids 
+
+Definition at line 398 of file matmgnt3d.cpp.
+
+References dim().
+
+Referenced by setup().
+
+\footnotesize\begin{verbatim}399 {
+400   int n = np*np*np - (np-2)*(np-2)*(np-2);
+401   positions.resize(dim(),n);
+402   double step = 2.0/(np-1);
+403   double init = -1.0;
+404   int cnt = 0;
+405   for(int i=0; i<np; i++)
+406          for(int j=0; j<np; j++)
+407                 for(int k=0; k<np; k++) {
+408                   if(i==0 || i==np-1 || j==0 || j==np-1 || k==0 || k==np-1) {
+409                          double x = init + i*step;
+410                          double y = init + j*step;
+411                          double z = init + k*step;
+412                          positions(0,cnt) = R*x;
+413                          positions(1,cnt) = R*y;
+414                          positions(2,cnt) = R*z;
+415                          cnt++;
+416                   }
+417                 }
+418   iA(cnt==n);
+419   return 0;
+420 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!setup@{setup}}
+\index{setup@{setup}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::setup ()}\label{classMatMgnt3d_415266b005d267e801176f27c0434a50_415266b005d267e801176f27c0434a50}
+
+
+
+
+Definition at line 42 of file matmgnt3d.cpp.
+
+References \_\-deg\-Vec, \_\-hom, \_\-knl, \_\-np, \_\-reg\-Pos, \_\-sam\-Pos, DC, DE, Kernel3d::homogeneous(), Kernel3d::homogeneous\-Deg(), reg\-Pos\-Cal(), sam\-Pos\-Cal(), src\-DOF(), UC, and UE.
+
+Referenced by getmmptr().
+
+\footnotesize\begin{verbatim}43 {
+44   //--------------------------------------------------------
+45   _hom = _knl.homogeneous();
+46   if(_hom==true) {
+47          _knl.homogeneousDeg(_degVec); iA(_degVec.size()==srcDOF());
+48   }
+49   iC( samPosCal(_np,   1.0, _samPos[UE]) );
+50   iC( samPosCal(_np+2, 3.0, _samPos[UC]) );
+51   iC( samPosCal(_np,   3.0, _samPos[DE]) );
+52   iC( samPosCal(_np,   1.0, _samPos[DC]) );
+53   
+54   iC( regPosCal(_np,   1.0, _regPos    ) ); //only one regPos
+55   //--------------------------------------------------------
+56   return (0);
+57 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!srcDOF@{srcDOF}}
+\index{srcDOF@{srcDOF}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::src\-DOF ()\hspace{0.3cm}{\tt  [inline]}}\label{classMatMgnt3d_6b422ba557bb24eff82ac7125e206568_6b422ba557bb24eff82ac7125e206568}
+
+
+src degree of freedom 
+
+Definition at line 74 of file matmgnt3d.hpp.
+
+References \_\-knl, and Kernel3d::src\-DOF().
+
+Referenced by Dwn\-Equ2Dwn\-Chk\_\-dgemv(), eff\-Dat\-Sze(), pln\-Dat\-Sze(), pln\-Den2Eff\-Den(), sam\-Den2Reg\-Den(), setup(), and Upw\-Equ2Upw\-Chk\_\-dgemv().
+
+\footnotesize\begin{verbatim}74 { return _knl.srcDOF(); }  //int tdof() { return eq().tdof(qt()); }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!trgDOF@{trgDOF}}
+\index{trgDOF@{trgDOF}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::trg\-DOF ()\hspace{0.3cm}{\tt  [inline]}}\label{classMatMgnt3d_ea43c1f768349e86110e4e2d06e38d10_ea43c1f768349e86110e4e2d06e38d10}
+
+
+trg degree of freedom 
+
+Definition at line 76 of file matmgnt3d.hpp.
+
+References \_\-knl, and Kernel3d::trg\-DOF().
+
+Referenced by eff\-Dat\-Sze(), eff\-Val2Pln\-Val(), pln\-Dat\-Sze(), reg\-Val2Sam\-Val(), and Upw\-Equ2Dwn\-Chk\_\-dgemv().
+
+\footnotesize\begin{verbatim}76 { return _knl.trgDOF(); }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!UpwChk2UpwEqu_dgemv@{UpwChk2UpwEqu\_\-dgemv}}
+\index{UpwChk2UpwEqu_dgemv@{UpwChk2UpwEqu\_\-dgemv}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::Upw\-Chk2Upw\-Equ\_\-dgemv (int {\em level}, const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)}\label{classMatMgnt3d_6b9d3c2c722c190a882a82cef0429893_6b9d3c2c722c190a882a82cef0429893}
+
+
+
+
+Definition at line 90 of file matmgnt3d.cpp.
+
+References \_\-hom, \_\-knl, \_\-upw\-Chk2Upw\-Equ, alt(), dim(), Kernel3d::kernel(), pln\-Dat\-Sze(), sam\-Pos(), UC, and UE.
+
+\footnotesize\begin{verbatim}91 {
+92   DblNumMat& _UC2UE = (_hom==true) ? _upwChk2UpwEqu[0] : _upwChk2UpwEqu[l];
+93   double R = (_hom==true) ? 1 : 1.0/pow(2.0,l);
+94   //---------compute matrix
+95   if(_UC2UE.m()==0) {    //cerr<<"UpwChk2UpwEqu compute"<<endl;
+96          //set matrix
+97          DblNumMat ud2c(plnDatSze(UC), plnDatSze(UE));
+98          DblNumMat chkPos(dim(),samPos(UC).n());         clear(chkPos);  iC( daxpy(R, samPos(UC), chkPos) ); //scale
+99          DblNumMat denPos(dim(),samPos(UE).n());         clear(denPos);  iC( daxpy(R, samPos(UE), denPos) ); //scale
+100          
+101          iC( _knl.kernel(denPos, denPos, chkPos, ud2c) );
+102          _UC2UE.resize(plnDatSze(UE), plnDatSze(UC));
+103          iC( pinv(ud2c, alt(), _UC2UE) );
+104   }
+105   //---------matvec
+106   if(_hom==true) {
+107          //matvec
+108          int srcDOF = this->srcDOF();
+109          DblNumVec tmpDen(srcDOF*samPos(UE).n(), false, _wsbuf);         clear(tmpDen);
+110          iC( dgemv(1.0, _UC2UE, chk, 1.0, tmpDen) );
+111          //scale
+112          vector<double> sclvec(srcDOF);  for(int s=0; s<srcDOF; s++)            sclvec[s] = pow(2.0, - l*_degVec[s]);
+113          int cnt = 0;
+114          for(int i=0; i < samPos(UE).n(); i++)
+115                 for(int s=0; s < srcDOF; s++) {
+116                   den(cnt) = den(cnt) + tmpDen(cnt) * sclvec[s];
+117                   cnt++;
+118                 }
+119   } else {
+120          iC( dgemv(1.0, _UC2UE, chk, 1.0, den) );
+121   }
+122   return (0);
+123 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!UpwEqu2DwnChk_dgemv@{UpwEqu2DwnChk\_\-dgemv}}
+\index{UpwEqu2DwnChk_dgemv@{UpwEqu2DwnChk\_\-dgemv}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::Upw\-Equ2Dwn\-Chk\_\-dgemv (int {\em level}, Index3 {\em ii}, const Dbl\-Num\-Vec \& {\em eff\-Den}, Dbl\-Num\-Vec \& {\em eff\-Val})}\label{classMatMgnt3d_265501b782aca2ac9f06197ab087e319_265501b782aca2ac9f06197ab087e319}
+
+
+
+
+Definition at line 311 of file matmgnt3d.cpp.
+
+References \_\-hom, \_\-knl, \_\-np, \_\-upw\-Equ2Dwn\-Chk, dim(), Kernel3d::kernel(), reg\-Pos(), and trg\-DOF().
+
+\footnotesize\begin{verbatim}312 {
+313   OffTns<DblNumMat>& _UpwEqu2DwnChk = (_hom==true) ? _upwEqu2DwnChk[0] : _upwEqu2DwnChk[l];
+314   double R = (_hom==true) ? 1.0 : 1.0/pow(2.0, l); //OffTns< DblNumMat >& _UpwEqu2DwnChk = _upwEqu2DwnChk[l];  double R       = 1.0/pow(2.0, l);
+315   if(_UpwEqu2DwnChk.m()==0)      _UpwEqu2DwnChk.resize(7,7,7,-3,-3,-3);
+316   //DblNumMat* _UpwEqu2DwnChkii = new DblNumMat;
+317   DblNumMat& _UpwEqu2DwnChkii = _UpwEqu2DwnChk(idx[0], idx[1], idx[2]);
+318   
+319   int effNum = (2*_np+2)*(2*_np)*(2*_np);
+320   int srcDOF = this->srcDOF();
+321   int trgDOF = this->trgDOF();
+322   
+323   //---------compute matrix
+324   if(_UpwEqu2DwnChkii.m()==0) { //compute it if necessary
+325          //-----------------------       //cerr<<"UpwEqu2DwnChk(FFT) compute"<<endl;     //COMPUTE FFT   //Index3 idx = ii.idx();        
+326          iA( idx.linfty()>1 );
+327          DblNumMat denPos(dim(),1);      for(int i=0; i<dim(); i++)             denPos(i,0) = double(idx(i))*2.0*R; //shift
+328          DblNumMat chkPos(dim(),regPos().n());   clear(chkPos);  iC( daxpy(R, regPos(), chkPos) );
+329          DblNumMat tt(regPos().n()*trgDOF, srcDOF);
+330          iC( _knl.kernel(denPos, denPos, chkPos, tt) );
+331          // move data to tmp
+332          DblNumMat tmp(trgDOF,regPos().n()*srcDOF);
+333          for(int k=0; k<regPos().n();k++) {
+334                 for(int i=0; i<trgDOF; i++)
+335                   for(int j=0; j<srcDOF; j++) {
+336                          tmp(i,j+k*srcDOF) = tt(i+k*trgDOF,j);
+337                   }
+338          }
+339          _UpwEqu2DwnChkii.resize(trgDOF*srcDOF, effNum); //_memused[4] += dof*dof*effNum(UE)*sizeof(double);
+340          //forward FFT from tmp to _UpwEqu2DwnChkii;
+341          
+342          int nnn[3];  nnn[0] = 2*_np;  nnn[1] = 2*_np;  nnn[2] = 2*_np;
+343          fftw_plan forplan = fftw_plan_many_dft_r2c(3,nnn,srcDOF*trgDOF, tmp.data(),NULL, srcDOF*trgDOF,1, (fftw_complex*)(_UpwEqu2DwnChkii.data()),NULL, srcDOF*trgDOF,1, FFTW_ESTIMATE);
+344          fftw_execute(forplan);
+345          fftw_destroy_plan(forplan);
+346 
+347          //rfftwnd_real_to_complex(_forplan, srcDOF*trgDOF, tmp.data(), srcDOF*trgDOF, 1, (fftw_complex*)(_UpwEqu2DwnChkii.data()), srcDOF*trgDOF, 1);
+348   }
+349   //---------matvec
+350   /*
+351   //scale
+352   DblNumVec tmpDen(effDen.m(), false, _wsbuf);  clear(tmpDen);
+353   fftw_complex* denptr = NULL;// = (fftw_complex*)(tmpDen.data());
+354   if(_hom==true) {
+355          vector<double> sclvec(srcDOF);  for(int s=0; s<srcDOF; s++)            sclvec[s] = pow(2.0, l*_degVec[s]);
+356          int cnt = 0;
+357          for(int i=0; i<effDen.m()/srcDOF; i++)
+358                 for(int s=0; s<srcDOF; s++) {
+359                   tmpDen(cnt) = effDen(cnt) * sclvec[s];                cnt++;
+360                 }
+361          denptr = (fftw_complex*)(tmpDen.data());
+362   } else {
+363          denptr = (fftw_complex*)(effDen.data());
+364   }
+365   */
+366   //fft mult
+367   double nrmfc = 1.0/double(regPos().n());
+368   fftw_complex* matPtr  = (fftw_complex*)(_UpwEqu2DwnChkii.data());
+369   fftw_complex* denPtr = (fftw_complex*)(effDen.data());
+370   fftw_complex* chkPtr   = (fftw_complex*)(effVal.data());
+371   int matStp  = srcDOF*trgDOF;
+372   int denStp = srcDOF;
+373   int chkStp   = trgDOF;
+374   
+375   double newalpha = nrmfc;
+376   for(int i=0; i<trgDOF; i++)
+377          for(int j=0; j<srcDOF; j++) {
+378                 int matOff = j*trgDOF + i;
+379                 int denOff = j;
+380                 int chkOff = i;
+381                 iC( cptwvv(effNum/2, newalpha, matPtr+matOff, matStp, denPtr+denOff, denStp, chkPtr+chkOff, chkStp) );
+382          }
+383   return (0);
+384 }
+\end{verbatim}\normalsize 
+
+
+\index{MatMgnt3d@{Mat\-Mgnt3d}!UpwEqu2UpwChk_dgemv@{UpwEqu2UpwChk\_\-dgemv}}
+\index{UpwEqu2UpwChk_dgemv@{UpwEqu2UpwChk\_\-dgemv}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Mat\-Mgnt3d::Upw\-Equ2Upw\-Chk\_\-dgemv (int {\em level}, Index3 {\em ii}, const Dbl\-Num\-Vec \&, Dbl\-Num\-Vec \&)}\label{classMatMgnt3d_c90ec518abbf6f391ef382697c60da9c_c90ec518abbf6f391ef382697c60da9c}
+
+
+
+
+Definition at line 125 of file matmgnt3d.cpp.
+
+References \_\-deg\-Vec, \_\-hom, \_\-knl, \_\-upw\-Equ2Upw\-Chk, \_\-wsbuf, dim(), Kernel3d::kernel(), pln\-Dat\-Sze(), sam\-Pos(), src\-DOF(), and UC.
+
+\footnotesize\begin{verbatim}126 {
+127   NumTns<DblNumMat>& _UE2UC = (_hom==true) ? _upwEqu2UpwChk[0] : _upwEqu2UpwChk[l];
+128   double R = (_hom==true) ? 1 : 1.0/pow(2.0, l);  
+129   if(_UE2UC.m()==0)      _UE2UC.resize(2,2,2);
+130   DblNumMat& _UE2UCii = _UE2UC(idx(0), idx(1), idx(2));
+131   //---------compute matrix
+132   if(_UE2UCii.m()==0) {  //cerr<<"UpwEqu2UpwChk compute"<<endl;
+133          _UE2UCii.resize(plnDatSze(UC), plnDatSze(UE)); //_memused[1] += plnnum(UC)*dof()*plnnum(UE)*dof()*sizeof(double);
+134          DblNumMat chkPos(dim(),samPos(UC).n());         clear(chkPos);  iC( daxpy(2.0*R, samPos(UC), chkPos) ); //scale
+135          DblNumMat denPos(dim(),samPos(UE).n());         clear(denPos);  iC( daxpy(R, samPos(UE), denPos) ); //scale
+136          for(int i=0; i<dim(); i++) for(int j=0; j<samPos(UE).n(); j++) denPos(i,j) = denPos(i,j) + (2*idx(i)-1)*R;//shift
+137          
+138          iC( _knl.kernel(denPos, denPos, chkPos, _UE2UCii) );
+139   }
+140   //---------matvec
+141   if(_hom==true) {
+142          int srcDOF = this->srcDOF();
+143          DblNumVec tmpDen(srcDOF*samPos(UE).n(), false, _wsbuf);         clear(tmpDen);
+144          vector<double> sclvec(srcDOF);  for(int s=0; s<srcDOF; s++)            sclvec[s] = pow(2.0, l*_degVec[s]);
+145          int cnt = 0;
+146          for(int i=0; i<samPos(UE).n(); i++)
+147                 for(int s=0; s<srcDOF; s++) {
+148                   tmpDen(cnt) = den(cnt) * sclvec[s];
+149                   cnt++;
+150                 }
+151          iC( dgemv(1.0, _UE2UCii, tmpDen, 1.0, chk) );
+152   } else {
+153          iC( dgemv(1.0, _UE2UCii, den, 1.0, chk) );
+154   }
+155   return (0);
+156 }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{MatMgnt3d@{Mat\-Mgnt3d}!_degVec@{\_\-degVec}}
+\index{_degVec@{\_\-degVec}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ {\bf Mat\-Mgnt3d::\_\-deg\-Vec}}\label{classMatMgnt3d_7a8804dd4c063a2060da6494c8815b6b_7a8804dd4c063a2060da6494c8815b6b}
+
+
+
+
+Definition at line 47 of file matmgnt3d.hpp.
+
+Referenced by Dwn\-Equ2Dwn\-Chk\_\-dgemv(), pln\-Den2Eff\-Den(), setup(), and Upw\-Equ2Upw\-Chk\_\-dgemv().\index{MatMgnt3d@{Mat\-Mgnt3d}!_dwnChk2DwnEqu@{\_\-dwnChk2DwnEqu}}
+\index{_dwnChk2DwnEqu@{\_\-dwnChk2DwnEqu}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}map$<$int, Dbl\-Num\-Mat$>$ {\bf Mat\-Mgnt3d::\_\-dwn\-Chk2Dwn\-Equ}}\label{classMatMgnt3d_b9f0f9702035e0fc0ef0790827f5d059_b9f0f9702035e0fc0ef0790827f5d059}
+
+
+Downward Check To Downward Equivalent 
+
+Definition at line 55 of file matmgnt3d.hpp.
+
+Referenced by Dwn\-Chk2Dwn\-Equ\_\-dgemv(), and report().\index{MatMgnt3d@{Mat\-Mgnt3d}!_dwnEqu2DwnChk@{\_\-dwnEqu2DwnChk}}
+\index{_dwnEqu2DwnChk@{\_\-dwnEqu2DwnChk}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}map$<$int, Num\-Tns$<$Dbl\-Num\-Mat$>$ $>$ {\bf Mat\-Mgnt3d::\_\-dwn\-Equ2Dwn\-Chk}}\label{classMatMgnt3d_9dda4a0f7503a36d6e846d77ca1289d7_9dda4a0f7503a36d6e846d77ca1289d7}
+
+
+Downward Equivalent To Downward Check 
+
+Definition at line 57 of file matmgnt3d.hpp.
+
+Referenced by Dwn\-Equ2Dwn\-Chk\_\-dgemv(), and report().\index{MatMgnt3d@{Mat\-Mgnt3d}!_hom@{\_\-hom}}
+\index{_hom@{\_\-hom}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Mat\-Mgnt3d::\_\-hom}}\label{classMatMgnt3d_d7665fc205b24f10a29dc5fb47e4c9f6_d7665fc205b24f10a29dc5fb47e4c9f6}
+
+
+
+
+Definition at line 46 of file matmgnt3d.hpp.
+
+Referenced by cpp2mex(), Dwn\-Chk2Dwn\-Equ\_\-dgemv(), Dwn\-Equ2Dwn\-Chk\_\-dgemv(), mex2cpp(), pln\-Den2Eff\-Den(), setup(), Upw\-Chk2Upw\-Equ\_\-dgemv(), Upw\-Equ2Dwn\-Chk\_\-dgemv(), and Upw\-Equ2Upw\-Chk\_\-dgemv().\index{MatMgnt3d@{Mat\-Mgnt3d}!_knl@{\_\-knl}}
+\index{_knl@{\_\-knl}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Kernel3d} {\bf Mat\-Mgnt3d::\_\-knl}}\label{classMatMgnt3d_cb56a4f532a89bc1a51ee17c2434a106_cb56a4f532a89bc1a51ee17c2434a106}
+
+
+
+
+Definition at line 44 of file matmgnt3d.hpp.
+
+Referenced by cpp2mex(), Dwn\-Chk2Dwn\-Equ\_\-dgemv(), Dwn\-Equ2Dwn\-Chk\_\-dgemv(), knl(), mex2cpp(), setup(), src\-DOF(), trg\-DOF(), Upw\-Chk2Upw\-Equ\_\-dgemv(), Upw\-Equ2Dwn\-Chk\_\-dgemv(), and Upw\-Equ2Upw\-Chk\_\-dgemv().\index{MatMgnt3d@{Mat\-Mgnt3d}!_mmvec@{\_\-mmvec}}
+\index{_mmvec@{\_\-mmvec}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Mat\-Mgnt3d} $>$ {\bf Mat\-Mgnt3d::\_\-mmvec}\hspace{0.3cm}{\tt  [static]}}\label{classMatMgnt3d_cb639bda4a8ef940adb1d3495123f208_cb639bda4a8ef940adb1d3495123f208}
+
+
+
+
+Definition at line 119 of file matmgnt3d.hpp.
+
+Referenced by cptwvv(), getmmptr(), and mex\-Function().\index{MatMgnt3d@{Mat\-Mgnt3d}!_np@{\_\-np}}
+\index{_np@{\_\-np}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Mat\-Mgnt3d::\_\-np}}\label{classMatMgnt3d_3d05941198fa7da648bc68ddd5d0b5c1_3d05941198fa7da648bc68ddd5d0b5c1}
+
+
+
+
+Definition at line 45 of file matmgnt3d.hpp.
+
+Referenced by alt(), cpp2mex(), eff\-Dat\-Sze(), eff\-Val2Pln\-Val(), mex2cpp(), np(), reg\-Val2Sam\-Val(), sam\-Den2Reg\-Den(), setup(), and Upw\-Equ2Dwn\-Chk\_\-dgemv().\index{MatMgnt3d@{Mat\-Mgnt3d}!_regPos@{\_\-regPos}}
+\index{_regPos@{\_\-regPos}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Dbl\-Num\-Mat {\bf Mat\-Mgnt3d::\_\-reg\-Pos}}\label{classMatMgnt3d_afe2677ddc7bd25cc4255c723397bdd7_afe2677ddc7bd25cc4255c723397bdd7}
+
+
+regular positions 
+
+Definition at line 63 of file matmgnt3d.hpp.
+
+Referenced by reg\-Pos(), and setup().\index{MatMgnt3d@{Mat\-Mgnt3d}!_samPos@{\_\-samPos}}
+\index{_samPos@{\_\-samPos}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Dbl\-Num\-Mat {\bf Mat\-Mgnt3d::\_\-sam\-Pos}[4]}\label{classMatMgnt3d_ba2fc588d5e34912fb575182f6d110c4_ba2fc588d5e34912fb575182f6d110c4}
+
+
+sample positions - different depending on whether UW, UC, DE or DC 
+
+Definition at line 61 of file matmgnt3d.hpp.
+
+Referenced by pln\-Dat\-Sze(), sam\-Pos(), and setup().\index{MatMgnt3d@{Mat\-Mgnt3d}!_upwChk2UpwEqu@{\_\-upwChk2UpwEqu}}
+\index{_upwChk2UpwEqu@{\_\-upwChk2UpwEqu}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}map$<$int, Dbl\-Num\-Mat$>$ {\bf Mat\-Mgnt3d::\_\-upw\-Chk2Upw\-Equ}}\label{classMatMgnt3d_b698e133e8b80af377013cfa83a64f9c_b698e133e8b80af377013cfa83a64f9c}
+
+
+Upward Check To Upward Equivalent 
+
+Definition at line 51 of file matmgnt3d.hpp.
+
+Referenced by report(), and Upw\-Chk2Upw\-Equ\_\-dgemv().\index{MatMgnt3d@{Mat\-Mgnt3d}!_upwEqu2DwnChk@{\_\-upwEqu2DwnChk}}
+\index{_upwEqu2DwnChk@{\_\-upwEqu2DwnChk}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}map$<$int, Off\-Tns$<$Dbl\-Num\-Mat$>$ $>$ {\bf Mat\-Mgnt3d::\_\-upw\-Equ2Dwn\-Chk}}\label{classMatMgnt3d_4433042b9af17fab86b8f035b255d886_4433042b9af17fab86b8f035b255d886}
+
+
+Upward Equivalent To Downward Check 
+
+Definition at line 59 of file matmgnt3d.hpp.
+
+Referenced by report(), and Upw\-Equ2Dwn\-Chk\_\-dgemv().\index{MatMgnt3d@{Mat\-Mgnt3d}!_upwEqu2UpwChk@{\_\-upwEqu2UpwChk}}
+\index{_upwEqu2UpwChk@{\_\-upwEqu2UpwChk}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}map$<$int, Num\-Tns$<$Dbl\-Num\-Mat$>$ $>$ {\bf Mat\-Mgnt3d::\_\-upw\-Equ2Upw\-Chk}}\label{classMatMgnt3d_99d61bd38f82cf6e8a44bdfe501e2dda_99d61bd38f82cf6e8a44bdfe501e2dda}
+
+
+Upward Equivalent To Upward Check 
+
+Definition at line 53 of file matmgnt3d.hpp.
+
+Referenced by report(), and Upw\-Equ2Upw\-Chk\_\-dgemv().\index{MatMgnt3d@{Mat\-Mgnt3d}!_wsbuf@{\_\-wsbuf}}
+\index{_wsbuf@{\_\-wsbuf}!MatMgnt3d@{Mat\-Mgnt3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf Mat\-Mgnt3d::\_\-wsbuf}\hspace{0.3cm}{\tt  [static]}}\label{classMatMgnt3d_526f8f4a77395e52ecb0eb6d09440edc_526f8f4a77395e52ecb0eb6d09440edc}
+
+
+
+
+Definition at line 118 of file matmgnt3d.hpp.
+
+Referenced by Dwn\-Equ2Dwn\-Chk\_\-dgemv(), pln\-Den2Eff\-Den(), and Upw\-Equ2Upw\-Chk\_\-dgemv().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+fmm3d/{\bf matmgnt3d.hpp}\item 
+fmm3d/{\bf matmgnt3d.cpp}\end{CompactItemize}

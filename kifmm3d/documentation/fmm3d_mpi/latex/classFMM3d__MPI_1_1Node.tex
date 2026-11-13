@@ -1,0 +1,197 @@
+\section{FMM3d\_\-MPI::Node Class Reference}
+\label{classFMM3d__MPI_1_1Node}\index{FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}}
+{\tt \#include $<$fmm3d\_\-mpi.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+{\bf Node}{\rm (p.\,\pageref{classFMM3d__MPI_1_1Node})} class for {\bf FMM3d\_\-MPI}{\rm (p.\,\pageref{classFMM3d__MPI})} stores access functions to {\bf Node\-Ext}{\rm (p.\,\pageref{classFMM3d__MPI_1_1NodeExt})}. 
+
+
+
+Definition at line 67 of file fmm3d\_\-mpi.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Node} ()
+\item 
+{\bf $\sim$Node} ()
+\item 
+{\bf Node\-Ext} $\ast$ {\bf ptr} ()
+\item 
+int \& {\bf v\-Lst\-In\-Num} ()
+\item 
+int \& {\bf v\-Lst\-In\-Cnt} ()
+\item 
+Dbl\-Num\-Vec \& {\bf eff\-Val} ()
+\item 
+int \& {\bf v\-Lst\-Oth\-Num} ()
+\item 
+int \& {\bf v\-Lst\-Oth\-Cnt} ()
+\item 
+Dbl\-Num\-Vec \& {\bf eff\-Den} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+{\bf Node\-Ext} $\ast$ {\bf \_\-ptr}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}!Node@{Node}}
+\index{Node@{Node}!FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FMM3d\_\-MPI::Node::Node ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d__MPI_1_1Node_cbf468557fa59dd3c0d6c693d060cdcd_cbf468557fa59dd3c0d6c693d060cdcd}
+
+
+Contrstruct {\bf Node}{\rm (p.\,\pageref{classFMM3d__MPI_1_1Node})} by creating NULL pointer 
+
+Definition at line 73 of file fmm3d\_\-mpi.hpp.
+
+\footnotesize\begin{verbatim}73 : _ptr(NULL) {;}
+\end{verbatim}\normalsize 
+
+
+\index{FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}!~Node@{$\sim$Node}}
+\index{~Node@{$\sim$Node}!FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}FMM3d\_\-MPI::Node::$\sim$Node ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d__MPI_1_1Node_cb9f183fa6855dd10f3e01bce1a87a15_cb9f183fa6855dd10f3e01bce1a87a15}
+
+
+Desctroys {\bf FMM3d\_\-MPI::Node\-Ext}{\rm (p.\,\pageref{classFMM3d__MPI_1_1NodeExt})} for this {\bf Node}{\rm (p.\,\pageref{classFMM3d__MPI_1_1Node})} 
+
+Definition at line 75 of file fmm3d\_\-mpi.hpp.
+
+References \_\-ptr.
+
+\footnotesize\begin{verbatim}75                  {
+76                 if(_ptr!=NULL)            delete _ptr;
+77          }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}!effDen@{effDen}}
+\index{effDen@{effDen}!FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Dbl\-Num\-Vec\& FMM3d\_\-MPI::Node::eff\-Den ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d__MPI_1_1Node_d1db194d844074ad9ca4d3235b5303e5_d1db194d844074ad9ca4d3235b5303e5}
+
+
+Return Node\-Ext's \_\-eff\-Den 
+
+Definition at line 91 of file fmm3d\_\-mpi.hpp.
+
+References FMM3d\_\-MPI::Node\-Ext::\_\-eff\-Den, and ptr().
+
+\footnotesize\begin{verbatim}91 { return ptr()->_effDen; }
+\end{verbatim}\normalsize 
+
+
+\index{FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}!effVal@{effVal}}
+\index{effVal@{effVal}!FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Dbl\-Num\-Vec\& FMM3d\_\-MPI::Node::eff\-Val ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d__MPI_1_1Node_3c1d2a87442a6fcbc47349d5ba993a8a_3c1d2a87442a6fcbc47349d5ba993a8a}
+
+
+Return Node\-Ext's \_\-eff\-Val 
+
+Definition at line 85 of file fmm3d\_\-mpi.hpp.
+
+References FMM3d\_\-MPI::Node\-Ext::\_\-eff\-Val, and ptr().
+
+\footnotesize\begin{verbatim}85 { return ptr()->_effVal; }
+\end{verbatim}\normalsize 
+
+
+\index{FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}!ptr@{ptr}}
+\index{ptr@{ptr}!FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Node\-Ext}$\ast$ FMM3d\_\-MPI::Node::ptr ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d__MPI_1_1Node_85549c3ab12fa7f32d2508fc162678d4_85549c3ab12fa7f32d2508fc162678d4}
+
+
+If {\bf Node\-Ext}{\rm (p.\,\pageref{classFMM3d__MPI_1_1NodeExt})} does not exist here, create and return a pointer to it. Otherwise, return a pointer to it 
+
+Definition at line 79 of file fmm3d\_\-mpi.hpp.
+
+References \_\-ptr.
+
+Referenced by eff\-Den(), eff\-Val(), v\-Lst\-In\-Cnt(), v\-Lst\-In\-Num(), v\-Lst\-Oth\-Cnt(), and v\-Lst\-Oth\-Num().
+
+\footnotesize\begin{verbatim}79 {               if(_ptr==NULL)  _ptr = new NodeExt();           return _ptr;     }
+\end{verbatim}\normalsize 
+
+
+\index{FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}!vLstInCnt@{vLstInCnt}}
+\index{vLstInCnt@{vLstInCnt}!FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& FMM3d\_\-MPI::Node::v\-Lst\-In\-Cnt ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d__MPI_1_1Node_84a73562a26ac46cdd85378ccfcca3ed_84a73562a26ac46cdd85378ccfcca3ed}
+
+
+Return Node\-Ext's \_\-v\-Lst\-In\-Cnt 
+
+Definition at line 83 of file fmm3d\_\-mpi.hpp.
+
+References FMM3d\_\-MPI::Node\-Ext::\_\-v\-Lst\-In\-Cnt, and ptr().
+
+\footnotesize\begin{verbatim}83 { return ptr()->_vLstInCnt; }
+\end{verbatim}\normalsize 
+
+
+\index{FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}!vLstInNum@{vLstInNum}}
+\index{vLstInNum@{vLstInNum}!FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& FMM3d\_\-MPI::Node::v\-Lst\-In\-Num ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d__MPI_1_1Node_7c3e23878d30b7839894a7a34ad44473_7c3e23878d30b7839894a7a34ad44473}
+
+
+Return Node\-Ext's \_\-v\-Lst\-In\-Num 
+
+Definition at line 81 of file fmm3d\_\-mpi.hpp.
+
+References FMM3d\_\-MPI::Node\-Ext::\_\-v\-Lst\-In\-Num, and ptr().
+
+\footnotesize\begin{verbatim}81 { return ptr()->_vLstInNum; }
+\end{verbatim}\normalsize 
+
+
+\index{FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}!vLstOthCnt@{vLstOthCnt}}
+\index{vLstOthCnt@{vLstOthCnt}!FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& FMM3d\_\-MPI::Node::v\-Lst\-Oth\-Cnt ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d__MPI_1_1Node_6704cf9428cd075a2f78a5dff30a4f8e_6704cf9428cd075a2f78a5dff30a4f8e}
+
+
+Return Node\-Ext's \_\-v\-Lst\-Oth\-Cnt 
+
+Definition at line 89 of file fmm3d\_\-mpi.hpp.
+
+References FMM3d\_\-MPI::Node\-Ext::\_\-v\-Lst\-Oth\-Cnt, and ptr().
+
+\footnotesize\begin{verbatim}89 { return ptr()->_vLstOthCnt; }
+\end{verbatim}\normalsize 
+
+
+\index{FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}!vLstOthNum@{vLstOthNum}}
+\index{vLstOthNum@{vLstOthNum}!FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& FMM3d\_\-MPI::Node::v\-Lst\-Oth\-Num ()\hspace{0.3cm}{\tt  [inline]}}\label{classFMM3d__MPI_1_1Node_53899edcedfb6ca020d4d55a9c6a62f8_53899edcedfb6ca020d4d55a9c6a62f8}
+
+
+Return Node\-Ext's \_\-v\-Lst\-Oth\-Num 
+
+Definition at line 87 of file fmm3d\_\-mpi.hpp.
+
+References FMM3d\_\-MPI::Node\-Ext::\_\-v\-Lst\-Oth\-Num, and ptr().
+
+\footnotesize\begin{verbatim}87 { return ptr()->_vLstOthNum; }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}!_ptr@{\_\-ptr}}
+\index{_ptr@{\_\-ptr}!FMM3d_MPI::Node@{FMM3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Node\-Ext}$\ast$ {\bf FMM3d\_\-MPI::Node::\_\-ptr}\hspace{0.3cm}{\tt  [protected]}}\label{classFMM3d__MPI_1_1Node_ed0cfb365dac6bfe43badc9baabeacee_ed0cfb365dac6bfe43badc9baabeacee}
+
+
+Pointer to a {\bf Node\-Ext}{\rm (p.\,\pageref{classFMM3d__MPI_1_1NodeExt})} 
+
+Definition at line 70 of file fmm3d\_\-mpi.hpp.
+
+Referenced by ptr(), and $\sim$Node().
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+fmm3d\_\-mpi/{\bf fmm3d\_\-mpi.hpp}\end{CompactItemize}

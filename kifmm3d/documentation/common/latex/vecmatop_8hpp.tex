@@ -1,0 +1,915 @@
+\section{common/vecmatop.hpp File Reference}
+\label{vecmatop_8hpp}\index{common/vecmatop.hpp@{common/vecmatop.hpp}}
+
+
+\subsection{Detailed Description}
+
+
+Definition in file {\bf vecmatop.hpp}.
+
+{\tt \#include \char`\"{}nummat.hpp\char`\"{}}\par
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum \{ {\bf EVFLAG\_\-VL} =  1, 
+{\bf EVFLAG\_\-FD} =  2, 
+{\bf EVFLAG\_\-SD} =  4
+ \}
+\item 
+enum \{ {\bf DMFLAG\_\-PERIOD} =  0, 
+{\bf DMFLAG\_\-CLOSED} =  1
+ \}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf dscal} (double alpha, {\bf Dbl\-Num\-Vec} \&X)
+\item 
+int {\bf dscal} (int n, double alpha, double $\ast$X)
+\item 
+int {\bf daxpy} (double a, const {\bf Dbl\-Num\-Vec} \&X, {\bf Dbl\-Num\-Vec} \&Y)
+\item 
+int {\bf daxpy} (double a, const {\bf Dbl\-Num\-Mat} \&X, {\bf Dbl\-Num\-Mat} \&Y)
+\item 
+int {\bf daxpy} (int n, double a, double $\ast$X, double $\ast$Y)
+\item 
+int {\bf dgemm} (double alpha, const {\bf Dbl\-Num\-Mat} \&A, const {\bf Dbl\-Num\-Mat} \&B, double beta, {\bf Dbl\-Num\-Mat} \&C)
+\item 
+int {\bf dgemm} (int m, int n, int k, double alpha, double $\ast$A, double $\ast$B, double beta, double $\ast$C)
+\item 
+int {\bf dger} (double alpha, const {\bf Dbl\-Num\-Vec} \&X, const {\bf Dbl\-Num\-Vec} \&Y, {\bf Dbl\-Num\-Mat} \&A)
+\item 
+int {\bf dger} (int m, int n, double alpha, double $\ast$X, double $\ast$Y, double $\ast$A)
+\item 
+int {\bf dgemv} (double alpha, const {\bf Dbl\-Num\-Mat} \&A, const {\bf Dbl\-Num\-Vec} \&X, double beta, {\bf Dbl\-Num\-Vec} \&Y)
+\item 
+int {\bf dgemv} (int m, int n, double alpha, double $\ast$A, double $\ast$X, double beta, double $\ast$Y)
+\item 
+int {\bf tran} (const {\bf Dbl\-Num\-Mat} \&M, {\bf Dbl\-Num\-Mat} \&R)
+\item 
+int {\bf pinv} (const {\bf Dbl\-Num\-Mat} \&M, double epsilon, {\bf Dbl\-Num\-Mat} \&R)
+\item 
+int {\bf inv} (const {\bf Dbl\-Num\-Mat} \&M, {\bf Dbl\-Num\-Mat} \&R)
+\item 
+int {\bf spev1d} (int evflag, int dmflag, int dof, double $\ast$M, int n, double e, int i, double u, double $\ast$res)
+\item 
+int {\bf spev2d} (int evflag, int dmflag, int dof, double $\ast$M, int $\ast$mn, double $\ast$ef, int $\ast$ij, double $\ast$uv, double $\ast$res)
+\item 
+int {\bf spcoef} (int evflag, double u, double $\ast$us)
+\item 
+int {\bf lagev1d} (int evflag, int pdflag, int dof, double $\ast$M, int n, double e, int i, double u, double $\ast$res)
+\item 
+int {\bf lagev2d} (int evflag, int pdflag, int dof, double $\ast$M, int $\ast$mn, double $\ast$ef, int $\ast$ij, double $\ast$uv, double $\ast$res)
+\item 
+int {\bf lagev3d} (int evflag, int pdflag, int dof, double $\ast$M, int $\ast$mno, double $\ast$efg, int $\ast$ijk, double $\ast$uvw, double $\ast$res)
+\item 
+int {\bf lagcoef} (int evflag, double u, double $\ast$us)
+\end{CompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{vecmatop_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{EVFLAG_VL@{EVFLAG\_\-VL}!vecmatop.hpp@{vecmatop.hpp}}\index{vecmatop.hpp@{vecmatop.hpp}!EVFLAG_VL@{EVFLAG\_\-VL}}\item[{\em 
+EVFLAG\_\-VL\label{vecmatop_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef8771bdfa1f2367105af9a7eeaf9efb3c}
+}]\index{EVFLAG_FD@{EVFLAG\_\-FD}!vecmatop.hpp@{vecmatop.hpp}}\index{vecmatop.hpp@{vecmatop.hpp}!EVFLAG_FD@{EVFLAG\_\-FD}}\item[{\em 
+EVFLAG\_\-FD\label{vecmatop_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efacb808ed11f20304d1ee29bc77d807fb}
+}]\index{EVFLAG_SD@{EVFLAG\_\-SD}!vecmatop.hpp@{vecmatop.hpp}}\index{vecmatop.hpp@{vecmatop.hpp}!EVFLAG_SD@{EVFLAG\_\-SD}}\item[{\em 
+EVFLAG\_\-SD\label{vecmatop_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef037aa5285a9d7eabc5e9902e5bba2b1d}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 51 of file vecmatop.hpp.
+
+\footnotesize\begin{verbatim}51 {  EVFLAG_VL = 1,  EVFLAG_FD = 2,  EVFLAG_SD = 4 };
+\end{verbatim}\normalsize 
+
+
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{vecmatop_8hpp_68986ab776eb5d6b5a809a1c005a7300_68986ab776eb5d6b5a809a1c005a7300}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{DMFLAG_PERIOD@{DMFLAG\_\-PERIOD}!vecmatop.hpp@{vecmatop.hpp}}\index{vecmatop.hpp@{vecmatop.hpp}!DMFLAG_PERIOD@{DMFLAG\_\-PERIOD}}\item[{\em 
+DMFLAG\_\-PERIOD\label{vecmatop_8hpp_68986ab776eb5d6b5a809a1c005a7300_68986ab776eb5d6b5a809a1c005a7300a8081f7a07a399ed0e6dcb3162291bde}
+}]\index{DMFLAG_CLOSED@{DMFLAG\_\-CLOSED}!vecmatop.hpp@{vecmatop.hpp}}\index{vecmatop.hpp@{vecmatop.hpp}!DMFLAG_CLOSED@{DMFLAG\_\-CLOSED}}\item[{\em 
+DMFLAG\_\-CLOSED\label{vecmatop_8hpp_68986ab776eb5d6b5a809a1c005a7300_68986ab776eb5d6b5a809a1c005a7300df94bb986d4f0a380c3ae5e7170b71f2}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 53 of file vecmatop.hpp.
+
+\footnotesize\begin{verbatim}53 {  DMFLAG_PERIOD = 0,  DMFLAG_CLOSED = 1 };
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Function Documentation}
+\index{vecmatop.hpp@{vecmatop.hpp}!daxpy@{daxpy}}
+\index{daxpy@{daxpy}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int daxpy (int {\em n}, double {\em a}, double $\ast$ {\em X}, double $\ast$ {\em Y})}\label{vecmatop_8hpp_42f36f4fc8b532e752c7329e335ac044_42f36f4fc8b532e752c7329e335ac044}
+
+
+
+
+Definition at line 57 of file vecmatop.cpp.
+
+References DAXPY.
+
+\footnotesize\begin{verbatim}58 {
+59   int incx = 1;  int incy = 1;
+60   DAXPY(&n, &a, X, &incx, Y, &incy);
+61   return 0;
+62 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!daxpy@{daxpy}}
+\index{daxpy@{daxpy}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int daxpy (double {\em a}, const {\bf Dbl\-Num\-Mat} \& {\em X}, {\bf Dbl\-Num\-Mat} \& {\em Y})}\label{vecmatop_8hpp_9e02e7b9fbd857494e5ee749480735cf_9e02e7b9fbd857494e5ee749480735cf}
+
+
+
+
+Definition at line 50 of file vecmatop.cpp.
+
+References Num\-Mat$<$ F $>$::data(), daxpy(), i\-C, Num\-Mat$<$ F $>$::m(), and Num\-Mat$<$ F $>$::n().
+
+\footnotesize\begin{verbatim}51 {
+52   assert( X.m() == Y.m() );  assert( X.n() == Y.n() );
+53   iC( daxpy(X.m()*X.n(), a, X.data(), Y.data()) );
+54   return 0;
+55 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!daxpy@{daxpy}}
+\index{daxpy@{daxpy}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int daxpy (double {\em a}, const {\bf Dbl\-Num\-Vec} \& {\em X}, {\bf Dbl\-Num\-Vec} \& {\em Y})}\label{vecmatop_8hpp_217995e82dfd0f0d81770835a256a079_217995e82dfd0f0d81770835a256a079}
+
+
+
+
+Definition at line 43 of file vecmatop.cpp.
+
+References Num\-Vec$<$ F $>$::data(), daxpy(), and Num\-Vec$<$ F $>$::m().
+
+\footnotesize\begin{verbatim}44 {
+45   assert( X.m() == Y.m() );
+46   daxpy(X.m(), a, X.data(), Y.data());
+47   return 0;
+48 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!dgemm@{dgemm}}
+\index{dgemm@{dgemm}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dgemm (int {\em m}, int {\em n}, int {\em k}, double {\em alpha}, double $\ast$ {\em A}, double $\ast$ {\em B}, double {\em beta}, double $\ast$ {\em C})}\label{vecmatop_8hpp_ab0f3ccb6c8a9c6edf137f60264afe2c_ab0f3ccb6c8a9c6edf137f60264afe2c}
+
+
+
+
+Definition at line 72 of file vecmatop.cpp.
+
+References DGEMM.
+
+\footnotesize\begin{verbatim}73 {
+74   char transa = 'N';
+75   char transb = 'N';
+76   assert(m!=0 && n!=0 && k!=0);
+77   DGEMM(&transa, &transb, &m, &n, &k,
+78                   &alpha, A, &m, B, &k, &beta, C, &m);
+79   return 0;
+80 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!dgemm@{dgemm}}
+\index{dgemm@{dgemm}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dgemm (double {\em alpha}, const {\bf Dbl\-Num\-Mat} \& {\em A}, const {\bf Dbl\-Num\-Mat} \& {\em B}, double {\em beta}, {\bf Dbl\-Num\-Mat} \& {\em C})}\label{vecmatop_8hpp_7893f4c4a19f9a71147f10666feaa39e_7893f4c4a19f9a71147f10666feaa39e}
+
+
+
+
+Definition at line 65 of file vecmatop.cpp.
+
+References Num\-Mat$<$ F $>$::data(), dgemm(), i\-C, Num\-Mat$<$ F $>$::m(), and Num\-Mat$<$ F $>$::n().
+
+\footnotesize\begin{verbatim}66 {
+67   assert( A.m() == C.m() );  assert( A.n() == B.m() );  assert( B.n() == C.n() );
+68   iC( dgemm(C.m(), C.n(), A.n(), alpha, A.data(), B.data(), beta, C.data()) );
+69   return 0;
+70 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!dgemv@{dgemv}}
+\index{dgemv@{dgemv}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dgemv (int {\em m}, int {\em n}, double {\em alpha}, double $\ast$ {\em A}, double $\ast$ {\em X}, double {\em beta}, double $\ast$ {\em Y})}\label{vecmatop_8hpp_f86104cd2d030678903b8a17738ff742_f86104cd2d030678903b8a17738ff742}
+
+
+
+
+Definition at line 107 of file vecmatop.cpp.
+
+References DGEMV.
+
+\footnotesize\begin{verbatim}108 {
+109   char trans = 'N';
+110   assert(m!=0 && n!=0);
+111   int incx = 1;
+112   int incy = 1;
+113   DGEMV(&trans, &m, &n, &alpha, A, &m, X, &incx, &beta, Y, &incy);
+114   return 0;
+115 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!dgemv@{dgemv}}
+\index{dgemv@{dgemv}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dgemv (double {\em alpha}, const {\bf Dbl\-Num\-Mat} \& {\em A}, const {\bf Dbl\-Num\-Vec} \& {\em X}, double {\em beta}, {\bf Dbl\-Num\-Vec} \& {\em Y})}\label{vecmatop_8hpp_1f65eba330c9ba99a02f9ec4ecdc51ef_1f65eba330c9ba99a02f9ec4ecdc51ef}
+
+
+
+
+Definition at line 99 of file vecmatop.cpp.
+
+References Num\-Vec$<$ F $>$::data(), Num\-Mat$<$ F $>$::data(), dgemv(), i\-C, Num\-Mat$<$ F $>$::m(), Num\-Vec$<$ F $>$::m(), and Num\-Mat$<$ F $>$::n().
+
+\footnotesize\begin{verbatim}100 {
+101   assert(Y.m() == A.m());
+102   assert(A.n() == X.m());
+103   iC( dgemv(A.m(), A.n(), alpha, A.data(), X.data(), beta, Y.data()) );
+104   return 0;
+105 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!dger@{dger}}
+\index{dger@{dger}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dger (int {\em m}, int {\em n}, double {\em alpha}, double $\ast$ {\em X}, double $\ast$ {\em Y}, double $\ast$ {\em A})}\label{vecmatop_8hpp_f8ede744e4705c3d338ad70b5b4f5eef_f8ede744e4705c3d338ad70b5b4f5eef}
+
+
+
+
+Definition at line 90 of file vecmatop.cpp.
+
+References DGER.
+
+\footnotesize\begin{verbatim}91 {
+92   assert(m!=0 && n!=0);
+93   int incx = 1;  int incy = 1;
+94   DGER(&m, &n, &alpha, X, &incx, Y, &incy, A, &m);
+95   return 0;
+96 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!dger@{dger}}
+\index{dger@{dger}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dger (double {\em alpha}, const {\bf Dbl\-Num\-Vec} \& {\em X}, const {\bf Dbl\-Num\-Vec} \& {\em Y}, {\bf Dbl\-Num\-Mat} \& {\em A})}\label{vecmatop_8hpp_a7e716e5ac5169dc959018df48f6aafa_a7e716e5ac5169dc959018df48f6aafa}
+
+
+
+
+Definition at line 82 of file vecmatop.cpp.
+
+References Num\-Mat$<$ F $>$::data(), Num\-Vec$<$ F $>$::data(), dger(), i\-C, Num\-Mat$<$ F $>$::m(), Num\-Vec$<$ F $>$::m(), and Num\-Mat$<$ F $>$::n().
+
+\footnotesize\begin{verbatim}83 {
+84   assert(X.m() == A.m());
+85   assert(Y.m() == A.n());
+86   iC( dger(A.m(), A.n(), alpha, X.data(), Y.data(), A.data()) );
+87   return 0;
+88 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!dscal@{dscal}}
+\index{dscal@{dscal}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dscal (int {\em n}, double {\em alpha}, double $\ast$ {\em X})}\label{vecmatop_8hpp_7358d64948ad9a47cf0744506e881c1d_7358d64948ad9a47cf0744506e881c1d}
+
+
+
+
+Definition at line 36 of file vecmatop.cpp.
+
+References DSCAL.
+
+\footnotesize\begin{verbatim}37 {
+38   int incx = 1;
+39   DSCAL(&n, &alpha, X, &incx);
+40   return 0;
+41 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!dscal@{dscal}}
+\index{dscal@{dscal}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int dscal (double {\em alpha}, {\bf Dbl\-Num\-Vec} \& {\em X})}\label{vecmatop_8hpp_3b4887d360a4d7483a4a1060d10012f7_3b4887d360a4d7483a4a1060d10012f7}
+
+
+
+
+Definition at line 30 of file vecmatop.cpp.
+
+References Num\-Vec$<$ F $>$::data(), dscal(), and Num\-Vec$<$ F $>$::m().
+
+\footnotesize\begin{verbatim}31 {
+32   dscal( X.m(), alpha, X.data() );
+33   return 0;
+34 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!inv@{inv}}
+\index{inv@{inv}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int inv (const {\bf Dbl\-Num\-Mat} \& {\em M}, {\bf Dbl\-Num\-Mat} \& {\em R})}\label{vecmatop_8hpp_9b79730e9b5f630d287f00e551e8c344_9b79730e9b5f630d287f00e551e8c344}
+
+
+
+
+Definition at line 164 of file vecmatop.cpp.
+
+References Num\-Mat$<$ F $>$::data(), DGETRF, DGETRI, Num\-Mat$<$ F $>$::m(), and Num\-Mat$<$ F $>$::n().
+
+\footnotesize\begin{verbatim}165 {
+166   //OR pinv(M, 0.0, R);
+167   assert(M.m()==M.n() && R.m()==R.n() && M.m()==R.m());
+168   memcpy(R.data(), M.data(), M.m()*M.n()*sizeof(double));
+169   int info;
+170   int m = M.m();
+171   int* ipiv = new int[m];
+172   DGETRF(&m, &m, R.data(), &m, ipiv, &info); assert(info==0);
+173   int lwork = m;
+174   double* work = new double[lwork];
+175   DGETRI(&m, R.data(), &m, ipiv, work, &lwork, &info);  assert(info==0);
+176   delete [] ipiv;
+177   delete [] work;
+178   return 0;
+179 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!lagcoef@{lagcoef}}
+\index{lagcoef@{lagcoef}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int lagcoef (int {\em evflag}, double {\em u}, double $\ast$ {\em us})}\label{vecmatop_8hpp_ae45c5a2ae5bb64731d2e859f5ca0586_ae45c5a2ae5bb64731d2e859f5ca0586}
+
+
+
+
+Definition at line 564 of file vecmatop.cpp.
+
+\footnotesize\begin{verbatim}565 {
+566   //double u1 = u;
+567   double u2 = u*u;
+568   double u3 = u*u*u;
+569   if(       evflag==EVFLAG_VL) {
+570          us[0] = (u3-3*u2+2*u)/(-6.0);
+571          us[1] = (u3-2*u2-u+2)/(2.0);
+572          us[2] = (u3-u2-2*u)  /(-2.0);
+573          us[3] = (u3-u)       /(6.0);
+574   } else if(evflag==EVFLAG_FD) {
+575          us[0] = (3*u2-6*u+2)/(-6.0);
+576          us[1] = (3*u2-4*u-1)/(2.0);
+577          us[2] = (3*u2-2*u-2)/(-2.0);
+578          us[3] = (3*u2-1)    /(6.0);
+579   } else if(evflag==EVFLAG_SD) {
+580          assert(0); //TODO
+581   }
+582   return 0;
+583 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!lagev1d@{lagev1d}}
+\index{lagev1d@{lagev1d}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int lagev1d (int {\em evflag}, int {\em pdflag}, int {\em dof}, double $\ast$ {\em M}, int {\em n}, double {\em e}, int {\em i}, double {\em u}, double $\ast$ {\em res})}\label{vecmatop_8hpp_559daf9c86280b25416fa70e8a206c82_559daf9c86280b25416fa70e8a206c82}
+
+
+
+
+Definition at line 363 of file vecmatop.cpp.
+
+References DMFLAG\_\-PERIOD.
+
+\footnotesize\begin{verbatim}364 {
+365   int is[4];
+366   if(dmflag==DMFLAG_PERIOD) {
+367          for(int k=0; k<4; k++) is[k]=(i+k-1 + m) % m;
+368   } else {
+369          assert(i>=1 && i<=m-3);
+370          for(int k=0; k<4; k++) is[k]=(i+k-1);
+371   }
+372   DblNumMat M(dof,m,false,data); //assert(M.n()==n && M.m()==res.m()); //double dof = M.m();  //int cnt = 0;
+373   //---------------------------
+374   if(evflag & EVFLAG_VL) {
+375          double scl = 1.0;
+376          double us[4]; iC( lagcoef(EVFLAG_VL, u, us) );
+377          for(int d=0; d<dof; d++)               res[d] = 0;
+378          for(int d=0; d<dof; d++) 
+379                 for(int a=0; a<4; a++) {
+380                   res[d] += us[a] * M(d,is[a]);
+381                 }
+382          for(int d=0; d<dof; d++)               res[d] *= scl; //scaling
+383          res+=dof; //cnt ++;
+384   }
+385   //---------------------------
+386   if(evflag & EVFLAG_FD) {
+387          double scl = double(m) / e;
+388          double us[4]; iC( lagcoef(EVFLAG_FD, u, us) );
+389          for(int d=0; d<dof; d++)               res[d] = 0;
+390          for(int d=0; d<dof; d++)
+391                 for(int a=0; a<4; a++) {
+392                   res[d] += us[a] * M(d,is[a]);
+393                 }
+394          for(int d=0; d<dof; d++)               res[d] *= scl; //scaling
+395          res+=dof; //cnt ++;
+396   }
+397   //---------------------------
+398   if(evflag & EVFLAG_SD) {
+399          double scl = double(m*m)/(e*e);
+400          double us[4]; iC( lagcoef(EVFLAG_SD, u, us) );
+401          for(int d=0; d<dof; d++)               res[d] = 0;
+402          for(int d=0; d<dof; d++)
+403                 for(int a=0; a<4; a++) {
+404                   res[d] += us[a] * M(d,is[a]);
+405                 }
+406          for(int d=0; d<dof; d++)               res[d] *= scl; //scaling
+407          res+=dof; //cnt ++;
+408   }
+409   return 0;
+410 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!lagev2d@{lagev2d}}
+\index{lagev2d@{lagev2d}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int lagev2d (int {\em evflag}, int {\em pdflag}, int {\em dof}, double $\ast$ {\em M}, int $\ast$ {\em mn}, double $\ast$ {\em ef}, int $\ast$ {\em ij}, double $\ast$ {\em uv}, double $\ast$ {\em res})}\label{vecmatop_8hpp_5777432f838d73947c2307cc63592160_5777432f838d73947c2307cc63592160}
+
+
+
+
+Definition at line 412 of file vecmatop.cpp.
+
+References DMFLAG\_\-PERIOD.
+
+\footnotesize\begin{verbatim}413 {
+414   int m = mn[0];  int n = mn[1];
+415   double e = ef[0];  double f = ef[1];
+416   int i = ij[0];  int j = ij[1];
+417   double u = uv[0];  double v = uv[1];
+418   
+419   int is[4]; int js[4];
+420   if(dmflag==DMFLAG_PERIOD) {
+421          for(int k=0; k<4; k++) is[k]=(i+k-1 + m) % m;
+422          for(int k=0; k<4; k++) js[k]=(j+k-1 + n) % n;
+423   } else {
+424          assert(i>=1 && i<=m-3);
+425          for(int k=0; k<4; k++) is[k]=(i+k-1);
+426          assert(j>=1 && j<=n-3);
+427          for(int k=0; k<4; k++) js[k]=(j+k-1);
+428   }
+429   DblNumMat M(dof,m*n,false,data);
+430   double scl; 
+431   double us[4], vs[4];
+432   //---------------------------
+433   if(evflag & EVFLAG_VL) {
+434          scl = 1.0;
+435          iC( lagcoef(EVFLAG_VL, u, us) );
+436          iC( lagcoef(EVFLAG_VL, v, vs) );
+437          for(int d=0; d<dof; d++)               res[d] = 0;
+438          for(int a=0; a<4; a++)
+439                 for(int b=0; b<4; b++) {
+440                   double coef = us[a]*vs[b]; 
+441                   for(int d=0; d<dof; d++)
+442                          res[d] += coef * M(d, is[a]+js[b]*m);
+443                 }
+444          for(int d=0; d<dof; d++)               res[d] *= scl;
+445          res+=dof;
+446   }
+447   //---------------------------
+448   if(evflag & EVFLAG_FD) {
+449          scl = double(m)/e;
+450          iC( lagcoef(EVFLAG_FD, u, us) );
+451          iC( lagcoef(EVFLAG_VL, v, vs) );
+452          for(int d=0; d<dof; d++)               res[d] = 0;
+453          for(int a=0; a<4; a++)
+454                 for(int b=0; b<4; b++) {
+455                   double coef = us[a]*vs[b];
+456                   for(int d=0; d<dof; d++)
+457                          res[d] += coef * M(d, is[a]+js[b]*m);
+458                 }
+459          for(int d=0; d<dof; d++)               res[d] *= scl;
+460          res+=dof;
+461          //...
+462          scl = double(n)/f;
+463          iC( lagcoef(EVFLAG_VL, u, us) );
+464          iC( lagcoef(EVFLAG_FD, v, vs) );
+465          for(int d=0; d<dof; d++)               res[d] = 0;
+466          for(int a=0; a<4; a++)
+467                 for(int b=0; b<4; b++) {
+468                   double coef = us[a]*vs[b]; 
+469                   for(int d=0; d<dof; d++)
+470                          res[d] += coef * M(d, is[a]+js[b]*m);
+471                 }
+472          for(int d=0; d<dof; d++)               res[d] *= scl;
+473          res+=dof;
+474   }
+475   //---------------------------
+476   if(evflag & EVFLAG_SD) {
+477          scl = double(m*m)/(e*e);
+478          iC( lagcoef(EVFLAG_SD, u, us) );
+479          iC( lagcoef(EVFLAG_VL, v, vs) );
+480          for(int d=0; d<dof; d++)               res[d] = 0;
+481          for(int a=0; a<4; a++)
+482                 for(int b=0; b<4; b++) {
+483                   double coef = us[a]*vs[b]; 
+484                   for(int d=0; d<dof; d++)
+485                          res[d] += coef * M(d, is[a]+js[b]*m);
+486                 }
+487          for(int d=0; d<dof; d++)               res[d] *= scl;
+488          res+=dof;
+489          //...
+490          scl = double(m*n)/(e*f);
+491          iC( lagcoef(EVFLAG_FD, u, us) );
+492          iC( lagcoef(EVFLAG_FD, v, vs) );
+493          for(int d=0; d<dof; d++)               res[d] = 0;
+494          for(int a=0; a<4; a++)
+495                 for(int b=0; b<4; b++) {
+496                   double coef = us[a]*vs[b]; 
+497                   for(int d=0; d<dof; d++)
+498                          res[d] += coef * M(d, is[a]+js[b]*m);
+499                 }
+500          for(int d=0; d<dof; d++)               res[d] *= scl;
+501          res+=dof;
+502          //...
+503          scl = double(n*n)/(f*f);
+504          iC( lagcoef(EVFLAG_VL, u, us) );
+505          iC( lagcoef(EVFLAG_SD, v, vs) );
+506          for(int d=0; d<dof; d++)               res[d] = 0;
+507          for(int a=0; a<4; a++)
+508                 for(int b=0; b<4; b++) {
+509                   double coef = us[a]*vs[b]; 
+510                   for(int d=0; d<dof; d++)
+511                          res[d] += coef * M(d, is[a]+js[b]*m);
+512                 }
+513          for(int d=0; d<dof; d++)               res[d] *= scl;
+514          res+=dof;
+515   }
+516   return 0;
+517 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!lagev3d@{lagev3d}}
+\index{lagev3d@{lagev3d}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int lagev3d (int {\em evflag}, int {\em pdflag}, int {\em dof}, double $\ast$ {\em M}, int $\ast$ {\em mno}, double $\ast$ {\em efg}, int $\ast$ {\em ijk}, double $\ast$ {\em uvw}, double $\ast$ {\em res})}\label{vecmatop_8hpp_505b660797481226ce76fbe2b50d966f_505b660797481226ce76fbe2b50d966f}
+
+
+
+
+Definition at line 519 of file vecmatop.cpp.
+
+References DMFLAG\_\-PERIOD.
+
+\footnotesize\begin{verbatim}520 {
+521   assert(evflag==EVFLAG_VL);
+522   
+523   int m = mno[0];  int n = mno[1];  int o = mno[2];
+524   double e = efg[0];  double f = efg[1];  double g = efg[2];
+525   int i = ijk[0];  int j = ijk[1];  int k = ijk[2];
+526   double u = uvw[0];  double v = uvw[1];  double w = uvw[2];
+527   
+528   int is[4]; int js[4];  int ks[4];
+529   if(dmflag==DMFLAG_PERIOD) {
+530          for(int h=0; h<4; h++) is[h]=(i+h-1 + m) % m;
+531          for(int h=0; h<4; h++) js[h]=(j+h-1 + n) % n;
+532          for(int h=0; h<4; h++) ks[h]=(k+h-1 + o) % o;
+533   } else {
+534          assert(i>=1 && i<=m-3);
+535          for(int h=0; h<4; h++) is[h]=(i+h-1);
+536          assert(j>=1 && j<=n-3);
+537          for(int h=0; h<4; h++) js[h]=(j+h-1);
+538          assert(k>=1 && k<=o-3);
+539          for(int h=0; h<4; h++) ks[h]=(k+h-1);
+540   }
+541   DblNumMat M(dof,m*n*o,false,data);
+542   double scl; 
+543   double us[4], vs[4], ws[4];
+544   //---------------------------
+545   if(evflag & EVFLAG_VL) {
+546          scl = 1.0;
+547          iC( lagcoef(EVFLAG_VL, u, us) );
+548          iC( lagcoef(EVFLAG_VL, v, vs) );
+549          iC( lagcoef(EVFLAG_VL, w, ws) );
+550          for(int d=0; d<dof; d++)               res[d] = 0;
+551          for(int a=0; a<4; a++)
+552                 for(int b=0; b<4; b++)
+553                   for(int c=0; c<4; c++) {
+554                          double coef = us[a]*vs[b]*ws[c]; 
+555                          for(int d=0; d<dof; d++)
+556                                 res[d] += coef * M(d, is[a]+js[b]*m+ks[c]*m*n);
+557                   }
+558          for(int d=0; d<dof; d++)               res[d] *= scl;
+559          res+=dof;
+560   }
+561   return 0;
+562 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!pinv@{pinv}}
+\index{pinv@{pinv}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int pinv (const {\bf Dbl\-Num\-Mat} \& {\em M}, double {\em epsilon}, {\bf Dbl\-Num\-Mat} \& {\em R})}\label{vecmatop_8hpp_e6044a83323bd043a807de27d79c4365_e6044a83323bd043a807de27d79c4365}
+
+
+
+
+Definition at line 126 of file vecmatop.cpp.
+
+References i\-C, Num\-Mat$<$ F $>$::m(), and Num\-Mat$<$ F $>$::n().
+
+\footnotesize\begin{verbatim}127 {
+128   assert(M.m() == R.n());  assert(M.n() == R.m());
+129   SVDRep svd;
+130   iC( svd.construct(epsilon, M) );
+131   //invert Svd    //cerr<<svd.S()(0)<<" "<<svd.S()(svd.S().m()-1)<<" "<<svd.S()(0)/svd.S()(svd.S().m()-1)<<endl;
+132   double cutoff = epsilon * svd.S()(0);  //double cutoff = epsilon;
+133   for(int i=0; i<svd.S().m(); i++) {
+134     if( svd.S()(i) >= cutoff) {
+135       svd.S()(i) = 1.0/(svd.S()(i));
+136          } else {
+137                 assert(0);      //svd.S()(i) = 0.0;
+138          }
+139   }
+140   DblNumMat UT(svd.U().n(),  svd.U().m());
+141   DblNumMat V( svd.VT().n(), svd.VT().m());
+142   iC( tran(svd.U(), UT) );
+143   iC( tran(svd.VT(), V) );
+144   for(int i=0; i<V.m(); i++)
+145     for(int j=0; j<V.n(); j++) {
+146       V(i,j) = V(i,j) * svd.S()(j);
+147          }
+148   
+149   char transa = 'N';
+150   char transb = 'N';
+151   double alpha = 1.0;
+152   double beta = 0.0;
+153   int m = V.m();
+154   int n = UT.n();
+155   int k = V.n();
+156   DGEMM(&transa, &transb, &m, &n, &k, &alpha,
+157                   V.data(), &m, UT.data(), &k, 
+158                   &beta, R.data(), &m);  
+159   
+160   return 0;
+161 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!spcoef@{spcoef}}
+\index{spcoef@{spcoef}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int spcoef (int {\em evflag}, double {\em u}, double $\ast$ {\em us})}\label{vecmatop_8hpp_9084d4f8c569a1ae492c9b1f315df7c1_9084d4f8c569a1ae492c9b1f315df7c1}
+
+
+
+
+Definition at line 338 of file vecmatop.cpp.
+
+\footnotesize\begin{verbatim}339 {
+340   double u1 = u;
+341   double u2 = u*u;
+342   double u3 = u*u*u;
+343   if(       evflag==EVFLAG_VL) {
+344          us[0] = (  1 - 3*u1 + 3*u2 -   u3)/6.0;
+345          us[1] = (  4        - 6*u2 + 3*u3)/6.0;
+346          us[2] = (  1 + 3*u1 + 3*u2 - 3*u3)/6.0;
+347          us[3] = (                  +   u3)/6.0;
+348   } else if(evflag==EVFLAG_FD) {
+349          us[0] = (- 3 + 6*u1 - 3*u2)/6.0;
+350          us[1] = (    -12*u1 + 9*u2)/6.0;
+351          us[2] = (  3 + 6*u1 - 9*u2)/6.0;
+352          us[3] = (             3*u2)/6.0;
+353   } else if(evflag==EVFLAG_SD) {
+354          us[0] = (  6 - 6*u1 ) / 6.0;
+355          us[1] = (-12 +18*u1 ) / 6.0;
+356          us[2] = (  6 -18*u1 ) / 6.0;
+357          us[3] = (      6*u1 ) / 6.0;    //assert(0); //TODO;
+358   }  
+359   return 0;
+360 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!spev1d@{spev1d}}
+\index{spev1d@{spev1d}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int spev1d (int {\em evflag}, int {\em dmflag}, int {\em dof}, double $\ast$ {\em M}, int {\em n}, double {\em e}, int {\em i}, double {\em u}, double $\ast$ {\em res})}\label{vecmatop_8hpp_59ca1776ee301a72ccfb5105b3a3edfd_59ca1776ee301a72ccfb5105b3a3edfd}
+
+
+
+
+Definition at line 182 of file vecmatop.cpp.
+
+References DMFLAG\_\-PERIOD.
+
+\footnotesize\begin{verbatim}183 {
+184   int is[4];
+185   if(dmflag==DMFLAG_PERIOD) {
+186          for(int k=0; k<4; k++) is[k]=(i+k-1 + m) % m;
+187   } else {
+188          assert(i>=1 && i<=m-3);
+189          for(int k=0; k<4; k++) is[k]=(i+k-1);
+190   }
+191   DblNumMat M(dof,m,false,data); //assert(M.n()==n && M.m()==res.m()); //double dof = M.m();  //int cnt = 0;
+192   //---------------------------
+193   if(evflag & EVFLAG_VL) {
+194          double scl = 1.0;
+195          double us[4]; iC( spcoef(EVFLAG_VL, u, us) );
+196          for(int d=0; d<dof; d++)               res[d] = 0;
+197          for(int d=0; d<dof; d++) 
+198                 for(int a=0; a<4; a++) {
+199                   res[d] += us[a] * M(d,is[a]);
+200                 }
+201          for(int d=0; d<dof; d++)               res[d] *= scl; //scaling
+202          res+=dof;
+203   }
+204   //---------------------------
+205   if(evflag & EVFLAG_FD) {
+206          double scl = double(m) / e;
+207          double us[4]; iC( spcoef(EVFLAG_FD, u, us) );
+208          for(int d=0; d<dof; d++)               res[d] = 0;
+209          for(int d=0; d<dof; d++)
+210                 for(int a=0; a<4; a++) {
+211                   res[d] += us[a] * M(d,is[a]);
+212                 }
+213          for(int d=0; d<dof; d++)               res[d] *= scl; //scaling
+214          res+=dof;
+215   }
+216   //---------------------------
+217   if(evflag & EVFLAG_SD) {
+218          double scl = double(m*m)/(e*e);
+219          double us[4]; iC( spcoef(EVFLAG_SD, u, us) );
+220          for(int d=0; d<dof; d++)               res[d] = 0;
+221          for(int d=0; d<dof; d++)
+222                 for(int a=0; a<4; a++) {
+223                   res[d] += us[a] * M(d,is[a]);
+224                 }
+225          for(int d=0; d<dof; d++)               res[d] *= scl; //scaling
+226          res+=dof;
+227   }
+228   return 0;
+229 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!spev2d@{spev2d}}
+\index{spev2d@{spev2d}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int spev2d (int {\em evflag}, int {\em dmflag}, int {\em dof}, double $\ast$ {\em M}, int $\ast$ {\em mn}, double $\ast$ {\em ef}, int $\ast$ {\em ij}, double $\ast$ {\em uv}, double $\ast$ {\em res})}\label{vecmatop_8hpp_2bd003f61d68382b102b1f7747d42016_2bd003f61d68382b102b1f7747d42016}
+
+
+
+
+Definition at line 231 of file vecmatop.cpp.
+
+References DMFLAG\_\-PERIOD.
+
+\footnotesize\begin{verbatim}232 {
+233   int m = mn[0];  int n = mn[1];
+234   double e = ef[0];  double f = ef[1];
+235   int i = ij[0];  int j = ij[1];
+236   double u = uv[0];  double v = uv[1];
+237   
+238   int is[4]; int js[4];
+239   if(dmflag==DMFLAG_PERIOD) {
+240          for(int k=0; k<4; k++) is[k]=(i+k-1 + m) % m;
+241          for(int k=0; k<4; k++) js[k]=(j+k-1 + n) % n;
+242   } else {
+243          assert(i>=1 && i<=m-3);
+244          for(int k=0; k<4; k++) is[k]=(i+k-1);
+245          assert(j>=1 && j<=n-3);
+246          for(int k=0; k<4; k++) js[k]=(j+k-1);
+247   }
+248   DblNumMat M(dof,m*n,false,data);
+249   double scl;
+250   double us[4], vs[4];
+251   //---------------------------
+252   if(evflag & EVFLAG_VL) {
+253          scl = 1.0;
+254          iC( spcoef(EVFLAG_VL, u, us) );
+255          iC( spcoef(EVFLAG_VL, v, vs) );
+256          for(int d=0; d<dof; d++)               res[d] = 0;
+257          for(int a=0; a<4; a++)
+258                 for(int b=0; b<4; b++) {
+259                   double coef = us[a]*vs[b]; 
+260                   for(int d=0; d<dof; d++)
+261                          res[d] += coef * M(d, is[a]+js[b]*m);
+262                 }
+263          for(int d=0; d<dof; d++)               res[d] *= scl;
+264          res+=dof;
+265   }
+266   //---------------------------
+267   if(evflag & EVFLAG_FD) {
+268          scl = double(m)/e;
+269          iC( spcoef(EVFLAG_FD, u, us) );
+270          iC( spcoef(EVFLAG_VL, v, vs) );
+271          for(int d=0; d<dof; d++)               res[d] = 0;
+272          for(int a=0; a<4; a++)
+273                 for(int b=0; b<4; b++) {
+274                   double coef = us[a]*vs[b];
+275                   for(int d=0; d<dof; d++)
+276                          res[d] += coef * M(d, is[a]+js[b]*m);
+277                 }
+278          for(int d=0; d<dof; d++)               res[d] *= scl;
+279          res+=dof;
+280          //...
+281          scl = double(n)/f;
+282          iC( spcoef(EVFLAG_VL, u, us) );
+283          iC( spcoef(EVFLAG_FD, v, vs) );
+284          for(int d=0; d<dof; d++)               res[d] = 0;
+285          for(int a=0; a<4; a++)
+286                 for(int b=0; b<4; b++) {
+287                   double coef = us[a]*vs[b]; 
+288                   for(int d=0; d<dof; d++)
+289                          res[d] += coef * M(d, is[a]+js[b]*m);
+290                 }
+291          for(int d=0; d<dof; d++)               res[d] *= scl;
+292          res+=dof;
+293   }
+294   //---------------------------
+295   if(evflag & EVFLAG_SD) {
+296          scl = double(m*m)/(e*e);
+297          iC( spcoef(EVFLAG_SD, u, us) );
+298          iC( spcoef(EVFLAG_VL, v, vs) );
+299          for(int d=0; d<dof; d++)               res[d] = 0;
+300          for(int a=0; a<4; a++)
+301                 for(int b=0; b<4; b++) {
+302                   double coef = us[a]*vs[b]; 
+303                   for(int d=0; d<dof; d++)
+304                          res[d] += coef * M(d, is[a]+js[b]*m);
+305                 }
+306          for(int d=0; d<dof; d++)               res[d] *= scl;
+307          res+=dof;
+308          //...
+309          scl = double(m*n)/(e*f);
+310          iC( spcoef(EVFLAG_FD, u, us) );
+311          iC( spcoef(EVFLAG_FD, v, vs) );
+312          for(int d=0; d<dof; d++)               res[d] = 0;
+313          for(int a=0; a<4; a++)
+314                 for(int b=0; b<4; b++) {
+315                   double coef = us[a]*vs[b]; 
+316                   for(int d=0; d<dof; d++)
+317                          res[d] += coef * M(d, is[a]+js[b]*m);
+318                 }
+319          for(int d=0; d<dof; d++)               res[d] *= scl;
+320          res+=dof;
+321          //...
+322          scl = double(n*n)/(f*f);
+323          iC( spcoef(EVFLAG_VL, u, us) );
+324          iC( spcoef(EVFLAG_SD, v, vs) );
+325          for(int d=0; d<dof; d++)               res[d] = 0;
+326          for(int a=0; a<4; a++)
+327                 for(int b=0; b<4; b++) {
+328                   double coef = us[a]*vs[b]; 
+329                   for(int d=0; d<dof; d++)
+330                          res[d] += coef * M(d, is[a]+js[b]*m);
+331                 }
+332          for(int d=0; d<dof; d++)               res[d] *= scl;
+333          res+=dof;
+334   }
+335   return 0;
+336 }
+\end{verbatim}\normalsize 
+
+
+\index{vecmatop.hpp@{vecmatop.hpp}!tran@{tran}}
+\index{tran@{tran}!vecmatop.hpp@{vecmatop.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int tran (const {\bf Dbl\-Num\-Mat} \& {\em M}, {\bf Dbl\-Num\-Mat} \& {\em R})}\label{vecmatop_8hpp_2db1bb0aad5cb3c8b5155fb7f23d7b38_2db1bb0aad5cb3c8b5155fb7f23d7b38}
+
+
+
+
+Definition at line 117 of file vecmatop.cpp.
+
+References Num\-Mat$<$ F $>$::m(), and Num\-Mat$<$ F $>$::n().
+
+\footnotesize\begin{verbatim}118 {
+119   assert(R.m()==M.n() && R.n()==M.m());  //R.resize(M.n(), M.m());
+120   for(int i=0; i<M.m(); i++)
+121          for(int j=0; j<M.n(); j++)
+122                 R(j,i) = M(i,j);
+123   return 0;
+124 }
+\end{verbatim}\normalsize 
+
+

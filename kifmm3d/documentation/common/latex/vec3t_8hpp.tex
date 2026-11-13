@@ -1,0 +1,439 @@
+\section{common/vec3t.hpp File Reference}
+\label{vec3t_8hpp}\index{common/vec3t.hpp@{common/vec3t.hpp}}
+
+
+{\tt \#include \char`\"{}commoninc.hpp\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Vec3T$<$ F $>$}
+\begin{CompactList}\small\item\em Common 3D Vector template-based class. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf Vec3T}$<$ double $>$ {\bf Point3}
+\begin{CompactList}\small\item\em MOST COMMONLY USED. \item\end{CompactList}\item 
+typedef {\bf Vec3T}$<$ int $>$ {\bf Index3}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+template$<$class F$>$ bool {\bf operator==} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ bool {\bf operator!=} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ bool {\bf operator$>$} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ bool {\bf operator$<$} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ bool {\bf operator$>$=} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ bool {\bf operator$<$=} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf operator-} (const {\bf Vec3T}$<$ F $>$ \&a)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf operator+} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf operator-} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf operator $\ast$} (F scl, const {\bf Vec3T}$<$ F $>$ \&a)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf operator $\ast$} (const {\bf Vec3T}$<$ F $>$ \&a, F scl)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf operator/} (const {\bf Vec3T}$<$ F $>$ \&a, F scl)
+\item 
+template$<$class F$>$ F {\bf operator $\ast$} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ F {\bf dot} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf operator$^\wedge$} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf cross} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf min} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf max} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf abs} (const {\bf Vec3T}$<$ F $>$ \&a)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf ewmul} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec3T}$<$ F $>$ {\bf ewdiv} (const {\bf Vec3T}$<$ F $>$ \&a, const {\bf Vec3T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ istream \& {\bf operator$>$$>$} (istream \&is, {\bf Vec3T}$<$ F $>$ \&a)
+\item 
+template$<$class F$>$ ostream \& {\bf operator$<$$<$} (ostream \&os, const {\bf Vec3T}$<$ F $>$ \&a)
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{vec3t.hpp@{vec3t.hpp}!Index3@{Index3}}
+\index{Index3@{Index3}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vec3T}$<$int$>$ {\bf Index3}}\label{vec3t_8hpp_0623fc5cf1ef86a13f6117dcc56217fa_0623fc5cf1ef86a13f6117dcc56217fa}
+
+
+A 3-D index with the three indices represented as integers 
+
+Definition at line 204 of file vec3t.hpp.\index{vec3t.hpp@{vec3t.hpp}!Point3@{Point3}}
+\index{Point3@{Point3}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vec3T}$<$double$>$ {\bf Point3}}\label{vec3t_8hpp_ce7952f9a96e365badec9acf7e6990bf_ce7952f9a96e365badec9acf7e6990bf}
+
+
+MOST COMMONLY USED. 
+
+A 3-D point with the x, y, and z-coordinates represented as doubles 
+
+Definition at line 202 of file vec3t.hpp.
+
+\subsection{Function Documentation}
+\index{vec3t.hpp@{vec3t.hpp}!abs@{abs}}
+\index{abs@{abs}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ abs (const {\bf Vec3T}$<$ F $>$ \& {\em a})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_d6ad0422a59f823578b14091decc5ad0_d6ad0422a59f823578b14091decc5ad0}
+
+
+Return r where r[0] = abs(a[0]), etc. 
+
+Definition at line 178 of file vec3t.hpp.
+
+References abs().
+
+\footnotesize\begin{verbatim}178                                                           {
+179   Vec3T<F> r;  for(int i=0; i<3; i++) r[i] = abs(a[i]); return r;
+180 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!cross@{cross}}
+\index{cross@{cross}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ cross (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_4aca0c35a9ec4f5839b51f15f6126303_4aca0c35a9ec4f5839b51f15f6126303}
+
+
+Return cross-product 
+
+Definition at line 165 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}165                                                                                     { 
+166   return a^b; 
+167 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!dot@{dot}}
+\index{dot@{dot}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F dot (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_e7cbe646ac75de564be89be6ede001e5_e7cbe646ac75de564be89be6ede001e5}
+
+
+Dot-product. Return a$\ast$b = a[0]$\ast$b[0] + a[1]$\ast$b[1] + a[2]$\ast$b[2] 
+
+Definition at line 157 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}157                                                                              {
+158   return a*b;
+159 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!ewdiv@{ewdiv}}
+\index{ewdiv@{ewdiv}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ ewdiv (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_1f2e88b3ba21ad4c73ea002dbba3d3e4_1f2e88b3ba21ad4c73ea002dbba3d3e4}
+
+
+Return r where r[0] = a[0]/b[0], etc. 
+
+Definition at line 186 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}186                                                                               { 
+187   Vec3T<F> r;  for(int i=0; i<3; i++) r[i] = a[i]/b[i]; return r;
+188 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!ewmul@{ewmul}}
+\index{ewmul@{ewmul}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ ewmul (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_b452e1e569dbb1dbf843a6be49300cd2_b452e1e569dbb1dbf843a6be49300cd2}
+
+
+Return r where r[0] = a[0]$\ast$b[0], etc. 
+
+Definition at line 182 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}182                                                                               {
+183   Vec3T<F> r;  for(int i=0; i<3; i++) r[i] = a[i]*b[i]; return r;
+184 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!max@{max}}
+\index{max@{max}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ max (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_6b9c06ff45e5e69b3cad3af182891c0e_6b9c06ff45e5e69b3cad3af182891c0e}
+
+
+Return r where r[0] = max(a[0],b[0]), etc. 
+
+Definition at line 174 of file vec3t.hpp.
+
+References max().
+
+\footnotesize\begin{verbatim}174                                                                              {
+175   Vec3T<F> r;  for(int i=0; i<3; i++) r[i] = max(a[i], b[i]); return r;
+176 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!min@{min}}
+\index{min@{min}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ min (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_2077885388a08fbc55800ac89f20e8ba_2077885388a08fbc55800ac89f20e8ba}
+
+
+Return r where r[0] = min(a[0],b[0]), etc. 
+
+Definition at line 170 of file vec3t.hpp.
+
+References min().
+
+\footnotesize\begin{verbatim}170                                                                              {
+171   Vec3T<F> r;  for(int i=0; i<3; i++) r[i] = min(a[i], b[i]); return r;
+172 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator *@{operator $\ast$}}
+\index{operator *@{operator $\ast$}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F operator $\ast$ (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_33d8e44311db4b369b0bdc100a044766_33d8e44311db4b369b0bdc100a044766}
+
+
+Overloaded \char`\"{}$\ast$\char`\"{} numerical operation. Return a[0]$\ast$b[0] + a[1]$\ast$b[1] + a[2]$\ast$b[2] 
+
+Definition at line 153 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}153                                                                              {
+154   F sum=F(0); for(int i=0; i<3; i++) sum=sum+a(i)*b(i); return sum;
+155 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator *@{operator $\ast$}}
+\index{operator *@{operator $\ast$}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ operator $\ast$ (const {\bf Vec3T}$<$ F $>$ \& {\em a}, F {\em scl})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_074611abb9400003a042d0a3acf7878e_074611abb9400003a042d0a3acf7878e}
+
+
+Overloaded \char`\"{}$\ast$\char`\"{} numerical operation. Return scaling of components of a by scl 
+
+Definition at line 145 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}145                                                                         {
+146   Vec3T<F> r;  for(int i=0; i<3; i++) r[i] = scl*a[i];  return r;
+147 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator *@{operator $\ast$}}
+\index{operator *@{operator $\ast$}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ operator $\ast$ (F {\em scl}, const {\bf Vec3T}$<$ F $>$ \& {\em a})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_8395089d3dc67e3124a0aaca1a65a3fd_8395089d3dc67e3124a0aaca1a65a3fd}
+
+
+Overloaded \char`\"{}$\ast$\char`\"{} numerical operation. Return scaling of components of a by scl 
+
+Definition at line 141 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}141                                                                         {
+142   Vec3T<F> r;  for(int i=0; i<3; i++) r[i] = scl*a[i];  return r;
+143 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool operator!= (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_8f66f71350f1f132ccf6543670f32e5f_8f66f71350f1f132ccf6543670f32e5f}
+
+
+Boolean != overloaded operator returns true if a!=b 
+
+Definition at line 107 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}107                                                                                 {
+108   return !(a==b);
+109 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator+@{operator+}}
+\index{operator+@{operator+}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ operator+ (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_6bf8bf0f45f90a8197236ac5ee126b09_6bf8bf0f45f90a8197236ac5ee126b09}
+
+
+Overloaded \char`\"{}+\char`\"{} numerical operation. Return addition of components of a and b 
+
+Definition at line 133 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}133                                                                                     {
+134   Vec3T<F> r;  for(int i=0; i<3; i++) r[i] = a[i]+b[i]; return r; 
+135 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator-@{operator-}}
+\index{operator-@{operator-}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ operator- (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_958f435f39061422379a1f551ca0e7de_958f435f39061422379a1f551ca0e7de}
+
+
+Overloaded \char`\"{}-\char`\"{} numerical operation. Return subtraction of compoenets of b from a 
+
+Definition at line 137 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}137                                                                                     {
+138   Vec3T<F> r;  for(int i=0; i<3; i++) r[i] = a[i]-b[i]; return r;
+139 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator-@{operator-}}
+\index{operator-@{operator-}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ operator- (const {\bf Vec3T}$<$ F $>$ \& {\em a})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_4fe61668af64f757aa7523fb9663bc06_4fe61668af64f757aa7523fb9663bc06}
+
+
+Overloaded \char`\"{}-\char`\"{} numerical operation. Return negation of vector a 
+
+Definition at line 129 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}129                                                                  {
+130   Vec3T<F> r;  for(int i=0; i<3; i++) r[i] = -a[i]; return r;
+131 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator/@{operator/}}
+\index{operator/@{operator/}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ operator/ (const {\bf Vec3T}$<$ F $>$ \& {\em a}, F {\em scl})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_7611b994daf0087093435c6aff237959_7611b994daf0087093435c6aff237959}
+
+
+Overloaded \char`\"{}/\char`\"{} numerical operation. Return scaling of components of a by 1/scl 
+
+Definition at line 149 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}149                                                                         {
+150   Vec3T<F> r;  for(int i=0; i<3; i++) r[i] = a[i]/scl;  return r;
+151 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator<@{operator$<$}}
+\index{operator<@{operator$<$}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool operator$<$ (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_9a065d11b446f59a52c55d7e27ea46e6_9a065d11b446f59a52c55d7e27ea46e6}
+
+
+Boolean $<$ overloaded operator returns true if a $<$ b in BOTH x and y-directions 
+
+Definition at line 115 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}115                                                                                 {
+116   bool res = true;  for(int i=0; i<3; i++)   res = res && (a(i)< b(i));  return res; 
+117 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator<<@{operator$<$$<$}}
+\index{operator<<@{operator$<$$<$}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ ostream\& operator$<$$<$ (ostream \& {\em os}, const {\bf Vec3T}$<$ F $>$ \& {\em a})}\label{vec3t_8hpp_dc0f5c17b08e3b53a03325a1a70849ad_dc0f5c17b08e3b53a03325a1a70849ad}
+
+
+output $<$$<$ operator. os $<$$<$ a[i] 
+
+Definition at line 195 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}195                                                                        { 
+196   for(int i=0; i<3; i++) os<<a[i]<<" "; return os;
+197 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator<=@{operator$<$=}}
+\index{operator<=@{operator$<$=}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool operator$<$= (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_8081c6ba62be3226321fbc37d23a8150_8081c6ba62be3226321fbc37d23a8150}
+
+
+Boolean $<$= overloaded operator returns true if a $<$= b in BOTH x and y-directions 
+
+Definition at line 123 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}123                                                                                 {
+124   bool res = true;  for(int i=0; i<3; i++)   res = res && (a(i)<=b(i));  return res; 
+125 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator==@{operator==}}
+\index{operator==@{operator==}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool operator== (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_6f9fecc926d8fedfe340e2727fbf8c77_6f9fecc926d8fedfe340e2727fbf8c77}
+
+
+Boolean == overloaded operator returns true if a==b 
+
+Definition at line 103 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}103                                                                                 {
+104   bool res = true;  for(int i=0; i<3; i++)   res = res && (a(i)==b(i));  return res;
+105 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator>@{operator$>$}}
+\index{operator>@{operator$>$}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool operator$>$ (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_53bf9873e7989ece9c30a5c526a34681_53bf9873e7989ece9c30a5c526a34681}
+
+
+Boolean $>$ overloaded operator returns true if a $>$ b in BOTH x and y-directions 
+
+Definition at line 111 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}111                                                                                 {
+112   bool res = true;  for(int i=0; i<3; i++)   res = res && (a(i)> b(i));  return res; 
+113 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator>=@{operator$>$=}}
+\index{operator>=@{operator$>$=}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool operator$>$= (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_85d7fc41b6ec5e0faaf89b076c9c5c89_85d7fc41b6ec5e0faaf89b076c9c5c89}
+
+
+Boolean $>$= overloaded operator returns true if a $>$= b in BOTH x and y-directions 
+
+Definition at line 119 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}119                                                                                 {
+120   bool res = true;  for(int i=0; i<3; i++)      res = res && (a(i)>=b(i));  return res; 
+121 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator>>@{operator$>$$>$}}
+\index{operator>>@{operator$>$$>$}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ istream\& operator$>$$>$ (istream \& {\em is}, {\bf Vec3T}$<$ F $>$ \& {\em a})}\label{vec3t_8hpp_e56ca0d9e03cb4b2f3a183f48d3f75a7_e56ca0d9e03cb4b2f3a183f48d3f75a7}
+
+
+input $>$$>$ operator. is $>$$>$ a[i] 
+
+Definition at line 191 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}191                                                                  {
+192   for(int i=0; i<3; i++) is>>a[i]; return is;
+193 }
+\end{verbatim}\normalsize 
+
+
+\index{vec3t.hpp@{vec3t.hpp}!operator^@{operator$^\wedge$}}
+\index{operator^@{operator$^\wedge$}!vec3t.hpp@{vec3t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$F$>$ operator$^\wedge$ (const {\bf Vec3T}$<$ F $>$ \& {\em a}, const {\bf Vec3T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec3t_8hpp_d8144ac13e49f362e322dddb2a532c0f_d8144ac13e49f362e322dddb2a532c0f}
+
+
+Overloaded cross product operator. Returns a x b = vector (a[1]$\ast$b[2]-a[2]$\ast$b[1], a[2]$\ast$b[0]-a[0]$\ast$b[2], a[0]$\ast$b[1]-a[1]$\ast$b[0]) 
+
+Definition at line 161 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}161                                                                                     {
+162   return Vec3T<F>(a(1)*b(2)-a(2)*b(1), a(2)*b(0)-a(0)*b(2), a(0)*b(1)-a(1)*b(0)); 
+163 }
+\end{verbatim}\normalsize 
+
+

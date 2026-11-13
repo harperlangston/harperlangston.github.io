@@ -1,0 +1,605 @@
+\section{Let3d\_\-MPI::Node Class Reference}
+\label{classLet3d__MPI_1_1Node}\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+{\tt \#include $<$let3d\_\-mpi.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+The {\bf Node}{\rm (p.\,\pageref{classLet3d__MPI_1_1Node})} class stores information for a node or box in the octree. See for more detailed information. 
+
+Each box keeps a pointer to a {\bf Node\-Ext}{\rm (p.\,\pageref{classLet3d__MPI_1_1NodeExt})} for extra information as well as information on parents, children, depth, path to the node, etc. 
+
+
+
+Definition at line 107 of file let3d\_\-mpi.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Node} (int p, int c, Index3 t, int d)
+\item 
+{\bf $\sim$Node} ()
+\item 
+int \& {\bf par} ()
+\item 
+int \& {\bf chd} ()
+\item 
+Index3 \& {\bf path2Node} ()
+\item 
+int \& {\bf depth} ()
+\item 
+int \& {\bf tag} ()
+\item 
+int \& {\bf glb\-Src\-Node\-Idx} ()
+\item 
+int \& {\bf glb\-Src\-Exa\-Beg} ()
+\item 
+int \& {\bf glb\-Src\-Exa\-Num} ()
+\item 
+{\bf Node\-Ext} $\ast$ {\bf ptr} ()
+\item 
+vector$<$ int $>$ \& {\bf Unodes} ()
+\item 
+vector$<$ int $>$ \& {\bf Vnodes} ()
+\item 
+vector$<$ int $>$ \& {\bf Wnodes} ()
+\item 
+vector$<$ int $>$ \& {\bf Xnodes} ()
+\item 
+int \& {\bf ctb\-Src\-Node\-Idx} ()
+\item 
+int \& {\bf ctb\-Src\-Exa\-Beg} ()
+\item 
+int \& {\bf ctb\-Src\-Exa\-Num} ()
+\item 
+vector$<$ int $>$ \& {\bf ctb\-Src\-Own\-Vec\-Idxs} ()
+\item 
+int \& {\bf usr\-Src\-Node\-Idx} ()
+\item 
+int \& {\bf usr\-Src\-Exa\-Beg} ()
+\item 
+int \& {\bf usr\-Src\-Exa\-Num} ()
+\item 
+int \& {\bf eva\-Trg\-Node\-Idx} ()
+\item 
+int \& {\bf eva\-Trg\-Exa\-Beg} ()
+\item 
+int \& {\bf eva\-Trg\-Exa\-Num} ()
+\item 
+vector$<$ int $>$ \& {\bf eva\-Trg\-Own\-Vec\-Idxs} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf \_\-par}
+\item 
+int {\bf \_\-chd}
+\item 
+Index3 {\bf \_\-path2Node}
+\item 
+int {\bf \_\-depth}
+\item 
+int {\bf \_\-glb\-Src\-Node\-Idx}
+\item 
+int {\bf \_\-glb\-Src\-Exa\-Beg}
+\item 
+int {\bf \_\-glb\-Src\-Exa\-Num}
+\item 
+int {\bf \_\-tag}
+\item 
+{\bf Node\-Ext} $\ast$ {\bf \_\-ptr}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!Node@{Node}}
+\index{Node@{Node}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Let3d\_\-MPI::Node::Node (int {\em p}, int {\em c}, Index3 {\em t}, int {\em d})\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_fc1a9b4d57492964c65833ea79c507d5_fc1a9b4d57492964c65833ea79c507d5}
+
+
+{\bf Node}{\rm (p.\,\pageref{classLet3d__MPI_1_1Node})} is declared by providing integres which identify parent, first child, depth and path to this new node 
+
+Definition at line 132 of file let3d\_\-mpi.hpp.
+
+\footnotesize\begin{verbatim}132                                             :
+133                 _par(p), _chd(c), _path2Node(t), _depth(d),
+134                 _tag(false), _ptr(NULL) {;}
+         ~Node() {
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!~Node@{$\sim$Node}}
+\index{~Node@{$\sim$Node}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Let3d\_\-MPI::Node::$\sim$Node ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_cb9f183fa6855dd10f3e01bce1a87a15_cb9f183fa6855dd10f3e01bce1a87a15}
+
+
+
+
+Definition at line 135 of file let3d\_\-mpi.hpp.
+
+References \_\-ptr.
+
+\footnotesize\begin{verbatim}135                  {
+136                 if(_ptr!=NULL)            delete _ptr;
+137          }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!chd@{chd}}
+\index{chd@{chd}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::chd ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_8bd633985ededb26fd082d019896fec0_8bd633985ededb26fd082d019896fec0}
+
+
+Return integer location of first child in node vector 
+
+Definition at line 142 of file let3d\_\-mpi.hpp.
+
+References \_\-chd.
+
+Referenced by Let3d\_\-MPI::terminal().
+
+\footnotesize\begin{verbatim}142 { return _chd; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!ctbSrcExaBeg@{ctbSrcExaBeg}}
+\index{ctbSrcExaBeg@{ctbSrcExaBeg}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::ctb\-Src\-Exa\-Beg ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_784586f551a89546a75eb3a834e40580_784586f551a89546a75eb3a834e40580}
+
+
+Return a pointer to contributor source exact beginning index 
+
+Definition at line 171 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-ctb\-Src\-Exa\-Beg, and ptr().
+
+Referenced by FMM3d\_\-MPI::ctb\-Src\-Exa\-Den(), FMM3d\_\-MPI::ctb\-Src\-Exa\-Nor(), and FMM3d\_\-MPI::ctb\-Src\-Exa\-Pos().
+
+\footnotesize\begin{verbatim}171 { return ptr()->_ctbSrcExaBeg; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!ctbSrcExaNum@{ctbSrcExaNum}}
+\index{ctbSrcExaNum@{ctbSrcExaNum}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::ctb\-Src\-Exa\-Num ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_40c5f415ea514130096f9a032455a556_40c5f415ea514130096f9a032455a556}
+
+
+Return a pointer to contributor source exact number 
+
+Definition at line 173 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-ctb\-Src\-Exa\-Num, and ptr().
+
+Referenced by FMM3d\_\-MPI::ctb\-Src\-Exa\-Den(), FMM3d\_\-MPI::ctb\-Src\-Exa\-Nor(), and FMM3d\_\-MPI::ctb\-Src\-Exa\-Pos().
+
+\footnotesize\begin{verbatim}173 { return ptr()->_ctbSrcExaNum; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!ctbSrcNodeIdx@{ctbSrcNodeIdx}}
+\index{ctbSrcNodeIdx@{ctbSrcNodeIdx}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::ctb\-Src\-Node\-Idx ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_480fe3031d93762b58296a762374103c_480fe3031d93762b58296a762374103c}
+
+
+Return a pointer to contributor source node index 
+
+Definition at line 169 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-ctb\-Src\-Node\-Idx, and ptr().
+
+Referenced by FMM3d\_\-MPI::ctb\-Src\-Upw\-Chk\-Val(), and FMM3d\_\-MPI::ctb\-Src\-Upw\-Equ\-Den().
+
+\footnotesize\begin{verbatim}169 { return ptr()->_ctbSrcNodeIdx; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!ctbSrcOwnVecIdxs@{ctbSrcOwnVecIdxs}}
+\index{ctbSrcOwnVecIdxs@{ctbSrcOwnVecIdxs}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$\& Let3d\_\-MPI::Node::ctb\-Src\-Own\-Vec\-Idxs ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_9410a66c677d88478f7a7a341fd9d946_9410a66c677d88478f7a7a341fd9d946}
+
+
+Return a pointer to contributor source vector of indices 
+
+Definition at line 175 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-ctb\-Src\-Own\-Vec\-Idxs, and ptr().
+
+\footnotesize\begin{verbatim}175 { return ptr()->_ctbSrcOwnVecIdxs; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!depth@{depth}}
+\index{depth@{depth}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::depth ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_9a89dd5621b9f31341c798c701590c20_9a89dd5621b9f31341c798c701590c20}
+
+
+Return node's depth in the tree 
+
+Definition at line 146 of file let3d\_\-mpi.hpp.
+
+References \_\-depth.
+
+Referenced by Let3d\_\-MPI::depth().
+
+\footnotesize\begin{verbatim}146 { return _depth; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!evaTrgExaBeg@{evaTrgExaBeg}}
+\index{evaTrgExaBeg@{evaTrgExaBeg}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::eva\-Trg\-Exa\-Beg ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_1241a6beb10dcc222dabaef9838d7276_1241a6beb10dcc222dabaef9838d7276}
+
+
+Return a pointer to evaluator target exact beginning 
+
+Definition at line 187 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-eva\-Trg\-Exa\-Beg, and ptr().
+
+Referenced by FMM3d\_\-MPI::eva\-Trg\-Exa\-Pos(), and FMM3d\_\-MPI::eva\-Trg\-Exa\-Val().
+
+\footnotesize\begin{verbatim}187 { return ptr()->_evaTrgExaBeg; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!evaTrgExaNum@{evaTrgExaNum}}
+\index{evaTrgExaNum@{evaTrgExaNum}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::eva\-Trg\-Exa\-Num ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_0c4926f1727c5327ef41d90db4bc40de_0c4926f1727c5327ef41d90db4bc40de}
+
+
+Return a pointer to evaluator target exact number 
+
+Definition at line 189 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-eva\-Trg\-Exa\-Num, and ptr().
+
+Referenced by FMM3d\_\-MPI::eva\-Trg\-Exa\-Pos(), and FMM3d\_\-MPI::eva\-Trg\-Exa\-Val().
+
+\footnotesize\begin{verbatim}189 { return ptr()->_evaTrgExaNum; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!evaTrgNodeIdx@{evaTrgNodeIdx}}
+\index{evaTrgNodeIdx@{evaTrgNodeIdx}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::eva\-Trg\-Node\-Idx ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_b1477eecec8df181ec0697652f7729de_b1477eecec8df181ec0697652f7729de}
+
+
+Return a pointer to evaluator target node index 
+
+Definition at line 185 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-eva\-Trg\-Node\-Idx, and ptr().
+
+Referenced by FMM3d\_\-MPI::eva\-Trg\-Dwn\-Chk\-Val(), and FMM3d\_\-MPI::eva\-Trg\-Dwn\-Equ\-Den().
+
+\footnotesize\begin{verbatim}185 { return ptr()->_evaTrgNodeIdx; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!evaTrgOwnVecIdxs@{evaTrgOwnVecIdxs}}
+\index{evaTrgOwnVecIdxs@{evaTrgOwnVecIdxs}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$\& Let3d\_\-MPI::Node::eva\-Trg\-Own\-Vec\-Idxs ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_e206134bdf1e5eb4bc7bf02bbc2d5f57_e206134bdf1e5eb4bc7bf02bbc2d5f57}
+
+
+Return a pointer to evaluator target vector of indices 
+
+Definition at line 191 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-eva\-Trg\-Own\-Vec\-Idxs, and ptr().
+
+\footnotesize\begin{verbatim}191 { return ptr()->_evaTrgOwnVecIdxs; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!glbSrcExaBeg@{glbSrcExaBeg}}
+\index{glbSrcExaBeg@{glbSrcExaBeg}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::glb\-Src\-Exa\-Beg ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_9ea6714747312814b779525641871fc9_9ea6714747312814b779525641871fc9}
+
+
+Return global source exact beginning index 
+
+Definition at line 152 of file let3d\_\-mpi.hpp.
+
+References \_\-glb\-Src\-Exa\-Beg.
+
+\footnotesize\begin{verbatim}152 { return _glbSrcExaBeg; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!glbSrcExaNum@{glbSrcExaNum}}
+\index{glbSrcExaNum@{glbSrcExaNum}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::glb\-Src\-Exa\-Num ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_aec516069f69a725ee2b5eef0316c7fa_aec516069f69a725ee2b5eef0316c7fa}
+
+
+Return global exact number of sources 
+
+Definition at line 154 of file let3d\_\-mpi.hpp.
+
+References \_\-glb\-Src\-Exa\-Num.
+
+\footnotesize\begin{verbatim}154 { return _glbSrcExaNum; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!glbSrcNodeIdx@{glbSrcNodeIdx}}
+\index{glbSrcNodeIdx@{glbSrcNodeIdx}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::glb\-Src\-Node\-Idx ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_ed4d3109da13f01af00e169b3da0e385_ed4d3109da13f01af00e169b3da0e385}
+
+
+Return the global source node index 
+
+Definition at line 150 of file let3d\_\-mpi.hpp.
+
+References \_\-glb\-Src\-Node\-Idx.
+
+\footnotesize\begin{verbatim}150 { return _glbSrcNodeIdx; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!par@{par}}
+\index{par@{par}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::par ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_9285b73b4fba90f56b3d5bab7b994e3f_9285b73b4fba90f56b3d5bab7b994e3f}
+
+
+Return integer location of parent in node vector 
+
+Definition at line 140 of file let3d\_\-mpi.hpp.
+
+References \_\-par.
+
+Referenced by Let3d\_\-MPI::parent(), and Let3d\_\-MPI::root().
+
+\footnotesize\begin{verbatim}140 { return _par; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!path2Node@{path2Node}}
+\index{path2Node@{path2Node}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Index3\& Let3d\_\-MPI::Node::path2Node ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_9b575f3d0d503ffeef3682a04f373c35_9b575f3d0d503ffeef3682a04f373c35}
+
+
+Return the path to the node 
+
+Definition at line 144 of file let3d\_\-mpi.hpp.
+
+References \_\-path2Node.
+
+Referenced by Let3d\_\-MPI::path2Node().
+
+\footnotesize\begin{verbatim}144 { return _path2Node; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!ptr@{ptr}}
+\index{ptr@{ptr}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Node\-Ext}$\ast$ Let3d\_\-MPI::Node::ptr ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_85549c3ab12fa7f32d2508fc162678d4_85549c3ab12fa7f32d2508fc162678d4}
+
+
+Return pointer to {\bf Node\-Ext}{\rm (p.\,\pageref{classLet3d__MPI_1_1NodeExt})}, which stores extra information 
+
+Definition at line 157 of file let3d\_\-mpi.hpp.
+
+References \_\-ptr.
+
+Referenced by ctb\-Src\-Exa\-Beg(), ctb\-Src\-Exa\-Num(), ctb\-Src\-Node\-Idx(), ctb\-Src\-Own\-Vec\-Idxs(), eva\-Trg\-Exa\-Beg(), eva\-Trg\-Exa\-Num(), eva\-Trg\-Node\-Idx(), eva\-Trg\-Own\-Vec\-Idxs(), Unodes(), usr\-Src\-Exa\-Beg(), usr\-Src\-Exa\-Num(), usr\-Src\-Node\-Idx(), Vnodes(), Wnodes(), and Xnodes().
+
+\footnotesize\begin{verbatim}157 {               if(_ptr==NULL) _ptr = new NodeExt();            return _ptr;     }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!tag@{tag}}
+\index{tag@{tag}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::tag ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_58cc1da510029fc48aaa41b18ee51750_58cc1da510029fc48aaa41b18ee51750}
+
+
+Return node's tag 
+
+Definition at line 148 of file let3d\_\-mpi.hpp.
+
+References \_\-tag.
+
+\footnotesize\begin{verbatim}148 { return _tag; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!Unodes@{Unodes}}
+\index{Unodes@{Unodes}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$\& Let3d\_\-MPI::Node::Unodes ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_b0378ed097e88f4a10757bb0503af35a_b0378ed097e88f4a10757bb0503af35a}
+
+
+Return Node\-Ext's Unodes list 
+
+Definition at line 160 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-Unodes, and ptr().
+
+\footnotesize\begin{verbatim}160 { return ptr()->_Unodes; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!usrSrcExaBeg@{usrSrcExaBeg}}
+\index{usrSrcExaBeg@{usrSrcExaBeg}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::usr\-Src\-Exa\-Beg ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_406e6502fa2f065633d5bf5acb0ab47d_406e6502fa2f065633d5bf5acb0ab47d}
+
+
+Return a pointer to user source exact beginning index 
+
+Definition at line 180 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-usr\-Src\-Exa\-Beg, and ptr().
+
+Referenced by FMM3d\_\-MPI::usr\-Src\-Exa\-Den(), FMM3d\_\-MPI::usr\-Src\-Exa\-Nor(), and FMM3d\_\-MPI::usr\-Src\-Exa\-Pos().
+
+\footnotesize\begin{verbatim}180 { return ptr()->_usrSrcExaBeg; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!usrSrcExaNum@{usrSrcExaNum}}
+\index{usrSrcExaNum@{usrSrcExaNum}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::usr\-Src\-Exa\-Num ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_01c4cc2952d8769220afca86f7ef4e39_01c4cc2952d8769220afca86f7ef4e39}
+
+
+Return a pointer to user source exact number 
+
+Definition at line 182 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-usr\-Src\-Exa\-Num, and ptr().
+
+Referenced by FMM3d\_\-MPI::usr\-Src\-Exa\-Den(), FMM3d\_\-MPI::usr\-Src\-Exa\-Nor(), and FMM3d\_\-MPI::usr\-Src\-Exa\-Pos().
+
+\footnotesize\begin{verbatim}182 { return ptr()->_usrSrcExaNum; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!usrSrcNodeIdx@{usrSrcNodeIdx}}
+\index{usrSrcNodeIdx@{usrSrcNodeIdx}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d\_\-MPI::Node::usr\-Src\-Node\-Idx ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_6afd33b520400599080c70f8e0513f35_6afd33b520400599080c70f8e0513f35}
+
+
+Return a pointer to user source node index 
+
+Definition at line 178 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-usr\-Src\-Node\-Idx, and ptr().
+
+Referenced by FMM3d\_\-MPI::usr\-Src\-Upw\-Equ\-Den().
+
+\footnotesize\begin{verbatim}178 { return ptr()->_usrSrcNodeIdx; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!Vnodes@{Vnodes}}
+\index{Vnodes@{Vnodes}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$\& Let3d\_\-MPI::Node::Vnodes ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_0ac14aa83b42d181255da58425b5509b_0ac14aa83b42d181255da58425b5509b}
+
+
+Return Node\-Ext's Vnodes list 
+
+Definition at line 162 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-Vnodes, and ptr().
+
+\footnotesize\begin{verbatim}162 { return ptr()->_Vnodes; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!Wnodes@{Wnodes}}
+\index{Wnodes@{Wnodes}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$\& Let3d\_\-MPI::Node::Wnodes ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_eff61124e41de07b2a437c02712734f5_eff61124e41de07b2a437c02712734f5}
+
+
+Return Node\-Ext's Wnodes list 
+
+Definition at line 164 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-Wnodes, and ptr().
+
+\footnotesize\begin{verbatim}164 { return ptr()->_Wnodes; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!Xnodes@{Xnodes}}
+\index{Xnodes@{Xnodes}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$\& Let3d\_\-MPI::Node::Xnodes ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d__MPI_1_1Node_1cfb3db72d5926015481da96073fbe27_1cfb3db72d5926015481da96073fbe27}
+
+
+Return Node\-Ext's Xnodes list 
+
+Definition at line 166 of file let3d\_\-mpi.hpp.
+
+References Let3d\_\-MPI::Node\-Ext::\_\-Xnodes, and ptr().
+
+\footnotesize\begin{verbatim}166 { return ptr()->_Xnodes; }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!_chd@{\_\-chd}}
+\index{_chd@{\_\-chd}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d\_\-MPI::Node::\_\-chd}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d__MPI_1_1Node_3d7f0cc89372f787ca1a9a8bfc4c80ac_3d7f0cc89372f787ca1a9a8bfc4c80ac}
+
+
+Return integer location of Node's first child in node vector 
+
+Definition at line 112 of file let3d\_\-mpi.hpp.
+
+Referenced by chd().\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!_depth@{\_\-depth}}
+\index{_depth@{\_\-depth}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d\_\-MPI::Node::\_\-depth}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d__MPI_1_1Node_1a4b494c7ddb30acebee8498451bd389_1a4b494c7ddb30acebee8498451bd389}
+
+
+tree-level depth of the node 
+
+Definition at line 119 of file let3d\_\-mpi.hpp.
+
+Referenced by depth().\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!_glbSrcExaBeg@{\_\-glbSrcExaBeg}}
+\index{_glbSrcExaBeg@{\_\-glbSrcExaBeg}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d\_\-MPI::Node::\_\-glb\-Src\-Exa\-Beg}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d__MPI_1_1Node_2eb6f0049fd9c23391ec5e8c7a87cf25_2eb6f0049fd9c23391ec5e8c7a87cf25}
+
+
+global source exact beginning - available to all processors 
+
+Definition at line 123 of file let3d\_\-mpi.hpp.
+
+Referenced by glb\-Src\-Exa\-Beg().\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!_glbSrcExaNum@{\_\-glbSrcExaNum}}
+\index{_glbSrcExaNum@{\_\-glbSrcExaNum}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d\_\-MPI::Node::\_\-glb\-Src\-Exa\-Num}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d__MPI_1_1Node_d2f9b604fcdf7d1f83fc4cfe38aa62e1_d2f9b604fcdf7d1f83fc4cfe38aa62e1}
+
+
+global source exact number - available to all processors 
+
+Definition at line 125 of file let3d\_\-mpi.hpp.
+
+Referenced by glb\-Src\-Exa\-Num().\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!_glbSrcNodeIdx@{\_\-glbSrcNodeIdx}}
+\index{_glbSrcNodeIdx@{\_\-glbSrcNodeIdx}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d\_\-MPI::Node::\_\-glb\-Src\-Node\-Idx}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d__MPI_1_1Node_cf27e8d726f505278c1e823e28422982_cf27e8d726f505278c1e823e28422982}
+
+
+global source node index - available to all processors 
+
+Definition at line 121 of file let3d\_\-mpi.hpp.
+
+Referenced by glb\-Src\-Node\-Idx().\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!_par@{\_\-par}}
+\index{_par@{\_\-par}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d\_\-MPI::Node::\_\-par}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d__MPI_1_1Node_3e1a526b6a60598d99480dc7554b82fb_3e1a526b6a60598d99480dc7554b82fb}
+
+
+Return integer location of parent node in node vector 
+
+Definition at line 110 of file let3d\_\-mpi.hpp.
+
+Referenced by par().\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!_path2Node@{\_\-path2Node}}
+\index{_path2Node@{\_\-path2Node}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Index3 {\bf Let3d\_\-MPI::Node::\_\-path2Node}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d__MPI_1_1Node_1105c752dee4c52564446e2f0d042664_1105c752dee4c52564446e2f0d042664}
+
+
+path to the node through the octree. This 3 number code in binary represents how to traverse the tree to the node That is, the integer vector (x,y,z) and its binary expansion tell how to go from the root box to the current box (0 stands for up/left and 1 for bottom/down, etc.). 
+
+Definition at line 117 of file let3d\_\-mpi.hpp.
+
+Referenced by path2Node().\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!_ptr@{\_\-ptr}}
+\index{_ptr@{\_\-ptr}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Node\-Ext}$\ast$ {\bf Let3d\_\-MPI::Node::\_\-ptr}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d__MPI_1_1Node_ed0cfb365dac6bfe43badc9baabeacee_ed0cfb365dac6bfe43badc9baabeacee}
+
+
+Extra information for each node 
+
+Definition at line 129 of file let3d\_\-mpi.hpp.
+
+Referenced by ptr(), and $\sim$Node().\index{Let3d_MPI::Node@{Let3d\_\-MPI::Node}!_tag@{\_\-tag}}
+\index{_tag@{\_\-tag}!Let3d_MPI::Node@{Let3d\_\-MPI::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d\_\-MPI::Node::\_\-tag}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d__MPI_1_1Node_77940a0de3087721104e2e1139652c36_77940a0de3087721104e2e1139652c36}
+
+
+specific for every processor - available to all processors 
+
+Definition at line 127 of file let3d\_\-mpi.hpp.
+
+Referenced by tag().
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+fmm3d\_\-mpi/{\bf let3d\_\-mpi.hpp}\end{CompactItemize}

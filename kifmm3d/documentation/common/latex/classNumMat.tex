@@ -1,0 +1,312 @@
+\section{Num\-Mat$<$ F $>$ Class Template Reference}
+\label{classNumMat}\index{NumMat@{NumMat}}
+{\tt \#include $<$nummat.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class F$>$ class Num\-Mat$<$ F $>$}
+
+Num\-Mat is a matrix made up of a size and data. The data can be made up of any type (ints, double, bools, etc.). 
+
+
+
+Definition at line 27 of file nummat.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Num\-Mat} (int m=0, int n=0)
+\item 
+{\bf Num\-Mat} (int m, int n, bool owndata, F $\ast$data)
+\item 
+{\bf Num\-Mat} (const {\bf Num\-Mat} \&C)
+\item 
+{\bf $\sim$Num\-Mat} ()
+\item 
+{\bf Num\-Mat} \& {\bf operator=} (const {\bf Num\-Mat} \&C)
+\item 
+void {\bf resize} (int m, int n)
+\item 
+const F \& {\bf operator()} (int i, int j) const 
+\item 
+F \& {\bf operator()} (int i, int j)
+\item 
+F $\ast$ {\bf data} () const 
+\item 
+F $\ast$ {\bf clmdata} (int j)
+\item 
+int {\bf m} () const 
+\item 
+int {\bf n} () const 
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf \_\-m}
+\item 
+int {\bf \_\-n}
+\item 
+bool {\bf \_\-owndata}
+\item 
+F $\ast$ {\bf \_\-data}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{NumMat@{Num\-Mat}!NumMat@{NumMat}}
+\index{NumMat@{NumMat}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Mat}$<$ F $>$::{\bf Num\-Mat} (int {\em m} = {\tt 0}, int {\em n} = {\tt 0})\hspace{0.3cm}{\tt  [inline]}}\label{classNumMat_dbf73e11c1ff70b095c6d97aa75ed610_dbf73e11c1ff70b095c6d97aa75ed610}
+
+
+Construct a Num\-Mat using the dimensions, m and n. owndata set to true 
+
+Definition at line 40 of file nummat.hpp.
+
+References Num\-Mat$<$ F $>$::\_\-data, Num\-Mat$<$ F $>$::\_\-m, and Num\-Mat$<$ F $>$::\_\-n.
+
+\footnotesize\begin{verbatim}40                           : _m(m), _n(n), _owndata(true) {
+41          if(_m>0 && _n>0) { _data = new F[_m*_n]; assert( _data!=NULL ); memset(_data, 0, _m*_n*sizeof(F)); } else _data=NULL;
+42   }
+\end{verbatim}\normalsize 
+
+
+\index{NumMat@{Num\-Mat}!NumMat@{NumMat}}
+\index{NumMat@{NumMat}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Mat}$<$ F $>$::{\bf Num\-Mat} (int {\em m}, int {\em n}, bool {\em owndata}, F $\ast$ {\em data})\hspace{0.3cm}{\tt  [inline]}}\label{classNumMat_b5da1f826a1fdb2179102482afe8981d_b5da1f826a1fdb2179102482afe8981d}
+
+
+Construct Num\-Mat with data given. If owndata is false, then the data passed is not stored in a new array, F. Otherwise, an array of type F must be allocated into memory to store the data 
+
+Definition at line 45 of file nummat.hpp.
+
+\footnotesize\begin{verbatim}45                                              : _m(m), _n(n), _owndata(owndata) {
+46          if(_owndata) {
+47                 if(_m>0 && _n>0) { _data = new F[_m*_n]; assert( _data!=NULL ); memset(_data, 0, _m*_n*sizeof(F)); } else _data=NULL;
+48                 if(_m>0 && _n>0) memcpy( _data, data, _m*_n*sizeof(F) );
+49          } else {
+50                 _data = data;
+51          }
+52   }
+\end{verbatim}\normalsize 
+
+
+\index{NumMat@{Num\-Mat}!NumMat@{NumMat}}
+\index{NumMat@{NumMat}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Mat}$<$ F $>$::{\bf Num\-Mat} (const {\bf Num\-Mat}$<$ F $>$ \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classNumMat_4b3436a830e943717b773e03eebf08b7_4b3436a830e943717b773e03eebf08b7}
+
+
+Construct a new matrix with another matrix as argument. New matrix gets C.\_\-m, C.\_\-n and C.\_\-owndata. If \_\-owndata is true, the new matrix generates an array F to copy the data. If \_\-owndata is false, \_\-data is just set to C.\_\-data, simply pointing to the same data 
+
+Definition at line 56 of file nummat.hpp.
+
+References Num\-Mat$<$ F $>$::\_\-data.
+
+\footnotesize\begin{verbatim}56                          : _m(C._m), _n(C._n), _owndata(C._owndata) {
+57          if(_owndata) {
+58                 if(_m>0 && _n>0) { _data = new F[_m*_n]; assert( _data!=NULL ); memset(_data, 0, _m*_n*sizeof(F)); } else _data=NULL;
+59                 if(_m>0 && _n>0) memcpy( _data, C._data, _m*_n*sizeof(F) );
+60          } else {
+61                 _data = C._data;
+62          }
+63   }
+\end{verbatim}\normalsize 
+
+
+\index{NumMat@{Num\-Mat}!~NumMat@{$\sim$NumMat}}
+\index{~NumMat@{$\sim$NumMat}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Mat}$<$ F $>$::$\sim${\bf Num\-Mat} ()\hspace{0.3cm}{\tt  [inline]}}\label{classNumMat_2de3b0b2c141a45e3738519e8732710a_2de3b0b2c141a45e3738519e8732710a}
+
+
+Destroy Num\-Mat. If \_\-owndata is true, \_\-data must be deleted and deallocated 
+
+Definition at line 65 of file nummat.hpp.
+
+\footnotesize\begin{verbatim}65             { 
+66          if(_owndata) { 
+67                 if(_m>0 && _n>0) { delete[] _data; _data = NULL; } 
+68          }
+69   }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{NumMat@{Num\-Mat}!clmdata@{clmdata}}
+\index{clmdata@{clmdata}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Num\-Mat}$<$ F $>$::clmdata (int {\em j})\hspace{0.3cm}{\tt  [inline]}}\label{classNumMat_29a94d113c6ed3f2191bb35c48a46e16_29a94d113c6ed3f2191bb35c48a46e16}
+
+
+Return \_\-data j$\ast$\_\-m 
+
+Definition at line 106 of file nummat.hpp.
+
+\footnotesize\begin{verbatim}106 { return &(_data[j*_m]); }
+\end{verbatim}\normalsize 
+
+
+\index{NumMat@{Num\-Mat}!data@{data}}
+\index{data@{data}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Num\-Mat}$<$ F $>$::data () const\hspace{0.3cm}{\tt  [inline]}}\label{classNumMat_ad3b2b9598c8547b4f7afe7a79ed520c_ad3b2b9598c8547b4f7afe7a79ed520c}
+
+
+Return \_\-data 
+
+Definition at line 104 of file nummat.hpp.
+
+Referenced by clear(), SVDRep::construct(), daxpy(), dgemm(), dgemv(), SVDRep::dgemv(), dger(), and inv().
+
+\footnotesize\begin{verbatim}104 { return _data; }
+\end{verbatim}\normalsize 
+
+
+\index{NumMat@{Num\-Mat}!m@{m}}
+\index{m@{m}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Num\-Mat}$<$ F $>$::m () const\hspace{0.3cm}{\tt  [inline]}}\label{classNumMat_6a2fa69c25bf8ed36e019d0fb3f5e966_6a2fa69c25bf8ed36e019d0fb3f5e966}
+
+
+Return m 
+
+Definition at line 108 of file nummat.hpp.
+
+Referenced by clear(), SVDRep::construct(), daxpy(), dgemm(), dgemv(), SVDRep::dgemv(), dger(), inv(), SVDRep::m(), operator$<$$<$(), pinv(), setvalue(), and tran().
+
+\footnotesize\begin{verbatim}108 { return _m; }
+\end{verbatim}\normalsize 
+
+
+\index{NumMat@{Num\-Mat}!n@{n}}
+\index{n@{n}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Num\-Mat}$<$ F $>$::n () const\hspace{0.3cm}{\tt  [inline]}}\label{classNumMat_611a0b095fab035a528671dd8cf7f3b7_611a0b095fab035a528671dd8cf7f3b7}
+
+
+Return n 
+
+Definition at line 110 of file nummat.hpp.
+
+Referenced by clear(), SVDRep::construct(), daxpy(), dgemm(), dgemv(), SVDRep::dgemv(), dger(), inv(), SVDRep::n(), operator$<$$<$(), pinv(), setvalue(), and tran().
+
+\footnotesize\begin{verbatim}110 { return _n; }
+\end{verbatim}\normalsize 
+
+
+\index{NumMat@{Num\-Mat}!operator()@{operator()}}
+\index{operator()@{operator()}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Num\-Mat}$<$ F $>$::operator() (int {\em i}, int {\em j})\hspace{0.3cm}{\tt  [inline]}}\label{classNumMat_743eed4071652374b372885106b9142f_743eed4071652374b372885106b9142f}
+
+
+Return \_\-data(i,j) or \_\-data[i+j$\ast$\_\-m] 
+
+Definition at line 99 of file nummat.hpp.
+
+\footnotesize\begin{verbatim}99                                { 
+100          assert( i>=0 && i<_m && j>=0 && j<_n );
+101          return _data[i+j*_m];
+102   }
+\end{verbatim}\normalsize 
+
+
+\index{NumMat@{Num\-Mat}!operator()@{operator()}}
+\index{operator()@{operator()}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Num\-Mat}$<$ F $>$::operator() (int {\em i}, int {\em j}) const\hspace{0.3cm}{\tt  [inline]}}\label{classNumMat_08092f91032a8a0df0ad0870710e6a7a_08092f91032a8a0df0ad0870710e6a7a}
+
+
+Return \_\-data(i,j) or \_\-data[i+j$\ast$\_\-m] 
+
+Definition at line 94 of file nummat.hpp.
+
+\footnotesize\begin{verbatim}94                                            { 
+95          assert( i>=0 && i<_m && j>=0 && j<_n );
+96          return _data[i+j*_m];
+97   }
+\end{verbatim}\normalsize 
+
+
+\index{NumMat@{Num\-Mat}!operator=@{operator=}}
+\index{operator=@{operator=}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Mat}\& {\bf Num\-Mat}$<$ F $>$::operator= (const {\bf Num\-Mat}$<$ F $>$ \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classNumMat_7e5baac1fa9ea6a2167d746fb6c83a4c_7e5baac1fa9ea6a2167d746fb6c83a4c}
+
+
+A way of setting an existing matrix equal to another exisiting matrix 
+
+Definition at line 71 of file nummat.hpp.
+
+\footnotesize\begin{verbatim}71                                      {
+72          if(_owndata) { 
+73                 if(_m>0 && _n>0) { delete[] _data; _data = NULL; } 
+74          }
+75          _m = C._m; _n=C._n; _owndata=C._owndata;
+76          if(_owndata) {
+77                 if(_m>0 && _n>0) { _data = new F[_m*_n]; assert( _data!=NULL ); memset(_data, 0, _m*_n*sizeof(F)); } else _data=NULL;
+78                 if(_m>0 && _n>0) memcpy( _data, C._data, _m*_n*sizeof(F) );
+79          } else {
+80                 _data = C._data;
+81          }
+82          return *this;
+83   }
+\end{verbatim}\normalsize 
+
+
+\index{NumMat@{Num\-Mat}!resize@{resize}}
+\index{resize@{resize}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void {\bf Num\-Mat}$<$ F $>$::resize (int {\em m}, int {\em n})\hspace{0.3cm}{\tt  [inline]}}\label{classNumMat_2ebfd442ba48ad3dfe61b1c0fc370599_2ebfd442ba48ad3dfe61b1c0fc370599}
+
+
+Resize the matrix with new m and n. Asserts \_\-owndata is true so that new array of type F can be allocated into memory 
+
+Definition at line 85 of file nummat.hpp.
+
+Referenced by SVDRep::construct().
+
+\footnotesize\begin{verbatim}85                              {
+86          assert( _owndata==true );
+87          if(_m!=m || _n!=n) {
+88                 if(_m>0 && _n>0) { delete[] _data; _data = NULL; } 
+89                 _m = m; _n = n;
+90                 if(_m>0 && _n>0) { _data = new F[_m*_n]; assert( _data!=NULL ); memset(_data, 0, _m*_n*sizeof(F)); } else _data=NULL;
+91          }
+92   }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{NumMat@{Num\-Mat}!_data@{\_\-data}}
+\index{_data@{\_\-data}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Num\-Mat}$<$ F $>$::{\bf \_\-data}}\label{classNumMat_7125153abbcb2e949a1b4f81cbe22af5_7125153abbcb2e949a1b4f81cbe22af5}
+
+
+The data. Since using templates, \_\-data can be of any type 
+
+Definition at line 37 of file nummat.hpp.
+
+Referenced by Num\-Mat$<$ F $>$::Num\-Mat().\index{NumMat@{Num\-Mat}!_m@{\_\-m}}
+\index{_m@{\_\-m}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Num\-Mat}$<$ F $>$::{\bf \_\-m}}\label{classNumMat_b781ae81625400d76d94420d3af2c230_b781ae81625400d76d94420d3af2c230}
+
+
+\_\-m is the \char`\"{}m\char`\"{} dimension, or number of rows in the matrix 
+
+Definition at line 31 of file nummat.hpp.
+
+Referenced by Num\-Mat$<$ F $>$::Num\-Mat().\index{NumMat@{Num\-Mat}!_n@{\_\-n}}
+\index{_n@{\_\-n}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Num\-Mat}$<$ F $>$::{\bf \_\-n}}\label{classNumMat_b628b96b5cc160f67acf6b4673cdd8bb_b628b96b5cc160f67acf6b4673cdd8bb}
+
+
+\_\-n is the \char`\"{}n\char`\"{} dimension, or number of columns in the matrix 
+
+Definition at line 33 of file nummat.hpp.
+
+Referenced by Num\-Mat$<$ F $>$::Num\-Mat().\index{NumMat@{Num\-Mat}!_owndata@{\_\-owndata}}
+\index{_owndata@{\_\-owndata}!NumMat@{Num\-Mat}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool {\bf Num\-Mat}$<$ F $>$::{\bf \_\-owndata}}\label{classNumMat_4a613b2956a4a0ffff962e497a5d56e0_4a613b2956a4a0ffff962e497a5d56e0}
+
+
+Whether or not data is own 
+
+Definition at line 35 of file nummat.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+common/{\bf nummat.hpp}\end{CompactItemize}

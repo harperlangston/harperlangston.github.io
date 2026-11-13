@@ -1,0 +1,35 @@
+\section{fmm3d\_\-mpi/helloworld.c File Reference}
+\label{helloworld_8c}\index{fmm3d_mpi/helloworld.c@{fmm3d\_\-mpi/helloworld.c}}
+
+
+{\tt \#include $<$stdio.h$>$}\par
+{\tt \#include \char`\"{}mpi.h\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf main} (int argc, char $\ast$$\ast$argv)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{helloworld.c@{helloworld.c}!main@{main}}
+\index{main@{main}!helloworld.c@{helloworld.c}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, char $\ast$$\ast$ {\em argv})}\label{helloworld_8c_30c4c19ff69d905e8e4c750b3af23485_30c4c19ff69d905e8e4c750b3af23485}
+
+
+
+
+Definition at line 4 of file helloworld.c.
+
+\footnotesize\begin{verbatim}7 {
+8     int rank, size;
+9     MPI_Init( &argc, &argv );
+10     MPI_Comm_size( MPI_COMM_WORLD, &size );
+11     MPI_Comm_rank( MPI_COMM_WORLD, &rank );
+12     printf( "Hello world from process %d of %d\n", rank, size );
+13     MPI_Finalize();
+14     return 0;
+15 }
+\end{verbatim}\normalsize 
+
+

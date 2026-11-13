@@ -1,0 +1,393 @@
+\section{Off\-Tns$<$ F $>$ Class Template Reference}
+\label{classOffTns}\index{OffTns@{OffTns}}
+{\tt \#include $<$offtns.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class F$>$ class Off\-Tns$<$ F $>$}
+
+
+
+
+
+Definition at line 25 of file offtns.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Off\-Tns} (int m=0, int n=0, int p=0, int s=0, int t=0, int u=0)
+\item 
+{\bf Off\-Tns} (int m, int n, int p, int s, int t, int u, bool owndata, F $\ast$data)
+\item 
+{\bf Off\-Tns} (const {\bf Off\-Tns} \&C)
+\item 
+{\bf $\sim$Off\-Tns} ()
+\item 
+{\bf Off\-Tns} \& {\bf operator=} (const {\bf Off\-Tns} \&C)
+\item 
+void {\bf resize} (int m, int n, int p, int s, int t, int u)
+\item 
+const F \& {\bf operator()} (int i, int j, int k) const 
+\item 
+F \& {\bf operator()} (int i, int j, int k)
+\item 
+F $\ast$ {\bf data} () const 
+\item 
+int {\bf m} () const 
+\item 
+int {\bf n} () const 
+\item 
+int {\bf p} () const 
+\item 
+int {\bf s} () const 
+\item 
+int {\bf t} () const 
+\item 
+int {\bf u} () const 
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf \_\-m}
+\item 
+int {\bf \_\-n}
+\item 
+int {\bf \_\-p}
+\item 
+int {\bf \_\-s}
+\item 
+int {\bf \_\-t}
+\item 
+int {\bf \_\-u}
+\item 
+bool {\bf \_\-owndata}
+\item 
+F $\ast$ {\bf \_\-data}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{OffTns@{Off\-Tns}!OffTns@{OffTns}}
+\index{OffTns@{OffTns}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Tns}$<$ F $>$::{\bf Off\-Tns} (int {\em m} = {\tt 0}, int {\em n} = {\tt 0}, int {\em p} = {\tt 0}, int {\em s} = {\tt 0}, int {\em t} = {\tt 0}, int {\em u} = {\tt 0})\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_ae163af621cd8e4a928772fb2d7939cf_ae163af621cd8e4a928772fb2d7939cf}
+
+
+
+
+Definition at line 33 of file offtns.hpp.
+
+References Off\-Tns$<$ F $>$::\_\-data, Off\-Tns$<$ F $>$::\_\-m, Off\-Tns$<$ F $>$::\_\-n, and Off\-Tns$<$ F $>$::\_\-p.
+
+\footnotesize\begin{verbatim}33                                                               : _m(m), _n(n), _p(p), _s(s), _t(t), _u(u), _owndata(true) {
+34          if(_m>0 && _n>0 && _p>0) { _data = new F[_m*_n*_p]; assert( _data!=NULL ); } else _data=NULL;
+35   }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!OffTns@{OffTns}}
+\index{OffTns@{OffTns}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Tns}$<$ F $>$::{\bf Off\-Tns} (int {\em m}, int {\em n}, int {\em p}, int {\em s}, int {\em t}, int {\em u}, bool {\em owndata}, F $\ast$ {\em data})\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_16a97062db021b8453ef0c32cb8a3b5a_16a97062db021b8453ef0c32cb8a3b5a}
+
+
+
+
+Definition at line 36 of file offtns.hpp.
+
+\footnotesize\begin{verbatim}36                                                                          : _m(m), _n(n), _p(p), _s(s), _t(t), _u(u), _owndata(owndata) {
+37          if(_owndata) {
+38                 if(_m>0 && _n>0 && _p>0) { _data = new F[_m*_n*_p]; assert( _data!=NULL ); } else _data=NULL;
+39                 if(_m>0 && _n>0 && _p>0) { for(int i=0; i<_m*_n*_p; i++) _data[i] = data[i]; }
+40          } else {
+41                 _data = data;
+42          }
+43   }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!OffTns@{OffTns}}
+\index{OffTns@{OffTns}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Tns}$<$ F $>$::{\bf Off\-Tns} (const {\bf Off\-Tns}$<$ F $>$ \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_d99b9f622e1294e289ccfd166689c49f_d99b9f622e1294e289ccfd166689c49f}
+
+
+
+
+Definition at line 44 of file offtns.hpp.
+
+References Off\-Tns$<$ F $>$::\_\-data.
+
+\footnotesize\begin{verbatim}44                          : _m(C._m), _n(C._n), _p(C._p), _s(C._s), _t(C._t), _u(C._u), _owndata(C._owndata) {
+45          if(_owndata) {
+46                 if(_m>0 && _n>0 && _p>0) { _data = new F[_m*_n*_p]; assert( _data!=NULL ); } else _data=NULL;
+47                 if(_m>0 && _n>0 && _p>0) { for(int i=0; i<_m*_n*_p; i++) _data[i] = C._data[i]; }
+48          } else {
+49                 _data = C._data;
+50          }
+51   }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!~OffTns@{$\sim$OffTns}}
+\index{~OffTns@{$\sim$OffTns}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Tns}$<$ F $>$::$\sim${\bf Off\-Tns} ()\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_a0333249bc8f02047b51fd7308fbf03e_a0333249bc8f02047b51fd7308fbf03e}
+
+
+
+
+Definition at line 52 of file offtns.hpp.
+
+\footnotesize\begin{verbatim}52             { 
+53          if(_owndata) { 
+54                 if(_m>0 && _n>0) { delete[] _data; _data = NULL; } 
+55          }
+56   }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{OffTns@{Off\-Tns}!data@{data}}
+\index{data@{data}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Off\-Tns}$<$ F $>$::data () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_ad3b2b9598c8547b4f7afe7a79ed520c_ad3b2b9598c8547b4f7afe7a79ed520c}
+
+
+
+
+Definition at line 87 of file offtns.hpp.
+
+\footnotesize\begin{verbatim}87 { return _data; }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!m@{m}}
+\index{m@{m}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Tns}$<$ F $>$::m () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_6a2fa69c25bf8ed36e019d0fb3f5e966_6a2fa69c25bf8ed36e019d0fb3f5e966}
+
+
+
+
+Definition at line 88 of file offtns.hpp.
+
+Referenced by setvalue().
+
+\footnotesize\begin{verbatim}88 { return _m; }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!n@{n}}
+\index{n@{n}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Tns}$<$ F $>$::n () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_611a0b095fab035a528671dd8cf7f3b7_611a0b095fab035a528671dd8cf7f3b7}
+
+
+
+
+Definition at line 89 of file offtns.hpp.
+
+Referenced by setvalue().
+
+\footnotesize\begin{verbatim}89 { return _n; }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!operator()@{operator()}}
+\index{operator()@{operator()}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Off\-Tns}$<$ F $>$::operator() (int {\em i}, int {\em j}, int {\em k})\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_98d16077f76916ac1ab79f5d3ea6927f_98d16077f76916ac1ab79f5d3ea6927f}
+
+
+
+
+Definition at line 82 of file offtns.hpp.
+
+\footnotesize\begin{verbatim}82                                       {
+83          assert( i>=_s && i<_m+_s && j>=_t && j<_n+_t && k>=_u && k<_p+_u);
+84          return _data[(i-_s) + (j-_t)*_m + (k-_u)*_m*_n];
+85   }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!operator()@{operator()}}
+\index{operator()@{operator()}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Off\-Tns}$<$ F $>$::operator() (int {\em i}, int {\em j}, int {\em k}) const\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_08f373a6228cbf6d82774853369056e3_08f373a6228cbf6d82774853369056e3}
+
+
+
+
+Definition at line 78 of file offtns.hpp.
+
+\footnotesize\begin{verbatim}78                                                   {
+79          assert( i>=_s && i<_m+_s && j>=_t && j<_n+_t && k>=_u && k<_p+_u);
+80          return _data[(i-_s) + (j-_t)*_m + (k-_u)*_m*_n];
+81   }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!operator=@{operator=}}
+\index{operator=@{operator=}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Tns}\& {\bf Off\-Tns}$<$ F $>$::operator= (const {\bf Off\-Tns}$<$ F $>$ \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_d0de1164134225e87500d29dac47fbc8_d0de1164134225e87500d29dac47fbc8}
+
+
+
+
+Definition at line 57 of file offtns.hpp.
+
+\footnotesize\begin{verbatim}57                                      {
+58          if(_owndata) { 
+59                 if(_m>0 && _n>0 && _p>0) { delete[] _data; _data = NULL; } 
+60          }
+61          _m = C._m; _n=C._n; _p=C._p;   _s = C._s; _t=C._t; _u=C._u; _owndata=C._owndata;
+62          if(_owndata) {
+63                 if(_m>0 && _n>0 && _p>0) { _data = new F[_m*_n*_p]; assert( _data!=NULL ); } else _data=NULL;
+64                 if(_m>0 && _n>0 && _p>0) { for(int i=0; i<_m*_n*_p; i++) _data[i] = C._data[i]; }
+65          } else {
+66                 _data = C._data;
+67          }
+68          return *this;
+69   }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!p@{p}}
+\index{p@{p}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Tns}$<$ F $>$::p () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_7447c13ce6f46f262a0d6d072991620b_7447c13ce6f46f262a0d6d072991620b}
+
+
+
+
+Definition at line 90 of file offtns.hpp.
+
+Referenced by setvalue().
+
+\footnotesize\begin{verbatim}90 { return _p; }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!resize@{resize}}
+\index{resize@{resize}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void {\bf Off\-Tns}$<$ F $>$::resize (int {\em m}, int {\em n}, int {\em p}, int {\em s}, int {\em t}, int {\em u})\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_69fb21a4615987ecc9e9a665e18965ec_69fb21a4615987ecc9e9a665e18965ec}
+
+
+
+
+Definition at line 70 of file offtns.hpp.
+
+\footnotesize\begin{verbatim}70                                                          {
+71          assert( _owndata==true );
+72          if(_m!=m || _n!=n || _p!=p) {
+73                 if(_m>0 && _n>0 && _p>0) { delete[] _data; _data = NULL; } 
+74                 _m = m; _n = n; _p=p; _s=s; _t=t; _u=u;
+75                 if(_m>0 && _n>0 && _p>0) { _data = new F[_m*_n*_p]; assert( _data!=NULL ); } else _data=NULL;
+76          }
+77   }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!s@{s}}
+\index{s@{s}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Tns}$<$ F $>$::s () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_718f9fe30c4c5a49a2c162d5d70c314b_718f9fe30c4c5a49a2c162d5d70c314b}
+
+
+
+
+Definition at line 91 of file offtns.hpp.
+
+\footnotesize\begin{verbatim}91 { return _s; }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!t@{t}}
+\index{t@{t}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Tns}$<$ F $>$::t () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_0fd352f0e5ea01103675de15233b95bd_0fd352f0e5ea01103675de15233b95bd}
+
+
+
+
+Definition at line 92 of file offtns.hpp.
+
+\footnotesize\begin{verbatim}92 { return _t; }
+\end{verbatim}\normalsize 
+
+
+\index{OffTns@{Off\-Tns}!u@{u}}
+\index{u@{u}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Tns}$<$ F $>$::u () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffTns_c98f4d9389a34876fd4957e8bee94b7f_c98f4d9389a34876fd4957e8bee94b7f}
+
+
+
+
+Definition at line 93 of file offtns.hpp.
+
+\footnotesize\begin{verbatim}93 { return _u; }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{OffTns@{Off\-Tns}!_data@{\_\-data}}
+\index{_data@{\_\-data}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Off\-Tns}$<$ F $>$::{\bf \_\-data}}\label{classOffTns_7125153abbcb2e949a1b4f81cbe22af5_7125153abbcb2e949a1b4f81cbe22af5}
+
+
+
+
+Definition at line 31 of file offtns.hpp.
+
+Referenced by Off\-Tns$<$ F $>$::Off\-Tns().\index{OffTns@{Off\-Tns}!_m@{\_\-m}}
+\index{_m@{\_\-m}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Tns}$<$ F $>$::{\bf \_\-m}}\label{classOffTns_b781ae81625400d76d94420d3af2c230_b781ae81625400d76d94420d3af2c230}
+
+
+
+
+Definition at line 28 of file offtns.hpp.
+
+Referenced by Off\-Tns$<$ F $>$::Off\-Tns().\index{OffTns@{Off\-Tns}!_n@{\_\-n}}
+\index{_n@{\_\-n}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Tns}$<$ F $>$::{\bf \_\-n}}\label{classOffTns_b628b96b5cc160f67acf6b4673cdd8bb_b628b96b5cc160f67acf6b4673cdd8bb}
+
+
+
+
+Definition at line 28 of file offtns.hpp.
+
+Referenced by Off\-Tns$<$ F $>$::Off\-Tns().\index{OffTns@{Off\-Tns}!_owndata@{\_\-owndata}}
+\index{_owndata@{\_\-owndata}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool {\bf Off\-Tns}$<$ F $>$::{\bf \_\-owndata}}\label{classOffTns_4a613b2956a4a0ffff962e497a5d56e0_4a613b2956a4a0ffff962e497a5d56e0}
+
+
+
+
+Definition at line 30 of file offtns.hpp.\index{OffTns@{Off\-Tns}!_p@{\_\-p}}
+\index{_p@{\_\-p}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Tns}$<$ F $>$::{\bf \_\-p}}\label{classOffTns_3b294e0c5d0f27989f6d4c274ecccab0_3b294e0c5d0f27989f6d4c274ecccab0}
+
+
+
+
+Definition at line 28 of file offtns.hpp.
+
+Referenced by Off\-Tns$<$ F $>$::Off\-Tns().\index{OffTns@{Off\-Tns}!_s@{\_\-s}}
+\index{_s@{\_\-s}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Tns}$<$ F $>$::{\bf \_\-s}}\label{classOffTns_c195aeabeeee007891190b9ff8a32c70_c195aeabeeee007891190b9ff8a32c70}
+
+
+
+
+Definition at line 29 of file offtns.hpp.\index{OffTns@{Off\-Tns}!_t@{\_\-t}}
+\index{_t@{\_\-t}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Tns}$<$ F $>$::{\bf \_\-t}}\label{classOffTns_05cb7dc333ca611d0a8969704e39a9f0_05cb7dc333ca611d0a8969704e39a9f0}
+
+
+
+
+Definition at line 29 of file offtns.hpp.\index{OffTns@{Off\-Tns}!_u@{\_\-u}}
+\index{_u@{\_\-u}!OffTns@{Off\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Tns}$<$ F $>$::{\bf \_\-u}}\label{classOffTns_3b5e2fd0bdc8d3094bd676aa0744a726_3b5e2fd0bdc8d3094bd676aa0744a726}
+
+
+
+
+Definition at line 29 of file offtns.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+common/{\bf offtns.hpp}\end{CompactItemize}

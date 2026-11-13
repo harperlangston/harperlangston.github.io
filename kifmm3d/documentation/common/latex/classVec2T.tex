@@ -1,0 +1,534 @@
+\section{Vec2T$<$ F $>$ Class Template Reference}
+\label{classVec2T}\index{Vec2T@{Vec2T}}
+{\tt \#include $<$vec2t.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class F$>$ class Vec2T$<$ F $>$}
+
+Common 2D Vector template-based class. 
+
+
+
+Definition at line 33 of file vec2t.hpp.\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+enum \{ {\bf X} = 0, 
+{\bf Y} = 1
+ \}
+\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Vec2T} ()
+\item 
+{\bf Vec2T} (F f)
+\item 
+{\bf Vec2T} (const F $\ast$f)
+\item 
+{\bf Vec2T} (F a, F b)
+\item 
+{\bf Vec2T} (const {\bf Vec2T} \&c)
+\item 
+{\bf $\sim$Vec2T} ()
+\item 
+{\bf operator F $\ast$} ()
+\item 
+{\bf operator const F $\ast$} () const 
+\item 
+F $\ast$ {\bf array} ()
+\item 
+F \& {\bf operator()} (int i)
+\item 
+const F \& {\bf operator()} (int i) const 
+\item 
+F \& {\bf operator[$\,$]} (int i)
+\item 
+const F \& {\bf operator[$\,$]} (int i) const 
+\item 
+F \& {\bf x} ()
+\item 
+F \& {\bf y} ()
+\item 
+const F \& {\bf x} () const 
+\item 
+const F \& {\bf y} () const 
+\item 
+{\bf Vec2T} \& {\bf operator=} (const {\bf Vec2T} \&c)
+\item 
+{\bf Vec2T} \& {\bf operator+=} (const {\bf Vec2T} \&c)
+\item 
+{\bf Vec2T} \& {\bf operator-=} (const {\bf Vec2T} \&c)
+\item 
+{\bf Vec2T} \& {\bf operator $\ast$=} (const F \&s)
+\item 
+{\bf Vec2T} \& {\bf operator/=} (const F \&s)
+\item 
+F {\bf l1} (void) const 
+\item 
+F {\bf linfty} (void) const 
+\item 
+F {\bf l2} (void) const 
+\item 
+F {\bf length} (void) const 
+\item 
+{\bf Vec2T} {\bf dir} (void) const 
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+F {\bf \_\-v} [2]
+\end{CompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ anonymous enum}\label{classVec2T_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{X@{X}!Vec2T@{Vec2T}}\index{Vec2T@{Vec2T}!X@{X}}\item[{\em 
+X\label{classVec2T_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef02129bb861061d1a052c592e2dc6b383}
+}]\index{Y@{Y}!Vec2T@{Vec2T}}\index{Vec2T@{Vec2T}!Y@{Y}}\item[{\em 
+Y\label{classVec2T_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef57cec4137b614c87cb4e24a3d003a3e0}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 38 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}38 { X=0, Y=1 };
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Vec2T@{Vec2T}!Vec2T@{Vec2T}}
+\index{Vec2T@{Vec2T}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$ F $>$::{\bf Vec2T} ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_9e689e89cdd34bcc8537ba28c91c5934_9e689e89cdd34bcc8537ba28c91c5934}
+
+
+Constructor 
+
+Definition at line 41 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}41 { _v[0]=F(0);    _v[1]=F(0); }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!Vec2T@{Vec2T}}
+\index{Vec2T@{Vec2T}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$ F $>$::{\bf Vec2T} (F {\em f})\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_4d9eba67dbd7b237be34d57f1dcd1980_4d9eba67dbd7b237be34d57f1dcd1980}
+
+
+Constructor. Set \_\-v[0], \_\-v[1] = f of type F 
+
+Definition at line 43 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}43 { _v[0]=f;       _v[1]=f; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!Vec2T@{Vec2T}}
+\index{Vec2T@{Vec2T}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$ F $>$::{\bf Vec2T} (const F $\ast$ {\em f})\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_bca52a1245192cc773b6eb1a584a24ed_bca52a1245192cc773b6eb1a584a24ed}
+
+
+Constructor. Set \_\-v[0], \_\-v[1] = f of type F 
+
+Definition at line 45 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}45 { _v[0]=f[0];    _v[1]=f[1]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!Vec2T@{Vec2T}}
+\index{Vec2T@{Vec2T}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$ F $>$::{\bf Vec2T} (F {\em a}, F {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_d390460ed207d2b49ad3470019c40b44_d390460ed207d2b49ad3470019c40b44}
+
+
+Constructor. Set \_\-v[0] = a \_\-v[1] = b of type F 
+
+Definition at line 47 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}47 { _v[0]=a;       _v[1]=b; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!Vec2T@{Vec2T}}
+\index{Vec2T@{Vec2T}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$ F $>$::{\bf Vec2T} (const {\bf Vec2T}$<$ F $>$ \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_2be6e20f4cae659b62140233b9209e4a_2be6e20f4cae659b62140233b9209e4a}
+
+
+Constructor. Set \_\-v[0] = c.\_\-v[0], \_\-v[1] = c.\_\-v[1] 
+
+Definition at line 49 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}49 { _v[0]=c._v[0]; _v[1]=c._v[1]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!~Vec2T@{$\sim$Vec2T}}
+\index{~Vec2T@{$\sim$Vec2T}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$ F $>$::$\sim${\bf Vec2T} ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_aa4c09fd6b9a3e7bccd0496080ff07eb_aa4c09fd6b9a3e7bccd0496080ff07eb}
+
+
+Destroy vector 
+
+Definition at line 51 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}51 {}
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{Vec2T@{Vec2T}!array@{array}}
+\index{array@{array}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Vec2T}$<$ F $>$::array ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_fed1d2aa4ab9cd28dd771492a3bc2f97_fed1d2aa4ab9cd28dd771492a3bc2f97}
+
+
+Return pointer to \_\-v[0] 
+
+Definition at line 58 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}58 { return &_v[0]; }  //access array
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!dir@{dir}}
+\index{dir@{dir}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T} {\bf Vec2T}$<$ F $>$::dir (void) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_a74553621910e03016573bb3cd7a3e7c_a74553621910e03016573bb3cd7a3e7c}
+
+
+Unit vector in director of this 
+
+Definition at line 96 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::l2().
+
+\footnotesize\begin{verbatim}96 { F a=l2(); return (*this)/a; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!l1@{l1}}
+\index{l1@{l1}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F {\bf Vec2T}$<$ F $>$::l1 (void) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_d6b8e40dbcfd9fe5c2375fe82598b02d_d6b8e40dbcfd9fe5c2375fe82598b02d}
+
+
+L-1 norm: sabsolute value of sum of elements in vector 
+
+Definition at line 88 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v, and abs().
+
+\footnotesize\begin{verbatim}88 { F sum=F(0); for(int i=0; i<2; i++) sum=sum+abs(_v[i]); return sum; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!l2@{l2}}
+\index{l2@{l2}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F {\bf Vec2T}$<$ F $>$::l2 (void) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_ba4174b2dda6a79f2501cbc9eaf2c3a0_ba4174b2dda6a79f2501cbc9eaf2c3a0}
+
+
+L-2 norm: square root of sum of elements 
+
+Definition at line 92 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+Referenced by Vec2T$<$ F $>$::dir(), and Vec2T$<$ F $>$::length().
+
+\footnotesize\begin{verbatim}92 { F sum=F(0); for(int i=0; i<2; i++) sum=sum+_v[i]*_v[i]; return sqrt(sum); }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!length@{length}}
+\index{length@{length}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F {\bf Vec2T}$<$ F $>$::length (void) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_e9614187f8e8bc75460d63171193e93c_e9614187f8e8bc75460d63171193e93c}
+
+
+Length = L-2 norm 
+
+Definition at line 94 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::l2().
+
+\footnotesize\begin{verbatim}94 { return l2(); }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!linfty@{linfty}}
+\index{linfty@{linfty}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F {\bf Vec2T}$<$ F $>$::linfty (void) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_c7a97570bd6556e3c5b1880cdd762fe7_c7a97570bd6556e3c5b1880cdd762fe7}
+
+
+L-infinity norm: max of elements in vector 
+
+Definition at line 90 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v, abs(), and max().
+
+\footnotesize\begin{verbatim}90 { F cur=F(0); for(int i=0; i<2; i++) cur=max(cur,abs(_v[i])); return cur; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!operator *=@{operator $\ast$=}}
+\index{operator *=@{operator $\ast$=}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}\& {\bf Vec2T}$<$ F $>$::operator $\ast$= (const F \& {\em s})\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_404673cf6ccdc8cbaa386ee62bda9ee3_404673cf6ccdc8cbaa386ee62bda9ee3}
+
+
+Overloaded $\ast$= operator. this.\_\-v[0] $\ast$= c.\_\-v[0], etc. 
+
+Definition at line 83 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}83 { _v[0]*=s;       _v[1]*=s;       return *this; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!operator const F *@{operator const F $\ast$}}
+\index{operator const F *@{operator const F $\ast$}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$ F $>$::operator const F $\ast$ () const\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_fa3f101185e97bac2b0f08d3588ae2f4_fa3f101185e97bac2b0f08d3588ae2f4}
+
+
+Return pointer to \_\-v[0] 
+
+Definition at line 56 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}56 { return &_v[0]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!operator F *@{operator F $\ast$}}
+\index{operator F *@{operator F $\ast$}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$ F $>$::operator F $\ast$ ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_ac352e6903287f8c15cc49407e292610_ac352e6903287f8c15cc49407e292610}
+
+
+Return pointer to \_\-v[0] 
+
+Definition at line 54 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}54 { return &_v[0]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!operator()@{operator()}}
+\index{operator()@{operator()}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Vec2T}$<$ F $>$::operator() (int {\em i}) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_46442ed0ae535217a90cc5b4b63a1f44_46442ed0ae535217a90cc5b4b63a1f44}
+
+
+Return ith (0 or 1) element of \_\-v 
+
+Definition at line 62 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}62 { assert(i<2); return _v[i]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!operator()@{operator()}}
+\index{operator()@{operator()}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Vec2T}$<$ F $>$::operator() (int {\em i})\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_a6859783df5149b240b538ed4f692366_a6859783df5149b240b538ed4f692366}
+
+
+Return ith (0 or 1) element of \_\-v 
+
+Definition at line 60 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}60 { assert(i<2); return _v[i]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}\& {\bf Vec2T}$<$ F $>$::operator+= (const {\bf Vec2T}$<$ F $>$ \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_6932583e3aa9e5a22015adcd00230afb_6932583e3aa9e5a22015adcd00230afb}
+
+
+Overloaded += operator. this.\_\-v[0] += c.\_\-v[0], etc. 
+
+Definition at line 79 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}79 { _v[0]+=c._v[0]; _v[1]+=c._v[1]; return *this; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!operator-=@{operator-=}}
+\index{operator-=@{operator-=}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}\& {\bf Vec2T}$<$ F $>$::operator-= (const {\bf Vec2T}$<$ F $>$ \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_d4f32965803fd69e2448219b0bac712b_d4f32965803fd69e2448219b0bac712b}
+
+
+Overloaded -= operator. this.\_\-v[0] -= c.\_\-v[0], etc. 
+
+Definition at line 81 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}81 { _v[0]-=c._v[0]; _v[1]-=c._v[1]; return *this; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}\& {\bf Vec2T}$<$ F $>$::operator/= (const F \& {\em s})\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_eb88f872395a552abe9854728f4d5eac_eb88f872395a552abe9854728f4d5eac}
+
+
+Overloaded /= operator. this.\_\-v[0] /= c.\_\-v[0], etc. 
+
+Definition at line 85 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}85 { _v[0]/=s;       _v[1]/=s;       return *this; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!operator=@{operator=}}
+\index{operator=@{operator=}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}\& {\bf Vec2T}$<$ F $>$::operator= (const {\bf Vec2T}$<$ F $>$ \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_2f8d6cda7b381d87d5b7ee7dcdeabd1c_2f8d6cda7b381d87d5b7ee7dcdeabd1c}
+
+
+Overloaded = operator. this.\_\-v[0] = c.\_\-v[0], etc. 
+
+Definition at line 77 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}77 { _v[0] =c._v[0]; _v[1] =c._v[1]; return *this; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!operator[]@{operator[]}}
+\index{operator[]@{operator[]}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Vec2T}$<$ F $>$::operator[$\,$] (int {\em i}) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_56bd1e633f412f07706e05b60f9eb2bc_56bd1e633f412f07706e05b60f9eb2bc}
+
+
+Return ith (0 or 1) element of \_\-v 
+
+Definition at line 66 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}66 { assert(i<2); return _v[i]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!operator[]@{operator[]}}
+\index{operator[]@{operator[]}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Vec2T}$<$ F $>$::operator[$\,$] (int {\em i})\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_afa3b3be64f86f689de4bf05a470fc17_afa3b3be64f86f689de4bf05a470fc17}
+
+
+Return ith (0 or 1) element of \_\-v 
+
+Definition at line 64 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}64 { assert(i<2); return _v[i]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!x@{x}}
+\index{x@{x}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Vec2T}$<$ F $>$::x () const\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_48b18a21fef9634230ceceb1ae474d7b_48b18a21fef9634230ceceb1ae474d7b}
+
+
+Return x-coordinate (\_\-v[0]) 
+
+Definition at line 72 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}72 { return _v[0];}
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!x@{x}}
+\index{x@{x}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Vec2T}$<$ F $>$::x ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_21935a98327babfb12a213be3f675109_21935a98327babfb12a213be3f675109}
+
+
+Return x-coordinate (\_\-v[0]) 
+
+Definition at line 68 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}68 { return _v[0];}
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!y@{y}}
+\index{y@{y}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Vec2T}$<$ F $>$::y () const\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_0aa081a05397b4edd9d072a1d05f25c3_0aa081a05397b4edd9d072a1d05f25c3}
+
+
+Return y-coordinate (\_\-v[1]) 
+
+Definition at line 74 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}74 { return _v[1];}
+\end{verbatim}\normalsize 
+
+
+\index{Vec2T@{Vec2T}!y@{y}}
+\index{y@{y}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Vec2T}$<$ F $>$::y ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec2T_1dd5a44efca58e87cf45e4453a1f7a02_1dd5a44efca58e87cf45e4453a1f7a02}
+
+
+Return y-coordinate (\_\-v[1]) 
+
+Definition at line 70 of file vec2t.hpp.
+
+References Vec2T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}70 { return _v[1];}
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{Vec2T@{Vec2T}!_v@{\_\-v}}
+\index{_v@{\_\-v}!Vec2T@{Vec2T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F {\bf Vec2T}$<$ F $>$::{\bf \_\-v}[2]\hspace{0.3cm}{\tt  [private]}}\label{classVec2T_bae464d64958ef01a884be1848619292_bae464d64958ef01a884be1848619292}
+
+
+2D vector Data of type F 
+
+Definition at line 36 of file vec2t.hpp.
+
+Referenced by Vec2T$<$ F $>$::array(), Vec2T$<$ F $>$::l1(), Vec2T$<$ F $>$::l2(), Vec2T$<$ F $>$::linfty(), Vec2T$<$ F $>$::operator $\ast$=(), Vec2T$<$ F $>$::operator const F $\ast$(), Vec2T$<$ F $>$::operator F $\ast$(), Vec2T$<$ F $>$::operator()(), Vec2T$<$ F $>$::operator+=(), Vec2T$<$ F $>$::operator-=(), Vec2T$<$ F $>$::operator/=(), Vec2T$<$ F $>$::operator=(), Vec2T$<$ F $>$::operator[$\,$](), Vec2T$<$ F $>$::Vec2T(), Vec2T$<$ F $>$::x(), and Vec2T$<$ F $>$::y().
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+common/{\bf vec2t.hpp}\end{CompactItemize}

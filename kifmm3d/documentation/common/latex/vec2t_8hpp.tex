@@ -1,0 +1,405 @@
+\section{common/vec2t.hpp File Reference}
+\label{vec2t_8hpp}\index{common/vec2t.hpp@{common/vec2t.hpp}}
+
+
+{\tt \#include \char`\"{}commoninc.hpp\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Vec2T$<$ F $>$}
+\begin{CompactList}\small\item\em Common 2D Vector template-based class. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf Vec2T}$<$ double $>$ {\bf Point2}
+\begin{CompactList}\small\item\em MOST COMMONLY USED. \item\end{CompactList}\item 
+typedef {\bf Vec2T}$<$ int $>$ {\bf Index2}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+template$<$class F$>$ bool {\bf operator==} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ bool {\bf operator!=} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ bool {\bf operator$>$} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ bool {\bf operator$<$} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ bool {\bf operator$>$=} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ bool {\bf operator$<$=} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec2T}$<$ F $>$ {\bf operator-} (const {\bf Vec2T}$<$ F $>$ \&a)
+\item 
+template$<$class F$>$ {\bf Vec2T}$<$ F $>$ {\bf operator+} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec2T}$<$ F $>$ {\bf operator-} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec2T}$<$ F $>$ {\bf operator $\ast$} (F scl, const {\bf Vec2T}$<$ F $>$ \&a)
+\item 
+template$<$class F$>$ {\bf Vec2T}$<$ F $>$ {\bf operator $\ast$} (const {\bf Vec2T}$<$ F $>$ \&a, F scl)
+\item 
+template$<$class F$>$ {\bf Vec2T}$<$ F $>$ {\bf operator/} (const {\bf Vec2T}$<$ F $>$ \&a, F scl)
+\item 
+template$<$class F$>$ F {\bf operator $\ast$} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ F {\bf dot} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec2T}$<$ F $>$ {\bf min} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec2T}$<$ F $>$ {\bf max} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec2T}$<$ F $>$ {\bf abs} (const {\bf Vec2T}$<$ F $>$ \&a)
+\item 
+template$<$class F$>$ {\bf Vec2T}$<$ F $>$ {\bf ewmul} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ {\bf Vec2T}$<$ F $>$ {\bf ewdiv} (const {\bf Vec2T}$<$ F $>$ \&a, const {\bf Vec2T}$<$ F $>$ \&b)
+\item 
+template$<$class F$>$ istream \& {\bf operator$>$$>$} (istream \&is, {\bf Vec2T}$<$ F $>$ \&a)
+\item 
+template$<$class F$>$ ostream \& {\bf operator$<$$<$} (ostream \&os, const {\bf Vec2T}$<$ F $>$ \&a)
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{vec2t.hpp@{vec2t.hpp}!Index2@{Index2}}
+\index{Index2@{Index2}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vec2T}$<$int$>$ {\bf Index2}}\label{vec2t_8hpp_c359e4d7286c4c5799177773fc777b7f_c359e4d7286c4c5799177773fc777b7f}
+
+
+A 2-D index with the two indices represented as integers 
+
+Definition at line 194 of file vec2t.hpp.\index{vec2t.hpp@{vec2t.hpp}!Point2@{Point2}}
+\index{Point2@{Point2}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vec2T}$<$double$>$ {\bf Point2}}\label{vec2t_8hpp_ba50e852b485fe4ca894c013d8d7d6c9_ba50e852b485fe4ca894c013d8d7d6c9}
+
+
+MOST COMMONLY USED. 
+
+A 2-D point with the x and y-coordinates represented as doubles 
+
+Definition at line 192 of file vec2t.hpp.
+
+\subsection{Function Documentation}
+\index{vec2t.hpp@{vec2t.hpp}!abs@{abs}}
+\index{abs@{abs}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$F$>$ abs (const {\bf Vec2T}$<$ F $>$ \& {\em a})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_a570ec41ec074d767bfb786f564ad724_a570ec41ec074d767bfb786f564ad724}
+
+
+Return r where r[0] = abs(a[0]), etc. 
+
+Definition at line 168 of file vec2t.hpp.
+
+Referenced by abs(), SVDRep::construct(), Vec3T$<$ F $>$::l1(), Vec2T$<$ F $>$::l1(), Vec3T$<$ F $>$::linfty(), and Vec2T$<$ F $>$::linfty().
+
+\footnotesize\begin{verbatim}168                                                           {
+169   Vec2T<F> r;  for(int i=0; i<2; i++) r[i] = abs(a[i]); return r;
+170 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!dot@{dot}}
+\index{dot@{dot}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F dot (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_b78a1bba220fd50c2651cc22a0c80e7d_b78a1bba220fd50c2651cc22a0c80e7d}
+
+
+Dot-product. Return a$\ast$b = a[0]$\ast$b[0] + a[1]$\ast$b[1] 
+
+Definition at line 155 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}155                                                                              {
+156   return a*b;
+157 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!ewdiv@{ewdiv}}
+\index{ewdiv@{ewdiv}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$F$>$ ewdiv (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_fdf92a661cc9e0cba72c9027b4486631_fdf92a661cc9e0cba72c9027b4486631}
+
+
+Return r where r[0] = a[0]/b[0], etc. 
+
+Definition at line 176 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}176                                                                               { 
+177   Vec2T<F> r;  for(int i=0; i<2; i++) r[i] = a[i]/b[i]; return r;
+178 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!ewmul@{ewmul}}
+\index{ewmul@{ewmul}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$F$>$ ewmul (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_77e0a16eb77d5befc68fcfea9239ad84_77e0a16eb77d5befc68fcfea9239ad84}
+
+
+Return r where r[0] = a[0]$\ast$b[0], etc. 
+
+Definition at line 172 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}172                                                                               {
+173   Vec2T<F> r;  for(int i=0; i<2; i++) r[i] = a[i]*b[i]; return r;
+174 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!max@{max}}
+\index{max@{max}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$F$>$ max (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_a5cda99c3c4530b53fe964ce3988088d_a5cda99c3c4530b53fe964ce3988088d}
+
+
+Return r where r[0] = max(a[0],b[0]), etc. 
+
+Definition at line 164 of file vec2t.hpp.
+
+Referenced by SVDRep::construct(), Vec3T$<$ F $>$::linfty(), Vec2T$<$ F $>$::linfty(), and max().
+
+\footnotesize\begin{verbatim}164                                                                              {
+165   Vec2T<F> r;  for(int i=0; i<2; i++) r[i] = max(a[i], b[i]); return r;
+166 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!min@{min}}
+\index{min@{min}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$F$>$ min (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_3d32e9b8cfa74d624fa750fec130dec5_3d32e9b8cfa74d624fa750fec130dec5}
+
+
+Return r where r[0] = min(a[0],b[0]), etc. 
+
+Definition at line 160 of file vec2t.hpp.
+
+Referenced by SVDRep::construct(), and min().
+
+\footnotesize\begin{verbatim}160                                                                              {
+161   Vec2T<F> r;  for(int i=0; i<2; i++) r[i] = min(a[i], b[i]); return r;
+162 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator *@{operator $\ast$}}
+\index{operator *@{operator $\ast$}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F operator $\ast$ (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_482f49e9bcf500c34929d2dea75f7382_482f49e9bcf500c34929d2dea75f7382}
+
+
+Overloaded \char`\"{}$\ast$\char`\"{} numerical operation. Return a[0]$\ast$b[0] + a[1]$\ast$b[1] 
+
+Definition at line 151 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}151                                                                              {
+152   F sum=F(0); for(int i=0; i<2; i++) sum=sum+a(i)*b(i); return sum;
+153 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator *@{operator $\ast$}}
+\index{operator *@{operator $\ast$}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$F$>$ operator $\ast$ (const {\bf Vec2T}$<$ F $>$ \& {\em a}, F {\em scl})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_bd762b1345b4e3277e8c055d1a56c7dd_bd762b1345b4e3277e8c055d1a56c7dd}
+
+
+Overloaded \char`\"{}$\ast$\char`\"{} numerical operation. Return scaling of components of a by scl 
+
+Definition at line 143 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}143                                                                         {
+144   Vec2T<F> r;  for(int i=0; i<2; i++) r[i] = scl*a[i];  return r;
+145 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator *@{operator $\ast$}}
+\index{operator *@{operator $\ast$}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$F$>$ operator $\ast$ (F {\em scl}, const {\bf Vec2T}$<$ F $>$ \& {\em a})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_4add347144946fe9ec79c551787ef896_4add347144946fe9ec79c551787ef896}
+
+
+Overloaded \char`\"{}$\ast$\char`\"{} numerical operation. Return scaling of components of a by scl 
+
+Definition at line 139 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}139                                                                         {
+140   Vec2T<F> r;  for(int i=0; i<2; i++) r[i] = scl*a[i];  return r;
+141 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool operator!= (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_f25ba749daa99b10ac77224af19697a3_f25ba749daa99b10ac77224af19697a3}
+
+
+Boolean != overloaded operator returns true if a!=b 
+
+Definition at line 105 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}105                                                                                 {
+106   return !(a==b);
+107 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator+@{operator+}}
+\index{operator+@{operator+}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$F$>$ operator+ (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_61147d3998056a0c949aedc52392f8b2_61147d3998056a0c949aedc52392f8b2}
+
+
+Overloaded \char`\"{}+\char`\"{} numerical operation. Return addition of components of a and b 
+
+Definition at line 131 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}131                                                                                     {
+132   Vec2T<F> r;  for(int i=0; i<2; i++) r[i] = a[i]+b[i]; return r; 
+133 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator-@{operator-}}
+\index{operator-@{operator-}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$F$>$ operator- (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_bf9fcaff59650eff958ebe2ba1f84732_bf9fcaff59650eff958ebe2ba1f84732}
+
+
+Overloaded \char`\"{}-\char`\"{} numerical operation. Return subtraction of compoenets of b from a 
+
+Definition at line 135 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}135                                                                                     {
+136   Vec2T<F> r;  for(int i=0; i<2; i++) r[i] = a[i]-b[i]; return r;
+137 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator-@{operator-}}
+\index{operator-@{operator-}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$F$>$ operator- (const {\bf Vec2T}$<$ F $>$ \& {\em a})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_f8399d53e2684a457a5004f956ca0ff6_f8399d53e2684a457a5004f956ca0ff6}
+
+
+Overloaded \char`\"{}-\char`\"{} numerical operation. Return negation of vector a 
+
+Definition at line 127 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}127                                                                  {
+128   Vec2T<F> r;  for(int i=0; i<2; i++) r[i] = -a[i]; return r;
+129 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator/@{operator/}}
+\index{operator/@{operator/}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec2T}$<$F$>$ operator/ (const {\bf Vec2T}$<$ F $>$ \& {\em a}, F {\em scl})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_7fe76b7380c30957ec81265fac42ea2f_7fe76b7380c30957ec81265fac42ea2f}
+
+
+Overloaded \char`\"{}/\char`\"{} numerical operation. Return scaling of components of a by 1/scl 
+
+Definition at line 147 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}147                                                                         {
+148   Vec2T<F> r;  for(int i=0; i<2; i++) r[i] = a[i]/scl;  return r;
+149 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator<@{operator$<$}}
+\index{operator<@{operator$<$}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool operator$<$ (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_a8e36c9dee662bb9b78f51ad9eaf68d8_a8e36c9dee662bb9b78f51ad9eaf68d8}
+
+
+Boolean $<$ overloaded operator returns true if a $<$ b in BOTH x and y-directions 
+
+Definition at line 113 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}113                                                                                 {
+114   bool res = true;  for(int i=0; i<2; i++)   res = res && (a(i)< b(i));  return res; 
+115 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator<<@{operator$<$$<$}}
+\index{operator<<@{operator$<$$<$}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ ostream\& operator$<$$<$ (ostream \& {\em os}, const {\bf Vec2T}$<$ F $>$ \& {\em a})}\label{vec2t_8hpp_10dd31351eb0bcde6d20f2137d176476_10dd31351eb0bcde6d20f2137d176476}
+
+
+output $<$$<$ operator. os $<$$<$ a[i] 
+
+Definition at line 185 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}185                                                                        { 
+186   for(int i=0; i<2; i++) os<<a[i]<<" "; return os;
+187 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator<=@{operator$<$=}}
+\index{operator<=@{operator$<$=}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool operator$<$= (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_54b74e0e2f8e7609979e6db862b84ccc_54b74e0e2f8e7609979e6db862b84ccc}
+
+
+Boolean $<$= overloaded operator returns true if a $<$= b in BOTH x and y-directions 
+
+Definition at line 121 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}121                                                                                 {
+122   bool res = true;  for(int i=0; i<2; i++)   res = res && (a(i)<=b(i));  return res; 
+123 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator==@{operator==}}
+\index{operator==@{operator==}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool operator== (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_c45246915408da62bc1cdebc87f013b5_c45246915408da62bc1cdebc87f013b5}
+
+
+Boolean == overloaded operator returns true if a==b 
+
+Definition at line 101 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}101                                                                                 {
+102   bool res = true;  for(int i=0; i<2; i++)   res = res && (a(i)==b(i));  return res;
+103 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator>@{operator$>$}}
+\index{operator>@{operator$>$}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool operator$>$ (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_ac92411ced16369dda52cb213e8e00d2_ac92411ced16369dda52cb213e8e00d2}
+
+
+Boolean $>$ overloaded operator returns true if a $>$ b in BOTH x and y-directions 
+
+Definition at line 109 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}109                                                                                 {
+110   bool res = true;  for(int i=0; i<2; i++)   res = res && (a(i)> b(i));  return res; 
+111 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator>=@{operator$>$=}}
+\index{operator>=@{operator$>$=}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool operator$>$= (const {\bf Vec2T}$<$ F $>$ \& {\em a}, const {\bf Vec2T}$<$ F $>$ \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{vec2t_8hpp_079e1b86dbc5174cb1e0d1602ba9c56b_079e1b86dbc5174cb1e0d1602ba9c56b}
+
+
+Boolean $>$= overloaded operator returns true if a $>$= b in BOTH x and y-directions 
+
+Definition at line 117 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}117                                                                                 {
+118   bool res = true;  for(int i=0; i<2; i++)      res = res && (a(i)>=b(i));  return res; 
+119 }
+\end{verbatim}\normalsize 
+
+
+\index{vec2t.hpp@{vec2t.hpp}!operator>>@{operator$>$$>$}}
+\index{operator>>@{operator$>$$>$}!vec2t.hpp@{vec2t.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ istream\& operator$>$$>$ (istream \& {\em is}, {\bf Vec2T}$<$ F $>$ \& {\em a})}\label{vec2t_8hpp_5ec56bcd785a044f33e56bc6893851a2_5ec56bcd785a044f33e56bc6893851a2}
+
+
+input $>$$>$ operator. is $>$$>$ a[i] 
+
+Definition at line 181 of file vec2t.hpp.
+
+\footnotesize\begin{verbatim}181                                                                  {
+182   for(int i=0; i<2; i++) is>>a[i]; return is;
+183 }
+\end{verbatim}\normalsize 
+
+

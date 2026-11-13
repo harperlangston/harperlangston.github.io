@@ -1,0 +1,118 @@
+\section{common/offmat.hpp File Reference}
+\label{offmat_8hpp}\index{common/offmat.hpp@{common/offmat.hpp}}
+
+
+\subsection{Detailed Description}
+
+
+Definition in file {\bf offmat.hpp}.
+
+{\tt \#include \char`\"{}offvec.hpp\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Off\-Mat$<$ F $>$}
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf Off\-Mat}$<$ bool $>$ {\bf Bol\-Off\-Mat}
+\item 
+typedef {\bf Off\-Mat}$<$ int $>$ {\bf Int\-Off\-Mat}
+\item 
+typedef {\bf Off\-Mat}$<$ double $>$ {\bf Dbl\-Off\-Mat}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+template$<$class F$>$ ostream \& {\bf operator$<$$<$} (ostream \&os, const {\bf Off\-Mat}$<$ F $>$ \&mat)
+\item 
+template$<$class F$>$ void {\bf setvalue} ({\bf Off\-Mat}$<$ F $>$ \&mat, F val)
+\item 
+template$<$class F$>$ void {\bf clear} ({\bf Off\-Mat}$<$ F $>$ \&M)
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{offmat.hpp@{offmat.hpp}!BolOffMat@{BolOffMat}}
+\index{BolOffMat@{BolOffMat}!offmat.hpp@{offmat.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Off\-Mat}$<$bool$>$ {\bf Bol\-Off\-Mat}}\label{offmat_8hpp_ec4e02e81c0727639006f9ea0ff976e2_ec4e02e81c0727639006f9ea0ff976e2}
+
+
+
+
+Definition at line 117 of file offmat.hpp.\index{offmat.hpp@{offmat.hpp}!DblOffMat@{DblOffMat}}
+\index{DblOffMat@{DblOffMat}!offmat.hpp@{offmat.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Off\-Mat}$<$double$>$ {\bf Dbl\-Off\-Mat}}\label{offmat_8hpp_b5935eabe823c3b66b37e1953318fb9f_b5935eabe823c3b66b37e1953318fb9f}
+
+
+
+
+Definition at line 119 of file offmat.hpp.\index{offmat.hpp@{offmat.hpp}!IntOffMat@{IntOffMat}}
+\index{IntOffMat@{IntOffMat}!offmat.hpp@{offmat.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Off\-Mat}$<$int$>$ {\bf Int\-Off\-Mat}}\label{offmat_8hpp_aa88215ec13fc0c85443df1b69d33b09_aa88215ec13fc0c85443df1b69d33b09}
+
+
+
+
+Definition at line 118 of file offmat.hpp.
+
+\subsection{Function Documentation}
+\index{offmat.hpp@{offmat.hpp}!clear@{clear}}
+\index{clear@{clear}!offmat.hpp@{offmat.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void clear ({\bf Off\-Mat}$<$ F $>$ \& {\em M})\hspace{0.3cm}{\tt  [inline]}}\label{offmat_8hpp_11eafc5ae62bba5bb1ea01a32a3fa85a_11eafc5ae62bba5bb1ea01a32a3fa85a}
+
+
+
+
+Definition at line 112 of file offmat.hpp.
+
+References Off\-Mat$<$ F $>$::data(), Off\-Mat$<$ F $>$::m(), and Off\-Mat$<$ F $>$::n().
+
+\footnotesize\begin{verbatim}113 {
+114   memset(M.data(), 0, M.m()*M.n()*sizeof(F));
+115 }
+\end{verbatim}\normalsize 
+
+
+\index{offmat.hpp@{offmat.hpp}!operator<<@{operator$<$$<$}}
+\index{operator<<@{operator$<$$<$}!offmat.hpp@{offmat.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ ostream\& operator$<$$<$ (ostream \& {\em os}, const {\bf Off\-Mat}$<$ F $>$ \& {\em mat})\hspace{0.3cm}{\tt  [inline]}}\label{offmat_8hpp_c6f3af144ec538f4d752dfdff8cb176d_c6f3af144ec538f4d752dfdff8cb176d}
+
+
+
+
+Definition at line 95 of file offmat.hpp.
+
+\footnotesize\begin{verbatim}96 {
+97   os<<mat.m()<<" "<<mat.n()<<" "<<mat.s()<<" "<<mat.t()<<endl;
+98   os.setf(ios_base::scientific, ios_base::floatfield);
+99   for(int i=mat.s(); i<mat.s()+mat.m(); i++) {
+100          for(int j=mat.t(); j<mat.t()+mat.n(); j++)
+101                 os<<" "<<mat(i,j);
+102          os<<endl;
+103   }
+104   return os;
+105 }
+\end{verbatim}\normalsize 
+
+
+\index{offmat.hpp@{offmat.hpp}!setvalue@{setvalue}}
+\index{setvalue@{setvalue}!offmat.hpp@{offmat.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void setvalue ({\bf Off\-Mat}$<$ F $>$ \& {\em mat}, F {\em val})\hspace{0.3cm}{\tt  [inline]}}\label{offmat_8hpp_eadb59a478e7e1e6eb7ebd3d1ffac460_eadb59a478e7e1e6eb7ebd3d1ffac460}
+
+
+
+
+Definition at line 106 of file offmat.hpp.
+
+References Off\-Mat$<$ F $>$::m(), Off\-Mat$<$ F $>$::n(), Off\-Mat$<$ F $>$::s(), and Off\-Mat$<$ F $>$::t().
+
+\footnotesize\begin{verbatim}107 {
+108   for(int i=mat.s(); i<mat.s()+mat.m(); i++)
+109          for(int j=mat.t(); j<mat.t()+mat.n(); j++)
+110                 mat(i,j) = val;
+111 }
+\end{verbatim}\normalsize 
+
+

@@ -1,0 +1,571 @@
+\section{Vec3T$<$ F $>$ Class Template Reference}
+\label{classVec3T}\index{Vec3T@{Vec3T}}
+{\tt \#include $<$vec3t.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class F$>$ class Vec3T$<$ F $>$}
+
+Common 3D Vector template-based class. 
+
+
+
+Definition at line 32 of file vec3t.hpp.\subsection*{Public Types}
+\begin{CompactItemize}
+\item 
+enum \{ {\bf X} = 0, 
+{\bf Y} = 1, 
+{\bf Z} = 2
+ \}
+\end{CompactItemize}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Vec3T} ()
+\item 
+{\bf Vec3T} (F f)
+\item 
+{\bf Vec3T} (const F $\ast$f)
+\item 
+{\bf Vec3T} (F a, F b, F c)
+\item 
+{\bf Vec3T} (const {\bf Vec3T} \&c)
+\item 
+{\bf $\sim$Vec3T} ()
+\item 
+{\bf operator F $\ast$} ()
+\item 
+{\bf operator const F $\ast$} () const 
+\item 
+F $\ast$ {\bf array} ()
+\item 
+F \& {\bf operator()} (int i)
+\item 
+const F \& {\bf operator()} (int i) const 
+\item 
+F \& {\bf operator[$\,$]} (int i)
+\item 
+const F \& {\bf operator[$\,$]} (int i) const 
+\item 
+F \& {\bf x} ()
+\item 
+F \& {\bf y} ()
+\item 
+F \& {\bf z} ()
+\item 
+const F \& {\bf x} () const 
+\item 
+const F \& {\bf y} () const 
+\item 
+const F \& {\bf z} () const 
+\item 
+{\bf Vec3T} \& {\bf operator=} (const {\bf Vec3T} \&c)
+\item 
+{\bf Vec3T} \& {\bf operator+=} (const {\bf Vec3T} \&c)
+\item 
+{\bf Vec3T} \& {\bf operator-=} (const {\bf Vec3T} \&c)
+\item 
+{\bf Vec3T} \& {\bf operator $\ast$=} (const F \&s)
+\item 
+{\bf Vec3T} \& {\bf operator/=} (const F \&s)
+\item 
+F {\bf l1} (void) const 
+\item 
+F {\bf linfty} (void) const 
+\item 
+F {\bf l2} (void) const 
+\item 
+F {\bf length} (void) const 
+\item 
+{\bf Vec3T} {\bf dir} (void) const 
+\end{CompactItemize}
+\subsection*{Private Attributes}
+\begin{CompactItemize}
+\item 
+F {\bf \_\-v} [3]
+\end{CompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ anonymous enum}\label{classVec3T_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{X@{X}!Vec3T@{Vec3T}}\index{Vec3T@{Vec3T}!X@{X}}\item[{\em 
+X\label{classVec3T_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef02129bb861061d1a052c592e2dc6b383}
+}]\index{Y@{Y}!Vec3T@{Vec3T}}\index{Vec3T@{Vec3T}!Y@{Y}}\item[{\em 
+Y\label{classVec3T_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef57cec4137b614c87cb4e24a3d003a3e0}
+}]\index{Z@{Z}!Vec3T@{Vec3T}}\index{Vec3T@{Vec3T}!Z@{Z}}\item[{\em 
+Z\label{classVec3T_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef21c2e59531c8710156d34a3c30ac81d5}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 37 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}37 { X=0, Y=1, Z=2 };
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Vec3T@{Vec3T}!Vec3T@{Vec3T}}
+\index{Vec3T@{Vec3T}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$ F $>$::{\bf Vec3T} ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_b886a93b10a2e9e48923a745ae509626_b886a93b10a2e9e48923a745ae509626}
+
+
+Constructor 
+
+Definition at line 40 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}40 { _v[0]=F(0);    _v[1]=F(0);    _v[2]=F(0); }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!Vec3T@{Vec3T}}
+\index{Vec3T@{Vec3T}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$ F $>$::{\bf Vec3T} (F {\em f})\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_bad90f437fffa92ec0700a6123e153c6_bad90f437fffa92ec0700a6123e153c6}
+
+
+Constructor. Set \_\-v[0], \_\-v[1], \_\-v[2] = f of type F 
+
+Definition at line 42 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}42 { _v[0]=f;       _v[1]=f;       _v[2]=f;}
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!Vec3T@{Vec3T}}
+\index{Vec3T@{Vec3T}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$ F $>$::{\bf Vec3T} (const F $\ast$ {\em f})\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_eec3fa77dfea6354da6fca0957b84c47_eec3fa77dfea6354da6fca0957b84c47}
+
+
+Constructor. Set \_\-v[0], \_\-v[1], \_\-v[2] = f of type F 
+
+Definition at line 44 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}44 { _v[0]=f[0];    _v[1]=f[1];    _v[2]=f[2]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!Vec3T@{Vec3T}}
+\index{Vec3T@{Vec3T}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$ F $>$::{\bf Vec3T} (F {\em a}, F {\em b}, F {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_b8c2c8fcb8fc6ddc84c8db4524380e22_b8c2c8fcb8fc6ddc84c8db4524380e22}
+
+
+Constructor. Set \_\-v[0] = a, \_\-v[1] = b, \_\-v[2] = c of type F 
+
+Definition at line 46 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}46 { _v[0]=a;       _v[1]=b;       _v[2]=c; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!Vec3T@{Vec3T}}
+\index{Vec3T@{Vec3T}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$ F $>$::{\bf Vec3T} (const {\bf Vec3T}$<$ F $>$ \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_e183e9c28117743381b9299fe334b1bb_e183e9c28117743381b9299fe334b1bb}
+
+
+Constructor. Set \_\-v[0] = c.\_\-v[0], \_\-v[1] = c.\_\-v[1], \_\-v[2] = c.\_\-v[2] 
+
+Definition at line 48 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}48 { _v[0]=c._v[0]; _v[1]=c._v[1]; _v[2]=c._v[2]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!~Vec3T@{$\sim$Vec3T}}
+\index{~Vec3T@{$\sim$Vec3T}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$ F $>$::$\sim${\bf Vec3T} ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_0d275e74973c4055262d8c6e03ca2f68_0d275e74973c4055262d8c6e03ca2f68}
+
+
+Destroy vector 
+
+Definition at line 50 of file vec3t.hpp.
+
+\footnotesize\begin{verbatim}50 {}
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{Vec3T@{Vec3T}!array@{array}}
+\index{array@{array}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Vec3T}$<$ F $>$::array ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_fed1d2aa4ab9cd28dd771492a3bc2f97_fed1d2aa4ab9cd28dd771492a3bc2f97}
+
+
+Return pointer to \_\-v[0] 
+
+Definition at line 57 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}57 { return &_v[0]; }  //access array
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!dir@{dir}}
+\index{dir@{dir}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T} {\bf Vec3T}$<$ F $>$::dir (void) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_a74553621910e03016573bb3cd7a3e7c_a74553621910e03016573bb3cd7a3e7c}
+
+
+Unit vector in director of this 
+
+Definition at line 99 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::l2().
+
+\footnotesize\begin{verbatim}99 { F a=l2(); return (*this)/a; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!l1@{l1}}
+\index{l1@{l1}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F {\bf Vec3T}$<$ F $>$::l1 (void) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_d6b8e40dbcfd9fe5c2375fe82598b02d_d6b8e40dbcfd9fe5c2375fe82598b02d}
+
+
+L-1 norm: sabsolute value of sum of elements in vector 
+
+Definition at line 91 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v, and abs().
+
+\footnotesize\begin{verbatim}91 { F sum=F(0); for(int i=0; i<3; i++) sum=sum+abs(_v[i]); return sum; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!l2@{l2}}
+\index{l2@{l2}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F {\bf Vec3T}$<$ F $>$::l2 (void) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_ba4174b2dda6a79f2501cbc9eaf2c3a0_ba4174b2dda6a79f2501cbc9eaf2c3a0}
+
+
+L-2 norm: square root of sum of elements 
+
+Definition at line 95 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+Referenced by Vec3T$<$ F $>$::dir(), and Vec3T$<$ F $>$::length().
+
+\footnotesize\begin{verbatim}95 { F sum=F(0); for(int i=0; i<3; i++) sum=sum+_v[i]*_v[i]; return sqrt(sum); }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!length@{length}}
+\index{length@{length}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F {\bf Vec3T}$<$ F $>$::length (void) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_e9614187f8e8bc75460d63171193e93c_e9614187f8e8bc75460d63171193e93c}
+
+
+Length = L-2 norm 
+
+Definition at line 97 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::l2().
+
+\footnotesize\begin{verbatim}97 { return l2(); }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!linfty@{linfty}}
+\index{linfty@{linfty}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F {\bf Vec3T}$<$ F $>$::linfty (void) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_c7a97570bd6556e3c5b1880cdd762fe7_c7a97570bd6556e3c5b1880cdd762fe7}
+
+
+L-infinity norm: max of elements in vector 
+
+Definition at line 93 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v, abs(), and max().
+
+\footnotesize\begin{verbatim}93 { F cur=F(0); for(int i=0; i<3; i++) cur=max(cur,abs(_v[i])); return cur; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!operator *=@{operator $\ast$=}}
+\index{operator *=@{operator $\ast$=}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}\& {\bf Vec3T}$<$ F $>$::operator $\ast$= (const F \& {\em s})\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_404673cf6ccdc8cbaa386ee62bda9ee3_404673cf6ccdc8cbaa386ee62bda9ee3}
+
+
+Overloaded $\ast$= operator. this.\_\-v[0] $\ast$= c.\_\-v[0], etc. 
+
+Definition at line 86 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}86 { _v[0]*=s;       _v[1]*=s;       _v[2]*=s;       return *this; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!operator const F *@{operator const F $\ast$}}
+\index{operator const F *@{operator const F $\ast$}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$ F $>$::operator const F $\ast$ () const\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_fa3f101185e97bac2b0f08d3588ae2f4_fa3f101185e97bac2b0f08d3588ae2f4}
+
+
+Return pointer to \_\-v[0] 
+
+Definition at line 55 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}55 { return &_v[0]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!operator F *@{operator F $\ast$}}
+\index{operator F *@{operator F $\ast$}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}$<$ F $>$::operator F $\ast$ ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_ac352e6903287f8c15cc49407e292610_ac352e6903287f8c15cc49407e292610}
+
+
+Return pointer to \_\-v[0] 
+
+Definition at line 53 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}53 { return &_v[0]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!operator()@{operator()}}
+\index{operator()@{operator()}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Vec3T}$<$ F $>$::operator() (int {\em i}) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_46442ed0ae535217a90cc5b4b63a1f44_46442ed0ae535217a90cc5b4b63a1f44}
+
+
+Return ith (0, 1, or 2) element of \_\-v 
+
+Definition at line 61 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}61 { assert(i<3); return _v[i]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!operator()@{operator()}}
+\index{operator()@{operator()}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Vec3T}$<$ F $>$::operator() (int {\em i})\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_a6859783df5149b240b538ed4f692366_a6859783df5149b240b538ed4f692366}
+
+
+Return ith (0, 1, or 2) element of \_\-v 
+
+Definition at line 59 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}59 { assert(i<3); return _v[i]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}\& {\bf Vec3T}$<$ F $>$::operator+= (const {\bf Vec3T}$<$ F $>$ \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_45ae363ae4fb850529eec394914c14f5_45ae363ae4fb850529eec394914c14f5}
+
+
+Overloaded += operator. this.\_\-v[0] += c.\_\-v[0], etc. 
+
+Definition at line 82 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}82 { _v[0]+=c._v[0]; _v[1]+=c._v[1]; _v[2]+=c._v[2]; return *this; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!operator-=@{operator-=}}
+\index{operator-=@{operator-=}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}\& {\bf Vec3T}$<$ F $>$::operator-= (const {\bf Vec3T}$<$ F $>$ \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_30e20de83a90c1c7bf1c1fd824d00c90_30e20de83a90c1c7bf1c1fd824d00c90}
+
+
+Overloaded -= operator. this.\_\-v[0] -= c.\_\-v[0], etc. 
+
+Definition at line 84 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}84 { _v[0]-=c._v[0]; _v[1]-=c._v[1]; _v[2]-=c._v[2]; return *this; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}\& {\bf Vec3T}$<$ F $>$::operator/= (const F \& {\em s})\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_eb88f872395a552abe9854728f4d5eac_eb88f872395a552abe9854728f4d5eac}
+
+
+Overloaded /= operator. this.\_\-v[0] /= c.\_\-v[0], etc. 
+
+Definition at line 88 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}88 { _v[0]/=s;       _v[1]/=s;       _v[2]/=s;       return *this; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!operator=@{operator=}}
+\index{operator=@{operator=}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Vec3T}\& {\bf Vec3T}$<$ F $>$::operator= (const {\bf Vec3T}$<$ F $>$ \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_b157d8441f014e1177994de6a229b1f0_b157d8441f014e1177994de6a229b1f0}
+
+
+Overloaded = operator. this.\_\-v[0] = c.\_\-v[0], etc. 
+
+Definition at line 80 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}80 { _v[0] =c._v[0]; _v[1] =c._v[1]; _v[2] =c._v[2]; return *this; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!operator[]@{operator[]}}
+\index{operator[]@{operator[]}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Vec3T}$<$ F $>$::operator[$\,$] (int {\em i}) const\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_56bd1e633f412f07706e05b60f9eb2bc_56bd1e633f412f07706e05b60f9eb2bc}
+
+
+Return ith (0, 1, or 2) element of \_\-v 
+
+Definition at line 65 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}65 { assert(i<3); return _v[i]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!operator[]@{operator[]}}
+\index{operator[]@{operator[]}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Vec3T}$<$ F $>$::operator[$\,$] (int {\em i})\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_afa3b3be64f86f689de4bf05a470fc17_afa3b3be64f86f689de4bf05a470fc17}
+
+
+Return ith (0, 1, or 2) element of \_\-v 
+
+Definition at line 63 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}63 { assert(i<3); return _v[i]; }
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!x@{x}}
+\index{x@{x}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Vec3T}$<$ F $>$::x () const\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_48b18a21fef9634230ceceb1ae474d7b_48b18a21fef9634230ceceb1ae474d7b}
+
+
+Return x-coordinate (\_\-v[0]) 
+
+Definition at line 73 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}73 { return _v[0];}
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!x@{x}}
+\index{x@{x}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Vec3T}$<$ F $>$::x ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_21935a98327babfb12a213be3f675109_21935a98327babfb12a213be3f675109}
+
+
+Return x-coordinate (\_\-v[0]) 
+
+Definition at line 67 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}67 { return _v[0];}
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!y@{y}}
+\index{y@{y}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Vec3T}$<$ F $>$::y () const\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_0aa081a05397b4edd9d072a1d05f25c3_0aa081a05397b4edd9d072a1d05f25c3}
+
+
+Return y-coordinate (\_\-v[0]) 
+
+Definition at line 75 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}75 { return _v[1];}
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!y@{y}}
+\index{y@{y}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Vec3T}$<$ F $>$::y ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_1dd5a44efca58e87cf45e4453a1f7a02_1dd5a44efca58e87cf45e4453a1f7a02}
+
+
+Return y-coordinate (\_\-v[1]) 
+
+Definition at line 69 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}69 { return _v[1];}
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!z@{z}}
+\index{z@{z}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Vec3T}$<$ F $>$::z () const\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_e4cf632abf5500a084c87337981fb69a_e4cf632abf5500a084c87337981fb69a}
+
+
+Return z-coordinate (\_\-v[0]) 
+
+Definition at line 77 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}77 { return _v[2];}
+\end{verbatim}\normalsize 
+
+
+\index{Vec3T@{Vec3T}!z@{z}}
+\index{z@{z}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Vec3T}$<$ F $>$::z ()\hspace{0.3cm}{\tt  [inline]}}\label{classVec3T_622f286353494846ff04e74cb10312e6_622f286353494846ff04e74cb10312e6}
+
+
+Return z-coordinate (\_\-v[2]) 
+
+Definition at line 71 of file vec3t.hpp.
+
+References Vec3T$<$ F $>$::\_\-v.
+
+\footnotesize\begin{verbatim}71 { return _v[2];}
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{Vec3T@{Vec3T}!_v@{\_\-v}}
+\index{_v@{\_\-v}!Vec3T@{Vec3T}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F {\bf Vec3T}$<$ F $>$::{\bf \_\-v}[3]\hspace{0.3cm}{\tt  [private]}}\label{classVec3T_c87fbb402bd1742760b8dc179a0a17f3_c87fbb402bd1742760b8dc179a0a17f3}
+
+
+3D vector Data of type F 
+
+Definition at line 35 of file vec3t.hpp.
+
+Referenced by Vec3T$<$ F $>$::array(), Vec3T$<$ F $>$::l1(), Vec3T$<$ F $>$::l2(), Vec3T$<$ F $>$::linfty(), Vec3T$<$ F $>$::operator $\ast$=(), Vec3T$<$ F $>$::operator const F $\ast$(), Vec3T$<$ F $>$::operator F $\ast$(), Vec3T$<$ F $>$::operator()(), Vec3T$<$ F $>$::operator+=(), Vec3T$<$ F $>$::operator-=(), Vec3T$<$ F $>$::operator/=(), Vec3T$<$ F $>$::operator=(), Vec3T$<$ F $>$::operator[$\,$](), Vec3T$<$ F $>$::Vec3T(), Vec3T$<$ F $>$::x(), Vec3T$<$ F $>$::y(), and Vec3T$<$ F $>$::z().
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+common/{\bf vec3t.hpp}\end{CompactItemize}

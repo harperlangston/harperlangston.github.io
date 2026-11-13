@@ -1,0 +1,712 @@
+\section{Kernel3d\_\-MPI Class Reference}
+\label{classKernel3d__MPI}\index{Kernel3d_MPI@{Kernel3d\_\-MPI}}
+{\tt \#include $<$kernel3d\_\-mpi.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+static class Kernel3d\_\-MPI for 3d kernels of various types for parallel fmm3d code, fmm3d\_\-mpi 
+
+
+
+Definition at line 81 of file kernel3d\_\-mpi.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Kernel3d\_\-MPI} ()
+\item 
+{\bf Kernel3d\_\-MPI} (int kernel\-Type, const vector$<$ double $>$ \&coefs)
+\item 
+{\bf Kernel3d\_\-MPI} (const {\bf Kernel3d\_\-MPI} \&c)
+\item 
+{\bf Kernel3d\_\-MPI} \& {\bf operator=} (const {\bf Kernel3d\_\-MPI} \&c)
+\item 
+int \& {\bf kernel\-Type} ()
+\item 
+const int \& {\bf kernel\-Type} () const 
+\item 
+vector$<$ double $>$ \& {\bf coefs} ()
+\item 
+const vector$<$ double $>$ \& {\bf coefs} () const 
+\item 
+int {\bf dim} ()
+\item 
+int {\bf src\-DOF} () const 
+\item 
+int {\bf trg\-DOF} () const 
+\item 
+bool {\bf homogeneous} () const 
+\item 
+void {\bf homogeneous\-Deg} (vector$<$ double $>$ \&) const 
+\item 
+int {\bf build\-Knl\-Int\-Ctx} (const Dbl\-Num\-Mat \&src\-Pos, const Dbl\-Num\-Mat \&src\-Nor, const Dbl\-Num\-Mat \&trg\-Pos, Dbl\-Num\-Mat \&inter)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf \_\-kernel\-Type}
+\item 
+vector$<$ double $>$ {\bf \_\-coefs}
+\end{CompactItemize}
+\subsection*{Static Protected Attributes}
+\begin{CompactItemize}
+\item 
+static double {\bf \_\-mindif} = 1e-8
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Kernel3d\_\-MPI::Kernel3d\_\-MPI ()\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d__MPI_ec0afb717baf07c9d067fb1bd8e80056_ec0afb717baf07c9d067fb1bd8e80056}
+
+
+Initialize Kernel3d\_\-MPI to default KNL\_\-ERR 
+
+Definition at line 92 of file kernel3d\_\-mpi.hpp.
+
+\footnotesize\begin{verbatim}92 : _kernelType(KNL_ERR) {;}
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Kernel3d\_\-MPI::Kernel3d\_\-MPI (int {\em kernel\-Type}, const vector$<$ double $>$ \& {\em coefs})\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d__MPI_ee7734c35c8da2a2b35b90f53bc89d9a_ee7734c35c8da2a2b35b90f53bc89d9a}
+
+
+Initialize kernel3d\_\-MPI based on kernel\-Type and coefficients for the kernel 
+
+Definition at line 94 of file kernel3d\_\-mpi.hpp.
+
+\footnotesize\begin{verbatim}94 : _kernelType(kernelType), _coefs(coefs) {;}
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Kernel3d\_\-MPI::Kernel3d\_\-MPI (const {\bf Kernel3d\_\-MPI} \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d__MPI_c89f06f32cb46b2b86271fc04e1cfd40_c89f06f32cb46b2b86271fc04e1cfd40}
+
+
+Initialize kernel3d\_\-MPI based on another kernel 
+
+Definition at line 96 of file kernel3d\_\-mpi.hpp.
+
+\footnotesize\begin{verbatim}96 : _kernelType(c._kernelType), _coefs(c._coefs) {;}
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!buildKnlIntCtx@{buildKnlIntCtx}}
+\index{buildKnlIntCtx@{buildKnlIntCtx}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Kernel3d\_\-MPI::build\-Knl\-Int\-Ctx (const Dbl\-Num\-Mat \& {\em src\-Pos}, const Dbl\-Num\-Mat \& {\em src\-Nor}, const Dbl\-Num\-Mat \& {\em trg\-Pos}, Dbl\-Num\-Mat \& {\em inter})}\label{classKernel3d__MPI_4ff7c1aa272081dddc16c4996c95a5df_4ff7c1aa272081dddc16c4996c95a5df}
+
+
+Each kernel\-Type handles coefs in its own way, can be empty In general, this function, depending on kernel\-Type, builds an interpolation context for the kernel. For example, (1/4pi)$\ast$(1/r$^\wedge$3) for single-layer Laplacian Velocity/Position 
+
+Definition at line 142 of file kernel3d\_\-mpi.cpp.
+
+References \_\-kernel\-Type, \_\-mindif, dim(), KNL\_\-LAP\_\-S\_\-U, p\-A, src\-DOF(), and trg\-DOF().
+
+Referenced by Mat\-Mgnt3d\_\-MPI::Dwn\-Chk2Dwn\-Equ\_\-dgemv(), Dense3d\_\-MPI::evaluate(), FMM3d\_\-MPI::Src\-Equ2Trg\-Chk\_\-dgemv(), Mat\-Mgnt3d\_\-MPI::Upw\-Chk2Upw\-Equ\_\-dgemv(), Mat\-Mgnt3d\_\-MPI::Upw\-Equ2Dwn\-Chk\_\-dgemv(), and Mat\-Mgnt3d\_\-MPI::Upw\-Equ2Upw\-Chk\_\-dgemv().
+
+\footnotesize\begin{verbatim}143 {
+144   //begin
+145   int srcDOF = this->srcDOF();
+146   int trgDOF = this->trgDOF();
+147   pA(srcPos.m()==dim() && srcNor.m()==dim() && trgPos.m()==dim());
+148   pA(srcPos.n()==srcNor.n());
+149   pA(srcPos.n()*srcDOF == inter.n());
+150   pA(trgPos.n()*trgDOF == inter.m());
+151   /* Single-Layer Laplacian Position/Velocity */
+152   if(       _kernelType==KNL_LAP_S_U) {
+153          //----------------------------------------------------------------------------------
+154          //---------------------------------
+155          double OOFP = 1.0/(4.0*M_PI);
+156          for(int i=0; i<trgPos.n(); i++) {
+157                 for(int j=0; j<srcPos.n(); j++) {
+158                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+159                   double r2 = x*x + y*y + z*z;                                                    double r = sqrt(r2);
+160                   if(r<_mindif) {
+161                          inter(i,j) = 0;
+162                   } else {
+163                          inter(i,j) = OOFP / r;
+164                   }
+165                 }
+166          }
+167   }
+168   /* Double-Layer Laplacian Position/Velocity */
+169   else if(_kernelType==KNL_LAP_D_U) {
+170          //---------------------------------
+171          double OOFP = 1.0/(4.0*M_PI);
+172          for(int i=0; i<trgPos.n(); i++)
+173                 for(int j=0; j<srcPos.n(); j++) {
+174                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+175                   double r2 = x*x + y*y + z*z;                    double r = sqrt(r2);
+176                   if(r<_mindif) {
+177                          for(int t=0;t<trgDOF;t++) for(int s=0;s<srcDOF;s++) { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+178                   } else {
+179                          double nx = srcNor(0,j);                                 double ny = srcNor(1,j);                                double nz = srcNor(2,j);
+180                          double rn = x*nx + y*ny + z*nz;
+181                          double r3 = r2*r;
+182                          inter(i,j) = - OOFP / r3 * rn;
+183                   }
+184                 }
+185   }
+186   /* Laplacian Identity Kernel */
+187   else if(_kernelType==KNL_LAP_I) {
+188          //---------------------------------
+189          for(int i=0; i<trgPos.n(); i++)
+190                 for(int j=0; j<srcPos.n(); j++)
+191                   inter(i,j) = 1;
+192   }
+193   /* Stokes - Fmm3d velocity kernel */
+194   else if(_kernelType==KNL_STK_F_U) {
+195          //----------------------------------------------------------------------------------
+196          //---------------------------------
+197          pA(_coefs.size()>=1);
+198          double mu = _coefs[0];
+199          double OOFP = 1.0/(4.0*M_PI);
+200          double OOEP = 1.0/(8.0*M_PI);
+201          double oomu = 1.0/mu;
+202          for(int i=0; i<trgPos.n(); i++)
+203                 for(int j=0; j<srcPos.n(); j++) {
+204                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+205                   double r2 = x*x + y*y + z*z;                    double r = sqrt(r2);
+206                   if(r<_mindif) {
+207                          for(int t=0;t<trgDOF;t++) for(int s=0;s<srcDOF;s++) { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+208                   } else {
+209                          double r3 = r2*r;
+210                          double G = oomu * OOEP / r;
+211                          double H = oomu * OOEP / r3;
+212                          double A = OOFP / r3;
+213                          int is = i*3;                   int js = j*4;
+214                          inter(is,   js)   = G + H*x*x; inter(is,   js+1) =     H*x*y; inter(is,   js+2) =     H*x*z; inter(is,   js+3) = A*x;
+215                          inter(is+1, js)   =     H*y*x; inter(is+1, js+1) = G + H*y*y; inter(is+1, js+2) =     H*y*z; inter(is+1, js+3) = A*y;
+216                          inter(is+2, js)   =     H*z*x; inter(is+2, js+1) =     H*z*y; inter(is+2, js+2) = G + H*z*z; inter(is+2, js+3) = A*z;
+217                   }
+218                 }
+219   }
+220   /* Stokes Single-Layer Position/Velocity kernel */
+221   else if(_kernelType==KNL_STK_S_U) {
+222          //---------------------------------
+223          pA(_coefs.size()>=1);
+224          double mu = _coefs[0];
+225          double OOEP = 1.0/(8.0*M_PI);
+226          double oomu = 1.0/mu;
+227          for(int i=0; i<trgPos.n(); i++)
+228                 for(int j=0; j<srcPos.n(); j++) {
+229                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+230                   double r2 = x*x + y*y + z*z;                    double r = sqrt(r2);
+231                   if(r<_mindif) {
+232                          for(int t=0;t<trgDOF;t++) for(int s=0;s<srcDOF;s++) { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+233                   } else {
+234                          double r3 = r2*r;
+235                          double G = OOEP / r;
+236                          double H = OOEP / r3;
+237                          inter(i*3,   j*3)   = oomu*(G + H*x*x); inter(i*3,   j*3+1) = oomu*(    H*x*y); inter(i*3,   j*3+2) = oomu*(    H*x*z);
+238                          inter(i*3+1, j*3)   = oomu*(    H*y*x); inter(i*3+1, j*3+1) = oomu*(G + H*y*y); inter(i*3+1, j*3+2) = oomu*(    H*y*z);
+239                          inter(i*3+2, j*3)   = oomu*(    H*z*x); inter(i*3+2, j*3+1) = oomu*(    H*z*y); inter(i*3+2, j*3+2) = oomu*(G + H*z*z);
+240                   }
+241                 }
+242   }
+243   /* Stokes Single-Layer Pressure kernel */
+244   else if(_kernelType==KNL_STK_S_P) {
+245          //---------------------------------
+246          pA(_coefs.size()>=1);
+247          double mu = _coefs[0];
+248          double OOFP = 1.0/(4.0*M_PI);
+249          for(int i=0; i<trgPos.n(); i++)
+250                 for(int j=0; j<srcPos.n(); j++) {
+251                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+252                   double r2 = x*x + y*y + z*z;                    double r = sqrt(r2);
+253                   if(r<_mindif) {
+254                          for(int t=0;t<trgDOF;t++) for(int s=0;s<srcDOF;s++) { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+255                   } else {
+256                          double r3 = r2*r;
+257                          inter(i  ,j*3  ) = OOFP*x/r3;                   inter(i  ,j*3+1) = OOFP*y/r3;                   inter(i  ,j*3+2) = OOFP*z/r3;
+258                   }
+259                 }
+260   }
+261   /* Stokes Double-Layer Position/Velocity kernel */
+262   else if(_kernelType==KNL_STK_D_U) {
+263          //---------------------------------
+264          pA(_coefs.size()>=1);
+265          double mu = _coefs[0];
+266          double SOEP = 6.0/(8.0*M_PI);
+267          for(int i=0; i<trgPos.n(); i++)
+268                 for(int j=0; j<srcPos.n(); j++) {
+269                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+270                   double r2 = x*x + y*y + z*z;                    double r = sqrt(r2);
+271                   if(r<_mindif) {
+272                          for(int t=0;t<trgDOF;t++) for(int s=0;s<srcDOF;s++) { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+273                   } else {
+274                          double nx = srcNor(0,j);                                 double ny = srcNor(1,j);                                double nz = srcNor(2,j);
+275                          double rn = x*nx + y*ny + z*nz;
+276                          double r5 = r2*r2*r;
+277                          double C = - SOEP / r5;
+278                          inter(i*3,   j*3)   = C*rn*x*x;                                  inter(i*3,   j*3+1) = C*rn*x*y;                                 inter(i*3,   j*3+2) = C*rn*x*z;
+279                          inter(i*3+1, j*3)   = C*rn*y*x;                                  inter(i*3+1, j*3+1) = C*rn*y*y;                                 inter(i*3+1, j*3+2) = C*rn*y*z;
+280                          inter(i*3+2, j*3)   = C*rn*z*x;                                  inter(i*3+2, j*3+1) = C*rn*z*y;                                 inter(i*3+2, j*3+2) = C*rn*z*z;
+281                   }
+282                 }
+283   }
+284   /* Stokes Double-Layer Pressure kernel */
+285   else if(_kernelType==KNL_STK_D_P) {
+286          //---------------------------------
+287          pA(_coefs.size()>=1);
+288          double mu = _coefs[0];
+289          double OOTP = 1.0/(2.0*M_PI);
+290          double coef = mu*OOTP;
+291          for(int i=0; i<trgPos.n(); i++)
+292                 for(int j=0; j<srcPos.n(); j++) {
+293                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+294                   double r2 = x*x + y*y + z*z;                    double r = sqrt(r2);
+295                   if(r<_mindif) {
+296                          for(int t=0;t<trgDOF;t++) for(int s=0;s<srcDOF;s++) { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+297                   } else {
+298                          double nx = srcNor(0,j);                                 double ny = srcNor(1,j);                                double nz = srcNor(2,j);
+299                          double rn = x*nx + y*ny + z*nz;
+300                          double r3 = r2*r;
+301                          double r5 = r3*r2;
+302                          int is = i;                     int js = j*3;
+303                          inter(is  ,js  ) = coef*(nx/r3 - 3*rn*x/r5);
+304                          inter(is  ,js+1) = coef*(ny/r3 - 3*rn*y/r5);
+305                          inter(is  ,js+2) = coef*(nz/r3 - 3*rn*z/r5);
+306                   }
+307                 }
+308   }
+309   else if(_kernelType==KNL_STK_R_U) {
+310          //---------------------------------
+311          pA(_coefs.size()>=1);
+312          double mu = _coefs[0];
+313          for(int i=0; i<trgPos.n(); i++)
+314                 for(int j=0; j<srcPos.n(); j++) {
+315                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+316                   double r2 = x*x + y*y + z*z;                    double r = sqrt(r2);
+317                   if(r<_mindif) {
+318                          for(int t=0;t<trgDOF;t++) for(int s=0;s<srcDOF;s++) { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+319                   } else {
+320                          double r3 = r2*r;
+321                          double coef = 1.0/(8.0*M_PI*mu)/r3;
+322                          inter(i*3,   j*3)   = coef*0;                   inter(i*3,   j*3+1) = coef*z;                   inter(i*3,   j*3+2) = coef*(-y);
+323                          inter(i*3+1, j*3)   = coef*(-z);                inter(i*3+1, j*3+1) = coef*0;                   inter(i*3+1, j*3+2) = coef*x;
+324                          inter(i*3+2, j*3)   = coef*y;                   inter(i*3+2, j*3+1) = coef*(-x);                inter(i*3+2, j*3+2) = coef*0;
+325                   }
+326                 }
+327   } else if(_kernelType==KNL_STK_R_P) {
+328          //---------------------------------
+329          pA(_coefs.size()>=1);
+330          double mu = _coefs[0];
+331          for(int i=0; i<trgPos.n(); i++)
+332                 for(int j=0; j<srcPos.n(); j++) {
+333                   inter(i,j*3  ) = 0;
+334                   inter(i,j*3+1) = 0;
+335                   inter(i,j*3+2) = 0;
+336                 }
+337   } else if(_kernelType==KNL_STK_I) {
+338          //---------------------------------
+339          pA(_coefs.size()>=1);
+340          double mu = _coefs[0];
+341          for(int i=0; i<trgPos.n(); i++)
+342                 for(int j=0; j<srcPos.n(); j++) {
+343                   inter(i*3,   j*3  ) = 1;               inter(i*3,   j*3+1) = 0;                inter(i*3,   j*3+2) = 0;
+344                   inter(i*3+1, j*3  ) = 0;               inter(i*3+1, j*3+1) = 1;                inter(i*3+1, j*3+2) = 0;
+345                   inter(i*3+2, j*3  ) = 0;               inter(i*3+2, j*3+1) = 0;                inter(i*3+2, j*3+2) = 1;
+346                 }
+347   }
+348   /* levi-civita tensor */
+349   else if(_kernelType==KNL_STK_E) {
+350          //---------------------------------
+351          pA(_coefs.size()>=1);
+352          double mu = _coefs[0];
+353          for(int i=0; i<trgPos.n(); i++)
+354                 for(int j=0; j<srcPos.n(); j++) {
+355                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+356                   inter(i*3,   j*3  ) = 0;               inter(i*3,   j*3+1) = z;                inter(i*3,   j*3+2) = -y;
+357                   inter(i*3+1, j*3  ) = -z;      inter(i*3+1, j*3+1) = 0;                inter(i*3+1, j*3+2) = x;
+358                   inter(i*3+2, j*3  ) = y;               inter(i*3+2, j*3+1) = -x;               inter(i*3+2, j*3+2) = 0;
+359                 }
+360   }
+361   /* Navier-Stokes Single-Layer Position/Velocity Kernel */
+362   else if(_kernelType==KNL_NAV_S_U) {
+363          //----------------------------------------------------------------------------------
+364          //---------------------------------
+365          pA(_coefs.size()>=2);
+366          double mu = _coefs[0];  double ve = _coefs[1];
+367          double sc1 = (3.0-4.0*ve)/(16.0*M_PI*(1.0-ve));
+368          double sc2 = 1.0/(16.0*M_PI*(1.0-ve));
+369          double oomu = 1.0/mu;
+370          for(int i=0; i<trgPos.n(); i++)
+371                 for(int j=0; j<srcPos.n(); j++) {
+372                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+373                   double r2 = x*x + y*y + z*z;                    double r = sqrt(r2);
+374                   if(r<_mindif) {
+375                          for(int t=0;t<trgDOF;t++) for(int s=0;s<srcDOF;s++) { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+376                   } else {
+377                          double r3 = r2*r;
+378                          double G = sc1 / r;
+379                          double H = sc2 / r3;
+380                          inter(i*3,   j*3)   = oomu*(G + H*x*x);  inter(i*3,   j*3+1) = oomu*(    H*x*y);  inter(i*3,   j*3+2) = oomu*(    H*x*z);
+381                          inter(i*3+1, j*3)   = oomu*(    H*y*x);  inter(i*3+1, j*3+1) = oomu*(G + H*y*y);  inter(i*3+1, j*3+2) = oomu*(    H*y*z);
+382                          inter(i*3+2, j*3)   = oomu*(    H*z*x);  inter(i*3+2, j*3+1) = oomu*(    H*z*y);  inter(i*3+2, j*3+2) = oomu*(G + H*z*z);
+383                   }
+384                 }
+385   }
+386   /* Navier-Stokes Double-Layer Position/Velocity Kernel */
+387   else if(_kernelType==KNL_NAV_D_U) {
+388          //---------------------------------
+389          pA(_coefs.size()>=2);
+390          double mu = _coefs[0];  double ve = _coefs[1];
+391          double dc1 = -(1-2.0*ve)/(8.0*M_PI*(1.0-ve));
+392          double dc2 =  (1-2.0*ve)/(8.0*M_PI*(1.0-ve));
+393          double dc3 = -3.0/(8.0*M_PI*(1.0-ve));
+394          for(int i=0; i<trgPos.n(); i++)
+395                 for(int j=0; j<srcPos.n(); j++) {
+396                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+397                   double r2 = x*x + y*y + z*z;                    double r = sqrt(r2);
+398                   if(r<_mindif) {
+399                          for(int t=0;t<trgDOF;t++) for(int s=0;s<srcDOF;s++) { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+400                   } else {
+401                          double nx = srcNor(0,j);                                 double ny = srcNor(1,j);                                double nz = srcNor(2,j);
+402                          double rn = x*nx + y*ny + z*nz;
+403                          double r3 = r2*r;
+404                          double r5 = r3*r2;
+405                          double A = dc1 / r3;                    double B = dc2 / r3;                    double C = dc3 / r5;
+406                          double rx = x;                  double ry = y;                  double rz = z;
+407                          //&&&&&&&
+408                          inter(i*3,   j*3)   = A*(rn+nx*rx) + B*(rx*nx) + C*rn*rx*rx;
+409                          inter(i*3,   j*3+1) = A*(   nx*ry) + B*(rx*ny) + C*rn*rx*ry;
+410                          inter(i*3,   j*3+2) = A*(   nx*rz) + B*(rx*nz) + C*rn*rx*rz;
+411                          inter(i*3+1, j*3)   = A*(   ny*rx) + B*(ry*nx) + C*rn*ry*rx;
+412                          inter(i*3+1, j*3+1) = A*(rn+ny*ry) + B*(ry*ny) + C*rn*ry*ry;
+413                          inter(i*3+1, j*3+2) = A*(   ny*rz) + B*(ry*nz) + C*rn*ry*rz;
+414                          inter(i*3+2, j*3)   = A*(   nz*rx) + B*(rz*nx) + C*rn*rz*rx;
+415                          inter(i*3+2, j*3+1) = A*(   nz*ry) + B*(rz*ny) + C*rn*rz*ry;
+416                          inter(i*3+2, j*3+2) = A*(rn+nz*rz) + B*(rz*nz) + C*rn*rz*rz;
+417                   }
+418                 }
+419   } else if(_kernelType==KNL_NAV_R_U) {
+420          //---------------------------------
+421          pA(_coefs.size()>=2);
+422          double mu = _coefs[0];  double ve = _coefs[1];
+423          for(int i=0; i<trgPos.n(); i++)
+424                 for(int j=0; j<srcPos.n(); j++) {
+425                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+426                   double r2 = x*x + y*y + z*z;                    double r = sqrt(r2);
+427                   if(r<_mindif) {
+428                          for(int t=0;t<trgDOF;t++) for(int s=0;s<srcDOF;s++) { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+429                   } else {
+430                          double r3 = r2*r;
+431                          double coef = 1.0/(8.0*M_PI*mu)/r3;
+432                          inter(i*3,   j*3)   = coef*0;                   inter(i*3,   j*3+1) = coef*z;                   inter(i*3,   j*3+2) = coef*(-y);
+433                          inter(i*3+1, j*3)   = coef*(-z);                inter(i*3+1, j*3+1) = coef*0;                   inter(i*3+1, j*3+2) = coef*x;
+434                          inter(i*3+2, j*3)   = coef*y;                   inter(i*3+2, j*3+1) = coef*(-x);                inter(i*3+2, j*3+2) = coef*0;
+435                   }
+436                 }
+437   } else if(_kernelType==KNL_NAV_I) {
+438          //---------------------------------
+439          pA(_coefs.size()>=2);
+440          double mu = _coefs[0];  double ve = _coefs[1];
+441          for(int i=0; i<trgPos.n(); i++)
+442                 for(int j=0; j<srcPos.n(); j++) {
+443                   inter(i*3,   j*3  ) = 1;               inter(i*3,   j*3+1) = 0;                inter(i*3,   j*3+2) = 0;
+444                   inter(i*3+1, j*3  ) = 0;               inter(i*3+1, j*3+1) = 1;                inter(i*3+1, j*3+2) = 0;
+445                   inter(i*3+2, j*3  ) = 0;               inter(i*3+2, j*3+1) = 0;                inter(i*3+2, j*3+2) = 1;
+446                 }
+447   } else if(_kernelType==KNL_NAV_E) {
+448          //---------------------------------
+449          pA(_coefs.size()>=2);
+450          double mu = _coefs[0];  double ve = _coefs[1];
+451          for(int i=0; i<trgPos.n(); i++)
+452                 for(int j=0; j<srcPos.n(); j++) {
+453                   double x = trgPos(0,i) - srcPos(0,j); double y = trgPos(1,i) - srcPos(1,j); double z = trgPos(2,i) - srcPos(2,j);
+454                   inter(i*3,   j*3  ) = 0;               inter(i*3,   j*3+1) = z;                inter(i*3,   j*3+2) = -y;
+455                   inter(i*3+1, j*3  ) = -z;      inter(i*3+1, j*3+1) = 0;                inter(i*3+1, j*3+2) = x;
+456                   inter(i*3+2, j*3  ) = y;               inter(i*3+2, j*3+1) = -x;               inter(i*3+2, j*3+2) = 0;
+457                 }
+458   } else if(_kernelType==KNL_ERR) {
+459          //---------------------------------
+460          pA(0);
+461   }
+462   return(0);
+463 }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!coefs@{coefs}}
+\index{coefs@{coefs}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const vector$<$double$>$\& Kernel3d\_\-MPI::coefs () const\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d__MPI_869ed9e1e4e4eba94ef7ffba3a3d82a9_869ed9e1e4e4eba94ef7ffba3a3d82a9}
+
+
+Return vector of coefficients used for kernel computation 
+
+Definition at line 108 of file kernel3d\_\-mpi.hpp.
+
+References \_\-coefs.
+
+\footnotesize\begin{verbatim}108 { return _coefs; }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!coefs@{coefs}}
+\index{coefs@{coefs}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$\& Kernel3d\_\-MPI::coefs ()\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d__MPI_6cee00fd70607c0a0f51594392b6594b_6cee00fd70607c0a0f51594392b6594b}
+
+
+Return vector of coefficients used for kernel computation 
+
+Definition at line 106 of file kernel3d\_\-mpi.hpp.
+
+References \_\-coefs.
+
+Referenced by operator==(), and FMM3d\_\-MPI::setup().
+
+\footnotesize\begin{verbatim}106 { return _coefs; }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!dim@{dim}}
+\index{dim@{dim}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Kernel3d\_\-MPI::dim ()\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d__MPI_e3f9953141ca7d7525b58c0ff1ef6b1f_e3f9953141ca7d7525b58c0ff1ef6b1f}
+
+
+Dimension of the problem, set to 3 
+
+Definition at line 110 of file kernel3d\_\-mpi.hpp.
+
+Referenced by build\-Knl\-Int\-Ctx().
+
+\footnotesize\begin{verbatim}110 { return 3; }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!homogeneous@{homogeneous}}
+\index{homogeneous@{homogeneous}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Kernel3d\_\-MPI::homogeneous () const}\label{classKernel3d__MPI_215ba8957cc7ea3494813f5b1c2fc866_215ba8957cc7ea3494813f5b1c2fc866}
+
+
+homogeneous or not 
+
+Definition at line 106 of file kernel3d\_\-mpi.cpp.
+
+References \_\-kernel\-Type.
+
+Referenced by Mat\-Mgnt3d\_\-MPI::setup().
+
+\footnotesize\begin{verbatim}107 {
+108   bool ret = false;
+109   switch(_kernelType) {
+110          //laplace kernels
+111   case KNL_LAP_S_U: ret = true; break;
+112          //stokes kernels
+113   case KNL_STK_F_U: ret = true; break;
+114          //stokes kernels
+115   case KNL_NAV_S_U: ret = true; break;
+116   default: assert(0);
+117   }
+118   return ret;
+119 }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!homogeneousDeg@{homogeneousDeg}}
+\index{homogeneousDeg@{homogeneousDeg}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Kernel3d\_\-MPI::homogeneous\-Deg (vector$<$ double $>$ \&) const}\label{classKernel3d__MPI_e80fa2b1a2bc4b94c876c5c455b0ffb5_e80fa2b1a2bc4b94c876c5c455b0ffb5}
+
+
+homogeneous degree, vector size == src\-DOF 
+
+Definition at line 122 of file kernel3d\_\-mpi.cpp.
+
+References \_\-kernel\-Type, KNL\_\-NAV\_\-S\_\-U, and KNL\_\-STK\_\-F\_\-U.
+
+Referenced by Mat\-Mgnt3d\_\-MPI::setup().
+
+\footnotesize\begin{verbatim}123 {
+124   switch(_kernelType) {
+125   case KNL_LAP_S_U: degVec.resize(1); degVec[0]=1; break;
+126   case KNL_STK_F_U: degVec.resize(4); degVec[0]=1; degVec[1]=1; degVec[2]=1; degVec[3]=2; break;
+127   case KNL_NAV_S_U: degVec.resize(3); degVec[0]=1; degVec[1]=1; degVec[2]=1; break;
+128   default: assert(0);
+129   }
+130   return;
+131 }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!kernelType@{kernelType}}
+\index{kernelType@{kernelType}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const int\& Kernel3d\_\-MPI::kernel\-Type () const\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d__MPI_f6c825ae8cce01ccc734e4b4abd5d8e0_f6c825ae8cce01ccc734e4b4abd5d8e0}
+
+
+kernel type returns which kernel is being used, based on enumeration of kernel types ({\bf i.e.KNL\_\-LAP\_\-S\_\-U}{\rm (p.\,\pageref{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef8303e879d2d1daf3b5539bb5684e3df8})} = 111). Defaults to KNL\_\-ERR if undefined 
+
+Definition at line 104 of file kernel3d\_\-mpi.hpp.
+
+References \_\-kernel\-Type.
+
+\footnotesize\begin{verbatim}104 { return _kernelType; }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!kernelType@{kernelType}}
+\index{kernelType@{kernelType}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Kernel3d\_\-MPI::kernel\-Type ()\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d__MPI_dafce73fc921ab6ff4e38f86e70c2c0c_dafce73fc921ab6ff4e38f86e70c2c0c}
+
+
+kernel type returns which kernel is being used, based on enumeration of kernel types ({\bf i.e.KNL\_\-LAP\_\-S\_\-U}{\rm (p.\,\pageref{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef8303e879d2d1daf3b5539bb5684e3df8})} = 111). Defaults to KNL\_\-ERR if undefined 
+
+Definition at line 102 of file kernel3d\_\-mpi.hpp.
+
+References \_\-kernel\-Type.
+
+Referenced by operator==(), and FMM3d\_\-MPI::setup().
+
+\footnotesize\begin{verbatim}102 { return _kernelType; }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!operator=@{operator=}}
+\index{operator=@{operator=}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Kernel3d\_\-MPI}\& Kernel3d\_\-MPI::operator= (const {\bf Kernel3d\_\-MPI} \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d__MPI_707715fb796bd5714a49dce6a806a46d_707715fb796bd5714a49dce6a806a46d}
+
+
+Set a Kernel3d\_\-MPI using \char`\"{}=\char`\"{} sign 
+
+Definition at line 98 of file kernel3d\_\-mpi.hpp.
+
+References \_\-coefs, and \_\-kernel\-Type.
+
+\footnotesize\begin{verbatim}98                                                  {
+99          _kernelType = c._kernelType; _coefs = c._coefs; return *this;
+100   }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!srcDOF@{srcDOF}}
+\index{srcDOF@{srcDOF}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Kernel3d\_\-MPI::src\-DOF () const}\label{classKernel3d__MPI_a4664ea62cfb9d75bcb6d17538746158_a4664ea62cfb9d75bcb6d17538746158}
+
+
+Degree of freedom for source information 
+
+Definition at line 40 of file kernel3d\_\-mpi.cpp.
+
+References \_\-kernel\-Type, KNL\_\-LAP\_\-I, KNL\_\-NAV\_\-E, KNL\_\-NAV\_\-I, KNL\_\-STK\_\-E, and KNL\_\-STK\_\-I.
+
+Referenced by build\-Knl\-Int\-Ctx(), main(), Mat\-Mgnt3d\_\-MPI::src\-DOF(), Knl\-Mat3d\_\-MPI::src\-DOF(), and FMM3d\_\-MPI::Src\-Equ2Trg\-Chk\_\-dgemv().
+
+\footnotesize\begin{verbatim}41 {
+42   int dof = 0;
+43   switch(_kernelType) {
+44          //laplace kernels
+45   case KNL_LAP_S_U: dof = 1; break;
+46   case KNL_LAP_D_U: dof = 1; break;
+47   case KNL_LAP_I  : dof = 1; break;
+48          //stokes kernels
+49   case KNL_STK_F_U: dof = 4; break;
+50   case KNL_STK_S_U: dof = 3; break;
+51   case KNL_STK_S_P: dof = 3; break;
+52   case KNL_STK_D_U: dof = 3; break;
+53   case KNL_STK_D_P: dof = 3; break;
+54   case KNL_STK_R_U: dof = 3; break;
+55   case KNL_STK_R_P: dof = 3; break;
+56   case KNL_STK_I  : dof = 3; break;
+57   case KNL_STK_E  : dof = 3; break;
+58          //navier kernels:       //case KNL_NAV_F_U: dof = 3; break; //used for fmm
+59   case KNL_NAV_S_U: dof = 3; break;
+60   case KNL_NAV_D_U: dof = 3; break;
+61   case KNL_NAV_R_U: dof = 3; break;
+62   case KNL_NAV_I  : dof = 3; break;
+63   case KNL_NAV_E  : dof = 3; break;
+64          //others
+65          //error
+66   case KNL_ERR:     dof = 0; break;
+67   }
+68   return dof;
+69 }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!trgDOF@{trgDOF}}
+\index{trgDOF@{trgDOF}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Kernel3d\_\-MPI::trg\-DOF () const}\label{classKernel3d__MPI_0d7423b81a78e2a050a8658d3d46cb9c_0d7423b81a78e2a050a8658d3d46cb9c}
+
+
+Degree of freedom for target information. Example is that dof is 1 for pressure, higher for velocity/displacement, based on dimension of problem and kernel\-Type 
+
+Definition at line 74 of file kernel3d\_\-mpi.cpp.
+
+References \_\-kernel\-Type, KNL\_\-LAP\_\-I, KNL\_\-NAV\_\-E, KNL\_\-NAV\_\-I, KNL\_\-STK\_\-E, and KNL\_\-STK\_\-I.
+
+Referenced by build\-Knl\-Int\-Ctx(), main(), FMM3d\_\-MPI::Src\-Equ2Trg\-Chk\_\-dgemv(), Mat\-Mgnt3d\_\-MPI::trg\-DOF(), and Knl\-Mat3d\_\-MPI::trg\-DOF().
+
+\footnotesize\begin{verbatim}75 {
+76   int dof = 0;
+77   switch(_kernelType) {
+78          //laplace kernels
+79   case KNL_LAP_S_U: dof = 1; break;
+80   case KNL_LAP_D_U: dof = 1; break;
+81   case KNL_LAP_I  : dof = 1; break;
+82          //stokes kernels
+83   case KNL_STK_F_U: dof = 3; break;
+84   case KNL_STK_S_U: dof = 3; break;
+85   case KNL_STK_S_P: dof = 1; break;
+86   case KNL_STK_D_U: dof = 3; break;
+87   case KNL_STK_D_P: dof = 1; break;
+88   case KNL_STK_R_U: dof = 3; break;
+89   case KNL_STK_R_P: dof = 1; break;
+90   case KNL_STK_I  : dof = 3; break;
+91   case KNL_STK_E  : dof = 3; break;
+92          //navier kernels:       //  case KNL_NAV_F_U: dof = 3; break; //used for fmm
+93   case KNL_NAV_S_U: dof = 3; break;
+94   case KNL_NAV_D_U: dof = 3; break;
+95   case KNL_NAV_R_U: dof = 3; break;
+96   case KNL_NAV_I  : dof = 3; break;
+97   case KNL_NAV_E  : dof = 3; break;
+98          //others
+99          //error
+100   case KNL_ERR:     dof = 0; break;
+101   }
+102   return dof;
+103 }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!_coefs@{\_\-coefs}}
+\index{_coefs@{\_\-coefs}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ {\bf Kernel3d\_\-MPI::\_\-coefs}\hspace{0.3cm}{\tt  [protected]}}\label{classKernel3d__MPI_e3219078df8cea5b29e9e7bba8bee2b8_e3219078df8cea5b29e9e7bba8bee2b8}
+
+
+coefficients for kernel - for use with Navier and Stokes kernels (example mu viscosity). See papers for more details 
+
+Definition at line 87 of file kernel3d\_\-mpi.hpp.
+
+Referenced by coefs(), and operator=().\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!_kernelType@{\_\-kernelType}}
+\index{_kernelType@{\_\-kernelType}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Kernel3d\_\-MPI::\_\-kernel\-Type}\hspace{0.3cm}{\tt  [protected]}}\label{classKernel3d__MPI_6a4a9be8986c11a7006e77e743719e6c_6a4a9be8986c11a7006e77e743719e6c}
+
+
+kernel type is based on the enumerators. Example, KNL\_\-NAV\_\-S\_\-U = navier single velocity/displacement kernel = 511 
+
+Definition at line 85 of file kernel3d\_\-mpi.hpp.
+
+Referenced by build\-Knl\-Int\-Ctx(), homogeneous(), homogeneous\-Deg(), kernel\-Type(), operator=(), src\-DOF(), and trg\-DOF().\index{Kernel3d_MPI@{Kernel3d\_\-MPI}!_mindif@{\_\-mindif}}
+\index{_mindif@{\_\-mindif}!Kernel3d_MPI@{Kernel3d\_\-MPI}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double {\bf Kernel3d\_\-MPI::\_\-mindif} = 1e-8\hspace{0.3cm}{\tt  [static, protected]}}\label{classKernel3d__MPI_318abafeb7df979cf115fabc3bd24b53_318abafeb7df979cf115fabc3bd24b53}
+
+
+minimal difference 
+
+Definition at line 89 of file kernel3d\_\-mpi.hpp.
+
+Referenced by build\-Knl\-Int\-Ctx().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+fmm3d\_\-mpi/{\bf kernel3d\_\-mpi.hpp}\item 
+fmm3d\_\-mpi/{\bf kernel3d\_\-mpi.cpp}\end{CompactItemize}
