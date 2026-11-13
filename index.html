@@ -34,11 +34,47 @@
         <li><a href="https://github.com/harperlangston">GitHub</a></li>
         <li><a href="code/">Code &amp; repositories</a></li>
       </ul>
-      <p class="stats">25 publications · 6 patents · PhD, NYU Courant Institute</p>
+      <p class="stats">29 publications · 6 patents · PhD, NYU Courant Institute</p>
     </section>
 
     <section id="publications">
       <h2>Publications</h2>
+      <h3 class="year">2026</h3>
+      <div class="year-group">
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://arxiv.org/abs/2602.08722">QUOKA: Query-Oriented KV Selection for Efficient LLM Prefill</a></h3>
+          <p class="authors">Dalton Jones, Junyoung Park, Matthew Morse, Mingu Lee, Chris Lott, <strong>M. Harper Langston</strong></p>
+          <p class="venue">International Conference on Learning Representations (ICLR), 2026</p>
+          <div class="links"><a href="https://arxiv.org/abs/2602.08722" target=_blank rel=noopener>arXiv</a><a href="https://arxiv.org/pdf/2602.08722" target=_blank rel=noopener>PDF</a></div>
+          <details><summary>Abstract</summary><p>We present QUOKA: Query-oriented KV selection for efficient attention, a training-free and hardware-agnostic sparse attention algorithm for accelerating transformer inference under chunked prefill. While many queries focus on a smaller group of keys in the attention operator, we observe that queries with low cosine similarity with respect to the mean query interact more strongly with more keys and have the greatest contribution to final attention logits. By prioritizing these low cosine similarity queries, the behavior of full attention during the prefill stage can be closely approximated. QUOKA leverages this observation, accelerating attention by (1) first retaining a small set of representative queries and (2) then subselecting the keys most aligned with those queries. Through experiments on Needle-In-A-Haystack, LongBench, RULER, and Math500, we show that, while realizing a 3x reduction in time-to-first-token, 5x speedup in attention on Nvidia GPUs and up to nearly a 7x speedup on Intel Xeon CPUs, QUOKA achieves near-baseline accuracy, utilizing 88% fewer key-value pairs per attention evaluation.</p></details>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://arxiv.org/abs/2606.06034">When Good Enough Is Optimal: Multiplication-Only Matrix Inversion Approximation for Quantized Gated DeltaNet</a></h3>
+          <p class="authors">Luoming Zhang, Yuwei Ren, Kui Zhang, Tian Liu, Lingjuan Ge, Denghao Li, <strong>M. Harper Langston</strong>, Yin Huang, Weiliang Will Zeng, Liang Zhang</p>
+          <p class="venue">International Conference on Machine Learning (ICML), 2026</p>
+          <div class="links"><a href="https://arxiv.org/abs/2606.06034" target=_blank rel=noopener>arXiv</a><a href="https://arxiv.org/pdf/2606.06034" target=_blank rel=noopener>PDF</a></div>
+          <details><summary>Abstract</summary><p>Matrix inversion in chunk-wise parallel linear attention is a major bottleneck for long-context modeling, particularly on NPUs, where forward-substitution-based methods exhibit limited parallelism and poor hardware utilization. We propose a fast, Matrix Multiplication (MatMul)-based algorithm tailored for strictly lower-triangular matrices arising in chunk-wise linear attention. Motivated by the rapid growth of Neumann-series terms and the diagonal concentration of the inverse matrix, we employ a truncated Neumann expansion with structural masking and parallel residual correction to eliminate sequential dependencies. We further extend our method to low-bits INT by mitigating the dynamic range expansion arising from repeated matrix power operations, and adapt the approximation order and residual step to the chunk size to minimize computational cost while preserving the model’s accuracy. Experiments on Qwen3.5-family models demonstrate up to 5× kernel-level speedup and a 20% reduction in decode-layer overhead, while preserving accuracy under both floating-point and low-precision inference. Our method offers an efficient and hardware-friendly solution for scalable linear attention.</p></details>
+        </div>
+      </article>
+      </div>
+      <h3 class="year">2025</h3>
+      <div class="year-group">
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://arxiv.org/abs/2407.11306">PADRe: A Unifying Polynomial Attention Drop-in Replacement for Efficient Vision Transformer</a></h3>
+          <p class="authors">Pierre-David Letourneau, Manish Kumar Singh, Hsin-Pai Cheng, Shizhong Han, Yunxiao Shi, Dalton Jones, <strong>M. Harper Langston</strong>, Hong Cai, Fatih Porikli</p>
+          <p class="venue">International Conference on Learning Representations (ICLR), 2025</p>
+          <div class="links"><a href="https://arxiv.org/abs/2407.11306" target=_blank rel=noopener>arXiv</a><a href="https://arxiv.org/pdf/2407.11306" target=_blank rel=noopener>PDF</a><a href="https://iclr.cc/virtual/2025/poster/29269" target=_blank rel=noopener>ICLR</a></div>
+          <details><summary>Abstract</summary><p>We present Polynomial Attention Drop-in Replacement (PADRe), a novel and unifying framework designed to replace the conventional self-attention mechanism in transformer models. Notably, several recent alternative attention mechanisms, including Hyena, Mamba, SimA, Conv2Former, and Castling-ViT, can be viewed as specific instances of our PADRe framework. PADRe leverages polynomial functions and draws upon established results from approximation theory, enhancing computational efficiency without compromising accuracy. PADRe&#x27;s key components include multiplicative nonlinearities, which we implement using straightforward, hardware-friendly operations such as Hadamard products, incurring only linear computational and memory costs. PADRe further avoids the need for using complex functions such as Softmax, yet it maintains comparable or superior accuracy compared to traditional self-attention. We assess the effectiveness of PADRe as a drop-in replacement for self-attention across diverse computer vision tasks. These tasks include image classification, image-based 2D object detection, and 3D point cloud object detection. Empirical results demonstrate that PADRe runs significantly faster than the conventional self-attention (11x~43x faster on server GPU and mobile NPU) while maintaining similar accuracy when substituting self-attention in the transformer models.</p></details>
+        </div>
+      </article>
+      </div>
       <h3 class="year">2021</h3>
       <div class="year-group">
       <article class="pub">
@@ -59,6 +95,16 @@
           <p class="venue">12th International Particle Accelerator Conference (IPAC&#x27;21), Campinas, SP, Brazil, 2021 </p>
           <div class="links"><a href="papers/THPAB227.pdf">PDF</a></div>
           <details><summary>Abstract</summary><p>The MACH-B (Multipole Accelerator Codes for Hadron Beams) project is developing a Fast Multipole Method [1–7] (FMM)-based tool for higher fidelity modeling of particle accelerators for high-energy physics within the next generation of Fermilab’s Synergia simulation package [8]. MACH-B incorporates (1) highly-scalable, high-performance and generally-applicable FMM-based algorithms [5–7, 9] to accurately model space-charge effects in high-intensity hadron beams and (2) boundary integral approaches [10–12] to handle singular effects near the beam pipe using advanced quadratures. MACH-B will allow for more complex beam dynamics simulations that more accurately capture bunch effects and predict beam loss. Further, by introducing an abstraction layer to hide FMM implementation and parallelization complexities, MACH-B removes one of the key impediments to the adoption of FMMs by the accelerator physics community.</p></details>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3>Boundary Integral Solver Approaches for Particle Accelerator Simulation Problems and Deployment on NERSC Hardware</h3>
+          <p class="authors">Julia Wei, <strong>M. Harper Langston</strong>, Pierre-David Letourneau, Matthew J. Morse, Larry Weintraub, Aimee Nogoy, Noah Amsel, Richard Lethin</p>
+          <p class="venue">IEEE High Performance Extreme Computing Conference (HPEC), 2021</p>
+          <div class="links"></div>
+          
         </div>
       </article>
       </div>
@@ -330,6 +376,46 @@
     <section id="reports">
       <h2>Selected technical reports and preprints</h2>
       <div class="year-group">
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://arxiv.org/abs/2504.14051">CAOTE: KV Caching through Attention Output Error based Token Eviction</a></h3>
+          <p class="authors">Raghavv Goel, Junyoung Park, Mukul Gagrani, Dalton Jones, Matthew Morse, <strong>Harper Langston</strong>, Mingu Lee, Chris Lott</p>
+          <p class="venue">Preprint, arXiv:2504.14051, 2025</p>
+          <div class="links"><a href="https://arxiv.org/abs/2504.14051" target=_blank rel=noopener>arXiv</a><a href="https://arxiv.org/pdf/2504.14051" target=_blank rel=noopener>PDF</a></div>
+          <details><summary>Abstract</summary><p>While long context support of large language models has extended their abilities, it also incurs challenges in memory and compute which become crucial bottlenecks in resource-restricted devices. Token eviction, a widely adopted post-training methodology designed to alleviate these bottlenecks by evicting less important tokens from the cache, typically uses attention scores as proxy metrics for token importance. However, attention scores lack information about the contribution of tokens to the attention output. We propose a simple eviction criterion based on the contribution of cached tokens to attention outputs. Our method, CAOTE, optimizes for eviction error due to token eviction by seamlessly integrating attention scores and value vectors; it is the first method to use value vector information on top of attention-based eviction scores. Additionally, CAOTE can act as a meta-heuristic method with flexible usage with any token eviction method. We show that CAOTE, when combined with state-of-the-art attention score-based methods, always improves accuracies on downstream tasks, indicating the importance of leveraging information from values during the token eviction process.</p></details>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://arxiv.org/abs/2311.02037">An Efficient Framework for Global Non-Convex Polynomial Optimization with Algebraic Constraints</a></h3>
+          <p class="authors">Mitchell Tong Harris, Pierre-David Letourneau, Dalton Jones, <strong>M. Harper Langston</strong></p>
+          <p class="venue">Preprint, arXiv:2311.02037, 2023</p>
+          <div class="links"><a href="https://arxiv.org/abs/2311.02037" target=_blank rel=noopener>arXiv</a><a href="https://arxiv.org/pdf/2311.02037" target=_blank rel=noopener>PDF</a></div>
+          <details><summary>Abstract</summary><p>We present an efficient framework for solving algebraically-constrained global non-convex polynomial optimization problems over subsets of the hypercube. We prove the existence of an equivalent nonlinear reformulation of such problems that possesses essentially no spurious local minima.</p></details>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://arxiv.org/abs/2309.14584">A Sparse Fast Chebyshev Transform for High-Dimensional Approximation</a></h3>
+          <p class="authors">Dalton Jones, Pierre-David Letourneau, Matthew J. Morse, <strong>M. Harper Langston</strong></p>
+          <p class="venue">Preprint, arXiv:2309.14584, 2023</p>
+          <div class="links"><a href="https://arxiv.org/abs/2309.14584" target=_blank rel=noopener>arXiv</a><a href="https://arxiv.org/pdf/2309.14584" target=_blank rel=noopener>PDF</a></div>
+          <details><summary>Abstract</summary><p>We present the Fast Chebyshev Transform (FCT), a fast, randomized algorithm to compute a Chebyshev approximation of functions in high-dimensions from the knowledge of the location of its nonzero Chebyshev coefficients. We theoretically and empirically show that the FCT exhibits quasi-linear scaling and high numerical accuracy on challenging and complex high-dimensional problems. We demonstrate the effectiveness of our approach compared to alternative Chebyshev approximation schemes. In particular, we highlight our algorithm’s effectiveness in high dimensions, demonstrating significant speedups over commonly-used alternative techniques.</p></details>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://arxiv.org/abs/2308.16731">An Efficient Framework for Global Non-Convex Polynomial Optimization over the Hypercube</a></h3>
+          <p class="authors">Pierre-David Letourneau, Dalton Jones, Matthew Morse, <strong>M. Harper Langston</strong></p>
+          <p class="venue">Preprint, arXiv:2308.16731, 2023</p>
+          <div class="links"><a href="https://arxiv.org/abs/2308.16731" target=_blank rel=noopener>arXiv</a><a href="https://arxiv.org/pdf/2308.16731" target=_blank rel=noopener>PDF</a></div>
+          <details><summary>Abstract</summary><p>We present a novel efficient theoretical and numerical framework for solving global non-convex polynomial optimization problems. We analytically demonstrate that such problems can be efficiently reformulated using a non-linear objective over a convex set; further, these reformulated problems possess no spurious local minima (i.e., every local minimum is a global minimum). We introduce an algorithm for solving these resulting problems using the augmented Lagrangian and the method of Burer and Monteiro. Through numerical experiments, we achieve polynomial scaling in dimension and degree when computing the optimal value and location of previously intractable high-dimension global polynomial optimization problems.</p></details>
+        </div>
+      </article>
       <article class="pub">
         <div class="thumb thumb-empty" aria-hidden="true"></div>
         <div class="pub-body">
