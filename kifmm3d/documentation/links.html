@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Parallel Kernel-Independent Fast Multipole 3D code</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<table border="0" width="700" cellspacing="18" cellpadding="">
+<tr><td>
+<h1>KIFMM3d Links</h1>
+
+<div class="navbar" align=center>
+<TABLE CELLSPACING=20 CELLPADDING=1>
+<TR>
+<td><a href="./index.html">Home</a></td>
+<td><a href="./download.html">Download and Installation</a></td>
+<td><a href="./documentation.html">Documentation</a></td>
+<td><a href="./publications.html">Publications</a></td>
+<td><a href="./links.html">Links</a></td>
+<td><a href="./contact.html">Contact</a></td>
+</TR>
+</TABLE>
+</div>
+
+<p>
+<h3>Links to Necessary libraries</h3>
+<p>
+In order to be able to successfully run the code, several libraries
+must be installed.
+<ul><li>FFTW-3 available at <a
+href="http://www.fftw.org/">http://www.fftw.org/</a> implements fast
+fourier transforms (FFTs) necessary for the FMM code.
+<li>PETSc available at <a
+href="http://www-unix.mcs.anl.gov/petsc/">http://www-unix.mcs.anl.gov/petsc/</a>
+is necessary for the parallel FMM code.  Currently, our code uses
+petsc 2.3.0.  Once PETSc is installed, make sure the location of PETSc
+is set through the PETSC_DIR environment variable as well as the
+PETSC_ARCH environment variable for your architecture (installing
+PETSc will tell you what your architecture is).
+<li>The BLAS and Lapack libraries (see <a
+href="http://www.netlib.org/blas/">http://www.netlib.org/blas/<a>
+and <a
+href="http://www.netlib.org/lapack/">http://www.netlib.org/lapack/</a>)
+are necessary for certain efficient numerical operations.  PETSc also
+requires these libraries, but PETSc can download them for you and
+install them directly.  Read the <a
+href="http://www-unix.mcs.anl.gov/petsc/petsc-as/documentation/installation.html">
+PETSc installation instructions</a> for more information.
+<li>MPI (Message Passing Interface) libraries (see <a
+href="http://www-unix.mcs.anl.gov/mpi/">http://www-unix.mcs.anl.gov/mpi/</a>
+are available for running on a parallel machine.  MPI can also be
+downloaded automatically by PETSc during PETSc installation.
+</ul>
+</p>
+<h3>Additional Links</h3>
+<p>
+Links to authors' websites:
+<ul><li><a href="http://www.acm.caltech.edu/~lexing/">Lexing Ying</a>
+<li><a href="http://www.seas.upenn.edu/~biros/">George Biros</a>
+<li><a href="http://mrl.nyu.edu/~dzorin/">Denis Zorin</a>
+</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

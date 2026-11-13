@@ -1,0 +1,123 @@
+\section{common/blas.h File Reference}
+\label{blas_8h}\index{common/blas.h@{common/blas.h}}
+
+
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf DGEMM}~dgemm\_\-
+\item 
+\#define {\bf DGEMV}~dgemv\_\-
+\item 
+\#define {\bf DAXPY}~daxpy\_\-
+\item 
+\#define {\bf DGER}~dger\_\-
+\item 
+\#define {\bf DSCAL}~dscal\_\-
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf DAXPY} (int $\ast$N, double $\ast$ALPHA, double $\ast$X, int $\ast$INCX, double $\ast$Y, int $\ast$INCY)
+\item 
+void {\bf DGEMM} (char $\ast$TRANSA, char $\ast$TRANSB, int $\ast$M, int $\ast$N, int $\ast$K, double $\ast$ALPHA, double $\ast$A, int $\ast$LDA, double $\ast$B, int $\ast$LDB, double $\ast$BETA, double $\ast$C, int $\ast$LDC)
+\item 
+void {\bf DGEMV} (char $\ast$TRANS, int $\ast$M, int $\ast$N, double $\ast$ALPHA, double $\ast$A, int $\ast$LDA, double $\ast$X, int $\ast$INCX, double $\ast$BETA, double $\ast$Y, int $\ast$INCY)
+\item 
+void {\bf DGER} (int $\ast$M, int $\ast$N, double $\ast$ALPHA, double $\ast$X, int $\ast$INCX, double $\ast$Y, int $\ast$INCY, double $\ast$A, int $\ast$LDA)
+\item 
+void {\bf DSCAL} (int $\ast$N, double $\ast$ALPHA, double $\ast$X, int $\ast$INCX)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{blas.h@{blas.h}!DAXPY@{DAXPY}}
+\index{DAXPY@{DAXPY}!blas.h@{blas.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DAXPY~daxpy\_\-}\label{blas_8h_04405c8e3f71edff5932cd0554170d89_04405c8e3f71edff5932cd0554170d89}
+
+
+Allows for linking to external fortran blas libraries for DAXPY 
+
+Definition at line 27 of file blas.h.
+
+Referenced by daxpy().\index{blas.h@{blas.h}!DGEMM@{DGEMM}}
+\index{DGEMM@{DGEMM}!blas.h@{blas.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DGEMM~dgemm\_\-}\label{blas_8h_b51496c68627956ebc2ccfa50213de6e_b51496c68627956ebc2ccfa50213de6e}
+
+
+Allows for linking to external fortran blas libraries for DGEMM 
+
+Definition at line 23 of file blas.h.
+
+Referenced by dgemm().\index{blas.h@{blas.h}!DGEMV@{DGEMV}}
+\index{DGEMV@{DGEMV}!blas.h@{blas.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DGEMV~dgemv\_\-}\label{blas_8h_0260f2947c854f207136ede761890269_0260f2947c854f207136ede761890269}
+
+
+Allows for linking to external fortran blas libraries for DGEMV 
+
+Definition at line 25 of file blas.h.
+
+Referenced by dgemv(), and SVDRep::dgemv().\index{blas.h@{blas.h}!DGER@{DGER}}
+\index{DGER@{DGER}!blas.h@{blas.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DGER~dger\_\-}\label{blas_8h_1eebfea4174d2a5fc4682b6ada0c1d79_1eebfea4174d2a5fc4682b6ada0c1d79}
+
+
+Allows for linking to external fortran blas libraries for DGER 
+
+Definition at line 29 of file blas.h.
+
+Referenced by dger().\index{blas.h@{blas.h}!DSCAL@{DSCAL}}
+\index{DSCAL@{DSCAL}!blas.h@{blas.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DSCAL~dscal\_\-}\label{blas_8h_6a2c73c1de2d591e1bcc37cb4ecef141_6a2c73c1de2d591e1bcc37cb4ecef141}
+
+
+Allows for linking to external fortran blas libraries for DSCAL 
+
+Definition at line 31 of file blas.h.
+
+Referenced by dscal().
+
+\subsection{Function Documentation}
+\index{blas.h@{blas.h}!DAXPY@{DAXPY}}
+\index{DAXPY@{DAXPY}!blas.h@{blas.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void DAXPY (int $\ast$ {\em N}, double $\ast$ {\em ALPHA}, double $\ast$ {\em X}, int $\ast$ {\em INCX}, double $\ast$ {\em Y}, int $\ast$ {\em INCY})}\label{blas_8h_fd31fa1cca0fac421a6e1537bc6e72d5_fd31fa1cca0fac421a6e1537bc6e72d5}
+
+
+DAXPY compute y := alpha $\ast$ x + y where alpha is a scalar and x and y are n-vectors. See {\tt http://www.netlib.org/blas/daxpy.f} for more information. \index{blas.h@{blas.h}!DGEMM@{DGEMM}}
+\index{DGEMM@{DGEMM}!blas.h@{blas.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void DGEMM (char $\ast$ {\em TRANSA}, char $\ast$ {\em TRANSB}, int $\ast$ {\em M}, int $\ast$ {\em N}, int $\ast$ {\em K}, double $\ast$ {\em ALPHA}, double $\ast$ {\em A}, int $\ast$ {\em LDA}, double $\ast$ {\em B}, int $\ast$ {\em LDB}, double $\ast$ {\em BETA}, double $\ast$ {\em C}, int $\ast$ {\em LDC})}\label{blas_8h_41ad45bae108ad2d62ffa2c2b136b771_41ad45bae108ad2d62ffa2c2b136b771}
+
+
+DGEMM performs one of the matrix-matrix operations
+
+C := alpha$\ast$op( A )$\ast$op( B ) + beta$\ast$C,
+
+where op( X ) is one of
+
+op( X ) = X or op( X ) = X',
+
+alpha and beta are scalars, and A, B and C are matrices, with op( A ) an m by k matrix, op( B ) a k by n matrix and C an m by n matrix. See {\tt http://www.netlib.org/blas/dgemm.f} for more information. \index{blas.h@{blas.h}!DGEMV@{DGEMV}}
+\index{DGEMV@{DGEMV}!blas.h@{blas.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void DGEMV (char $\ast$ {\em TRANS}, int $\ast$ {\em M}, int $\ast$ {\em N}, double $\ast$ {\em ALPHA}, double $\ast$ {\em A}, int $\ast$ {\em LDA}, double $\ast$ {\em X}, int $\ast$ {\em INCX}, double $\ast$ {\em BETA}, double $\ast$ {\em Y}, int $\ast$ {\em INCY})}\label{blas_8h_cbb45855779b45da0c0cda7f5a889696_cbb45855779b45da0c0cda7f5a889696}
+
+
+DGEMV performs one of the matrix-vector operations
+
+y := alpha$\ast$A$\ast$x + beta$\ast$y, or y := alpha$\ast$A'$\ast$x + beta$\ast$y,
+
+where alpha and beta are scalars, x and y are vectors and A is an m by n matrix. See {\tt http://www.netlib.org/blas/dgemv.f} for more information \index{blas.h@{blas.h}!DGER@{DGER}}
+\index{DGER@{DGER}!blas.h@{blas.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void DGER (int $\ast$ {\em M}, int $\ast$ {\em N}, double $\ast$ {\em ALPHA}, double $\ast$ {\em X}, int $\ast$ {\em INCX}, double $\ast$ {\em Y}, int $\ast$ {\em INCY}, double $\ast$ {\em A}, int $\ast$ {\em LDA})}\label{blas_8h_0e94e92e34c53a34c57b3a809d19eac6_0e94e92e34c53a34c57b3a809d19eac6}
+
+
+DGER performs the rank 1 operation
+
+A := alpha$\ast$x$\ast$y' + A,
+
+where alpha is a scalar, x is an m element vector, y is an n element vector and A is an m by n matrix. See {\tt http://www.netlib.org/blas/dger.f} for more information \index{blas.h@{blas.h}!DSCAL@{DSCAL}}
+\index{DSCAL@{DSCAL}!blas.h@{blas.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void DSCAL (int $\ast$ {\em N}, double $\ast$ {\em ALPHA}, double $\ast$ {\em X}, int $\ast$ {\em INCX})}\label{blas_8h_6ada9a0fa85bc5cc675ebb052fcfebd0_6ada9a0fa85bc5cc675ebb052fcfebd0}
+
+
+DSCAL computes y := alpha $\ast$ y where alpha is a scalar and y is an n-vector. See {\tt http://www.netlib.org/blas/dscal.f} for more information 

@@ -1,0 +1,40 @@
+\section{fmm3d\_\-mpi/comobject\_\-mpi.hpp File Reference}
+\label{comobject__mpi_8hpp}\index{fmm3d_mpi/comobject_mpi.hpp@{fmm3d\_\-mpi/comobject\_\-mpi.hpp}}
+
+
+{\tt \#include \char`\"{}common/commoninc.hpp\char`\"{}}\par
+{\tt \#include \char`\"{}petscsnes.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Com\-Object\_\-MPI}
+\begin{CompactList}\small\item\em Com\-Object\_\-MPI class for communication purposes. Com\-Object stores basic message passing interface (mpi) information such as size and rank as defined in files included from using petsc $\ast$/. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf p\-C}(fun)~\{ int ierr=fun; CHKERRQ(ierr); \}
+\item 
+\#define {\bf p\-A}(expr)~\{ if(!(expr)) SETERRQ(1, \char`\"{}Assertion: \char`\"{}\#expr\char`\"{} failed!\char`\"{}); \}
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{comobject_mpi.hpp@{comobject\_\-mpi.hpp}!pA@{pA}}
+\index{pA@{pA}!comobject_mpi.hpp@{comobject\_\-mpi.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define p\-A(expr)~\{ if(!(expr)) SETERRQ(1, \char`\"{}Assertion: \char`\"{}\#expr\char`\"{} failed!\char`\"{}); \}}\label{comobject__mpi_8hpp_93b69b310934f98d76197daeb3bd62cc_93b69b310934f98d76197daeb3bd62cc}
+
+
+like i\-A from petsc, allows for checking expression failure 
+
+Definition at line 51 of file comobject\_\-mpi.hpp.
+
+Referenced by Kernel3d\_\-MPI::build\-Knl\-Int\-Ctx(), FMM3d\_\-MPI::check(), FMM3d\_\-MPI::evaluate(), Dense3d\_\-MPI::evaluate(), main(), Mat\-Mgnt3d\_\-MPI::setup(), Let3d\_\-MPI::setup(), FMM3d\_\-MPI::setup(), Dense3d\_\-MPI::setup(), Let3d\_\-MPI::src\-Data(), Let3d\_\-MPI::trg\-Data(), and Mat\-Mgnt3d\_\-MPI::Upw\-Equ2Dwn\-Chk\_\-dgemv().\index{comobject_mpi.hpp@{comobject\_\-mpi.hpp}!pC@{pC}}
+\index{pC@{pC}!comobject_mpi.hpp@{comobject\_\-mpi.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define p\-C(fun)~\{ int ierr=fun; CHKERRQ(ierr); \}}\label{comobject__mpi_8hpp_b1b5a5fc3c0779898c5d4ef4d63f212e_b1b5a5fc3c0779898c5d4ef4d63f212e}
+
+
+like i\-C from petsc, allows for error checking from functinos which return certain integer values on error output 
+
+Definition at line 49 of file comobject\_\-mpi.hpp.
+
+Referenced by Mat\-Mgnt3d\_\-MPI::Dwn\-Chk2Dwn\-Equ\_\-dgemv(), Mat\-Mgnt3d\_\-MPI::Dwn\-Equ2Dwn\-Chk\_\-dgemv(), FMM3d\_\-MPI::Dwn\-Equ2Trg\-Chk\_\-dgemv(), Mat\-Mgnt3d\_\-MPI::eff\-Val2Pln\-Val(), FMM3d\_\-MPI::evaluate(), Dense3d\_\-MPI::evaluate(), main(), Let3d\_\-MPI::print(), Mat\-Mgnt3d\_\-MPI::setup(), Let3d\_\-MPI::setup(), FMM3d\_\-MPI::setup(), Dense3d\_\-MPI::setup(), Let3d\_\-MPI::src\-Data(), FMM3d\_\-MPI::Src\-Equ2Dwn\-Chk\_\-dgemv(), FMM3d\_\-MPI::Src\-Equ2Trg\-Chk\_\-dgemv(), FMM3d\_\-MPI::Src\-Equ2Upw\-Chk\_\-dgemv(), Let3d\_\-MPI::trg\-Data(), Mat\-Mgnt3d\_\-MPI::Upw\-Chk2Upw\-Equ\_\-dgemv(), Mat\-Mgnt3d\_\-MPI::Upw\-Equ2Dwn\-Chk\_\-dgemv(), FMM3d\_\-MPI::Upw\-Equ2Trg\-Chk\_\-dgemv(), and Mat\-Mgnt3d\_\-MPI::Upw\-Equ2Upw\-Chk\_\-dgemv().

@@ -1,0 +1,113 @@
+\section{common/lapack.h File Reference}
+\label{lapack_8h}\index{common/lapack.h@{common/lapack.h}}
+
+
+\subsection*{Defines}
+\begin{CompactItemize}
+\item 
+\#define {\bf DGESVD}~dgesvd\_\-
+\item 
+\#define {\bf DGESDD}~dgesdd\_\-
+\item 
+\#define {\bf DGETRF}~dgetrf\_\-
+\item 
+\#define {\bf DGETRI}~dgetri\_\-
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+void {\bf DGESVD} (char $\ast$JOBU, char $\ast$JOBVT, int $\ast$M, int $\ast$N, double $\ast$A, int $\ast$LDA, double $\ast$S, double $\ast$U, int $\ast$LDU, double $\ast$VT, int $\ast$LDVT, double $\ast$WORK, int $\ast$LWORK, int $\ast$INFO)
+\item 
+void {\bf DGESDD} (char $\ast$jobz, int $\ast$m, int $\ast$n, double $\ast$a, int $\ast$lda, double $\ast$s, double $\ast$u, int $\ast$ldu, double $\ast$vt, int $\ast$ldvt, double $\ast$work, int $\ast$lwork, int $\ast$iwork, int $\ast$info)
+\item 
+void {\bf DGETRF} (int $\ast$M, int $\ast$N, double $\ast$A, int $\ast$LDA, int $\ast$IPIV, int $\ast$INFO)
+\item 
+void {\bf DGETRI} (int $\ast$N, double $\ast$A, int $\ast$LDA, int $\ast$IPIV, double $\ast$WORK, int $\ast$LWORK, int $\ast$INFO)
+\end{CompactItemize}
+
+
+\subsection{Define Documentation}
+\index{lapack.h@{lapack.h}!DGESDD@{DGESDD}}
+\index{DGESDD@{DGESDD}!lapack.h@{lapack.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DGESDD~dgesdd\_\-}\label{lapack_8h_613b4e35c3ce7e1fd9e97f14b18bbd42_613b4e35c3ce7e1fd9e97f14b18bbd42}
+
+
+Allows for linking to external fortran lapack libraries for DGESDD 
+
+Definition at line 26 of file lapack.h.\index{lapack.h@{lapack.h}!DGESVD@{DGESVD}}
+\index{DGESVD@{DGESVD}!lapack.h@{lapack.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DGESVD~dgesvd\_\-}\label{lapack_8h_60ac2e59de82b829671f86267e2f945d_60ac2e59de82b829671f86267e2f945d}
+
+
+Allows for linking to external fortran lapack libraries for DGESVD 
+
+Definition at line 24 of file lapack.h.
+
+Referenced by SVDRep::construct().\index{lapack.h@{lapack.h}!DGETRF@{DGETRF}}
+\index{DGETRF@{DGETRF}!lapack.h@{lapack.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DGETRF~dgetrf\_\-}\label{lapack_8h_8232e9d246b08322be0e78d51069b338_8232e9d246b08322be0e78d51069b338}
+
+
+Allows for linking to external fortran lapack libraries for DGETRF 
+
+Definition at line 28 of file lapack.h.
+
+Referenced by inv().\index{lapack.h@{lapack.h}!DGETRI@{DGETRI}}
+\index{DGETRI@{DGETRI}!lapack.h@{lapack.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}\#define DGETRI~dgetri\_\-}\label{lapack_8h_ee2279541a5252501cb917f4f77fa465_ee2279541a5252501cb917f4f77fa465}
+
+
+Allows for linking to external fortran lapack libraries for DGETRI 
+
+Definition at line 30 of file lapack.h.
+
+Referenced by inv().
+
+\subsection{Function Documentation}
+\index{lapack.h@{lapack.h}!DGESDD@{DGESDD}}
+\index{DGESDD@{DGESDD}!lapack.h@{lapack.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void DGESDD (char $\ast$ {\em jobz}, int $\ast$ {\em m}, int $\ast$ {\em n}, double $\ast$ {\em a}, int $\ast$ {\em lda}, double $\ast$ {\em s}, double $\ast$ {\em u}, int $\ast$ {\em ldu}, double $\ast$ {\em vt}, int $\ast$ {\em ldvt}, double $\ast$ {\em work}, int $\ast$ {\em lwork}, int $\ast$ {\em iwork}, int $\ast$ {\em info})}\label{lapack_8h_3699d460f043a1c87f322e9a6efe4268_3699d460f043a1c87f322e9a6efe4268}
+
+
+DGESDD computes the singular value decomposition (SVD) of a real M-by-N matrix A, optionally computing the left and right singular vectors. If singular vectors are desired, it uses a divide-and-conquer algorithm.
+
+The SVD is written
+
+A = U $\ast$ SIGMA $\ast$ transpose(V)
+
+where SIGMA is an M-by-N matrix which is zero except for its min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and V is an N-by-N orthogonal matrix. The diagonal elements of SIGMA ` $\ast$ are the singular values of A; they are real and non-negative, and are returned in descending order. The first min(m,n) columns of U and V are the left and right singular vectors of A.
+
+See {\tt http://www.netlib.org/lapack/double/dgesdd.f} for more information \index{lapack.h@{lapack.h}!DGESVD@{DGESVD}}
+\index{DGESVD@{DGESVD}!lapack.h@{lapack.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void DGESVD (char $\ast$ {\em JOBU}, char $\ast$ {\em JOBVT}, int $\ast$ {\em M}, int $\ast$ {\em N}, double $\ast$ {\em A}, int $\ast$ {\em LDA}, double $\ast$ {\em S}, double $\ast$ {\em U}, int $\ast$ {\em LDU}, double $\ast$ {\em VT}, int $\ast$ {\em LDVT}, double $\ast$ {\em WORK}, int $\ast$ {\em LWORK}, int $\ast$ {\em INFO})}\label{lapack_8h_625b38bcaf6972e4c94f102f4f932d3b_625b38bcaf6972e4c94f102f4f932d3b}
+
+
+DGESVD computes the singular value decomposition (SVD) of a real M-by-N matrix A, optionally computing the left and/or right singular vectors. The SVD is written
+
+A = U $\ast$ SIGMA $\ast$ transpose(V)
+
+where SIGMA is an M-by-N matrix which is zero except for its min(m,n) diagonal elements, U is an M-by-M orthogonal matrix, and V is an N-by-N orthogonal matrix. The diagonal elements of SIGMA are the singular values of A; they are real and non-negative, and are returned in descending order. The first min(m,n) columns of U and V are the left and right singular vectors of A.
+
+See {\tt http://www.netlib.org/lapack/double/dgesvd.f} for more information \index{lapack.h@{lapack.h}!DGETRF@{DGETRF}}
+\index{DGETRF@{DGETRF}!lapack.h@{lapack.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void DGETRF (int $\ast$ {\em M}, int $\ast$ {\em N}, double $\ast$ {\em A}, int $\ast$ {\em LDA}, int $\ast$ {\em IPIV}, int $\ast$ {\em INFO})}\label{lapack_8h_aadc1c986b70147a63d38c36eaa240bf_aadc1c986b70147a63d38c36eaa240bf}
+
+
+DGETRF computes an LU factorization of a general M-by-N matrix A using partial pivoting with row interchanges.
+
+The factorization has the form
+
+A = P $\ast$ L $\ast$ U
+
+where P is a permutation matrix, L is lower triangular with unit diagonal elements (lower trapezoidal if m $>$ n), and U is upper triangular (upper trapezoidal if m $<$ n).
+
+See {\tt http://www.netlib.org/lapack/double/dgetrf.f} for more information \index{lapack.h@{lapack.h}!DGETRI@{DGETRI}}
+\index{DGETRI@{DGETRI}!lapack.h@{lapack.h}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void DGETRI (int $\ast$ {\em N}, double $\ast$ {\em A}, int $\ast$ {\em LDA}, int $\ast$ {\em IPIV}, double $\ast$ {\em WORK}, int $\ast$ {\em LWORK}, int $\ast$ {\em INFO})}\label{lapack_8h_686bb1e5551a7024ddf3e5fc766e96b8_686bb1e5551a7024ddf3e5fc766e96b8}
+
+
+DGETRI computes the inverse of a matrix using the LU factorization computed by DGETRF.
+
+This method inverts U and then computes inv(A) by solving the system inv(A)$\ast$L = inv(U) for inv(A).
+
+See {\tt http://www.netlib.org/lapack/double/dgetri.f} for more information 

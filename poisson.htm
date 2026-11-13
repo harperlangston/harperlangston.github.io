@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>Fast Poisson Solver</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#FFFFCC">
+<font arial>
+<center>
+  <h1><font face="Arial, Helvetica, sans-serif">Fast Poisson Solver in a Square</font></h1>
+</center>
+</font> 
+<p><font face="Arial, Helvetica, sans-serif" size="2">The following is a Fast 
+  Solver for the PDE: uxx + uyy = f(x,y) in a square, implemented in Matlab. I 
+  followed the outline from Arieh Iserles' Numerical Analysis of Differential 
+  Equations (Chapter 12), James Demmel's Applied Numerical Linear Algebra (Chapter 
+  6), and some personal inspiration. </font></p>
+<p><font face="Arial, Helvetica, sans-serif" size="2">This Poisson Solver is written 
+  to use the modified 9-point scheme of order (delta x)^4 instead of the plain 
+  5 and 9 point schemes of order (delta x)^2. However, any of the three schemes 
+  can be used. That is, to call this function, type poisson(m,endpt,N) where m 
+  = the mesh refinement (best to keep below 150 on a PC. m = 150 on my PC took 
+  7-8 minutes to solve), endpt = the endpt of the the square (i.e., 0endpt), and 
+  N = 5,9 or 10. If you want to use the five-point scheme, set N = 5, for the 
+  9-point scheme, set N = 9 and for the Modified 9-point scheme, set N = 10. (If 
+  f(x,y) = 0 in uxx + uyy = f(x,y), it is best to set N = 9 since the 9 and modified 
+  9-point schemes are equivalent when f = 0)</font></p>
+<p><font face="Arial, Helvetica, sans-serif" size="2">To change the function, 
+  f(x,y), edit ffunc.m<br>
+  To chenge the boundary conditions, edit Form_Boundary.m.</font></p>
+<p><font face="Arial, Helvetica, sans-serif" size="2">All of the files below must 
+  reside in the same directory so that they can be called. Poisson.m lists all 
+  necessary files and each file has extensive comments, but the only files that 
+  should be edited are ffunc.m and Form_Boundary.m</font></p>
+<p><font face="Arial, Helvetica, sans-serif" size="2">Again, to call the function, 
+  type poisson(m,endpt,N), where m,endpt and N are as described above.</font></p>
+<ul>
+  <li><font face="Arial, Helvetica, sans-serif" size="2"><a href="poisson.m">Poisson.m</a> 
+    - The main function which contains calls to subfunctions as well as detailed 
+    descriptions of all files</font></li>
+  <li><a href="Form_Boundary.m"><font face="Arial, Helvetica, sans-serif" size="2">Form_Boundary.m</font></a><font face="Arial, Helvetica, sans-serif" size="2"> 
+    - Stores the Dirichlet boundary condition</font></li>
+  <li><a href="ffunc.m"><font face="Arial, Helvetica, sans-serif" size="2">ffunc.m</font></a><font face="Arial, Helvetica, sans-serif" size="2"> 
+    - Stores f(x,y)</font></li>
+  <li><a href="Form_Right.m"><font face="Arial, Helvetica, sans-serif" size="2">Form_Right.m</font></a><font face="Arial, Helvetica, sans-serif" size="2"> 
+    - returns the right-hand side of the problem </font></li>
+  <li><a href="Modified_Right.m"><font face="Arial, Helvetica, sans-serif" size="2">Modified_Right.m</font></a><font face="Arial, Helvetica, sans-serif" size="2"> 
+    - Called in Form_Right.m if modified 9-point scheme used (N = 10)</font></li>
+  <li><a href="Form_Gamma.m"><font face="Arial, Helvetica, sans-serif" size="2">Form_Gamma.m</font></a><font face="Arial, Helvetica, sans-serif" size="2"> 
+    - Forms the matrix of eigenvalues</font></li>
+  <li><a href="Band_Solve.m"><font face="Arial, Helvetica, sans-serif" size="2">Band_Solve.m</font></a><font face="Arial, Helvetica, sans-serif" size="2"> 
+    - Finds the band of a Matrix and solves Ax =b,according to A's sparsity and 
+    the does a banded sparse LU decomposition and then passes L, U and b to Back_solve.m</font></li>
+  <li><a href="Back_Solve.m"><font face="Arial, Helvetica, sans-serif" size="2">Back_Solve.m</font></a><font face="Arial, Helvetica, sans-serif" size="2"> 
+    - Called by Band_Solve.m to do the actual solving. This is actually still 
+    being written. I am rewriting it to pay better attention to the sparse nature 
+    of the L and U matrices passed by the Band_Solve.m function. Currently, it 
+    just uses Matlab's \ (left-divide) routine.</font></li>
+  <li><a href="Transform.m"><font face="Arial, Helvetica, sans-serif" size="2">Transform.m</font></a><font face="Arial, Helvetica, sans-serif" size="2"> 
+    - Last, but not least, contains the call to the discrete fourier transform, 
+    and implements a fast sine transform by looking only at the imaginary part, 
+    up to a scaling factor. This is used to quickly compute y = Q*b and u = Q*y 
+    where the eigenvector-columns of Q are already known. This works well, but 
+    I am also rewriting this to make it slightly more efficient.</font></li>
+  <li><a href="poisson.tar.gz"><font face="Arial, Helvetica, sans-serif" size="2">zipped tarfile</font></a><font face="Arial, Helvetica, sans-serif" size="2"> - Contains 
+    all of the functions above for quick downloading.</font></li>
+</ul>
+<p><font face="Arial, Helvetica, sans-serif" size="2">Again, for more information 
+  on each file, look at the head of poisson.m. For more description of the process, 
+  see Iserles' or Demmel's books. Links to the books and their personal websites 
+  are listed below:</font></p>
+<p><font face="Arial, Helvetica, sans-serif" size="2">Below are several tests 
+  and results of using this program:</font></p>
+<center>
+  <h3><font face="Arial, Helvetica, sans-serif">Test #1</font></h3>
+  <p><img src="1.jpg" width="600" height="541"></p>
+  <h3><font face="Arial, Helvetica, sans-serif">Test #2</font></h3>
+<p><img src="2.jpg" width="475" height="461"></p>
+<p><img src="2a.jpg" width="537" height="447"></p>
+  <h3><font face="Arial, Helvetica, sans-serif">Test #3</font></h3>
+  <p><img src="3.jpg" width="600" height="502"></p>
+  <h3><font face="Arial, Helvetica, sans-serif">Test #4<br>
+    ( </font><font face="Arial, Helvetica, sans-serif">These are currently the 
+    f(x,y) and boundary values stored in ffunc.m and Form_Boundary.m)</font></h3>
+  <img src="4new.jpg" width="550" height="464">
+  <h3><font face="Arial, Helvetica, sans-serif">Links </font></h3>
+<div align="left"> 
+    <ul>
+      <li><font face="Arial, Helvetica, sans-serif" size="2">Arieh Iserles homepage 
+        - <a href="http://www.damtp.cam.ac.uk/user/na/people/Arieh/">http://www.damtp.cam.ac.uk/user/na/people/Arieh</a>. 
+        A link to the book on his site is at <a href="http://www.damtp.cam.ac.uk/user/na/people/Arieh/Textbook.html">http://www.damtp.cam.ac.uk/user/na/people/Arieh/Textbook.html</a>. 
+        The official site is kept at the Cambridge Texts in Applied Mathematics 
+        site at <a href="http://www.cup.cam.ac.uk/Scripts/webbook.asp?isbn=0521556554">http://www.cup.cam.ac.uk/Scripts/webbook.asp?isbn=0521556554</a></font></li>
+      <li><font face="Arial, Helvetica, sans-serif" size="2">James Demmel's homepage 
+        is at <a href="http://www.cs.berkeley.edu/%7Edemmel">http://www.cs.berkeley.edu/~demmel/</a>. 
+        Specific information on Fast Poisson Solvers can be found on his site 
+        at <a href="http://www.cs.berkeley.edu/%7Edemmel/cs267/lecture24/lecture24.html">http://www.cs.berkeley.edu/~demmel/cs267/lecture24/lecture24.html</a> 
+        and <a href="http://www.cs.berkeley.edu/%7Edemmel/cs267/lecture25/lecture25.html">http://www.cs.berkeley.edu/~demmel/cs267/lecture25/lecture25.html</a> 
+        (Multigrid techniques specifically). These pages are old lecture notes 
+        and are almost exactly the same as the sections of his book. By the way, 
+        his book is indispensable and can be bought at <a href="http://www.siam.org">http://www.siam.org</a></font></li>
+    </ul>
+  </div>
+  <ul>
+  </ul>
+</center>
+</body>
+</html>

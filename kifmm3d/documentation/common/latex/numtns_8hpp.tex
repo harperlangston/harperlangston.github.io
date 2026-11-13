@@ -1,0 +1,123 @@
+\section{common/numtns.hpp File Reference}
+\label{numtns_8hpp}\index{common/numtns.hpp@{common/numtns.hpp}}
+
+
+\subsection{Detailed Description}
+
+
+Definition in file {\bf numtns.hpp}.
+
+{\tt \#include \char`\"{}nummat.hpp\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Num\-Tns$<$ F $>$}
+\begin{CompactList}\small\item\em Num\-Tns is a three-dimensional tensor made up of a size and data. The data can be made up of any type (ints, double, bools, etc.). Like {\bf Num\-Mat}{\rm (p.\,\pageref{classNumMat})} but has extra size. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf Num\-Tns}$<$ bool $>$ {\bf Bol\-Num\-Tns}
+\item 
+typedef {\bf Num\-Tns}$<$ char $>$ {\bf Chr\-Num\-Tns}
+\item 
+typedef {\bf Num\-Tns}$<$ int $>$ {\bf Int\-Num\-Tns}
+\item 
+typedef {\bf Num\-Tns}$<$ double $>$ {\bf Dbl\-Num\-Tns}
+\item 
+typedef {\bf Num\-Tns}$<$ {\bf cpx} $>$ {\bf Cpx\-Num\-Tns}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+template$<$class F$>$ ostream \& {\bf operator$<$$<$} (ostream \&os, const {\bf Num\-Tns}$<$ F $>$ \&tns)
+\item 
+template$<$class F$>$ void {\bf setvalue} ({\bf Num\-Tns}$<$ F $>$ \&M, F val)
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{numtns.hpp@{numtns.hpp}!BolNumTns@{BolNumTns}}
+\index{BolNumTns@{BolNumTns}!numtns.hpp@{numtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Num\-Tns}$<$bool$>$ {\bf Bol\-Num\-Tns}}\label{numtns_8hpp_d81bd77cdb4bbc765abf4c4eac225f40_d81bd77cdb4bbc765abf4c4eac225f40}
+
+
+
+
+Definition at line 132 of file numtns.hpp.\index{numtns.hpp@{numtns.hpp}!ChrNumTns@{ChrNumTns}}
+\index{ChrNumTns@{ChrNumTns}!numtns.hpp@{numtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Num\-Tns}$<$char$>$ {\bf Chr\-Num\-Tns}}\label{numtns_8hpp_76cab43a25dc760070a6d6d16fdc6622_76cab43a25dc760070a6d6d16fdc6622}
+
+
+
+
+Definition at line 133 of file numtns.hpp.\index{numtns.hpp@{numtns.hpp}!CpxNumTns@{CpxNumTns}}
+\index{CpxNumTns@{CpxNumTns}!numtns.hpp@{numtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Num\-Tns}$<${\bf cpx}$>$ {\bf Cpx\-Num\-Tns}}\label{numtns_8hpp_311e856241d68404e06b478b7aa16e84_311e856241d68404e06b478b7aa16e84}
+
+
+
+
+Definition at line 136 of file numtns.hpp.\index{numtns.hpp@{numtns.hpp}!DblNumTns@{DblNumTns}}
+\index{DblNumTns@{DblNumTns}!numtns.hpp@{numtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Num\-Tns}$<$double$>$ {\bf Dbl\-Num\-Tns}}\label{numtns_8hpp_7a8d9220bf899171c6aef87fe7ff8c63_7a8d9220bf899171c6aef87fe7ff8c63}
+
+
+
+
+Definition at line 135 of file numtns.hpp.\index{numtns.hpp@{numtns.hpp}!IntNumTns@{IntNumTns}}
+\index{IntNumTns@{IntNumTns}!numtns.hpp@{numtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Num\-Tns}$<$int$>$ {\bf Int\-Num\-Tns}}\label{numtns_8hpp_3fd20cf7fb822b904b7d9fb6780314b4_3fd20cf7fb822b904b7d9fb6780314b4}
+
+
+
+
+Definition at line 134 of file numtns.hpp.
+
+\subsection{Function Documentation}
+\index{numtns.hpp@{numtns.hpp}!operator<<@{operator$<$$<$}}
+\index{operator<<@{operator$<$$<$}!numtns.hpp@{numtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ ostream\& operator$<$$<$ (ostream \& {\em os}, const {\bf Num\-Tns}$<$ F $>$ \& {\em tns})\hspace{0.3cm}{\tt  [inline]}}\label{numtns_8hpp_3f4dfa10f880705e98a019bd36a429c8_3f4dfa10f880705e98a019bd36a429c8}
+
+
+
+
+Definition at line 108 of file numtns.hpp.
+
+\footnotesize\begin{verbatim}109 {
+110   os<<tns.m()<<" "<<tns.n()<<" "<<tns.p()<<endl;
+111   os.setf(ios_base::scientific, ios_base::floatfield);
+112   for(int i=0; i<tns.m(); i++) {
+113          for(int j=0; j<tns.n(); j++) {
+114                 for(int k=0; k<tns.p(); k++) {
+115                   os<<" "<<tns(i,j,k);
+116                 }
+117                 os<<endl;
+118          }
+119          os<<endl;
+120   }
+121   return os;
+122 }
+\end{verbatim}\normalsize 
+
+
+\index{numtns.hpp@{numtns.hpp}!setvalue@{setvalue}}
+\index{setvalue@{setvalue}!numtns.hpp@{numtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void setvalue ({\bf Num\-Tns}$<$ F $>$ \& {\em M}, F {\em val})\hspace{0.3cm}{\tt  [inline]}}\label{numtns_8hpp_2439c0632cd09b692177b3320104d4b2_2439c0632cd09b692177b3320104d4b2}
+
+
+
+
+Definition at line 123 of file numtns.hpp.
+
+References Num\-Tns$<$ F $>$::m(), Num\-Tns$<$ F $>$::n(), and Num\-Tns$<$ F $>$::p().
+
+\footnotesize\begin{verbatim}124 {
+125   for(int i=0; i<M.m(); i++)
+126          for(int j=0; j<M.n(); j++)
+127                 for(int k=0; k<M.p(); k++)
+128                   M(i,j,k) = val;
+129   return;
+130 }
+\end{verbatim}\normalsize 
+
+

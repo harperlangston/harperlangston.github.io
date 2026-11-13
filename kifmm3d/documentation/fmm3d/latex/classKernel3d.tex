@@ -1,0 +1,804 @@
+\section{Kernel3d Class Reference}
+\label{classKernel3d}\index{Kernel3d@{Kernel3d}}
+{\tt \#include $<$kernel3d.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+
+
+
+
+Definition at line 71 of file kernel3d.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Kernel3d} ()
+\item 
+{\bf Kernel3d} (int kernel\-Type, const vector$<$ double $>$ \&coefs)
+\item 
+{\bf Kernel3d} (const {\bf Kernel3d} \&c)
+\item 
+{\bf Kernel3d} \& {\bf operator=} (const {\bf Kernel3d} \&c)
+\item 
+int \& {\bf kernel\-Type} ()
+\item 
+const int \& {\bf kernel\-Type} () const 
+\item 
+vector$<$ double $>$ \& {\bf coefs} ()
+\item 
+const vector$<$ double $>$ \& {\bf coefs} () const 
+\item 
+int {\bf dim} ()
+\item 
+int {\bf src\-DOF} () const 
+\item 
+int {\bf trg\-DOF} () const 
+\item 
+bool {\bf homogeneous} () const 
+\begin{CompactList}\small\item\em homogeneous or not \item\end{CompactList}\item 
+void {\bf homogeneous\-Deg} (vector$<$ double $>$ \&) const 
+\begin{CompactList}\small\item\em homogeneous degree, vector size == source\-Degree\-Of\-Freedom \item\end{CompactList}\item 
+int {\bf kernel} (const Dbl\-Num\-Mat \&src\-Pos, const Dbl\-Num\-Mat \&src\-Nor, const Dbl\-Num\-Mat \&trg\-Pos, Dbl\-Num\-Mat \&inter)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf \_\-kernel\-Type}
+\item 
+vector$<$ double $>$ {\bf \_\-coefs}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Kernel3d@{Kernel3d}!Kernel3d@{Kernel3d}}
+\index{Kernel3d@{Kernel3d}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Kernel3d::Kernel3d ()\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d_b2209b9bbb94ff18eb0ef7ab6b833d44_b2209b9bbb94ff18eb0ef7ab6b833d44}
+
+
+
+
+Definition at line 77 of file kernel3d.hpp.
+
+\footnotesize\begin{verbatim}77 : _kernelType(KNL_ERR) {;}
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d@{Kernel3d}!Kernel3d@{Kernel3d}}
+\index{Kernel3d@{Kernel3d}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Kernel3d::Kernel3d (int {\em kernel\-Type}, const vector$<$ double $>$ \& {\em coefs})\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d_6193b24f1f7ac14daa0efd2edcde6f30_6193b24f1f7ac14daa0efd2edcde6f30}
+
+
+
+
+Definition at line 78 of file kernel3d.hpp.
+
+\footnotesize\begin{verbatim}78 : _kernelType(kernelType), _coefs(coefs) {;}
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d@{Kernel3d}!Kernel3d@{Kernel3d}}
+\index{Kernel3d@{Kernel3d}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Kernel3d::Kernel3d (const {\bf Kernel3d} \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d_60f915df4cd889acf6f3817c530879b0_60f915df4cd889acf6f3817c530879b0}
+
+
+
+
+Definition at line 79 of file kernel3d.hpp.
+
+\footnotesize\begin{verbatim}79 : _kernelType(c._kernelType), _coefs(c._coefs) {;}
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{Kernel3d@{Kernel3d}!coefs@{coefs}}
+\index{coefs@{coefs}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const vector$<$double$>$\& Kernel3d::coefs () const\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d_869ed9e1e4e4eba94ef7ffba3a3d82a9_869ed9e1e4e4eba94ef7ffba3a3d82a9}
+
+
+
+
+Definition at line 84 of file kernel3d.hpp.
+
+References \_\-coefs.
+
+\footnotesize\begin{verbatim}84 { return _coefs; }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d@{Kernel3d}!coefs@{coefs}}
+\index{coefs@{coefs}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$\& Kernel3d::coefs ()\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d_6cee00fd70607c0a0f51594392b6594b_6cee00fd70607c0a0f51594392b6594b}
+
+
+
+
+Definition at line 83 of file kernel3d.hpp.
+
+References \_\-coefs.
+
+Referenced by mex2cpp(), and operator==().
+
+\footnotesize\begin{verbatim}83 { return _coefs; }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d@{Kernel3d}!dim@{dim}}
+\index{dim@{dim}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Kernel3d::dim ()\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d_e3f9953141ca7d7525b58c0ff1ef6b1f_e3f9953141ca7d7525b58c0ff1ef6b1f}
+
+
+
+
+Definition at line 85 of file kernel3d.hpp.
+
+Referenced by kernel().
+
+\footnotesize\begin{verbatim}85 { return 3; }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d@{Kernel3d}!homogeneous@{homogeneous}}
+\index{homogeneous@{homogeneous}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Kernel3d::homogeneous () const}\label{classKernel3d_215ba8957cc7ea3494813f5b1c2fc866_215ba8957cc7ea3494813f5b1c2fc866}
+
+
+homogeneous or not 
+
+
+
+Definition at line 92 of file kernel3d.cpp.
+
+References \_\-kernel\-Type, and KNL\_\-EXP.
+
+Referenced by Mat\-Mgnt3d::setup().
+
+\footnotesize\begin{verbatim}93 {
+94   bool ret = false;
+95   switch(_kernelType) {
+96          //laplace kernels
+97   case KNL_LAP_S_U: ret = true; break;
+98          //stokes kernels
+99   case KNL_STK_F_U: ret = true; break;
+100          //navier kernels
+101   case KNL_NAV_S_U: ret = true; break;
+102          //others:
+103   case KNL_SQRTLAP: ret = true; break;
+104   case KNL_EXP    : ret = false; break;
+105   default: assert(0);
+106   }
+107   return ret;
+108 }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d@{Kernel3d}!homogeneousDeg@{homogeneousDeg}}
+\index{homogeneousDeg@{homogeneousDeg}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Kernel3d::homogeneous\-Deg (vector$<$ double $>$ \&) const}\label{classKernel3d_e80fa2b1a2bc4b94c876c5c455b0ffb5_e80fa2b1a2bc4b94c876c5c455b0ffb5}
+
+
+homogeneous degree, vector size == source\-Degree\-Of\-Freedom 
+
+
+
+Definition at line 111 of file kernel3d.cpp.
+
+References \_\-kernel\-Type, KNL\_\-EXP, KNL\_\-NAV\_\-S\_\-U, KNL\_\-SQRTLAP, and KNL\_\-STK\_\-F\_\-U.
+
+Referenced by Mat\-Mgnt3d::setup().
+
+\footnotesize\begin{verbatim}112 {
+113   switch(_kernelType) {
+114          //laplace
+115   case KNL_LAP_S_U: degreeVec.resize(1); degreeVec[0]=1; break;
+116          //stokes
+117   case KNL_STK_F_U: degreeVec.resize(4); degreeVec[0]=1; degreeVec[1]=1; degreeVec[2]=1; degreeVec[3]=2; break;
+118          //navier
+119   case KNL_NAV_S_U: degreeVec.resize(3); degreeVec[0]=1; degreeVec[1]=1; degreeVec[2]=1; break;
+120          //others
+121   case KNL_SQRTLAP: degreeVec.resize(1); degreeVec[0]=0.5; break;
+122   case KNL_EXP    : degreeVec.resize(0); break;
+123   default: assert(0);
+124   }
+125   return;
+126 }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d@{Kernel3d}!kernel@{kernel}}
+\index{kernel@{kernel}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Kernel3d::kernel (const Dbl\-Num\-Mat \& {\em src\-Pos}, const Dbl\-Num\-Mat \& {\em src\-Nor}, const Dbl\-Num\-Mat \& {\em trg\-Pos}, Dbl\-Num\-Mat \& {\em inter})}\label{classKernel3d_4269ebb68ba66f9033c346368ef978aa_4269ebb68ba66f9033c346368ef978aa}
+
+
+One over four pi
+
+One over four pi
+
+One over eight pi
+
+One over four pi
+
+Six over eight pi
+
+One over two pi 
+
+Definition at line 130 of file kernel3d.cpp.
+
+References \_\-kernel\-Type, \_\-mindif, dim(), KNL\_\-LAP\_\-S\_\-U, src\-DOF(), and trg\-DOF().
+
+Referenced by Mat\-Mgnt3d::Dwn\-Chk2Dwn\-Equ\_\-dgemv(), Mat\-Mgnt3d::Dwn\-Equ2Dwn\-Chk\_\-dgemv(), FMM3d::Dwn\-Equ2Trg\-Chk\_\-dgemv(), Dense3d::evaluate(), FMM3d::Src\-Equ2Dwn\-Chk\_\-dgemv(), FMM3d::Src\-Equ2Trg\-Chk\_\-dgemv(), FMM3d::Src\-Equ2Upw\-Chk\_\-dgemv(), Mat\-Mgnt3d::Upw\-Chk2Upw\-Equ\_\-dgemv(), Mat\-Mgnt3d::Upw\-Equ2Dwn\-Chk\_\-dgemv(), FMM3d::Upw\-Equ2Trg\-Chk\_\-dgemv(), and Mat\-Mgnt3d::Upw\-Equ2Upw\-Chk\_\-dgemv().
+
+\footnotesize\begin{verbatim}131 {
+132   int srcDOF = this->srcDOF();
+133   int trgDOF = this->trgDOF();
+134   iA(srcPos.m()==dim() && srcNor.m()==dim() && trgPos.m()==dim());
+135   iA(srcPos.n()==srcNor.n());
+136   iA(srcPos.n()*srcDOF == inter.n());
+137   iA(trgPos.n()*trgDOF == inter.m());
+138   if(       _kernelType==KNL_LAP_S_U) {
+139          //----------------------------------------------------------------------------------
+140          //---------------------------------
+142          double OOFP = 1.0/(4.0*M_PI);
+143          for(int i=0; i<trgPos.n(); i++) {
+144                 for(int j=0; j<srcPos.n(); j++) {
+145                   double x = trgPos(0,i) - srcPos(0,j);
+146                   double y = trgPos(1,i) - srcPos(1,j);
+147                   double z = trgPos(2,i) - srcPos(2,j);
+148                   double r2 = x*x + y*y + z*z;
+149                   double r = sqrt(r2);
+150                   if(r<_mindif) {
+151                          inter(i,j) = 0;
+152                   } else {
+153                          inter(i,j) = OOFP / r;
+154                   }
+155                 }
+156          }
+157   } else if(_kernelType==KNL_LAP_D_U) {
+158          //---------------------------------
+160          double OOFP = 1.0/(4.0*M_PI);
+161          for(int i=0; i<trgPos.n(); i++)
+162                 for(int j=0; j<srcPos.n(); j++) {
+163                   double x = trgPos(0,i) - srcPos(0,j);
+164                   double y = trgPos(1,i) - srcPos(1,j);
+165                   double z = trgPos(2,i) - srcPos(2,j);
+166                   double r2 = x*x + y*y + z*z;
+167                   double r = sqrt(r2);
+168                   if(r<_mindif) {
+169                          for(int t=0;t<trgDOF;t++)
+170                                 for(int s=0;s<srcDOF;s++)
+171                                   { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+172                   } else {
+173                          double nx = srcNor(0,j);
+174                          double ny = srcNor(1,j);
+175                          double nz = srcNor(2,j);
+176                          double rn = x*nx + y*ny + z*nz;
+177                          double r3 = r2*r;
+178                          inter(i,j) = - OOFP / r3 * rn;
+179                   }
+180                 }
+181   } else if(_kernelType==KNL_LAP_I) {
+182          //---------------------------------
+183          for(int i=0; i<trgPos.n(); i++)
+184                 for(int j=0; j<srcPos.n(); j++)
+185                   inter(i,j) = 1;
+186   } else if(_kernelType==KNL_STK_F_U) {
+187          //----------------------------------------------------------------------------------
+188          //---------------------------------
+189          iA(_coefs.size()>=1);
+190          double mu = _coefs[0];
+191          double OOFP = 1.0/(4.0*M_PI);
+192          double OOEP = 1.0/(8.0*M_PI);
+193          double oomu = 1.0/mu;
+194          for(int i=0; i<trgPos.n(); i++)
+195                 for(int j=0; j<srcPos.n(); j++) {
+196                   double x = trgPos(0,i) - srcPos(0,j);
+197                   double y = trgPos(1,i) - srcPos(1,j);
+198                   double z = trgPos(2,i) - srcPos(2,j);
+199                   double r2 = x*x + y*y + z*z;
+200                   double r = sqrt(r2);
+201                   if(r<_mindif) {
+202                          for(int t=0;t<trgDOF;t++)
+203                                 for(int s=0;s<srcDOF;s++)
+204                                   { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+205                   } else {
+206                          double r3 = r2*r;
+207                          double G = oomu * OOEP / r;
+208                          double H = oomu * OOEP / r3;
+209                          double A = OOFP / r3;
+210                          int is = i*3;                   int js = j*4;
+211                          inter(is,   js)   = G + H*x*x; inter(is,   js+1) =     H*x*y; inter(is,   js+2) =     H*x*z; inter(is,   js+3) = A*x;
+212                          inter(is+1, js)   =     H*y*x; inter(is+1, js+1) = G + H*y*y; inter(is+1, js+2) =     H*y*z; inter(is+1, js+3) = A*y;
+213                          inter(is+2, js)   =     H*z*x; inter(is+2, js+1) =     H*z*y; inter(is+2, js+2) = G + H*z*z; inter(is+2, js+3) = A*z;
+214                   }
+215                 }
+216   } else if(_kernelType==KNL_STK_S_U) {
+217          //---------------------------------
+218          iA(_coefs.size()>=1);
+219          double mu = _coefs[0];
+221          double OOEP = 1.0/(8.0*M_PI);
+222          double oomu = 1.0/mu;
+223          for(int i=0; i<trgPos.n(); i++)
+224                 for(int j=0; j<srcPos.n(); j++) {
+225                   double x = trgPos(0,i) - srcPos(0,j);
+226                   double y = trgPos(1,i) - srcPos(1,j);
+227                   double z = trgPos(2,i) - srcPos(2,j);
+228                   double r2 = x*x + y*y + z*z;
+229                   double r = sqrt(r2);
+230                   if(r<_mindif) {
+231                          for(int t=0;t<trgDOF;t++)
+232                                 for(int s=0;s<srcDOF;s++)
+233                                   { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+234                   } else {
+235                          double r3 = r2*r;
+236                          double G = OOEP / r;
+237                          double H = OOEP / r3;
+238                          inter(i*3,   j*3)   = oomu*(G + H*x*x); inter(i*3,   j*3+1) = oomu*(    H*x*y); inter(i*3,   j*3+2) = oomu*(    H*x*z);
+239                          inter(i*3+1, j*3)   = oomu*(    H*y*x); inter(i*3+1, j*3+1) = oomu*(G + H*y*y); inter(i*3+1, j*3+2) = oomu*(    H*y*z);
+240                          inter(i*3+2, j*3)   = oomu*(    H*z*x); inter(i*3+2, j*3+1) = oomu*(    H*z*y); inter(i*3+2, j*3+2) = oomu*(G + H*z*z);
+241                   }
+242                 }
+243   } else if(_kernelType==KNL_STK_S_P) {
+244          //---------------------------------
+245          iA(_coefs.size()>=1);
+246          double mu = _coefs[0];
+248          double OOFP = 1.0/(4.0*M_PI);
+249          for(int i=0; i<trgPos.n(); i++)
+250                 for(int j=0; j<srcPos.n(); j++) {
+251                   double x = trgPos(0,i) - srcPos(0,j);
+252                   double y = trgPos(1,i) - srcPos(1,j);
+253                   double z = trgPos(2,i) - srcPos(2,j);
+254                   double r2 = x*x + y*y + z*z;
+255                   double r = sqrt(r2);
+256                   if(r<_mindif) {
+257                          for(int t=0;t<trgDOF;t++)
+258                                 for(int s=0;s<srcDOF;s++)
+259                                   { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+260                   } else {
+261                          double r3 = r2*r;
+262                          inter(i  ,j*3  ) = OOFP*x/r3;                   inter(i  ,j*3+1) = OOFP*y/r3;                   inter(i  ,j*3+2) = OOFP*z/r3;
+263                   }
+264                 }
+265   } else if(_kernelType==KNL_STK_D_U) {
+266          //---------------------------------
+267          iA(_coefs.size()>=1);
+268          double mu = _coefs[0];
+270          double SOEP = 6.0/(8.0*M_PI);
+271          for(int i=0; i<trgPos.n(); i++)
+272                 for(int j=0; j<srcPos.n(); j++) {
+273                   double x = trgPos(0,i) - srcPos(0,j);
+274                   double y = trgPos(1,i) - srcPos(1,j);
+275                   double z = trgPos(2,i) - srcPos(2,j);
+276                   double r2 = x*x + y*y + z*z;
+277                   double r = sqrt(r2);
+278                   if(r<_mindif) {
+279                          for(int t=0;t<trgDOF;t++)
+280                                 for(int s=0;s<srcDOF;s++)
+281                                   { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+282                   } else {
+283                          double nx = srcNor(0,j);
+284                          double ny = srcNor(1,j);
+285                          double nz = srcNor(2,j);
+286                          double rn = x*nx + y*ny + z*nz;
+287                          double r5 = r2*r2*r;
+288                          double C = - SOEP / r5;
+289                          inter(i*3,   j*3)   = C*rn*x*x;                                  inter(i*3,   j*3+1) = C*rn*x*y;                                 inter(i*3,   j*3+2) = C*rn*x*z;
+290                          inter(i*3+1, j*3)   = C*rn*y*x;                                  inter(i*3+1, j*3+1) = C*rn*y*y;                                 inter(i*3+1, j*3+2) = C*rn*y*z;
+291                          inter(i*3+2, j*3)   = C*rn*z*x;                                  inter(i*3+2, j*3+1) = C*rn*z*y;                                 inter(i*3+2, j*3+2) = C*rn*z*z;
+292                   }
+293                 }
+294   } else if(_kernelType==KNL_STK_D_P) {
+295          //---------------------------------
+296          iA(_coefs.size()>=1);
+297          double mu = _coefs[0];
+299          double OOTP = 1.0/(2.0*M_PI);
+300          double coef = mu*OOTP;
+301          for(int i=0; i<trgPos.n(); i++)
+302                 for(int j=0; j<srcPos.n(); j++) {
+303                   double x = trgPos(0,i) - srcPos(0,j);
+304                   double y = trgPos(1,i) - srcPos(1,j);
+305                   double z = trgPos(2,i) - srcPos(2,j);
+306                   double r2 = x*x + y*y + z*z;
+307                   double r = sqrt(r2);
+308                   if(r<_mindif) {
+309                          for(int t=0;t<trgDOF;t++)
+310                                 for(int s=0;s<srcDOF;s++)
+311                                   { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+312                   } else {
+313                          double nx = srcNor(0,j);
+314                          double ny = srcNor(1,j);
+315                          double nz = srcNor(2,j);
+316                          double rn = x*nx + y*ny + z*nz;
+317                          double r3 = r2*r;
+318                          double r5 = r3*r2;
+319                          int is = i;                     int js = j*3;
+320                          inter(is  ,js  ) = coef*(nx/r3 - 3*rn*x/r5);
+321                          inter(is  ,js+1) = coef*(ny/r3 - 3*rn*y/r5);
+322                          inter(is  ,js+2) = coef*(nz/r3 - 3*rn*z/r5);
+323                   }
+324                 }
+325   } else if(_kernelType==KNL_STK_R_U) {
+326          //---------------------------------
+327          iA(_coefs.size()>=1);
+328          double mu = _coefs[0];
+329          for(int i=0; i<trgPos.n(); i++)
+330                 for(int j=0; j<srcPos.n(); j++) {
+331                   double x = trgPos(0,i) - srcPos(0,j);
+332                   double y = trgPos(1,i) - srcPos(1,j);
+333                   double z = trgPos(2,i) - srcPos(2,j);
+334                   double r2 = x*x + y*y + z*z;
+335                   double r = sqrt(r2);
+336                   if(r<_mindif) {
+337                          for(int t=0;t<trgDOF;t++)
+338                                 for(int s=0;s<srcDOF;s++)
+339                                   { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+340                   } else {
+341                          double r3 = r2*r;
+342                          double coef = 1.0/(8.0*M_PI*mu)/r3;
+343                          inter(i*3,   j*3)   = coef*0;                   inter(i*3,   j*3+1) = coef*z;                   inter(i*3,   j*3+2) = coef*(-y);
+344                          inter(i*3+1, j*3)   = coef*(-z);                inter(i*3+1, j*3+1) = coef*0;                   inter(i*3+1, j*3+2) = coef*x;
+345                          inter(i*3+2, j*3)   = coef*y;                   inter(i*3+2, j*3+1) = coef*(-x);                inter(i*3+2, j*3+2) = coef*0;
+346                   }
+347                 }
+348   } else if(_kernelType==KNL_STK_R_P) {
+349          //---------------------------------
+350          iA(_coefs.size()>=1);
+351          double mu = _coefs[0];
+352          for(int i=0; i<trgPos.n(); i++)
+353                 for(int j=0; j<srcPos.n(); j++) {
+354                   inter(i,j*3  ) = 0;
+355                   inter(i,j*3+1) = 0;
+356                   inter(i,j*3+2) = 0;
+357                 }
+358   } else if(_kernelType==KNL_STK_I) {
+359          //---------------------------------
+360          iA(_coefs.size()>=1);
+361          double mu = _coefs[0];
+362          for(int i=0; i<trgPos.n(); i++)
+363                 for(int j=0; j<srcPos.n(); j++) {
+364                   inter(i*3,   j*3  ) = 1;               inter(i*3,   j*3+1) = 0;                inter(i*3,   j*3+2) = 0;
+365                   inter(i*3+1, j*3  ) = 0;               inter(i*3+1, j*3+1) = 1;                inter(i*3+1, j*3+2) = 0;
+366                   inter(i*3+2, j*3  ) = 0;               inter(i*3+2, j*3+1) = 0;                inter(i*3+2, j*3+2) = 1;
+367                 }
+368   } else if(_kernelType==KNL_STK_E) { //levi-civita tensor
+369          //---------------------------------
+370          iA(_coefs.size()>=1);
+371          double mu = _coefs[0];
+372          for(int i=0; i<trgPos.n(); i++)
+373                 for(int j=0; j<srcPos.n(); j++) {
+374                   double x = trgPos(0,i) - srcPos(0,j);
+375                   double y = trgPos(1,i) - srcPos(1,j);
+376                   double z = trgPos(2,i) - srcPos(2,j);
+377                   inter(i*3,   j*3  ) = 0;               inter(i*3,   j*3+1) = z;                inter(i*3,   j*3+2) = -y;
+378                   inter(i*3+1, j*3  ) = -z;      inter(i*3+1, j*3+1) = 0;                inter(i*3+1, j*3+2) = x;
+379                   inter(i*3+2, j*3  ) = y;               inter(i*3+2, j*3+1) = -x;               inter(i*3+2, j*3+2) = 0;
+380                 }
+381   } else if(_kernelType==KNL_NAV_S_U) {
+382          //----------------------------------------------------------------------------------
+383          //---------------------------------
+384          iA(_coefs.size()>=2);
+385          double mu = _coefs[0];
+386          double ve = _coefs[1];
+387          double sc1 = (3.0-4.0*ve)/(16.0*M_PI*(1.0-ve));
+388          double sc2 = 1.0/(16.0*M_PI*(1.0-ve));
+389          double oomu = 1.0/mu;
+390          for(int i=0; i<trgPos.n(); i++)
+391                 for(int j=0; j<srcPos.n(); j++) {
+392                   double x = trgPos(0,i) - srcPos(0,j);
+393                   double y = trgPos(1,i) - srcPos(1,j);
+394                   double z = trgPos(2,i) - srcPos(2,j);
+395                   double r2 = x*x + y*y + z*z;
+396                   double r = sqrt(r2);
+397                   if(r<_mindif) {
+398                          for(int t=0;t<trgDOF;t++)
+399                                 for(int s=0;s<srcDOF;s++)
+400                                   { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+401                   } else {
+402                          double r3 = r2*r;
+403                          double G = sc1 / r;
+404                          double H = sc2 / r3;
+405                          inter(i*3,   j*3)   = oomu*(G + H*x*x);  inter(i*3,   j*3+1) = oomu*(    H*x*y);  inter(i*3,   j*3+2) = oomu*(    H*x*z);
+406                          inter(i*3+1, j*3)   = oomu*(    H*y*x);  inter(i*3+1, j*3+1) = oomu*(G + H*y*y);  inter(i*3+1, j*3+2) = oomu*(    H*y*z);
+407                          inter(i*3+2, j*3)   = oomu*(    H*z*x);  inter(i*3+2, j*3+1) = oomu*(    H*z*y);  inter(i*3+2, j*3+2) = oomu*(G + H*z*z);
+408                   }
+409                 }
+410   } else if(_kernelType==KNL_NAV_D_U) {
+411          //---------------------------------
+412          iA(_coefs.size()>=2);
+413          double mu = _coefs[0];
+414          double ve = _coefs[1];
+415          double dc1 = -(1-2.0*ve)/(8.0*M_PI*(1.0-ve));
+416          double dc2 =  (1-2.0*ve)/(8.0*M_PI*(1.0-ve));
+417          double dc3 = -3.0/(8.0*M_PI*(1.0-ve));
+418          for(int i=0; i<trgPos.n(); i++)
+419                 for(int j=0; j<srcPos.n(); j++) {
+420                   double x = trgPos(0,i) - srcPos(0,j);
+421                   double y = trgPos(1,i) - srcPos(1,j);
+422                   double z = trgPos(2,i) - srcPos(2,j);
+423                   double r2 = x*x + y*y + z*z;
+424                   double r = sqrt(r2);
+425                   if(r<_mindif) {
+426                          for(int t=0;t<trgDOF;t++)
+427                                 for(int s=0;s<srcDOF;s++)
+428                                   { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+429                   } else {
+430                          double nx = srcNor(0,j);
+431                          double ny = srcNor(1,j);
+432                          double nz = srcNor(2,j);
+433                          double rn = x*nx + y*ny + z*nz;
+434                          double r3 = r2*r;
+435                          double r5 = r3*r2;
+436                          double A = dc1 / r3;                    double B = dc2 / r3;                    double C = dc3 / r5;
+437                          double rx = x;                  double ry = y;                  double rz = z;
+438                          //&&&&&&&
+439                          inter(i*3,   j*3)   = A*(rn+nx*rx) + B*(rx*nx) + C*rn*rx*rx;
+440                          inter(i*3,   j*3+1) = A*(   nx*ry) + B*(rx*ny) + C*rn*rx*ry;
+441                          inter(i*3,   j*3+2) = A*(   nx*rz) + B*(rx*nz) + C*rn*rx*rz;
+442                          inter(i*3+1, j*3)   = A*(   ny*rx) + B*(ry*nx) + C*rn*ry*rx;
+443                          inter(i*3+1, j*3+1) = A*(rn+ny*ry) + B*(ry*ny) + C*rn*ry*ry;
+444                          inter(i*3+1, j*3+2) = A*(   ny*rz) + B*(ry*nz) + C*rn*ry*rz;
+445                          inter(i*3+2, j*3)   = A*(   nz*rx) + B*(rz*nx) + C*rn*rz*rx;
+446                          inter(i*3+2, j*3+1) = A*(   nz*ry) + B*(rz*ny) + C*rn*rz*ry;
+447                          inter(i*3+2, j*3+2) = A*(rn+nz*rz) + B*(rz*nz) + C*rn*rz*rz;
+448                   }
+449                 }
+450   } else if(_kernelType==KNL_NAV_R_U) {
+451          //---------------------------------
+452          iA(_coefs.size()>=2);
+453          double mu = _coefs[0];
+454          double ve = _coefs[1];
+455          for(int i=0; i<trgPos.n(); i++)
+456                 for(int j=0; j<srcPos.n(); j++) {
+457                   double x = trgPos(0,i) - srcPos(0,j);
+458                   double y = trgPos(1,i) - srcPos(1,j);
+459                   double z = trgPos(2,i) - srcPos(2,j);
+460                   double r2 = x*x + y*y + z*z;
+461                   double r = sqrt(r2);
+462                   if(r<_mindif) {
+463                          for(int t=0;t<trgDOF;t++)
+464                                 for(int s=0;s<srcDOF;s++)
+465                                   { inter(i*trgDOF+t, j*srcDOF+s) = 0.0; }
+466                   } else {
+467                          double r3 = r2*r;
+468                          double coef = 1.0/(8.0*M_PI*mu)/r3;
+469                          inter(i*3,   j*3)   = coef*0;                   inter(i*3,   j*3+1) = coef*z;                   inter(i*3,   j*3+2) = coef*(-y);
+470                          inter(i*3+1, j*3)   = coef*(-z);                inter(i*3+1, j*3+1) = coef*0;                   inter(i*3+1, j*3+2) = coef*x;
+471                          inter(i*3+2, j*3)   = coef*y;                   inter(i*3+2, j*3+1) = coef*(-x);                inter(i*3+2, j*3+2) = coef*0;
+472                   }
+473                 }
+474   } else if(_kernelType==KNL_NAV_I) {
+475          //---------------------------------
+476          iA(_coefs.size()>=2);
+477          double mu = _coefs[0];
+478          double ve = _coefs[1];
+479          for(int i=0; i<trgPos.n(); i++)
+480                 for(int j=0; j<srcPos.n(); j++) {
+481                   inter(i*3,   j*3  ) = 1;               inter(i*3,   j*3+1) = 0;                inter(i*3,   j*3+2) = 0;
+482                   inter(i*3+1, j*3  ) = 0;               inter(i*3+1, j*3+1) = 1;                inter(i*3+1, j*3+2) = 0;
+483                   inter(i*3+2, j*3  ) = 0;               inter(i*3+2, j*3+1) = 0;                inter(i*3+2, j*3+2) = 1;
+484                 }
+485   } else if(_kernelType==KNL_NAV_E) {
+486          //---------------------------------
+487          iA(_coefs.size()>=2);
+488          double mu = _coefs[0];
+489          double ve = _coefs[1];
+490          for(int i=0; i<trgPos.n(); i++)
+491                 for(int j=0; j<srcPos.n(); j++) {
+492                   double x = trgPos(0,i) - srcPos(0,j);
+493                   double y = trgPos(1,i) - srcPos(1,j);
+494                   double z = trgPos(2,i) - srcPos(2,j);
+495                   inter(i*3,   j*3  ) = 0;               inter(i*3,   j*3+1) = z;                inter(i*3,   j*3+2) = -y;
+496                   inter(i*3+1, j*3  ) = -z;      inter(i*3+1, j*3+1) = 0;                inter(i*3+1, j*3+2) = x;
+497                   inter(i*3+2, j*3  ) = y;               inter(i*3+2, j*3+1) = -x;               inter(i*3+2, j*3+2) = 0;
+498                 }
+499   } else if(_kernelType==KNL_SQRTLAP) {
+500          //----------------------------------------------------------------------------------
+501          //---------------------------------
+502          for(int i=0; i<trgPos.n(); i++) {
+503                 for(int j=0; j<srcPos.n(); j++) {
+504                   double x = trgPos(0,i) - srcPos(0,j);
+505                   double y = trgPos(1,i) - srcPos(1,j);
+506                   double z = trgPos(2,i) - srcPos(2,j);
+507                   double r2 = x*x + y*y + z*z;
+508                   double r = sqrt(r2);
+509                   if(r<_mindif) {
+510                          inter(i,j) = 0;
+511                   } else {
+512                          inter(i,j) = 1 / sqrt(r);
+513                   }
+514                 }
+515          }
+516   } else if(_kernelType==KNL_EXP) {
+517          //---------------------------------
+518          for(int i=0; i<trgPos.n(); i++) {
+519                 for(int j=0; j<srcPos.n(); j++) {
+520                   double x = trgPos(0,i) - srcPos(0,j);
+521                   double y = trgPos(1,i) - srcPos(1,j);
+522                   double z = trgPos(2,i) - srcPos(2,j);
+523                   double r2 = x*x + y*y + z*z;
+524                   double r = sqrt(r2);
+525                   if(r<_mindif) {
+526                          inter(i,j) = 0;
+527                   } else {
+528                          inter(i,j) = exp(-r2);
+529                   }
+530                 }
+531          }
+532   } else if(_kernelType==KNL_ERR) {
+533          //----------------------------------------------------------------------------------
+534          //---------------------------------
+535          iA(0);
+536   }
+537   return 0;
+538 }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d@{Kernel3d}!kernelType@{kernelType}}
+\index{kernelType@{kernelType}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}const int\& Kernel3d::kernel\-Type () const\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d_f6c825ae8cce01ccc734e4b4abd5d8e0_f6c825ae8cce01ccc734e4b4abd5d8e0}
+
+
+
+
+Definition at line 82 of file kernel3d.hpp.
+
+References \_\-kernel\-Type.
+
+\footnotesize\begin{verbatim}82 { return _kernelType; }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d@{Kernel3d}!kernelType@{kernelType}}
+\index{kernelType@{kernelType}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Kernel3d::kernel\-Type ()\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d_dafce73fc921ab6ff4e38f86e70c2c0c_dafce73fc921ab6ff4e38f86e70c2c0c}
+
+
+
+
+Definition at line 81 of file kernel3d.hpp.
+
+References \_\-kernel\-Type.
+
+Referenced by operator==().
+
+\footnotesize\begin{verbatim}81 { return _kernelType; }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d@{Kernel3d}!operator=@{operator=}}
+\index{operator=@{operator=}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Kernel3d}\& Kernel3d::operator= (const {\bf Kernel3d} \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classKernel3d_c7f881cb3ae0c6b729b60acb716c06cd_c7f881cb3ae0c6b729b60acb716c06cd}
+
+
+
+
+Definition at line 80 of file kernel3d.hpp.
+
+References \_\-coefs, and \_\-kernel\-Type.
+
+\footnotesize\begin{verbatim}80 { _kernelType = c._kernelType; _coefs = c._coefs; return *this; }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d@{Kernel3d}!srcDOF@{srcDOF}}
+\index{srcDOF@{srcDOF}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Kernel3d::src\-DOF () const}\label{classKernel3d_a4664ea62cfb9d75bcb6d17538746158_a4664ea62cfb9d75bcb6d17538746158}
+
+
+
+
+Definition at line 24 of file kernel3d.cpp.
+
+References \_\-kernel\-Type, KNL\_\-LAP\_\-I, KNL\_\-NAV\_\-E, KNL\_\-NAV\_\-I, KNL\_\-STK\_\-E, and KNL\_\-STK\_\-I.
+
+Referenced by FMM3d::Dwn\-Equ2Trg\-Chk\_\-dgemv(), kernel(), Mat\-Mgnt3d::src\-DOF(), Knl\-Mat3d::src\-DOF(), FMM3d::Src\-Equ2Dwn\-Chk\_\-dgemv(), FMM3d::Src\-Equ2Trg\-Chk\_\-dgemv(), FMM3d::Src\-Equ2Upw\-Chk\_\-dgemv(), and FMM3d::Upw\-Equ2Trg\-Chk\_\-dgemv().
+
+\footnotesize\begin{verbatim}25 {
+26   int dof = 0;
+27   switch(_kernelType) {
+28          //laplace kernels
+29   case KNL_LAP_S_U: dof = 1; break;
+30   case KNL_LAP_D_U: dof = 1; break;
+31   case KNL_LAP_I  : dof = 1; break;
+32          //stokes kernels
+33   case KNL_STK_F_U: dof = 4; break;
+34   case KNL_STK_S_U: dof = 3; break;
+35   case KNL_STK_S_P: dof = 3; break;
+36   case KNL_STK_D_U: dof = 3; break;
+37   case KNL_STK_D_P: dof = 3; break;
+38   case KNL_STK_R_U: dof = 3; break;
+39   case KNL_STK_R_P: dof = 3; break;
+40   case KNL_STK_I  : dof = 3; break;
+41   case KNL_STK_E  : dof = 3; break;
+42          //navier kernels:       //case KNL_NAV_F_U: dof = 3; break; //used for fmm
+43   case KNL_NAV_S_U: dof = 3; break;
+44   case KNL_NAV_D_U: dof = 3; break;
+45   case KNL_NAV_R_U: dof = 3; break;
+46   case KNL_NAV_I  : dof = 3; break;
+47   case KNL_NAV_E  : dof = 3; break;
+48          //others
+49   case KNL_SQRTLAP: dof = 1; break;
+50   case KNL_EXP:     dof = 1; break;
+51          //error
+52   case KNL_ERR:     dof = 0; break;
+53   }
+54   return dof;
+55 }
+\end{verbatim}\normalsize 
+
+
+\index{Kernel3d@{Kernel3d}!trgDOF@{trgDOF}}
+\index{trgDOF@{trgDOF}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Kernel3d::trg\-DOF () const}\label{classKernel3d_0d7423b81a78e2a050a8658d3d46cb9c_0d7423b81a78e2a050a8658d3d46cb9c}
+
+
+
+
+Definition at line 58 of file kernel3d.cpp.
+
+References \_\-kernel\-Type, KNL\_\-EXP, KNL\_\-LAP\_\-I, KNL\_\-NAV\_\-E, KNL\_\-NAV\_\-I, KNL\_\-STK\_\-E, and KNL\_\-STK\_\-I.
+
+Referenced by FMM3d::Dwn\-Equ2Trg\-Chk\_\-dgemv(), kernel(), FMM3d::Src\-Equ2Dwn\-Chk\_\-dgemv(), FMM3d::Src\-Equ2Trg\-Chk\_\-dgemv(), FMM3d::Src\-Equ2Upw\-Chk\_\-dgemv(), Mat\-Mgnt3d::trg\-DOF(), Knl\-Mat3d::trg\-DOF(), and FMM3d::Upw\-Equ2Trg\-Chk\_\-dgemv().
+
+\footnotesize\begin{verbatim}59 {
+60   int dof = 0;
+61   switch(_kernelType) {
+62          //laplace kernels
+63   case KNL_LAP_S_U: dof = 1; break;
+64   case KNL_LAP_D_U: dof = 1; break;
+65   case KNL_LAP_I  : dof = 1; break;
+66          //stokes kernels
+67   case KNL_STK_F_U: dof = 3; break;
+68   case KNL_STK_S_U: dof = 3; break;
+69   case KNL_STK_S_P: dof = 1; break;
+70   case KNL_STK_D_U: dof = 3; break;
+71   case KNL_STK_D_P: dof = 1; break;
+72   case KNL_STK_R_U: dof = 3; break;
+73   case KNL_STK_R_P: dof = 1; break;
+74   case KNL_STK_I  : dof = 3; break;
+75   case KNL_STK_E  : dof = 3; break;
+76          //navier kernels:       //  case KNL_NAV_F_U: dof = 3; break; //used for fmm
+77   case KNL_NAV_S_U: dof = 3; break;
+78   case KNL_NAV_D_U: dof = 3; break;
+79   case KNL_NAV_R_U: dof = 3; break;
+80   case KNL_NAV_I  : dof = 3; break;
+81   case KNL_NAV_E  : dof = 3; break;
+82          //others
+83   case KNL_SQRTLAP: dof = 1; break;
+84   case KNL_EXP    : dof = 1; break;
+85          //error
+86   case KNL_ERR:     dof = 0; break;
+87   }
+88   return dof;
+89 }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{Kernel3d@{Kernel3d}!_coefs@{\_\-coefs}}
+\index{_coefs@{\_\-coefs}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$double$>$ {\bf Kernel3d::\_\-coefs}\hspace{0.3cm}{\tt  [protected]}}\label{classKernel3d_e3219078df8cea5b29e9e7bba8bee2b8_e3219078df8cea5b29e9e7bba8bee2b8}
+
+
+
+
+Definition at line 75 of file kernel3d.hpp.
+
+Referenced by coefs(), and operator=().\index{Kernel3d@{Kernel3d}!_kernelType@{\_\-kernelType}}
+\index{_kernelType@{\_\-kernelType}!Kernel3d@{Kernel3d}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Kernel3d::\_\-kernel\-Type}\hspace{0.3cm}{\tt  [protected]}}\label{classKernel3d_6a4a9be8986c11a7006e77e743719e6c_6a4a9be8986c11a7006e77e743719e6c}
+
+
+
+
+Definition at line 74 of file kernel3d.hpp.
+
+Referenced by homogeneous(), homogeneous\-Deg(), kernel(), kernel\-Type(), operator=(), src\-DOF(), and trg\-DOF().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+fmm3d/{\bf kernel3d.hpp}\item 
+fmm3d/{\bf kernel3d.cpp}\end{CompactItemize}

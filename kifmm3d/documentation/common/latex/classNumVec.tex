@@ -1,0 +1,267 @@
+\section{Num\-Vec$<$ F $>$ Class Template Reference}
+\label{classNumVec}\index{NumVec@{NumVec}}
+{\tt \#include $<$numvec.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class F$>$ class Num\-Vec$<$ F $>$}
+
+Num\-Vec is a vector made up of a size and data. The data can be made up of any type (ints, double, bools, etc.). 
+
+
+
+Definition at line 31 of file numvec.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Num\-Vec} (int m=0)
+\item 
+{\bf Num\-Vec} (int m, bool owndata, F $\ast$data)
+\item 
+{\bf Num\-Vec} (const {\bf Num\-Vec} \&C)
+\item 
+{\bf $\sim$Num\-Vec} ()
+\item 
+{\bf Num\-Vec} \& {\bf operator=} (const {\bf Num\-Vec} \&C)
+\item 
+void {\bf resize} (int m)
+\item 
+const F \& {\bf operator()} (int i) const 
+\item 
+F \& {\bf operator()} (int i)
+\item 
+F $\ast$ {\bf data} () const 
+\item 
+int {\bf m} () const 
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf \_\-m}
+\item 
+bool {\bf \_\-owndata}
+\item 
+F $\ast$ {\bf \_\-data}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{NumVec@{Num\-Vec}!NumVec@{NumVec}}
+\index{NumVec@{NumVec}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Vec}$<$ F $>$::{\bf Num\-Vec} (int {\em m} = {\tt 0})\hspace{0.3cm}{\tt  [inline]}}\label{classNumVec_5f668d72bf28bf0fed217368b93aee98_5f668d72bf28bf0fed217368b93aee98}
+
+
+Construct a Num\-Vec and create \_\-data array F[\_\-m] 
+
+Definition at line 42 of file numvec.hpp.
+
+References Num\-Vec$<$ F $>$::\_\-data, and Num\-Vec$<$ F $>$::\_\-m.
+
+\footnotesize\begin{verbatim}42                  : _m(m), _owndata(true)  {
+43          if(_m>0) { _data = new F[_m]; assert(_data!=NULL); memset(_data, 0, _m*sizeof(F)); } else _data=NULL;
+44   }
+\end{verbatim}\normalsize 
+
+
+\index{NumVec@{Num\-Vec}!NumVec@{NumVec}}
+\index{NumVec@{NumVec}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Vec}$<$ F $>$::{\bf Num\-Vec} (int {\em m}, bool {\em owndata}, F $\ast$ {\em data})\hspace{0.3cm}{\tt  [inline]}}\label{classNumVec_dbcd1a409800a6f56df0f761d7d29dca_dbcd1a409800a6f56df0f761d7d29dca}
+
+
+Construct Num\-Vec of size \_\-m and whether or not it owns its data (\_\-owndata). If so, create space for \_\-data = F[\_\-m]. Otherwise, point \_\-data to the data input 
+
+Definition at line 47 of file numvec.hpp.
+
+\footnotesize\begin{verbatim}47                                       : _m(m), _owndata(owndata) {
+48          if(_owndata) {
+49                 if(_m>0) { _data = new F[_m]; assert(_data!=NULL); memset(_data, 0, _m*sizeof(F)); } else _data=NULL;
+50                 if(_m>0) memcpy( _data, data, _m*sizeof(F) );
+51          } else {
+52                 _data = data;
+53          }
+54   }
+\end{verbatim}\normalsize 
+
+
+\index{NumVec@{Num\-Vec}!NumVec@{NumVec}}
+\index{NumVec@{NumVec}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Vec}$<$ F $>$::{\bf Num\-Vec} (const {\bf Num\-Vec}$<$ F $>$ \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classNumVec_94ce68c632f9ac6143e4ea61d0166839_94ce68c632f9ac6143e4ea61d0166839}
+
+
+Set this Num\-Vec equal to C 
+
+Definition at line 56 of file numvec.hpp.
+
+References Num\-Vec$<$ F $>$::\_\-data.
+
+\footnotesize\begin{verbatim}56                          : _m(C._m), _owndata(C._owndata)  {
+57          if(_owndata) {
+58                 if(_m>0) { _data = new F[_m]; assert(_data!=NULL); memset(_data, 0, _m*sizeof(F)); } else _data=NULL;
+59                 if(_m>0) memcpy( _data, C._data, _m*sizeof(F) );
+60          } else {
+61                 _data = C._data;
+62          }
+63   }
+\end{verbatim}\normalsize 
+
+
+\index{NumVec@{Num\-Vec}!~NumVec@{$\sim$NumVec}}
+\index{~NumVec@{$\sim$NumVec}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Vec}$<$ F $>$::$\sim${\bf Num\-Vec} ()\hspace{0.3cm}{\tt  [inline]}}\label{classNumVec_73bf8d147cb5055cde71aa1b0a136dc6_73bf8d147cb5055cde71aa1b0a136dc6}
+
+
+Destroy this Num\-Vec 
+
+Definition at line 65 of file numvec.hpp.
+
+\footnotesize\begin{verbatim}65             {
+66          if(_owndata) {
+67                 if(_m>0) { delete[] _data; _data = NULL; }
+68          }
+69   }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{NumVec@{Num\-Vec}!data@{data}}
+\index{data@{data}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Num\-Vec}$<$ F $>$::data () const\hspace{0.3cm}{\tt  [inline]}}\label{classNumVec_ad3b2b9598c8547b4f7afe7a79ed520c_ad3b2b9598c8547b4f7afe7a79ed520c}
+
+
+Return pointer to \_\-data 
+
+Definition at line 102 of file numvec.hpp.
+
+Referenced by clear(), SVDRep::construct(), daxpy(), dgemv(), SVDRep::dgemv(), dger(), and dscal().
+
+\footnotesize\begin{verbatim}102 { return _data; }
+\end{verbatim}\normalsize 
+
+
+\index{NumVec@{Num\-Vec}!m@{m}}
+\index{m@{m}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Num\-Vec}$<$ F $>$::m () const\hspace{0.3cm}{\tt  [inline]}}\label{classNumVec_6a2fa69c25bf8ed36e019d0fb3f5e966_6a2fa69c25bf8ed36e019d0fb3f5e966}
+
+
+Return size m 
+
+Definition at line 104 of file numvec.hpp.
+
+Referenced by clear(), daxpy(), dgemv(), SVDRep::dgemv(), dger(), dscal(), SVDRep::k(), operator$<$$<$(), and setvalue().
+
+\footnotesize\begin{verbatim}104 { return _m; }
+\end{verbatim}\normalsize 
+
+
+\index{NumVec@{Num\-Vec}!operator()@{operator()}}
+\index{operator()@{operator()}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Num\-Vec}$<$ F $>$::operator() (int {\em i})\hspace{0.3cm}{\tt  [inline]}}\label{classNumVec_a6859783df5149b240b538ed4f692366_a6859783df5149b240b538ed4f692366}
+
+
+return \_\-data[i] of type F 
+
+Definition at line 98 of file numvec.hpp.
+
+\footnotesize\begin{verbatim}98                         {        assert(i>=0 && i<_m);
+99     return _data[i]; 
+100   }
+\end{verbatim}\normalsize 
+
+
+\index{NumVec@{Num\-Vec}!operator()@{operator()}}
+\index{operator()@{operator()}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Num\-Vec}$<$ F $>$::operator() (int {\em i}) const\hspace{0.3cm}{\tt  [inline]}}\label{classNumVec_46442ed0ae535217a90cc5b4b63a1f44_46442ed0ae535217a90cc5b4b63a1f44}
+
+
+return \_\-data[i] of type F 
+
+Definition at line 94 of file numvec.hpp.
+
+\footnotesize\begin{verbatim}94                                     {    assert(i>=0 && i<_m);
+95     return _data[i]; 
+96   }
+\end{verbatim}\normalsize 
+
+
+\index{NumVec@{Num\-Vec}!operator=@{operator=}}
+\index{operator=@{operator=}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Vec}\& {\bf Num\-Vec}$<$ F $>$::operator= (const {\bf Num\-Vec}$<$ F $>$ \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classNumVec_0c365a5c16a3b38d62f77787f2724617_0c365a5c16a3b38d62f77787f2724617}
+
+
+Set this Num\-Vec equal to C using the overloaded \char`\"{}=\char`\"{} operator 
+
+Definition at line 71 of file numvec.hpp.
+
+\footnotesize\begin{verbatim}71                                       {
+72          if(_owndata) { 
+73                 if(_m>0) { delete[] _data; _data = NULL; }
+74          }
+75          _m = C._m; _owndata=C._owndata;
+76          if(_owndata) {
+77                 if(_m>0) { _data = new F[_m]; assert(_data!=NULL); memset(_data, 0, _m*sizeof(F)); } else _data=NULL;
+78                 if(_m>0) memcpy( _data, C._data, _m*sizeof(F) );
+79          } else {
+80                 _data =C._data;
+81          }
+82          return *this;
+83   }
+\end{verbatim}\normalsize 
+
+
+\index{NumVec@{Num\-Vec}!resize@{resize}}
+\index{resize@{resize}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void {\bf Num\-Vec}$<$ F $>$::resize (int {\em m})\hspace{0.3cm}{\tt  [inline]}}\label{classNumVec_3ec52bb13fd53dffe925298f4b72a3e3_3ec52bb13fd53dffe925298f4b72a3e3}
+
+
+resize this Num\-Vec to size input m 
+
+Definition at line 85 of file numvec.hpp.
+
+Referenced by SVDRep::construct().
+
+\footnotesize\begin{verbatim}85                       {
+86          assert(_owndata==true);
+87          if(m !=_m) {
+88                 if(_m>0) { delete[] _data; _data = NULL; }
+89                 _m = m;
+90                 if(_m>0) { _data = new F[_m]; assert(_data!=NULL);  memset(_data, 0, _m*sizeof(F)); } else _data=NULL;
+91          }
+92   }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{NumVec@{Num\-Vec}!_data@{\_\-data}}
+\index{_data@{\_\-data}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Num\-Vec}$<$ F $>$::{\bf \_\-data}}\label{classNumVec_7125153abbcb2e949a1b4f81cbe22af5_7125153abbcb2e949a1b4f81cbe22af5}
+
+
+the data itself of type F (double, bool, etc.) 
+
+Definition at line 39 of file numvec.hpp.
+
+Referenced by Num\-Vec$<$ F $>$::Num\-Vec().\index{NumVec@{Num\-Vec}!_m@{\_\-m}}
+\index{_m@{\_\-m}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Num\-Vec}$<$ F $>$::{\bf \_\-m}}\label{classNumVec_b781ae81625400d76d94420d3af2c230_b781ae81625400d76d94420d3af2c230}
+
+
+\_\-m is the size or length of the vector 
+
+Definition at line 35 of file numvec.hpp.
+
+Referenced by Num\-Vec$<$ F $>$::Num\-Vec().\index{NumVec@{Num\-Vec}!_owndata@{\_\-owndata}}
+\index{_owndata@{\_\-owndata}!NumVec@{Num\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool {\bf Num\-Vec}$<$ F $>$::{\bf \_\-owndata}}\label{classNumVec_4a613b2956a4a0ffff962e497a5d56e0_4a613b2956a4a0ffff962e497a5d56e0}
+
+
+Whether or not the vector \char`\"{}owns\char`\"{} its data or just shares a pointer to it 
+
+Definition at line 37 of file numvec.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+common/{\bf numvec.hpp}\end{CompactItemize}

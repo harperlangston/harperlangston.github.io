@@ -1,0 +1,150 @@
+\section{fmm3d/tt.cpp File Reference}
+\label{tt_8cpp}\index{fmm3d/tt.cpp@{fmm3d/tt.cpp}}
+
+
+{\tt \#include \char`\"{}fmm3d.hpp\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf options\-Create} (const char $\ast$options\-File, map$<$ string, string $>$ \&options)
+\item 
+int {\bf main} (int argc, char $\ast$$\ast$argv)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{tt.cpp@{tt.cpp}!main@{main}}
+\index{main@{main}!tt.cpp@{tt.cpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, char $\ast$$\ast$ {\em argv})}\label{tt_8cpp_30c4c19ff69d905e8e4c750b3af23485_30c4c19ff69d905e8e4c750b3af23485}
+
+
+Main function operates in several steps: First, the options file as provided to options\-Create is parsed. From this, we get the number of sources and target points (num\-Src, num\-Trg), the kernel type (kt - see {\bf kernel3d.hpp}{\rm (p.\,\pageref{kernel3d_8hpp})} and {\bf kernel3d.cpp}{\rm (p.\,\pageref{kernel3d_8cpp})}), etc. Random locations are generated for source and target locations. Random sources densities are allocated based on the degrees of freedom of the specified kernel, and target value space is allocated as well. Then, space for the fmm is allocated and variables are set. Fmm is then this run and checked/clocked.
+
+1. allocate random data
+
+num\-Src = Number of source points
+
+num\-Trg = Number of target points
+
+Declare kernel as knl of type kt and coefficients temp
+
+Allocate random data for source positions (src\-Pos) and target positions (trg\-Pos)
+
+src\-DOF = source degree of freedom. See {\bf kernel3d.hpp}{\rm (p.\,\pageref{kernel3d_8hpp})}
+
+trg\-DOF = target degree of freedom. See {\bf kernel3d.hpp}{\rm (p.\,\pageref{kernel3d_8hpp})}
+
+src\-Den = source density values of size s\-DOF$\ast$num\-Src
+
+2. allocate fmm
+
+3. run fmm
+
+4. check 
+
+Definition at line 57 of file tt.cpp.
+
+References options\-Create().
+
+\footnotesize\begin{verbatim}58 {
+59   srand48( (long)time(NULL) );  //srand48( 0 );
+60   iA(argc==2);
+61   map<string,string> optionsMap;
+62   optionsCreate(argv[1], optionsMap);
+63   
+65   map<string,string>::iterator mapIdx;
+66   mapIdx = optionsMap.find("-numSrc"); assert(mapIdx!=optionsMap.end());
+68   int numSrc;  { istringstream ss((*mapIdx).second);  ss >> numSrc; }
+69   mapIdx = optionsMap.find("-numTrg"); assert(mapIdx!=optionsMap.end());
+71   int numTrg;  { istringstream ss((*mapIdx).second);  ss >> numTrg; }
+72   mapIdx = optionsMap.find("-kt"); assert(mapIdx!=optionsMap.end());
+73   /* ht = Kernel Type.  See kernel3d.hpp */
+74   int kernelType;  { istringstream ss((*mapIdx).second);  ss>>kernelType; }
+75     
+76   vector<double> tmp(2);         tmp[0] = 1;     tmp[1] = 0.25; //coefs in the kernel, work for all examples
+78   Kernel3d knl(kernelType, tmp);
+79 
+81   DblNumMat srcPos(3, numSrc);
+82   for(int i=0; i<numSrc; i++) {
+83          srcPos(0,i) = (2.0*drand48()-1.0);
+84          srcPos(1,i) = (2.0*drand48()-1.0);
+85          srcPos(2,i) = (2.0*drand48()-1.0);
+86   }
+87   DblNumMat trgPos(3, numTrg);
+88   for(int i=0; i<numTrg; i++) {
+89          trgPos(0,i) = (2.0*drand48()-1.0);
+90          trgPos(1,i) = (2.0*drand48()-1.0);
+91          trgPos(2,i) = (2.0*drand48()-1.0);
+92   }
+93 
+95   int srcDOF = knl.srcDOF();
+97   int trgDOF = knl.trgDOF();
+99   DblNumVec srcDen(srcDOF * numSrc);
+100   for(int i=0; i<numSrc; i++) {
+101          for(int d=0; d<srcDOF; d++)
+102                 srcDen(d + i*srcDOF) = drand48(); //(2.0*drand48()-1.0);
+103   }
+104   /* trgVal = target values of size trgDOF *numTrg */
+105   DblNumVec trgVal(trgDOF * numTrg);
+106   
+108   clock_t clockZero, clockOne;
+109   
+110   FMM3d* fmm = new FMM3d("fmm3d_");
+111   fmm->srcPos()=&srcPos;  fmm->srcNor()=&srcPos;
+112   fmm->trgPos()=&trgPos;
+113   fmm->center() = Point3(0,0,0); // CENTER OF THE TOPLEVEL BOX
+114   fmm->rootLevel() = 0;         // 2^(-rootlvl) is the RADIUS OF THE TOPLEVEL BOX
+115   fmm->knl() = knl;
+116   
+117   clockZero = clock();
+118   iC( fmm->setup(optionsMap) );
+119   clockOne = clock();  cout<<"fmm setup used "<<double(clockOne-clockZero)/CLOCKS_PER_SEC<<"secs "<<endl;
+120   
+122   for(int i=0; i<3; i++) {
+123          clockZero = clock();
+124          iC( fmm->evaluate(srcDen, trgVal) );
+125          clockOne = clock();  cout<<"fmm eval used "<<double(clockOne-clockZero)/CLOCKS_PER_SEC<<"secs "<<endl;
+126   }
+127   
+129   clockZero = clock();
+130   double relativeError;
+131   iC( fmm->check(srcDen, trgVal, 20, relativeError) );
+132   cout << "relative error: " << relativeError << endl;
+133   clockOne = clock();  cout<<"fmm check used "<<double(clockOne-clockZero)/CLOCKS_PER_SEC<<"sec "<<endl;
+134   
+135   delete fmm;
+136   
+137   return 0;
+138 }
+\end{verbatim}\normalsize 
+
+
+\index{tt.cpp@{tt.cpp}!optionsCreate@{optionsCreate}}
+\index{optionsCreate@{optionsCreate}!tt.cpp@{tt.cpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int options\-Create (const char $\ast$ {\em options\-File}, map$<$ string, string $>$ \& {\em options})}\label{tt_8cpp_2899a15f18e0573fa64d805ec5b40754_2899a15f18e0573fa64d805ec5b40754}
+
+
+parse the options file provided as input to tt Options\-Create takes a string and a character map and maps options file names to their values to be parsed later 
+
+Definition at line 32 of file tt.cpp.
+
+Referenced by main().
+
+\footnotesize\begin{verbatim}33 {
+34   options.clear();
+35   ifstream fileIn(optionsFile);
+36   if(fileIn.good()==false) {
+37          cerr<<"wrong option file"<<endl;        exit(1);
+38   }
+39   string name;  fileIn>>name;
+40   while(fileIn.good()) {
+41          char content[100];      fileIn.getline(content, 99);
+42          options[name] = string(content);
+43          fileIn>>name;
+44   }
+45   fileIn.close();
+46   return 0;
+47 }
+\end{verbatim}\normalsize 
+
+

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1">
+<title>Parallel Kernel-Independent Fast Multipole 3D code</title>
+<link href="doxygen.css" rel="stylesheet" type="text/css">
+<link href="tabs.css" rel="stylesheet" type="text/css">
+</head><body>
+<table border="0" width="700" cellspacing="18" cellpadding="">
+<tr><td>
+<h1>KIFMM3d Download and Installation</h1>
+
+<div class="navbar" align=center>
+<TABLE CELLSPACING=20 CELLPADDING=1>
+<TR>
+<td><a href="./index.html">Home</a></td>
+<td><a href="./download.html">Download and Installation</a></td>
+<td><a href="./documentation.html">Documentation</a></td>
+<td><a href="./publications.html">Publications</a></td>
+<td><a href="./links.html">Links</a></td>
+<td><a href="./contact.html">Contact</a></td>
+</TR>
+</TABLE>
+</div>
+
+<p>
+The Kernel-Independent Fast Multipole (FMM) 3D code (kifmm3d) requires
+the installation of several libraries.  Before downloading the kifmm3d
+code, make sure to install the necessary libraries listed on the <a
+href="./links.html"> links page</a>.
+
+<h3>Download</h3>
+<p>
+The most current version of the code and documentation can be
+downloaded here
+<ul><li>Code: <a href="./code/kifmm3d.tar.gz">kifmm3d.tar.gz</a>
+<li>HTML Documentation: <a
+href="./kifmm3d_doc.tar.gz">kifmm3d_doc.tar.gz</a>(Not yet active)
+</ul>
+</p>
+<h3>Compilation and Testing</h3>
+<p>
+Once the Necessary libraries are installed and running properly, you
+can compile the FMM code as follows:
+<ul><li>go to directory <i>kifmm3d/common</i> and type:<br>  make
+<li>go to directory <i>kifmm3d/fmm3d_mpi</i> and type:<br>  make
+<li>go to directory <i>kifmm3d/fmm3d_mpi</i> and type:<br>
+        make tt0<br>
+        make tt1
+</ul>
+</p>
+<p>
+To run the test examples, do the following:
+<ul><li>
+1. For non-uniform data distribution:<br>
+go to <i>kifmm3d/fmm3d</i>, and do the following:<br>
+<br>
+(1) For single layer laplace kernel, low accuracy, type:<br>
+        mpirun -np N tt0 -options_file options_0<br>
+<br>
+(2) For double layer stokes kernel, mid accuracy, type:<br>
+        mpirun -np N tt0 -options_file options_1<br>
+<br>
+(3) For single layer navier kernel, high accuracy, type:<br>
+        mpirun -np N tt0 -options_file options_2<br>
+<br>
+<li>2. For uniform data distributino<br>
+go to <i>kifmm3d/fmm3d_mpi</i>, and do the following:<br>
+<br>
+(1) For single layer laplace kernel, low accuracy, type:<br>
+        mpirun -np N tt1 -options_file options_0<br>
+<br>
+(2) For double layer stokes kernel, mid accuracy, type:<br>
+        mpirun -np N tt1 -options_file options_1<br>
+<br>
+(3) For single layer navier kernel, high accuracy, type:<br>
+        mpirun -np N tt1 -options_file options_2<br>
+</ul>
+</p>
+<p>
+Similar instructions are available for the sequential code in the home
+directory of the code.  However,
+instead of running the sequential code, we suggest installing the
+parallel code and using mpirun with the number of processors set to
+1.  Example:<br>  mpirun -np 1 tt0 -options_file options_0<br>
+The above statement runs the code tt0 on one processor, and this will
+work for PETSc installed properly on a uni-processor machine.
+</p>
+
+<div class="navbar" align=center>
+<TABLE CELLSPACING=20 CELLPADDING=1>
+<TR>
+<td><a href="./gpl.html">GNU General Public License (GPL) Disclaimer</a></td>
+</TR>
+</TABLE>
+</div>
+
+</td>
+</tr>
+</table>
+</body>
+</html>

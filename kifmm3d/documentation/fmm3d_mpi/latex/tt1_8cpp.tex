@@ -1,0 +1,127 @@
+\section{fmm3d\_\-mpi/tt1.cpp File Reference}
+\label{tt1_8cpp}\index{fmm3d_mpi/tt1.cpp@{fmm3d\_\-mpi/tt1.cpp}}
+
+
+{\tt \#include \char`\"{}fmm3d\_\-mpi.hpp\char`\"{}}\par
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+int {\bf main} (int argc, char $\ast$$\ast$argv)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{tt1.cpp@{tt1.cpp}!main@{main}}
+\index{main@{main}!tt1.cpp@{tt1.cpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int main (int {\em argc}, char $\ast$$\ast$ {\em argv})}\label{tt1_8cpp_30c4c19ff69d905e8e4c750b3af23485_30c4c19ff69d905e8e4c750b3af23485}
+
+
+
+
+Definition at line 22 of file tt1.cpp.
+
+References FMM3d\_\-MPI::ctr(), FMM3d\_\-MPI::evaluate(), Knl\-Mat3d\_\-MPI::knl(), p\-A, p\-C, FMM3d\_\-MPI::root\-Level(), FMM3d\_\-MPI::setup(), Kernel3d\_\-MPI::src\-DOF(), Knl\-Mat3d\_\-MPI::src\-Nor(), Knl\-Mat3d\_\-MPI::src\-Pos(), Kernel3d\_\-MPI::trg\-DOF(), and Knl\-Mat3d\_\-MPI::trg\-Pos().
+
+\footnotesize\begin{verbatim}23 {
+24   PetscInitialize(&argc,&argv,"options_0",NULL);  //PetscTruth flg = PETSC_FALSE;
+25 
+26   MPI_Comm comm; comm = PETSC_COMM_WORLD;
+27   int mpirank;  MPI_Comm_rank(MPI_COMM_WORLD, &mpirank);
+28   int mpisize;  MPI_Comm_size(MPI_COMM_WORLD, &mpisize);
+29   int dim = 3;
+30   srand48( (long)( time(NULL)+mpirank ) );
+31   
+32   PetscTruth flg = PETSC_FALSE;
+33   pC( PetscPrintf(MPI_COMM_WORLD, "mpisize %d\n", mpisize) );
+34   
+35   //1. random src and trg data
+36   int numsrc;  pC( PetscOptionsGetInt(PETSC_NULL, "-numsrc", &numsrc, &flg) ); pA(flg==PETSC_TRUE);
+37   int numtrg;  pC( PetscOptionsGetInt(PETSC_NULL, "-numtrg", &numtrg, &flg) ); pA(flg==PETSC_TRUE);
+38   int kt;  pC( PetscOptionsGetInt(PETSC_NULL, "-kt", &kt, &flg) ); pA(flg==PETSC_TRUE);
+39   
+40   vector<double> tmp(2);         tmp[0] = 1;     tmp[1] = 0.25; //coefs in the kernel, work for all examples
+41   Kernel3d_MPI knl(kt, tmp);
+42   
+43   int lclnumsrc = (numsrc+mpirank)/mpisize;
+44   int lclnumtrg = (numtrg+mpirank)/mpisize;
+45   
+46   //pick center
+47   double R = 0.85;
+48   double r = 1-R;
+49   double lclctr[3];
+50   for(int d=0; d<dim; d++)       lclctr[d] = R * (2.0*drand48()-1.0);
+51   
+52   //generate src and trg data
+53   Vec srcPos;  pC( VecCreateMPI(comm, lclnumsrc*dim, PETSC_DETERMINE, &srcPos) );
+54   double* srcPosarr; pC( VecGetArray(srcPos, &srcPosarr) );
+55   for(int k=0; k<lclnumsrc; k++)
+56          for(int d=0; d<dim; d++)
+57                 srcPosarr[d+dim*k] = lclctr[d] + r*(2.0*drand48()-1.0);
+58   pC( VecRestoreArray(srcPos, &srcPosarr) );
+59   
+60   Vec trgPos;  pC( VecCreateMPI(comm, lclnumtrg*dim, PETSC_DETERMINE, &trgPos) );
+61   double* trgPosarr; pC( VecGetArray(trgPos, &trgPosarr) );
+62   for(int k=0; k<lclnumtrg; k++)
+63          for(int d=0; d<dim; d++)
+64                 trgPosarr[d+dim*k] = lclctr[d] + r*(2.0*drand48()-1.0);
+65   pC( VecRestoreArray(trgPos, &trgPosarr) );
+66   
+67   int srcDOF = knl.srcDOF();
+68   int trgDOF = knl.trgDOF();
+69   Vec srcDen;  pC( VecCreateMPI(comm, lclnumsrc*srcDOF, PETSC_DETERMINE, &srcDen) );
+70   double* srcDenarr; pC( VecGetArray(srcDen, &srcDenarr) );
+71   for(int k=0; k<lclnumsrc*srcDOF; k++)
+72          srcDenarr[k] = drand48();
+73   pC( VecRestoreArray(srcDen, &srcDenarr) );
+74   
+75   Vec trgVal;  pC( VecCreateMPI(comm, lclnumtrg*trgDOF, PETSC_DETERMINE, &trgVal) );
+76   double zero = 0;  pC( VecSet(trgVal, zero) );
+77   
+78   //2. allocate fmm 
+79   clock_t ck0, ck1;
+80   
+81   FMM3d_MPI* fmm = new FMM3d_MPI("fmm3d_MPI_");
+82   fmm->srcPos()=srcPos;  fmm->srcNor()=srcPos;
+83   fmm->trgPos()=trgPos;
+84   fmm->ctr() = Point3(0,0,0); // CENTER OF THE TOPLEVEL BOX
+85   fmm->rootLevel() = 0;         // 2^(-rootlvl) is the RADIUS OF THE TOPLEVEL BOX
+86   fmm->knl() = knl;
+87   //setup
+88   ck0 = clock();
+89   pC( fmm->setup() );
+90   ck1 = clock();  
+91   pC( PetscPrintf(MPI_COMM_WORLD, "fmm setup used %e secs\n", double(ck1-ck0)/CLOCKS_PER_SEC) );
+92   
+93   //3. run fmm
+94   for(int i=0; i<3; i++) {
+95          ck0 = clock();
+96          pC( fmm->evaluate(srcDen, trgVal) );
+97          //pC( MPI_Barrier(MPI_COMM_WORLD) );  //check Vincnt, Votcnt
+98          ck1 = clock();
+99          pC( PetscPrintf(MPI_COMM_WORLD, "fmm evaluate used %e secs\n", double(ck1-ck0)/CLOCKS_PER_SEC) );
+100   }
+101   
+102   //4. check
+103   ck0 = clock();
+104   double rerr;
+105   pC( fmm->check(srcDen, trgVal, 20, rerr) );
+106   pC( PetscPrintf(MPI_COMM_WORLD, "relative %e\n", rerr) );
+107   ck1 = clock();
+108   pC( PetscPrintf(MPI_COMM_WORLD, "fmm check used %e secs\n", double(ck1-ck0)/CLOCKS_PER_SEC) );
+109   //extra
+110   //{ PetscViewer viewer;  pC( PetscViewerASCIIOpen(comm, "srcPos.out", &viewer) );  pC( VecView(srcPos, viewer) );  pC( PetscViewerDestroy(viewer) ); }
+111   //{ PetscViewer viewer;  pC( PetscViewerASCIIOpen(comm, "trgPos.out", &viewer) );  pC( VecView(trgPos, viewer) );  pC( PetscViewerDestroy(viewer) ); }
+112   
+113   delete fmm;
+114   
+115   pC( VecDestroy(srcPos) );
+116   pC( VecDestroy(trgPos) );
+117   pC( VecDestroy(srcDen) );
+118   pC( VecDestroy(trgVal) );
+119   
+120   PetscFinalize();
+121   return 0;
+122 }
+\end{verbatim}\normalsize 
+
+

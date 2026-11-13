@@ -1,0 +1,114 @@
+\section{common/offtns.hpp File Reference}
+\label{offtns_8hpp}\index{common/offtns.hpp@{common/offtns.hpp}}
+
+
+\subsection{Detailed Description}
+
+
+Definition in file {\bf offtns.hpp}.
+
+{\tt \#include \char`\"{}offmat.hpp\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Off\-Tns$<$ F $>$}
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf Off\-Tns}$<$ bool $>$ {\bf Bol\-Off\-Tns}
+\item 
+typedef {\bf Off\-Tns}$<$ int $>$ {\bf Int\-Off\-Tns}
+\item 
+typedef {\bf Off\-Tns}$<$ double $>$ {\bf Dbl\-Off\-Tns}
+\item 
+typedef {\bf Off\-Tns}$<$ {\bf cpx} $>$ {\bf Cpx\-Off\-Tns}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+template$<$class F$>$ ostream \& {\bf operator$<$$<$} (ostream \&os, const {\bf Off\-Tns}$<$ F $>$ \&tns)
+\item 
+template$<$class F$>$ void {\bf setvalue} ({\bf Off\-Tns}$<$ F $>$ \&M, F val)
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{offtns.hpp@{offtns.hpp}!BolOffTns@{BolOffTns}}
+\index{BolOffTns@{BolOffTns}!offtns.hpp@{offtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Off\-Tns}$<$bool$>$ {\bf Bol\-Off\-Tns}}\label{offtns_8hpp_044189e3a2462652acb00b816cce56d3_044189e3a2462652acb00b816cce56d3}
+
+
+
+
+Definition at line 120 of file offtns.hpp.\index{offtns.hpp@{offtns.hpp}!CpxOffTns@{CpxOffTns}}
+\index{CpxOffTns@{CpxOffTns}!offtns.hpp@{offtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Off\-Tns}$<${\bf cpx}$>$ {\bf Cpx\-Off\-Tns}}\label{offtns_8hpp_7cb19915aa43182fa5c7e99b6c53e350_7cb19915aa43182fa5c7e99b6c53e350}
+
+
+
+
+Definition at line 123 of file offtns.hpp.\index{offtns.hpp@{offtns.hpp}!DblOffTns@{DblOffTns}}
+\index{DblOffTns@{DblOffTns}!offtns.hpp@{offtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Off\-Tns}$<$double$>$ {\bf Dbl\-Off\-Tns}}\label{offtns_8hpp_2a7d50167024971756f6d2cb37cb2938_2a7d50167024971756f6d2cb37cb2938}
+
+
+
+
+Definition at line 122 of file offtns.hpp.\index{offtns.hpp@{offtns.hpp}!IntOffTns@{IntOffTns}}
+\index{IntOffTns@{IntOffTns}!offtns.hpp@{offtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Off\-Tns}$<$int$>$ {\bf Int\-Off\-Tns}}\label{offtns_8hpp_bd67883f571db9bfa0fbfd3910ccc600_bd67883f571db9bfa0fbfd3910ccc600}
+
+
+
+
+Definition at line 121 of file offtns.hpp.
+
+\subsection{Function Documentation}
+\index{offtns.hpp@{offtns.hpp}!operator<<@{operator$<$$<$}}
+\index{operator<<@{operator$<$$<$}!offtns.hpp@{offtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ ostream\& operator$<$$<$ (ostream \& {\em os}, const {\bf Off\-Tns}$<$ F $>$ \& {\em tns})\hspace{0.3cm}{\tt  [inline]}}\label{offtns_8hpp_2209c7092c28fb72cb2739f61651566c_2209c7092c28fb72cb2739f61651566c}
+
+
+
+
+Definition at line 96 of file offtns.hpp.
+
+\footnotesize\begin{verbatim}97 {
+98   os<<tns.m()<<" "<<tns.n()<<" "<<tns.p()<<" "<<tns.s()<<" "<<tns.t()<<" "<<tns.u()<<endl;
+99   os.setf(ios_base::scientific, ios_base::floatfield);
+100   for(int i=tns.s(); i<tns.s()+tns.m(); i++) {
+101          for(int j=tns.t(); j<tns.t()+tns.n(); j++) {
+102                 for(int k=tns.u(); k<tns.u()+tns.p(); k++) {
+103                   os<<" "<<tns(i,j,k);
+104                 }
+105                 os<<endl;
+106          }
+107          os<<endl;
+108   }
+109   return os;
+110 }
+\end{verbatim}\normalsize 
+
+
+\index{offtns.hpp@{offtns.hpp}!setvalue@{setvalue}}
+\index{setvalue@{setvalue}!offtns.hpp@{offtns.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void setvalue ({\bf Off\-Tns}$<$ F $>$ \& {\em M}, F {\em val})\hspace{0.3cm}{\tt  [inline]}}\label{offtns_8hpp_c37306574c0413d3d9adc186a662b6b1_c37306574c0413d3d9adc186a662b6b1}
+
+
+
+
+Definition at line 111 of file offtns.hpp.
+
+References Off\-Tns$<$ F $>$::m(), Off\-Tns$<$ F $>$::n(), and Off\-Tns$<$ F $>$::p().
+
+\footnotesize\begin{verbatim}112 {
+113   for(int i=0; i<M.m(); i++)
+114          for(int j=0; j<M.n(); j++)
+115                 for(int k=0; k<M.p(); k++)
+116                   M(i,j,k) = val;
+117   return;
+118 }
+\end{verbatim}\normalsize 
+
+

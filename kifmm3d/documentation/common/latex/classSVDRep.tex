@@ -1,0 +1,380 @@
+\section{SVDRep Class Reference}
+\label{classSVDRep}\index{SVDRep@{SVDRep}}
+{\tt \#include $<$svdrep.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+SVD - Singular Value Decomposition Rrepresentation of some input matrix. 
+
+The SVD Decomposition of a matrix, A, can be written as U$\ast$S$\ast$V$^\wedge$T where S is a diagonal matrix of singular values, U and V are orthogonal matrices. This decompition allows for fast solving a a system of linear equations. Here, the Lapack Fortran code for DGESVD is called. See {\bf lapack.h}{\rm (p.\,\pageref{lapack_8h})} for more information 
+
+
+
+Definition at line 31 of file svdrep.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf SVDRep} ()
+\item 
+{\bf SVDRep} (const {\bf SVDRep} \&C)
+\item 
+{\bf $\sim$SVDRep} ()
+\item 
+{\bf SVDRep} \& {\bf operator=} (const {\bf SVDRep} \&c)
+\item 
+{\bf Dbl\-Num\-Mat} \& {\bf U} ()
+\item 
+{\bf Dbl\-Num\-Vec} \& {\bf S} ()
+\item 
+{\bf Dbl\-Num\-Mat} \& {\bf VT} ()
+\item 
+int {\bf construct} (double epsilon, const {\bf Dbl\-Num\-Mat} \&M)
+\item 
+int {\bf dgemv} (double alpha, const {\bf Dbl\-Num\-Vec} \&X, double beta, {\bf Dbl\-Num\-Vec} \&Y, double tol=0.0)
+\item 
+int {\bf dgemv} (double alpha, double $\ast$X, double beta, double $\ast$Y, double tol=0.0)
+\item 
+int {\bf m} () const 
+\item 
+int {\bf k} () const 
+\item 
+int {\bf n} () const 
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+{\bf Dbl\-Num\-Mat} {\bf \_\-mat\-U}
+\item 
+{\bf Dbl\-Num\-Vec} {\bf \_\-mat\-S}
+\item 
+{\bf Dbl\-Num\-Mat} {\bf \_\-mat\-VT}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{SVDRep@{SVDRep}!SVDRep@{SVDRep}}
+\index{SVDRep@{SVDRep}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SVDRep::SVDRep ()\hspace{0.3cm}{\tt  [inline]}}\label{classSVDRep_da26a387223ff9a37b57ff36fe156c8b_da26a387223ff9a37b57ff36fe156c8b}
+
+
+Construct SVDRep 
+
+Definition at line 35 of file svdrep.hpp.
+
+\footnotesize\begin{verbatim}35 {}
+\end{verbatim}\normalsize 
+
+
+\index{SVDRep@{SVDRep}!SVDRep@{SVDRep}}
+\index{SVDRep@{SVDRep}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SVDRep::SVDRep (const {\bf SVDRep} \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classSVDRep_8c2db96b45f21fdbe776e309700bc779_8c2db96b45f21fdbe776e309700bc779}
+
+
+Construct SVDRep from an existing SVDRep 
+
+Definition at line 37 of file svdrep.hpp.
+
+\footnotesize\begin{verbatim}37 : _matU(C._matU), _matS(C._matS), _matVT(C._matVT)  {}
+\end{verbatim}\normalsize 
+
+
+\index{SVDRep@{SVDRep}!~SVDRep@{$\sim$SVDRep}}
+\index{~SVDRep@{$\sim$SVDRep}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}SVDRep::$\sim$SVDRep ()\hspace{0.3cm}{\tt  [inline]}}\label{classSVDRep_a0b57c7efa82d38ea8493b19cf28858d_a0b57c7efa82d38ea8493b19cf28858d}
+
+
+Destroy SVDRep 
+
+Definition at line 39 of file svdrep.hpp.
+
+\footnotesize\begin{verbatim}39 {}
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{SVDRep@{SVDRep}!construct@{construct}}
+\index{construct@{construct}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int SVDRep::construct (double {\em epsilon}, const {\bf Dbl\-Num\-Mat} \& {\em M})}\label{classSVDRep_aca629570ae9a26a6cbeeb3f68fd0860_aca629570ae9a26a6cbeeb3f68fd0860}
+
+
+Construct the SVD representation of a matrix M with cutoff epsilon. The smallest singular values are dropped based on epsilon. The Lapack routine DGESVD from {\bf lapack.h}{\rm (p.\,\pageref{lapack_8h})} is called here as well 
+
+Definition at line 38 of file svdrep.cpp.
+
+References \_\-mat\-S, \_\-mat\-U, \_\-mat\-VT, abs(), Num\-Vec$<$ F $>$::data(), Num\-Mat$<$ F $>$::data(), DGESVD, i\-A, k(), Num\-Mat$<$ F $>$::m(), m(), max(), min(), Num\-Mat$<$ F $>$::n(), n(), Num\-Vec$<$ F $>$::resize(), and Num\-Mat$<$ F $>$::resize().
+
+\footnotesize\begin{verbatim}39 {
+40   int m = K.m();
+41   int n = K.n();
+42   int k = min(m, n);
+43   
+44   DblNumMat tU(m, k);
+45   DblNumVec tS(k);
+46   DblNumMat tVT(k, n);
+47   
+48   //SVD
+49   int INFO;
+50   char JOBU  = 'S';
+51   char JOBVT = 'S';
+52   
+53   int wssize = max(3*min(m,n)+max(m,n), 5*min(m,n));
+54   double* wsbuf = new double[wssize];
+55   DGESVD(&JOBU, &JOBVT, &m, &n, K.data(), &m, tS.data(), tU.data(), &m, tVT.data(), &k, wsbuf, &wssize, &INFO);  iA(INFO==0);
+56   delete [] wsbuf;
+57   
+58   //cutoff
+59   double cutoff = epsilon*tS(0);
+60   int cnt=0;
+61   while(cnt< k)
+62     if(abs(tS(cnt)) >= cutoff)
+63       cnt++;
+64     else
+65       break;
+66   _matU.resize(m, cnt);
+67   _matS.resize(cnt);    
+68   _matVT.resize(cnt,n);
+69   
+70   for(int i=0; i<m; i++)
+71     for(int j=0; j<cnt; j++)
+72       _matU(i,j) = tU(i,j);
+73   for(int i=0; i<cnt; i++)
+74     _matS(i) = tS(i);
+75   for(int i=0; i<cnt; i++)
+76     for(int j=0; j<n; j++)
+77       _matVT(i,j) = tVT(i,j);
+78   
+79   return 0;
+80 }
+\end{verbatim}\normalsize 
+
+
+\index{SVDRep@{SVDRep}!dgemv@{dgemv}}
+\index{dgemv@{dgemv}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int SVDRep::dgemv (double {\em alpha}, double $\ast$ {\em X}, double {\em beta}, double $\ast$ {\em Y}, double {\em tol} = {\tt 0.0})}\label{classSVDRep_00a3b0d1ee40ea4c0a4a87d575249f81_00a3b0d1ee40ea4c0a4a87d575249f81}
+
+
+Perform the operation:
+
+y = alpha$\ast$M$\ast$X + beta$\ast$Y where M is the original matrix from the SVDRep.
+
+Using the SVD representation, this dgemv operation is performed more quickly. This also uses the Blas DGEMV opaeration seen in {\bf blas.h}{\rm (p.\,\pageref{blas_8h})} 
+
+Definition at line 93 of file svdrep.cpp.
+
+References \_\-mat\-S, \_\-mat\-U, \_\-mat\-VT, Num\-Mat$<$ F $>$::data(), DGEMV, Num\-Mat$<$ F $>$::m(), Num\-Vec$<$ F $>$::m(), and Num\-Mat$<$ F $>$::n().
+
+\footnotesize\begin{verbatim}94 {
+95   int K = 1; //prevent matrix of zero size
+96   while(K<_matS.m() && _matS(K)>=tol) 
+97          K++;
+98   //buf = VT(1:K,:) * X
+99   //double* buf = _wsbuf;
+100   double* buf = new double[K];
+101   {
+102          char TRANS = 'N';
+103          int M = _matVT.m();
+104          int N = _matVT.n();
+105          double ALPHA = 1.0;
+106          double BETA = 0.0;
+107          int INC = 1;
+108          DGEMV(&TRANS, &K, &N, &ALPHA, _matVT.data(), &M, X, &INC, &BETA, buf, &INC); //first K rows
+109   }
+110   // buf = S(1:K) .* buf;
+111   for(int i=0; i<K; i++)
+112          buf[i] = buf[i] * _matS(i);
+113   // y = U(:,1:K) * buf
+114   {
+115          char TRANS = 'N';
+116          int M = _matU.m(); //int N = _matU.n();
+117          double ALPHA = alpha;
+118          double BETA = beta;
+119          int INC = 1;
+120          DGEMV(&TRANS, &M, &K, &ALPHA, _matU.data(), &M, buf, &INC, &BETA, Y, &INC);    
+121   }
+122   delete [] buf;
+123   
+124   return 0;
+125 }
+\end{verbatim}\normalsize 
+
+
+\index{SVDRep@{SVDRep}!dgemv@{dgemv}}
+\index{dgemv@{dgemv}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int SVDRep::dgemv (double {\em alpha}, const {\bf Dbl\-Num\-Vec} \& {\em X}, double {\em beta}, {\bf Dbl\-Num\-Vec} \& {\em Y}, double {\em tol} = {\tt 0.0})}\label{classSVDRep_dc2736f382b2777886e8d2fe6b6a6b4c_dc2736f382b2777886e8d2fe6b6a6b4c}
+
+
+Perform the operation:
+
+y = alpha$\ast$M$\ast$X + beta$\ast$Y where M is the original matrix from the SVDRep.
+
+Using the SVD representation, this dgemv operation is performed more quickly. This also uses the Blas DGEMV opaeration seen in {\bf blas.h}{\rm (p.\,\pageref{blas_8h})} 
+
+Definition at line 83 of file svdrep.cpp.
+
+References \_\-mat\-U, \_\-mat\-VT, Num\-Vec$<$ F $>$::data(), i\-A, i\-C, Num\-Mat$<$ F $>$::m(), Num\-Vec$<$ F $>$::m(), and Num\-Mat$<$ F $>$::n().
+
+\footnotesize\begin{verbatim}84 {
+85   iA(Y.m() == _matU.m());
+86   iA(X.m() == _matVT.n());
+87   iC( dgemv(alpha, X.data(), beta, Y.data(), tol) );
+88   
+89   return 0;
+90 }
+\end{verbatim}\normalsize 
+
+
+\index{SVDRep@{SVDRep}!k@{k}}
+\index{k@{k}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int SVDRep::k () const\hspace{0.3cm}{\tt  [inline]}}\label{classSVDRep_9e7409c17d75dde8d3f3f926400ff0b6_9e7409c17d75dde8d3f3f926400ff0b6}
+
+
+{\bf k()}{\rm (p.\,\pageref{classSVDRep_9e7409c17d75dde8d3f3f926400ff0b6_9e7409c17d75dde8d3f3f926400ff0b6})} is the length of the diagonal of S, or mat\-S.m() 
+
+Definition at line 74 of file svdrep.hpp.
+
+References \_\-mat\-S, and Num\-Vec$<$ F $>$::m().
+
+Referenced by construct().
+
+\footnotesize\begin{verbatim}74 { return _matS.m(); } //length
+\end{verbatim}\normalsize 
+
+
+\index{SVDRep@{SVDRep}!m@{m}}
+\index{m@{m}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int SVDRep::m () const\hspace{0.3cm}{\tt  [inline]}}\label{classSVDRep_6a2fa69c25bf8ed36e019d0fb3f5e966_6a2fa69c25bf8ed36e019d0fb3f5e966}
+
+
+{\bf m()}{\rm (p.\,\pageref{classSVDRep_6a2fa69c25bf8ed36e019d0fb3f5e966_6a2fa69c25bf8ed36e019d0fb3f5e966})} = the \char`\"{}m\char`\"{} size of U, or \_\-mat\-U.m() 
+
+Definition at line 72 of file svdrep.hpp.
+
+References \_\-mat\-U, and Num\-Mat$<$ F $>$::m().
+
+Referenced by construct().
+
+\footnotesize\begin{verbatim}72 { return _matU.m(); }
+\end{verbatim}\normalsize 
+
+
+\index{SVDRep@{SVDRep}!n@{n}}
+\index{n@{n}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int SVDRep::n () const\hspace{0.3cm}{\tt  [inline]}}\label{classSVDRep_611a0b095fab035a528671dd8cf7f3b7_611a0b095fab035a528671dd8cf7f3b7}
+
+
+{\bf n()}{\rm (p.\,\pageref{classSVDRep_611a0b095fab035a528671dd8cf7f3b7_611a0b095fab035a528671dd8cf7f3b7})} = the \char`\"{}n\char`\"{} size of VT, or \_\-mat\-VT.n() 
+
+Definition at line 76 of file svdrep.hpp.
+
+References \_\-mat\-VT, and Num\-Mat$<$ F $>$::n().
+
+Referenced by construct().
+
+\footnotesize\begin{verbatim}76 { return _matVT.n(); }
+\end{verbatim}\normalsize 
+
+
+\index{SVDRep@{SVDRep}!operator=@{operator=}}
+\index{operator=@{operator=}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf SVDRep}\& SVDRep::operator= (const {\bf SVDRep} \& {\em c})\hspace{0.3cm}{\tt  [inline]}}\label{classSVDRep_e5baa23e504aadb012f1c56d8c9a4345_e5baa23e504aadb012f1c56d8c9a4345}
+
+
+Overloaded \char`\"{}=\char`\"{} operator. Set this equal to another SVDRep 
+
+Definition at line 42 of file svdrep.hpp.
+
+References \_\-mat\-S, \_\-mat\-U, and \_\-mat\-VT.
+
+\footnotesize\begin{verbatim}42 { _matU = c._matU; _matS = c._matS; _matVT = c._matVT; return *this; }
+\end{verbatim}\normalsize 
+
+
+\index{SVDRep@{SVDRep}!S@{S}}
+\index{S@{S}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Dbl\-Num\-Vec}\& SVDRep::S ()\hspace{0.3cm}{\tt  [inline]}}\label{classSVDRep_5380188e11c151eb8ac08ad5a53a4283_5380188e11c151eb8ac08ad5a53a4283}
+
+
+Returns the vector \_\-mat\-S from the decomposition U$\ast$S$\ast$V$^\wedge$T : S is a matrix of diagonal values only, so is represented as a vector 
+
+Definition at line 47 of file svdrep.hpp.
+
+References \_\-mat\-S.
+
+Referenced by operator$<$$<$().
+
+\footnotesize\begin{verbatim}47 { return _matS; }
+\end{verbatim}\normalsize 
+
+
+\index{SVDRep@{SVDRep}!U@{U}}
+\index{U@{U}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Dbl\-Num\-Mat}\& SVDRep::U ()\hspace{0.3cm}{\tt  [inline]}}\label{classSVDRep_28fb8f1bf8867a849fc613e360174385_28fb8f1bf8867a849fc613e360174385}
+
+
+Returns the matrix \_\-mat\-U from the decomposition U$\ast$S$\ast$V$^\wedge$T 
+
+Definition at line 45 of file svdrep.hpp.
+
+References \_\-mat\-U.
+
+Referenced by operator$<$$<$().
+
+\footnotesize\begin{verbatim}45 { return _matU; }
+\end{verbatim}\normalsize 
+
+
+\index{SVDRep@{SVDRep}!VT@{VT}}
+\index{VT@{VT}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Dbl\-Num\-Mat}\& SVDRep::VT ()\hspace{0.3cm}{\tt  [inline]}}\label{classSVDRep_e516b8f01548ae906a69979aa9b3608e_e516b8f01548ae906a69979aa9b3608e}
+
+
+Returns the matrix \_\-mat\-VT from the decomposition U$\ast$S$\ast$V$^\wedge$T 
+
+Definition at line 49 of file svdrep.hpp.
+
+References \_\-mat\-VT.
+
+Referenced by operator$<$$<$().
+
+\footnotesize\begin{verbatim}49 { return _matVT; }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{SVDRep@{SVDRep}!_matS@{\_\-matS}}
+\index{_matS@{\_\-matS}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Dbl\-Num\-Vec} {\bf SVDRep::\_\-mat\-S}\hspace{0.3cm}{\tt  [protected]}}\label{classSVDRep_7eecd1e0af41adfc707b7536c48ede75_7eecd1e0af41adfc707b7536c48ede75}
+
+
+The vector \_\-mat\-S from the decomposition U$\ast$S$\ast$V$^\wedge$T : S is a matrix of diagonal values only, so is represented as a vector 
+
+Definition at line 82 of file svdrep.hpp.
+
+Referenced by construct(), dgemv(), k(), operator=(), and S().\index{SVDRep@{SVDRep}!_matU@{\_\-matU}}
+\index{_matU@{\_\-matU}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Dbl\-Num\-Mat} {\bf SVDRep::\_\-mat\-U}\hspace{0.3cm}{\tt  [protected]}}\label{classSVDRep_1b946413f118c1a0b5f2b0ac4cc8c2fd_1b946413f118c1a0b5f2b0ac4cc8c2fd}
+
+
+The matrix \_\-mat\-U from the decomposition U$\ast$S$\ast$V$^\wedge$T 
+
+Definition at line 80 of file svdrep.hpp.
+
+Referenced by construct(), dgemv(), m(), operator=(), and U().\index{SVDRep@{SVDRep}!_matVT@{\_\-matVT}}
+\index{_matVT@{\_\-matVT}!SVDRep@{SVDRep}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}{\bf Dbl\-Num\-Mat} {\bf SVDRep::\_\-mat\-VT}\hspace{0.3cm}{\tt  [protected]}}\label{classSVDRep_2aa0bd21c126d2c9a97f6fcd7939a3ad_2aa0bd21c126d2c9a97f6fcd7939a3ad}
+
+
+The matrix \_\-mat\-VT from the decomposition U$\ast$S$\ast$V$^\wedge$T 
+
+Definition at line 84 of file svdrep.hpp.
+
+Referenced by construct(), dgemv(), n(), operator=(), and VT().
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+common/{\bf svdrep.hpp}\item 
+common/{\bf svdrep.cpp}\end{CompactItemize}

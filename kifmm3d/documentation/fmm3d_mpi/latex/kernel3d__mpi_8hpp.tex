@@ -1,0 +1,147 @@
+\section{fmm3d\_\-mpi/kernel3d\_\-mpi.hpp File Reference}
+\label{kernel3d__mpi_8hpp}\index{fmm3d_mpi/kernel3d_mpi.hpp@{fmm3d\_\-mpi/kernel3d\_\-mpi.hpp}}
+
+
+\subsection{Detailed Description}
+This file allows for the kernel independence by constructing multiplier/interpolation contexts based on the available kernels. All available kernels are listed here in {\bf kernel3d\_\-mpi.hpp}{\rm (p.\,\pageref{kernel3d__mpi_8hpp})} and their implementations in {\bf kernel3d\_\-mpi.cpp}{\rm (p.\,\pageref{kernel3d__mpi_8cpp})} 
+
+Definition in file {\bf kernel3d\_\-mpi.hpp}.
+
+{\tt \#include \char`\"{}common/nummat.hpp\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Kernel3d\_\-MPI}
+\begin{CompactList}\small\item\em static class Kernel3d\_\-MPI for 3d kernels of various types for parallel fmm3d code, fmm3d\_\-mpi \item\end{CompactList}\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum \{ \par
+{\bf KNL\_\-LAP\_\-S\_\-U} =  111, 
+{\bf KNL\_\-LAP\_\-D\_\-U} =  121, 
+{\bf KNL\_\-LAP\_\-I} =  191, 
+{\bf KNL\_\-STK\_\-F\_\-U} =  301, 
+\par
+{\bf KNL\_\-STK\_\-S\_\-U} =  311, 
+{\bf KNL\_\-STK\_\-S\_\-P} =  312, 
+{\bf KNL\_\-STK\_\-D\_\-U} =  321, 
+{\bf KNL\_\-STK\_\-D\_\-P} =  322, 
+\par
+{\bf KNL\_\-STK\_\-R\_\-U} =  331, 
+{\bf KNL\_\-STK\_\-R\_\-P} =  332, 
+{\bf KNL\_\-STK\_\-I} =  391, 
+{\bf KNL\_\-STK\_\-E} =  392, 
+\par
+{\bf KNL\_\-NAV\_\-S\_\-U} =  511, 
+{\bf KNL\_\-NAV\_\-D\_\-U} =  521, 
+{\bf KNL\_\-NAV\_\-R\_\-U} =  531, 
+{\bf KNL\_\-NAV\_\-I} =  591, 
+\par
+{\bf KNL\_\-NAV\_\-E} =  592, 
+{\bf KNL\_\-ERR} =  -1
+ \}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+bool {\bf operator==} (const {\bf Kernel3d\_\-MPI} \&a, const {\bf Kernel3d\_\-MPI} \&b)
+\end{CompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{KNL_LAP_S_U@{KNL\_\-LAP\_\-S\_\-U}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_LAP_S_U@{KNL\_\-LAP\_\-S\_\-U}}\item[{\em 
+KNL\_\-LAP\_\-S\_\-U\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef8303e879d2d1daf3b5539bb5684e3df8}
+}]Laplacian single-layer velocity kernel \index{KNL_LAP_D_U@{KNL\_\-LAP\_\-D\_\-U}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_LAP_D_U@{KNL\_\-LAP\_\-D\_\-U}}\item[{\em 
+KNL\_\-LAP\_\-D\_\-U\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efd878179a6e73abecaee77a21786079a7}
+}]Laplacian double-layer velocity kernel \index{KNL_LAP_I@{KNL\_\-LAP\_\-I}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_LAP_I@{KNL\_\-LAP\_\-I}}\item[{\em 
+KNL\_\-LAP\_\-I\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efcf80e85008cb443f60504dc69cc5673c}
+}]Laplacian identity tensor \index{KNL_STK_F_U@{KNL\_\-STK\_\-F\_\-U}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_STK_F_U@{KNL\_\-STK\_\-F\_\-U}}\item[{\em 
+KNL\_\-STK\_\-F\_\-U\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efa0095f7510b2dd5a76d09e925634202e}
+}]Stokes - Fmm3d velocity kernel \index{KNL_STK_S_U@{KNL\_\-STK\_\-S\_\-U}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_STK_S_U@{KNL\_\-STK\_\-S\_\-U}}\item[{\em 
+KNL\_\-STK\_\-S\_\-U\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef07cff7d777408250dfff85a95d2169fe}
+}]Stokes single-layer velocity \index{KNL_STK_S_P@{KNL\_\-STK\_\-S\_\-P}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_STK_S_P@{KNL\_\-STK\_\-S\_\-P}}\item[{\em 
+KNL\_\-STK\_\-S\_\-P\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef1b55908b88edfb0d836eb9149ea987b7}
+}]Stokes double-layer velocity \index{KNL_STK_D_U@{KNL\_\-STK\_\-D\_\-U}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_STK_D_U@{KNL\_\-STK\_\-D\_\-U}}\item[{\em 
+KNL\_\-STK\_\-D\_\-U\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef213a360dc2764132e9da2d6540d9c9e4}
+}]Stokes single-layer pressure \index{KNL_STK_D_P@{KNL\_\-STK\_\-D\_\-P}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_STK_D_P@{KNL\_\-STK\_\-D\_\-P}}\item[{\em 
+KNL\_\-STK\_\-D\_\-P\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef8c0af68c766e2118cc2b04cdf22b0d27}
+}]Stokes double-layer pressure \index{KNL_STK_R_U@{KNL\_\-STK\_\-R\_\-U}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_STK_R_U@{KNL\_\-STK\_\-R\_\-U}}\item[{\em 
+KNL\_\-STK\_\-R\_\-U\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef372d15b2b7f6cce8e350df377fc67d32}
+}]Stokes R velocity \index{KNL_STK_R_P@{KNL\_\-STK\_\-R\_\-P}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_STK_R_P@{KNL\_\-STK\_\-R\_\-P}}\item[{\em 
+KNL\_\-STK\_\-R\_\-P\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef916a6da6470845cb3d7845824e75de96}
+}]Stokes R pressure \index{KNL_STK_I@{KNL\_\-STK\_\-I}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_STK_I@{KNL\_\-STK\_\-I}}\item[{\em 
+KNL\_\-STK\_\-I\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efd92f1322d037d02873611a36a72390cb}
+}]Stokes Identity \index{KNL_STK_E@{KNL\_\-STK\_\-E}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_STK_E@{KNL\_\-STK\_\-E}}\item[{\em 
+KNL\_\-STK\_\-E\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efd36785500f1833f632de0bb4044de5d8}
+}]Levi-Civita Tensor \index{KNL_NAV_S_U@{KNL\_\-NAV\_\-S\_\-U}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_NAV_S_U@{KNL\_\-NAV\_\-S\_\-U}}\item[{\em 
+KNL\_\-NAV\_\-S\_\-U\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efbc104d34d0a273df27c4cf7bf89ec8ed}
+}]Navier single-layer velocity \index{KNL_NAV_D_U@{KNL\_\-NAV\_\-D\_\-U}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_NAV_D_U@{KNL\_\-NAV\_\-D\_\-U}}\item[{\em 
+KNL\_\-NAV\_\-D\_\-U\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efd457410012ac8beed3aeade8210fe0ee}
+}]Navier double-layer velocity \index{KNL_NAV_R_U@{KNL\_\-NAV\_\-R\_\-U}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_NAV_R_U@{KNL\_\-NAV\_\-R\_\-U}}\item[{\em 
+KNL\_\-NAV\_\-R\_\-U\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef8ef849072cf27f330f7ad300b2e13271}
+}]Navier R velocity \index{KNL_NAV_I@{KNL\_\-NAV\_\-I}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_NAV_I@{KNL\_\-NAV\_\-I}}\item[{\em 
+KNL\_\-NAV\_\-I\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef7d4de896bcf3f6debcd1adb0ac4f691b}
+}]Navier identity tensor \index{KNL_NAV_E@{KNL\_\-NAV\_\-E}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_NAV_E@{KNL\_\-NAV\_\-E}}\item[{\em 
+KNL\_\-NAV\_\-E\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efac275ece4177c1ebe9345a6c375eae03}
+}]Levi-Civita Tensor \index{KNL_ERR@{KNL\_\-ERR}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!KNL_ERR@{KNL\_\-ERR}}\item[{\em 
+KNL\_\-ERR\label{kernel3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516eff69da8fa2184937798545b1a072caebc}
+}]Error kernel \end{description}
+\end{Desc}
+
+
+
+Definition at line 37 of file kernel3d\_\-mpi.hpp.
+
+\footnotesize\begin{verbatim}37      {
+38   //laplace kernels
+40   KNL_LAP_S_U = 111,
+42   KNL_LAP_D_U = 121,
+44   KNL_LAP_I   = 191, 
+45   //stokes kernels
+47   KNL_STK_F_U = 301,
+49   KNL_STK_S_U = 311,
+51   KNL_STK_S_P = 312,
+53   KNL_STK_D_U = 321,
+55   KNL_STK_D_P = 322,
+57   KNL_STK_R_U = 331,
+59   KNL_STK_R_P = 332,
+61   KNL_STK_I   = 391,
+63   KNL_STK_E   = 392, 
+64   //navier kernels
+66   KNL_NAV_S_U = 511,
+68   KNL_NAV_D_U = 521,
+70   KNL_NAV_R_U = 531,
+72   KNL_NAV_I   = 591,
+74   KNL_NAV_E   = 592, 
+75   //other kernels
+77   KNL_ERR = -1
+78 };
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Function Documentation}
+\index{kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}!operator==@{operator==}}
+\index{operator==@{operator==}!kernel3d_mpi.hpp@{kernel3d\_\-mpi.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool operator== (const {\bf Kernel3d\_\-MPI} \& {\em a}, const {\bf Kernel3d\_\-MPI} \& {\em b})\hspace{0.3cm}{\tt  [inline]}}\label{kernel3d__mpi_8hpp_ca32ba56e6a871c420ca0123b8f89ea2_ca32ba56e6a871c420ca0123b8f89ea2}
+
+
+inline == boolean operator determines equality based on whether kernel\-Type's for kernel a and b are the same as well as whether the coefficients are equal as well 
+
+Definition at line 128 of file kernel3d\_\-mpi.hpp.
+
+References Kernel3d\_\-MPI::coefs(), and Kernel3d\_\-MPI::kernel\-Type().
+
+\footnotesize\begin{verbatim}128                                                                      {
+129   return (a.kernelType()==b.kernelType() && a.coefs()==b.coefs());
+130 }
+\end{verbatim}\normalsize 
+
+

@@ -1,0 +1,113 @@
+\section{common/offvec.hpp File Reference}
+\label{offvec_8hpp}\index{common/offvec.hpp@{common/offvec.hpp}}
+
+
+\subsection{Detailed Description}
+
+
+Definition in file {\bf offvec.hpp}.
+
+{\tt \#include \char`\"{}commoninc.hpp\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Off\-Vec$<$ F $>$}
+\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef {\bf Off\-Vec}$<$ bool $>$ {\bf Bol\-Off\-Vec}
+\item 
+typedef {\bf Off\-Vec}$<$ int $>$ {\bf Int\-Off\-Vec}
+\item 
+typedef {\bf Off\-Vec}$<$ double $>$ {\bf Dbl\-Off\-Vec}
+\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+template$<$class F$>$ ostream \& {\bf operator$<$$<$} (ostream \&os, const {\bf Off\-Vec}$<$ F $>$ \&vec)
+\item 
+template$<$class F$>$ void {\bf setvalue} ({\bf Off\-Vec}$<$ F $>$ \&vec, F val)
+\item 
+template$<$class F$>$ void {\bf clear} ({\bf Off\-Vec}$<$ F $>$ \&vec)
+\end{CompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{offvec.hpp@{offvec.hpp}!BolOffVec@{BolOffVec}}
+\index{BolOffVec@{BolOffVec}!offvec.hpp@{offvec.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Off\-Vec}$<$bool$>$ {\bf Bol\-Off\-Vec}}\label{offvec_8hpp_db3a2d7373afcc62f69944edb623af17_db3a2d7373afcc62f69944edb623af17}
+
+
+
+
+Definition at line 109 of file offvec.hpp.\index{offvec.hpp@{offvec.hpp}!DblOffVec@{DblOffVec}}
+\index{DblOffVec@{DblOffVec}!offvec.hpp@{offvec.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Off\-Vec}$<$double$>$ {\bf Dbl\-Off\-Vec}}\label{offvec_8hpp_e818d89ed9ebe35320937c12c5bc4005_e818d89ed9ebe35320937c12c5bc4005}
+
+
+
+
+Definition at line 111 of file offvec.hpp.\index{offvec.hpp@{offvec.hpp}!IntOffVec@{IntOffVec}}
+\index{IntOffVec@{IntOffVec}!offvec.hpp@{offvec.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Off\-Vec}$<$int$>$ {\bf Int\-Off\-Vec}}\label{offvec_8hpp_d2ef07f7f5f866ebafdae8d9fa754a6a_d2ef07f7f5f866ebafdae8d9fa754a6a}
+
+
+
+
+Definition at line 110 of file offvec.hpp.
+
+\subsection{Function Documentation}
+\index{offvec.hpp@{offvec.hpp}!clear@{clear}}
+\index{clear@{clear}!offvec.hpp@{offvec.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void clear ({\bf Off\-Vec}$<$ F $>$ \& {\em vec})\hspace{0.3cm}{\tt  [inline]}}\label{offvec_8hpp_4e949a879e2792b98518640c224a010a_4e949a879e2792b98518640c224a010a}
+
+
+
+
+Definition at line 104 of file offvec.hpp.
+
+References Off\-Vec$<$ F $>$::data(), and Off\-Vec$<$ F $>$::m().
+
+\footnotesize\begin{verbatim}105 {
+106   memset(vec.data(), 0, vec.m()*sizeof(F));
+107 }
+\end{verbatim}\normalsize 
+
+
+\index{offvec.hpp@{offvec.hpp}!operator<<@{operator$<$$<$}}
+\index{operator<<@{operator$<$$<$}!offvec.hpp@{offvec.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ ostream\& operator$<$$<$ (ostream \& {\em os}, const {\bf Off\-Vec}$<$ F $>$ \& {\em vec})\hspace{0.3cm}{\tt  [inline]}}\label{offvec_8hpp_e9480f2d94438f27d051cbeb8f2a13a1_e9480f2d94438f27d051cbeb8f2a13a1}
+
+
+
+
+Definition at line 92 of file offvec.hpp.
+
+\footnotesize\begin{verbatim}93 {
+94   os<<vec.m()<<" "<<vec.s()<<endl;
+95   os.setf(ios_base::scientific, ios_base::floatfield);
+96   for(int i=vec.s(); i<vec.m()+vec.s(); i++)     os<<" "<<vec(i);
+97   os<<endl;
+98   return os;
+99 }
+\end{verbatim}\normalsize 
+
+
+\index{offvec.hpp@{offvec.hpp}!setvalue@{setvalue}}
+\index{setvalue@{setvalue}!offvec.hpp@{offvec.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void setvalue ({\bf Off\-Vec}$<$ F $>$ \& {\em vec}, F {\em val})\hspace{0.3cm}{\tt  [inline]}}\label{offvec_8hpp_e64b94fde80aeb23f15b9b709d8bf3c4_e64b94fde80aeb23f15b9b709d8bf3c4}
+
+
+
+
+Definition at line 100 of file offvec.hpp.
+
+References Off\-Vec$<$ F $>$::m(), and Off\-Vec$<$ F $>$::s().
+
+\footnotesize\begin{verbatim}101 {
+102   for(int i=vec.s(); i<vec.s()+vec.m(); i++)     vec(i) = val;
+103 }
+\end{verbatim}\normalsize 
+
+

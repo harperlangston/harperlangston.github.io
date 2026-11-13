@@ -1,0 +1,548 @@
+\section{Let3d::Node Class Reference}
+\label{classLet3d_1_1Node}\index{Let3d::Node@{Let3d::Node}}
+{\tt \#include $<$let3d.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+
+
+
+
+Definition at line 38 of file let3d.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Node} (int p, int c, Index3 t, int d)
+\item 
+int \& {\bf parent} ()
+\item 
+int \& {\bf child} ()
+\item 
+Index3 \& {\bf path2Node} ()
+\item 
+int \& {\bf depth} ()
+\item 
+int \& {\bf tag} ()
+\item 
+int \& {\bf src\-Node\-Idx} ()
+\item 
+int \& {\bf src\-Exa\-Beg} ()
+\item 
+int \& {\bf src\-Exa\-Num} ()
+\item 
+vector$<$ int $>$ \& {\bf src\-Own\-Vec\-Idxs} ()
+\item 
+int \& {\bf trg\-Node\-Idx} ()
+\item 
+int \& {\bf trg\-Exa\-Beg} ()
+\item 
+int \& {\bf trg\-Exa\-Num} ()
+\item 
+vector$<$ int $>$ \& {\bf trg\-Own\-Vec\-Idxs} ()
+\item 
+vector$<$ int $>$ \& {\bf Unodes} ()
+\item 
+vector$<$ int $>$ \& {\bf Vnodes} ()
+\item 
+vector$<$ int $>$ \& {\bf Wnodes} ()
+\item 
+vector$<$ int $>$ \& {\bf Xnodes} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf \_\-parent}
+\item 
+int {\bf \_\-child}
+\item 
+Index3 {\bf \_\-path2Node}
+\item 
+int {\bf \_\-depth}
+\item 
+int {\bf \_\-tag}
+\item 
+int {\bf \_\-src\-Node\-Idx}
+\item 
+int {\bf \_\-src\-Exa\-Beg}
+\item 
+int {\bf \_\-src\-Exa\-Num}
+\item 
+vector$<$ int $>$ {\bf \_\-src\-Own\-Vec\-Idxs}
+\item 
+int {\bf \_\-trg\-Node\-Idx}
+\item 
+int {\bf \_\-trg\-Exa\-Beg}
+\item 
+int {\bf \_\-trg\-Exa\-Num}
+\item 
+vector$<$ int $>$ {\bf \_\-trg\-Own\-Vec\-Idxs}
+\item 
+vector$<$ int $>$ {\bf \_\-Unodes}
+\item 
+vector$<$ int $>$ {\bf \_\-Vnodes}
+\item 
+vector$<$ int $>$ {\bf \_\-Wnodes}
+\item 
+vector$<$ int $>$ {\bf \_\-Xnodes}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Let3d::Node@{Let3d::Node}!Node@{Node}}
+\index{Node@{Node}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Let3d::Node::Node (int {\em p}, int {\em c}, Index3 {\em t}, int {\em d})\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_fc1a9b4d57492964c65833ea79c507d5_fc1a9b4d57492964c65833ea79c507d5}
+
+
+
+
+Definition at line 73 of file let3d.hpp.
+
+\footnotesize\begin{verbatim}73                                             :
+74                 _parent(p), _child(c), _path2Node(t), _depth(d), _tag(false),
+75                 _srcNodeIdx(0), _srcExaBeg(0), _srcExaNum(0),
+76                 _trgNodeIdx(0), _trgExaBeg(0), _trgExaNum(0) {;}
+
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{Let3d::Node@{Let3d::Node}!child@{child}}
+\index{child@{child}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d::Node::child ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_83bc185322633b777c975b4092a7786b_83bc185322633b777c975b4092a7786b}
+
+
+
+
+Definition at line 79 of file let3d.hpp.
+
+References \_\-child.
+
+Referenced by Let3d::child(), Let3d::print(), and Let3d::terminal().
+
+\footnotesize\begin{verbatim}79 { return _child; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!depth@{depth}}
+\index{depth@{depth}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d::Node::depth ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_9a89dd5621b9f31341c798c701590c20_9a89dd5621b9f31341c798c701590c20}
+
+
+
+
+Definition at line 81 of file let3d.hpp.
+
+References \_\-depth.
+
+Referenced by Let3d::depth().
+
+\footnotesize\begin{verbatim}81 { return _depth; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!parent@{parent}}
+\index{parent@{parent}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d::Node::parent ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_a655461eccb9740e4a07928a1e593cdf_a655461eccb9740e4a07928a1e593cdf}
+
+
+
+
+Definition at line 78 of file let3d.hpp.
+
+References \_\-parent.
+
+Referenced by Let3d::parent(), Let3d::print(), and Let3d::root().
+
+\footnotesize\begin{verbatim}78 { return _parent; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!path2Node@{path2Node}}
+\index{path2Node@{path2Node}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Index3\& Let3d::Node::path2Node ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_9b575f3d0d503ffeef3682a04f373c35_9b575f3d0d503ffeef3682a04f373c35}
+
+
+
+
+Definition at line 80 of file let3d.hpp.
+
+References \_\-path2Node.
+
+Referenced by Let3d::path2Node().
+
+\footnotesize\begin{verbatim}80 { return _path2Node; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!srcExaBeg@{srcExaBeg}}
+\index{srcExaBeg@{srcExaBeg}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d::Node::src\-Exa\-Beg ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_6ebcebacbf54c9e143ab8737cf7ca937_6ebcebacbf54c9e143ab8737cf7ca937}
+
+
+
+
+Definition at line 85 of file let3d.hpp.
+
+References \_\-src\-Exa\-Beg.
+
+Referenced by FMM3d::src\-Exa\-Den(), FMM3d::src\-Exa\-Nor(), and FMM3d::src\-Exa\-Pos().
+
+\footnotesize\begin{verbatim}85 { return _srcExaBeg; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!srcExaNum@{srcExaNum}}
+\index{srcExaNum@{srcExaNum}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d::Node::src\-Exa\-Num ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_3242f04a3b3d94ce1f54b5487407a6fc_3242f04a3b3d94ce1f54b5487407a6fc}
+
+
+
+
+Definition at line 86 of file let3d.hpp.
+
+References \_\-src\-Exa\-Num.
+
+Referenced by FMM3d::src\-Exa\-Den(), FMM3d::src\-Exa\-Nor(), and FMM3d::src\-Exa\-Pos().
+
+\footnotesize\begin{verbatim}86 { return _srcExaNum; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!srcNodeIdx@{srcNodeIdx}}
+\index{srcNodeIdx@{srcNodeIdx}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d::Node::src\-Node\-Idx ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_d80e13f0d280279c3c57b250358710f6_d80e13f0d280279c3c57b250358710f6}
+
+
+
+
+Definition at line 84 of file let3d.hpp.
+
+References \_\-src\-Node\-Idx.
+
+Referenced by FMM3d::src\-Upw\-Chk\-Val(), and FMM3d::src\-Upw\-Equ\-Den().
+
+\footnotesize\begin{verbatim}84 { return _srcNodeIdx; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!srcOwnVecIdxs@{srcOwnVecIdxs}}
+\index{srcOwnVecIdxs@{srcOwnVecIdxs}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$\& Let3d::Node::src\-Own\-Vec\-Idxs ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_a036dfb5ce780a07052a415480d06f14_a036dfb5ce780a07052a415480d06f14}
+
+
+
+
+Definition at line 87 of file let3d.hpp.
+
+References \_\-src\-Own\-Vec\-Idxs.
+
+\footnotesize\begin{verbatim}87 { return _srcOwnVecIdxs; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!tag@{tag}}
+\index{tag@{tag}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d::Node::tag ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_58cc1da510029fc48aaa41b18ee51750_58cc1da510029fc48aaa41b18ee51750}
+
+
+
+
+Definition at line 82 of file let3d.hpp.
+
+References \_\-tag.
+
+Referenced by Let3d::tag().
+
+\footnotesize\begin{verbatim}82 { return _tag; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!trgExaBeg@{trgExaBeg}}
+\index{trgExaBeg@{trgExaBeg}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d::Node::trg\-Exa\-Beg ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_f7df4c929d172b69c54506501800c3e4_f7df4c929d172b69c54506501800c3e4}
+
+
+
+
+Definition at line 90 of file let3d.hpp.
+
+References \_\-trg\-Exa\-Beg.
+
+Referenced by FMM3d::trg\-Exa\-Pos(), and FMM3d::trg\-Exa\-Val().
+
+\footnotesize\begin{verbatim}90 { return _trgExaBeg; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!trgExaNum@{trgExaNum}}
+\index{trgExaNum@{trgExaNum}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d::Node::trg\-Exa\-Num ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_9ea862179474a204db7b8f71d6e32cc9_9ea862179474a204db7b8f71d6e32cc9}
+
+
+
+
+Definition at line 91 of file let3d.hpp.
+
+References \_\-trg\-Exa\-Num.
+
+Referenced by FMM3d::trg\-Exa\-Pos(), and FMM3d::trg\-Exa\-Val().
+
+\footnotesize\begin{verbatim}91 { return _trgExaNum; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!trgNodeIdx@{trgNodeIdx}}
+\index{trgNodeIdx@{trgNodeIdx}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int\& Let3d::Node::trg\-Node\-Idx ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_445b53af81e189698d873846e579c58a_445b53af81e189698d873846e579c58a}
+
+
+
+
+Definition at line 89 of file let3d.hpp.
+
+References \_\-trg\-Node\-Idx.
+
+Referenced by FMM3d::trg\-Dwn\-Chk\-Val(), and FMM3d::trg\-Dwn\-Equ\-Den().
+
+\footnotesize\begin{verbatim}89 { return _trgNodeIdx; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!trgOwnVecIdxs@{trgOwnVecIdxs}}
+\index{trgOwnVecIdxs@{trgOwnVecIdxs}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$\& Let3d::Node::trg\-Own\-Vec\-Idxs ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_39591ce5eaa09956b048f9cbe6551c79_39591ce5eaa09956b048f9cbe6551c79}
+
+
+
+
+Definition at line 92 of file let3d.hpp.
+
+References \_\-trg\-Own\-Vec\-Idxs.
+
+\footnotesize\begin{verbatim}92 { return _trgOwnVecIdxs; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!Unodes@{Unodes}}
+\index{Unodes@{Unodes}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$\& Let3d::Node::Unodes ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_b0378ed097e88f4a10757bb0503af35a_b0378ed097e88f4a10757bb0503af35a}
+
+
+
+
+Definition at line 94 of file let3d.hpp.
+
+References \_\-Unodes.
+
+\footnotesize\begin{verbatim}94 { return _Unodes; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!Vnodes@{Vnodes}}
+\index{Vnodes@{Vnodes}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$\& Let3d::Node::Vnodes ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_0ac14aa83b42d181255da58425b5509b_0ac14aa83b42d181255da58425b5509b}
+
+
+
+
+Definition at line 95 of file let3d.hpp.
+
+References \_\-Vnodes.
+
+\footnotesize\begin{verbatim}95 { return _Vnodes; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!Wnodes@{Wnodes}}
+\index{Wnodes@{Wnodes}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$\& Let3d::Node::Wnodes ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_eff61124e41de07b2a437c02712734f5_eff61124e41de07b2a437c02712734f5}
+
+
+
+
+Definition at line 96 of file let3d.hpp.
+
+References \_\-Wnodes.
+
+\footnotesize\begin{verbatim}96 { return _Wnodes; }
+\end{verbatim}\normalsize 
+
+
+\index{Let3d::Node@{Let3d::Node}!Xnodes@{Xnodes}}
+\index{Xnodes@{Xnodes}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$\& Let3d::Node::Xnodes ()\hspace{0.3cm}{\tt  [inline]}}\label{classLet3d_1_1Node_1cfb3db72d5926015481da96073fbe27_1cfb3db72d5926015481da96073fbe27}
+
+
+
+
+Definition at line 97 of file let3d.hpp.
+
+References \_\-Xnodes.
+
+\footnotesize\begin{verbatim}97 { return _Xnodes; }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{Let3d::Node@{Let3d::Node}!_child@{\_\-child}}
+\index{_child@{\_\-child}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d::Node::\_\-child}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_36884687800c2764057b78781a6d3525_36884687800c2764057b78781a6d3525}
+
+
+
+
+Definition at line 40 of file let3d.hpp.
+
+Referenced by child().\index{Let3d::Node@{Let3d::Node}!_depth@{\_\-depth}}
+\index{_depth@{\_\-depth}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d::Node::\_\-depth}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_1a4b494c7ddb30acebee8498451bd389_1a4b494c7ddb30acebee8498451bd389}
+
+
+
+
+Definition at line 42 of file let3d.hpp.
+
+Referenced by depth().\index{Let3d::Node@{Let3d::Node}!_parent@{\_\-parent}}
+\index{_parent@{\_\-parent}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d::Node::\_\-parent}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_7aad8bd56fbfa21a20cedb357f94f9fd_7aad8bd56fbfa21a20cedb357f94f9fd}
+
+
+
+
+Definition at line 40 of file let3d.hpp.
+
+Referenced by parent().\index{Let3d::Node@{Let3d::Node}!_path2Node@{\_\-path2Node}}
+\index{_path2Node@{\_\-path2Node}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Index3 {\bf Let3d::Node::\_\-path2Node}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_1105c752dee4c52564446e2f0d042664_1105c752dee4c52564446e2f0d042664}
+
+
+
+
+Definition at line 41 of file let3d.hpp.
+
+Referenced by path2Node().\index{Let3d::Node@{Let3d::Node}!_srcExaBeg@{\_\-srcExaBeg}}
+\index{_srcExaBeg@{\_\-srcExaBeg}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d::Node::\_\-src\-Exa\-Beg}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_eb7df4426ea02fb77ac08dcddeeecfe7_eb7df4426ea02fb77ac08dcddeeecfe7}
+
+
+source exact beginning index 
+
+Definition at line 48 of file let3d.hpp.
+
+Referenced by src\-Exa\-Beg().\index{Let3d::Node@{Let3d::Node}!_srcExaNum@{\_\-srcExaNum}}
+\index{_srcExaNum@{\_\-srcExaNum}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d::Node::\_\-src\-Exa\-Num}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_e28f628fc4ca1916d190d984082a7ef1_e28f628fc4ca1916d190d984082a7ef1}
+
+
+source exact number 
+
+Definition at line 50 of file let3d.hpp.
+
+Referenced by src\-Exa\-Num().\index{Let3d::Node@{Let3d::Node}!_srcNodeIdx@{\_\-srcNodeIdx}}
+\index{_srcNodeIdx@{\_\-srcNodeIdx}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d::Node::\_\-src\-Node\-Idx}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_0b73799cade5935fc13f0c771b31638f_0b73799cade5935fc13f0c771b31638f}
+
+
+source node index 
+
+Definition at line 46 of file let3d.hpp.
+
+Referenced by src\-Node\-Idx().\index{Let3d::Node@{Let3d::Node}!_srcOwnVecIdxs@{\_\-srcOwnVecIdxs}}
+\index{_srcOwnVecIdxs@{\_\-srcOwnVecIdxs}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ {\bf Let3d::Node::\_\-src\-Own\-Vec\-Idxs}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_080e23fe7764a5b8f75f62ce70ec79a8_080e23fe7764a5b8f75f62ce70ec79a8}
+
+
+source own vector of indices 
+
+Definition at line 52 of file let3d.hpp.
+
+Referenced by src\-Own\-Vec\-Idxs().\index{Let3d::Node@{Let3d::Node}!_tag@{\_\-tag}}
+\index{_tag@{\_\-tag}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d::Node::\_\-tag}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_77940a0de3087721104e2e1139652c36_77940a0de3087721104e2e1139652c36}
+
+
+
+
+Definition at line 43 of file let3d.hpp.
+
+Referenced by tag().\index{Let3d::Node@{Let3d::Node}!_trgExaBeg@{\_\-trgExaBeg}}
+\index{_trgExaBeg@{\_\-trgExaBeg}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d::Node::\_\-trg\-Exa\-Beg}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_35285eb16fc5ac392314acf5730068f4_35285eb16fc5ac392314acf5730068f4}
+
+
+target exact beginning index 
+
+Definition at line 57 of file let3d.hpp.
+
+Referenced by trg\-Exa\-Beg().\index{Let3d::Node@{Let3d::Node}!_trgExaNum@{\_\-trgExaNum}}
+\index{_trgExaNum@{\_\-trgExaNum}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d::Node::\_\-trg\-Exa\-Num}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_2a6b5fcd93e247baee03394837e10be1_2a6b5fcd93e247baee03394837e10be1}
+
+
+target exact number 
+
+Definition at line 59 of file let3d.hpp.
+
+Referenced by trg\-Exa\-Num().\index{Let3d::Node@{Let3d::Node}!_trgNodeIdx@{\_\-trgNodeIdx}}
+\index{_trgNodeIdx@{\_\-trgNodeIdx}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf Let3d::Node::\_\-trg\-Node\-Idx}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_32f05a768bec93058dcd44a58c4f6c0c_32f05a768bec93058dcd44a58c4f6c0c}
+
+
+target node index 
+
+Definition at line 55 of file let3d.hpp.
+
+Referenced by trg\-Node\-Idx().\index{Let3d::Node@{Let3d::Node}!_trgOwnVecIdxs@{\_\-trgOwnVecIdxs}}
+\index{_trgOwnVecIdxs@{\_\-trgOwnVecIdxs}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ {\bf Let3d::Node::\_\-trg\-Own\-Vec\-Idxs}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_b5da25d3b8896abf8b59f6aa1aa23867_b5da25d3b8896abf8b59f6aa1aa23867}
+
+
+target own vector of indices 
+
+Definition at line 61 of file let3d.hpp.
+
+Referenced by trg\-Own\-Vec\-Idxs().\index{Let3d::Node@{Let3d::Node}!_Unodes@{\_\-Unodes}}
+\index{_Unodes@{\_\-Unodes}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ {\bf Let3d::Node::\_\-Unodes}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_c79cd8d8d8491cc45e72786d6748e671_c79cd8d8d8491cc45e72786d6748e671}
+
+
+Nodes in the U-List 
+
+Definition at line 64 of file let3d.hpp.
+
+Referenced by Unodes().\index{Let3d::Node@{Let3d::Node}!_Vnodes@{\_\-Vnodes}}
+\index{_Vnodes@{\_\-Vnodes}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ {\bf Let3d::Node::\_\-Vnodes}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_76d043428c3dde9a2fc051b3b264dfce_76d043428c3dde9a2fc051b3b264dfce}
+
+
+Nodes in the V-List 
+
+Definition at line 66 of file let3d.hpp.
+
+Referenced by Vnodes().\index{Let3d::Node@{Let3d::Node}!_Wnodes@{\_\-Wnodes}}
+\index{_Wnodes@{\_\-Wnodes}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ {\bf Let3d::Node::\_\-Wnodes}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_983b9481f8e54a74dbe36f633c4a8da7_983b9481f8e54a74dbe36f633c4a8da7}
+
+
+Nodes in the W-List 
+
+Definition at line 68 of file let3d.hpp.
+
+Referenced by Wnodes().\index{Let3d::Node@{Let3d::Node}!_Xnodes@{\_\-Xnodes}}
+\index{_Xnodes@{\_\-Xnodes}!Let3d::Node@{Let3d::Node}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ {\bf Let3d::Node::\_\-Xnodes}\hspace{0.3cm}{\tt  [protected]}}\label{classLet3d_1_1Node_5043fab0978cb1ebf36e5be3708c1919_5043fab0978cb1ebf36e5be3708c1919}
+
+
+Nodes in the X-List 
+
+Definition at line 70 of file let3d.hpp.
+
+Referenced by Xnodes().
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+fmm3d/{\bf let3d.hpp}\end{CompactItemize}

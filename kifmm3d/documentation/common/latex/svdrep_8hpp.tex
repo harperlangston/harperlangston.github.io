@@ -1,0 +1,42 @@
+\section{common/svdrep.hpp File Reference}
+\label{svdrep_8hpp}\index{common/svdrep.hpp@{common/svdrep.hpp}}
+
+
+\subsection{Detailed Description}
+
+
+Definition in file {\bf svdrep.hpp}.
+
+{\tt \#include \char`\"{}nummat.hpp\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf SVDRep}
+\begin{CompactList}\small\item\em SVD - Singular Value Decomposition Rrepresentation of some input matrix. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+ostream \& {\bf operator$<$$<$} (ostream \&os, {\bf SVDRep} \&svdrep)
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\index{svdrep.hpp@{svdrep.hpp}!operator<<@{operator$<$$<$}}
+\index{operator<<@{operator$<$$<$}!svdrep.hpp@{svdrep.hpp}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (ostream \& {\em os}, {\bf SVDRep} \& {\em svdrep})\hspace{0.3cm}{\tt  [inline]}}\label{svdrep_8hpp_bed1fbd2bbde8a74117d45ebe8d75c26_bed1fbd2bbde8a74117d45ebe8d75c26}
+
+
+Overloaded output operator. Outputs the sizes and matrices of {\bf SVDRep}{\rm (p.\,\pageref{classSVDRep})} 
+
+Definition at line 87 of file svdrep.hpp.
+
+References Num\-Vec$<$ F $>$::m(), Num\-Mat$<$ F $>$::m(), Num\-Mat$<$ F $>$::n(), SVDRep::S(), SVDRep::U(), and SVDRep::VT().
+
+\footnotesize\begin{verbatim}88 {
+89   os<<svdrep.U().m()<<" "<<svdrep.S().m()<<" "<<svdrep.VT().n()<<endl;
+90   os<<svdrep.U()<<svdrep.S()<<svdrep.VT()<<endl;
+91   return os;
+92 }
+\end{verbatim}\normalsize 
+
+

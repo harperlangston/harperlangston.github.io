@@ -1,0 +1,323 @@
+\section{Num\-Tns$<$ F $>$ Class Template Reference}
+\label{classNumTns}\index{NumTns@{NumTns}}
+{\tt \#include $<$numtns.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class F$>$ class Num\-Tns$<$ F $>$}
+
+Num\-Tns is a three-dimensional tensor made up of a size and data. The data can be made up of any type (ints, double, bools, etc.). Like {\bf Num\-Mat}{\rm (p.\,\pageref{classNumMat})} but has extra size. 
+
+Num\-Tns is a way to organize 3D cartesian structure. This is seen mainly in fmm3d.cpp and fmm3d\_\-mpi.cpp for use with the Upward Equivalent to Upward Check structure (Upw\-Equ2Upw\-Chk). Here, the different matrices are from different child to the parent box. Different children are organized as a 2$\ast$2$\ast$2 tensor. See fmm3d\_\-mpi.cpp for more information. 
+
+
+
+Definition at line 33 of file numtns.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Num\-Tns} (int m=0, int n=0, int p=0)
+\item 
+{\bf Num\-Tns} (int m, int n, int p, bool owndata, F $\ast$data)
+\item 
+{\bf Num\-Tns} (const {\bf Num\-Tns} \&C)
+\item 
+{\bf $\sim$Num\-Tns} ()
+\item 
+{\bf Num\-Tns} \& {\bf operator=} (const {\bf Num\-Tns} \&C)
+\item 
+void {\bf resize} (int m, int n, int p)
+\item 
+const F \& {\bf operator()} (int i, int j, int k) const 
+\item 
+F \& {\bf operator()} (int i, int j, int k)
+\item 
+F $\ast$ {\bf data} () const 
+\item 
+int {\bf m} () const 
+\item 
+int {\bf n} () const 
+\item 
+int {\bf p} () const 
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf \_\-m}
+\item 
+int {\bf \_\-n}
+\item 
+int {\bf \_\-p}
+\item 
+bool {\bf \_\-owndata}
+\item 
+F $\ast$ {\bf \_\-data}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{NumTns@{Num\-Tns}!NumTns@{NumTns}}
+\index{NumTns@{NumTns}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Tns}$<$ F $>$::{\bf Num\-Tns} (int {\em m} = {\tt 0}, int {\em n} = {\tt 0}, int {\em p} = {\tt 0})\hspace{0.3cm}{\tt  [inline]}}\label{classNumTns_2518cf504174f92a57376bb53a94accd_2518cf504174f92a57376bb53a94accd}
+
+
+Construct an empty Num\-Tns 
+
+Definition at line 48 of file numtns.hpp.
+
+References Num\-Tns$<$ F $>$::\_\-data, Num\-Tns$<$ F $>$::\_\-m, Num\-Tns$<$ F $>$::\_\-n, and Num\-Tns$<$ F $>$::\_\-p.
+
+\footnotesize\begin{verbatim}48                                    : _m(m), _n(n), _p(p), _owndata(true) {
+49          if(_m>0 && _n>0 && _p>0) { _data = new F[_m*_n*_p]; assert( _data!=NULL ); } else _data=NULL;
+50   }
+\end{verbatim}\normalsize 
+
+
+\index{NumTns@{Num\-Tns}!NumTns@{NumTns}}
+\index{NumTns@{NumTns}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Tns}$<$ F $>$::{\bf Num\-Tns} (int {\em m}, int {\em n}, int {\em p}, bool {\em owndata}, F $\ast$ {\em data})\hspace{0.3cm}{\tt  [inline]}}\label{classNumTns_86b51ac3e41b80b46b56feb306842d0c_86b51ac3e41b80b46b56feb306842d0c}
+
+
+
+
+Definition at line 51 of file numtns.hpp.
+
+\footnotesize\begin{verbatim}51                                                     : _m(m), _n(n), _p(p), _owndata(owndata) {
+52          if(_owndata) {
+53                 if(_m>0 && _n>0 && _p>0) { _data = new F[_m*_n*_p]; assert( _data!=NULL ); } else _data=NULL;
+54                 if(_m>0 && _n>0 && _p>0) { for(int i=0; i<_m*_n*_p; i++) _data[i] = data[i]; }
+55          } else {
+56                 _data = data;
+57          }
+58   }
+\end{verbatim}\normalsize 
+
+
+\index{NumTns@{Num\-Tns}!NumTns@{NumTns}}
+\index{NumTns@{NumTns}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Tns}$<$ F $>$::{\bf Num\-Tns} (const {\bf Num\-Tns}$<$ F $>$ \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classNumTns_6859e16784301dfe2c97eb9a23c26176_6859e16784301dfe2c97eb9a23c26176}
+
+
+
+
+Definition at line 59 of file numtns.hpp.
+
+References Num\-Tns$<$ F $>$::\_\-data.
+
+\footnotesize\begin{verbatim}59                          : _m(C._m), _n(C._n), _p(C._p), _owndata(C._owndata) {
+60          if(_owndata) {
+61                 if(_m>0 && _n>0 && _p>0) { _data = new F[_m*_n*_p]; assert( _data!=NULL ); } else _data=NULL;
+62                 if(_m>0 && _n>0 && _p>0) { for(int i=0; i<_m*_n*_p; i++) _data[i] = C._data[i]; }
+63          } else {
+64                 _data = C._data;
+65          }
+66   }
+\end{verbatim}\normalsize 
+
+
+\index{NumTns@{Num\-Tns}!~NumTns@{$\sim$NumTns}}
+\index{~NumTns@{$\sim$NumTns}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Tns}$<$ F $>$::$\sim${\bf Num\-Tns} ()\hspace{0.3cm}{\tt  [inline]}}\label{classNumTns_d979d3cf1a54b11f6fd51e02dc5911f4_d979d3cf1a54b11f6fd51e02dc5911f4}
+
+
+
+
+Definition at line 67 of file numtns.hpp.
+
+\footnotesize\begin{verbatim}67             { 
+68          if(_owndata) { 
+69                 if(_m>0 && _n>0) { delete[] _data; _data = NULL; } 
+70          }
+71   }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{NumTns@{Num\-Tns}!data@{data}}
+\index{data@{data}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Num\-Tns}$<$ F $>$::data () const\hspace{0.3cm}{\tt  [inline]}}\label{classNumTns_ad3b2b9598c8547b4f7afe7a79ed520c_ad3b2b9598c8547b4f7afe7a79ed520c}
+
+
+
+
+Definition at line 102 of file numtns.hpp.
+
+\footnotesize\begin{verbatim}102 { return _data; }
+\end{verbatim}\normalsize 
+
+
+\index{NumTns@{Num\-Tns}!m@{m}}
+\index{m@{m}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Num\-Tns}$<$ F $>$::m () const\hspace{0.3cm}{\tt  [inline]}}\label{classNumTns_6a2fa69c25bf8ed36e019d0fb3f5e966_6a2fa69c25bf8ed36e019d0fb3f5e966}
+
+
+
+
+Definition at line 103 of file numtns.hpp.
+
+Referenced by setvalue().
+
+\footnotesize\begin{verbatim}103 { return _m; }
+\end{verbatim}\normalsize 
+
+
+\index{NumTns@{Num\-Tns}!n@{n}}
+\index{n@{n}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Num\-Tns}$<$ F $>$::n () const\hspace{0.3cm}{\tt  [inline]}}\label{classNumTns_611a0b095fab035a528671dd8cf7f3b7_611a0b095fab035a528671dd8cf7f3b7}
+
+
+
+
+Definition at line 104 of file numtns.hpp.
+
+Referenced by setvalue().
+
+\footnotesize\begin{verbatim}104 { return _n; }
+\end{verbatim}\normalsize 
+
+
+\index{NumTns@{Num\-Tns}!operator()@{operator()}}
+\index{operator()@{operator()}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Num\-Tns}$<$ F $>$::operator() (int {\em i}, int {\em j}, int {\em k})\hspace{0.3cm}{\tt  [inline]}}\label{classNumTns_98d16077f76916ac1ab79f5d3ea6927f_98d16077f76916ac1ab79f5d3ea6927f}
+
+
+
+
+Definition at line 97 of file numtns.hpp.
+
+\footnotesize\begin{verbatim}97                                       { 
+98          assert( i>=0 && i<_m && j>=0 && j<_n && k>=0 && k<_p);
+99          return _data[i+j*_m+k*_m*_n];
+100   }
+\end{verbatim}\normalsize 
+
+
+\index{NumTns@{Num\-Tns}!operator()@{operator()}}
+\index{operator()@{operator()}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Num\-Tns}$<$ F $>$::operator() (int {\em i}, int {\em j}, int {\em k}) const\hspace{0.3cm}{\tt  [inline]}}\label{classNumTns_08f373a6228cbf6d82774853369056e3_08f373a6228cbf6d82774853369056e3}
+
+
+
+
+Definition at line 93 of file numtns.hpp.
+
+\footnotesize\begin{verbatim}93                                                   { 
+94          assert( i>=0 && i<_m && j>=0 && j<_n && k>=0 && k<_p);
+95          return _data[i+j*_m+k*_m*_n];
+96   }
+\end{verbatim}\normalsize 
+
+
+\index{NumTns@{Num\-Tns}!operator=@{operator=}}
+\index{operator=@{operator=}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Num\-Tns}\& {\bf Num\-Tns}$<$ F $>$::operator= (const {\bf Num\-Tns}$<$ F $>$ \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classNumTns_58e18b6d855be7b948bd8e49faeae5e2_58e18b6d855be7b948bd8e49faeae5e2}
+
+
+
+
+Definition at line 72 of file numtns.hpp.
+
+\footnotesize\begin{verbatim}72                                      {
+73          if(_owndata) { 
+74                 if(_m>0 && _n>0 && _p>0) { delete[] _data; _data = NULL; } 
+75          }
+76          _m = C._m; _n=C._n; _p=C._p; _owndata=C._owndata;
+77          if(_owndata) {
+78                 if(_m>0 && _n>0 && _p>0) { _data = new F[_m*_n*_p]; assert( _data!=NULL ); } else _data=NULL;
+79                 if(_m>0 && _n>0 && _p>0) { for(int i=0; i<_m*_n*_p; i++) _data[i] = C._data[i]; }
+80          } else {
+81                 _data = C._data;
+82          }
+83          return *this;
+84   }
+\end{verbatim}\normalsize 
+
+
+\index{NumTns@{Num\-Tns}!p@{p}}
+\index{p@{p}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Num\-Tns}$<$ F $>$::p () const\hspace{0.3cm}{\tt  [inline]}}\label{classNumTns_7447c13ce6f46f262a0d6d072991620b_7447c13ce6f46f262a0d6d072991620b}
+
+
+
+
+Definition at line 105 of file numtns.hpp.
+
+Referenced by setvalue().
+
+\footnotesize\begin{verbatim}105 { return _p; }
+\end{verbatim}\normalsize 
+
+
+\index{NumTns@{Num\-Tns}!resize@{resize}}
+\index{resize@{resize}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void {\bf Num\-Tns}$<$ F $>$::resize (int {\em m}, int {\em n}, int {\em p})\hspace{0.3cm}{\tt  [inline]}}\label{classNumTns_de332141c031fca49971f057c72a9b17_de332141c031fca49971f057c72a9b17}
+
+
+
+
+Definition at line 85 of file numtns.hpp.
+
+\footnotesize\begin{verbatim}85                                     {
+86          assert( _owndata==true );
+87          if(_m!=m || _n!=n || _p!=p) {
+88                 if(_m>0 && _n>0 && _p>0) { delete[] _data; _data = NULL; } 
+89                 _m = m; _n = n; _p=p;
+90                 if(_m>0 && _n>0 && _p>0) { _data = new F[_m*_n*_p]; assert( _data!=NULL ); } else _data=NULL;
+91          }
+92   }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{NumTns@{Num\-Tns}!_data@{\_\-data}}
+\index{_data@{\_\-data}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Num\-Tns}$<$ F $>$::{\bf \_\-data}}\label{classNumTns_7125153abbcb2e949a1b4f81cbe22af5_7125153abbcb2e949a1b4f81cbe22af5}
+
+
+The data of type F 
+
+Definition at line 45 of file numtns.hpp.
+
+Referenced by Num\-Tns$<$ F $>$::Num\-Tns().\index{NumTns@{Num\-Tns}!_m@{\_\-m}}
+\index{_m@{\_\-m}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Num\-Tns}$<$ F $>$::{\bf \_\-m}}\label{classNumTns_b781ae81625400d76d94420d3af2c230_b781ae81625400d76d94420d3af2c230}
+
+
+Size \_\-m 
+
+Definition at line 37 of file numtns.hpp.
+
+Referenced by Num\-Tns$<$ F $>$::Num\-Tns().\index{NumTns@{Num\-Tns}!_n@{\_\-n}}
+\index{_n@{\_\-n}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Num\-Tns}$<$ F $>$::{\bf \_\-n}}\label{classNumTns_b628b96b5cc160f67acf6b4673cdd8bb_b628b96b5cc160f67acf6b4673cdd8bb}
+
+
+Size \_\-n 
+
+Definition at line 39 of file numtns.hpp.
+
+Referenced by Num\-Tns$<$ F $>$::Num\-Tns().\index{NumTns@{Num\-Tns}!_owndata@{\_\-owndata}}
+\index{_owndata@{\_\-owndata}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool {\bf Num\-Tns}$<$ F $>$::{\bf \_\-owndata}}\label{classNumTns_4a613b2956a4a0ffff962e497a5d56e0_4a613b2956a4a0ffff962e497a5d56e0}
+
+
+Whether or not this Num\-Tns owns its data or shares a pointer to it. 
+
+Definition at line 43 of file numtns.hpp.\index{NumTns@{Num\-Tns}!_p@{\_\-p}}
+\index{_p@{\_\-p}!NumTns@{Num\-Tns}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Num\-Tns}$<$ F $>$::{\bf \_\-p}}\label{classNumTns_3b294e0c5d0f27989f6d4c274ecccab0_3b294e0c5d0f27989f6d4c274ecccab0}
+
+
+Size \_\-p 
+
+Definition at line 41 of file numtns.hpp.
+
+Referenced by Num\-Tns$<$ F $>$::Num\-Tns().
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+common/{\bf numtns.hpp}\end{CompactItemize}

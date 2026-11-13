@@ -1,0 +1,293 @@
+\section{Off\-Vec$<$ F $>$ Class Template Reference}
+\label{classOffVec}\index{OffVec@{OffVec}}
+{\tt \#include $<$offvec.hpp$>$}
+
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class F$>$ class Off\-Vec$<$ F $>$}
+
+
+
+
+
+Definition at line 25 of file offvec.hpp.\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Off\-Vec} (int m=0, int s=0)
+\item 
+{\bf Off\-Vec} (int m, int s, bool owndata, F $\ast$data)
+\item 
+{\bf Off\-Vec} (const {\bf Off\-Vec} \&C)
+\item 
+{\bf $\sim$Off\-Vec} ()
+\item 
+{\bf Off\-Vec} \& {\bf operator=} (const {\bf Off\-Vec} \&C)
+\item 
+void {\bf resize} (int m, int s)
+\item 
+const F \& {\bf operator()} (int i) const 
+\item 
+F \& {\bf operator()} (int i)
+\item 
+F $\ast$ {\bf data} () const 
+\item 
+int {\bf m} () const 
+\item 
+int {\bf s} () const 
+\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+int {\bf \_\-m}
+\item 
+int {\bf \_\-s}
+\item 
+bool {\bf \_\-owndata}
+\item 
+F $\ast$ {\bf \_\-data}
+\end{CompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{OffVec@{Off\-Vec}!OffVec@{OffVec}}
+\index{OffVec@{OffVec}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Vec}$<$ F $>$::{\bf Off\-Vec} (int {\em m} = {\tt 0}, int {\em s} = {\tt 0})\hspace{0.3cm}{\tt  [inline]}}\label{classOffVec_76b14ffefdbc8961768fd1b04254a596_76b14ffefdbc8961768fd1b04254a596}
+
+
+
+
+Definition at line 33 of file offvec.hpp.
+
+References Off\-Vec$<$ F $>$::\_\-data, and Off\-Vec$<$ F $>$::\_\-m.
+
+\footnotesize\begin{verbatim}33                           : _m(m), _s(s), _owndata(true)  {
+34          if(_m>0) { _data = new F[_m]; assert(_data!=NULL); memset(_data, 0, _m*sizeof(F)); } else _data=NULL;
+35   }
+\end{verbatim}\normalsize 
+
+
+\index{OffVec@{Off\-Vec}!OffVec@{OffVec}}
+\index{OffVec@{OffVec}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Vec}$<$ F $>$::{\bf Off\-Vec} (int {\em m}, int {\em s}, bool {\em owndata}, F $\ast$ {\em data})\hspace{0.3cm}{\tt  [inline]}}\label{classOffVec_a895c8bf0f988f27929952c0e1fcbcce_a895c8bf0f988f27929952c0e1fcbcce}
+
+
+
+
+Definition at line 36 of file offvec.hpp.
+
+\footnotesize\begin{verbatim}36                                              : _m(m), _s(s), _owndata(owndata) {
+37          if(_owndata) {
+38                 if(_m>0) { _data = new F[_m]; assert(_data!=NULL); memset(_data, 0, _m*sizeof(F)); } else _data=NULL;
+39                 if(_m>0) memcpy( _data, data, _m*sizeof(F) );
+40          } else {
+41                 _data = data;
+42          }
+43   }
+\end{verbatim}\normalsize 
+
+
+\index{OffVec@{Off\-Vec}!OffVec@{OffVec}}
+\index{OffVec@{OffVec}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Vec}$<$ F $>$::{\bf Off\-Vec} (const {\bf Off\-Vec}$<$ F $>$ \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classOffVec_495bada658534963c7cd0da174f5fe47_495bada658534963c7cd0da174f5fe47}
+
+
+
+
+Definition at line 44 of file offvec.hpp.
+
+References Off\-Vec$<$ F $>$::\_\-data.
+
+\footnotesize\begin{verbatim}44                          : _m(C._m), _s(C._s), _owndata(C._owndata)  {
+45          if(_owndata) {
+46                 if(_m>0) { _data = new F[_m]; assert(_data!=NULL); memset(_data, 0, _m*sizeof(F)); } else _data=NULL;
+47                 if(_m>0) memcpy( _data, C._data, _m*sizeof(F) );
+48          } else {
+49                 _data = C._data;
+50          }
+51   }
+\end{verbatim}\normalsize 
+
+
+\index{OffVec@{Off\-Vec}!~OffVec@{$\sim$OffVec}}
+\index{~OffVec@{$\sim$OffVec}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Vec}$<$ F $>$::$\sim${\bf Off\-Vec} ()\hspace{0.3cm}{\tt  [inline]}}\label{classOffVec_0a72de2c8d3032ef71f1fdf156dc76be_0a72de2c8d3032ef71f1fdf156dc76be}
+
+
+
+
+Definition at line 52 of file offvec.hpp.
+
+\footnotesize\begin{verbatim}52             {
+53          if(_owndata) {
+54                 if(_m>0) { delete[] _data; _data = NULL; }
+55          }
+56   }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Function Documentation}
+\index{OffVec@{Off\-Vec}!data@{data}}
+\index{data@{data}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Off\-Vec}$<$ F $>$::data () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffVec_ad3b2b9598c8547b4f7afe7a79ed520c_ad3b2b9598c8547b4f7afe7a79ed520c}
+
+
+
+
+Definition at line 87 of file offvec.hpp.
+
+Referenced by clear().
+
+\footnotesize\begin{verbatim}87 { return _data; }
+\end{verbatim}\normalsize 
+
+
+\index{OffVec@{Off\-Vec}!m@{m}}
+\index{m@{m}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Vec}$<$ F $>$::m () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffVec_6a2fa69c25bf8ed36e019d0fb3f5e966_6a2fa69c25bf8ed36e019d0fb3f5e966}
+
+
+
+
+Definition at line 88 of file offvec.hpp.
+
+Referenced by clear(), and setvalue().
+
+\footnotesize\begin{verbatim}88 { return _m; }
+\end{verbatim}\normalsize 
+
+
+\index{OffVec@{Off\-Vec}!operator()@{operator()}}
+\index{operator()@{operator()}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F\& {\bf Off\-Vec}$<$ F $>$::operator() (int {\em i})\hspace{0.3cm}{\tt  [inline]}}\label{classOffVec_a6859783df5149b240b538ed4f692366_a6859783df5149b240b538ed4f692366}
+
+
+
+
+Definition at line 82 of file offvec.hpp.
+
+\footnotesize\begin{verbatim}82                         {
+83          assert(i>=_s && i<_m+_s);
+84          return _data[i-_s]; 
+85   }
+\end{verbatim}\normalsize 
+
+
+\index{OffVec@{Off\-Vec}!operator()@{operator()}}
+\index{operator()@{operator()}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ const F\& {\bf Off\-Vec}$<$ F $>$::operator() (int {\em i}) const\hspace{0.3cm}{\tt  [inline]}}\label{classOffVec_46442ed0ae535217a90cc5b4b63a1f44_46442ed0ae535217a90cc5b4b63a1f44}
+
+
+
+
+Definition at line 78 of file offvec.hpp.
+
+\footnotesize\begin{verbatim}78                                     {
+79          assert(i>=_s && i<_m+_s);
+80          return _data[i-_s]; 
+81   }
+\end{verbatim}\normalsize 
+
+
+\index{OffVec@{Off\-Vec}!operator=@{operator=}}
+\index{operator=@{operator=}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ {\bf Off\-Vec}\& {\bf Off\-Vec}$<$ F $>$::operator= (const {\bf Off\-Vec}$<$ F $>$ \& {\em C})\hspace{0.3cm}{\tt  [inline]}}\label{classOffVec_c034315db7170bb9216743a5cf94443c_c034315db7170bb9216743a5cf94443c}
+
+
+
+
+Definition at line 57 of file offvec.hpp.
+
+\footnotesize\begin{verbatim}57                                       {
+58          if(_owndata) { 
+59                 if(_m>0) { delete[] _data; _data = NULL; }
+60          }
+61          _m=C._m; _s=C._s; _owndata=C._owndata;
+62          if(_owndata) {
+63                 if(_m>0) { _data = new F[_m]; assert(_data!=NULL); memset(_data, 0, _m*sizeof(F)); } else _data=NULL;
+64                 if(_m>0) memcpy( _data, C._data, _m*sizeof(F) );
+65          } else {
+66                 _data =C._data;
+67          }
+68          return *this;
+69   }
+\end{verbatim}\normalsize 
+
+
+\index{OffVec@{Off\-Vec}!resize@{resize}}
+\index{resize@{resize}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ void {\bf Off\-Vec}$<$ F $>$::resize (int {\em m}, int {\em s})\hspace{0.3cm}{\tt  [inline]}}\label{classOffVec_805152ec656eb1086c4cc2d5529b756f_805152ec656eb1086c4cc2d5529b756f}
+
+
+
+
+Definition at line 70 of file offvec.hpp.
+
+\footnotesize\begin{verbatim}70                              {
+71          assert(_owndata==true);
+72          if(m !=_m) {
+73                 if(_m>0) { delete[] _data; _data = NULL; }
+74                 _m = m;         _s = s;
+75                 if(_m>0) { _data = new F[_m]; assert(_data!=NULL);  memset(_data, 0, _m*sizeof(F)); } else _data=NULL;
+76          }
+77   }
+\end{verbatim}\normalsize 
+
+
+\index{OffVec@{Off\-Vec}!s@{s}}
+\index{s@{s}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Vec}$<$ F $>$::s () const\hspace{0.3cm}{\tt  [inline]}}\label{classOffVec_718f9fe30c4c5a49a2c162d5d70c314b_718f9fe30c4c5a49a2c162d5d70c314b}
+
+
+
+
+Definition at line 89 of file offvec.hpp.
+
+Referenced by setvalue().
+
+\footnotesize\begin{verbatim}89 { return _s; }
+\end{verbatim}\normalsize 
+
+
+
+
+\subsection{Member Data Documentation}
+\index{OffVec@{Off\-Vec}!_data@{\_\-data}}
+\index{_data@{\_\-data}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ F$\ast$ {\bf Off\-Vec}$<$ F $>$::{\bf \_\-data}}\label{classOffVec_7125153abbcb2e949a1b4f81cbe22af5_7125153abbcb2e949a1b4f81cbe22af5}
+
+
+
+
+Definition at line 31 of file offvec.hpp.
+
+Referenced by Off\-Vec$<$ F $>$::Off\-Vec().\index{OffVec@{Off\-Vec}!_m@{\_\-m}}
+\index{_m@{\_\-m}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Vec}$<$ F $>$::{\bf \_\-m}}\label{classOffVec_b781ae81625400d76d94420d3af2c230_b781ae81625400d76d94420d3af2c230}
+
+
+
+
+Definition at line 28 of file offvec.hpp.
+
+Referenced by Off\-Vec$<$ F $>$::Off\-Vec().\index{OffVec@{Off\-Vec}!_owndata@{\_\-owndata}}
+\index{_owndata@{\_\-owndata}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ bool {\bf Off\-Vec}$<$ F $>$::{\bf \_\-owndata}}\label{classOffVec_4a613b2956a4a0ffff962e497a5d56e0_4a613b2956a4a0ffff962e497a5d56e0}
+
+
+
+
+Definition at line 30 of file offvec.hpp.\index{OffVec@{Off\-Vec}!_s@{\_\-s}}
+\index{_s@{\_\-s}!OffVec@{Off\-Vec}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class F$>$ int {\bf Off\-Vec}$<$ F $>$::{\bf \_\-s}}\label{classOffVec_c195aeabeeee007891190b9ff8a32c70_c195aeabeeee007891190b9ff8a32c70}
+
+
+
+
+Definition at line 29 of file offvec.hpp.
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+common/{\bf offvec.hpp}\end{CompactItemize}

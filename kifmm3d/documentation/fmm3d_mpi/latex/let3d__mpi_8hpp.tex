@@ -1,0 +1,64 @@
+\section{fmm3d\_\-mpi/let3d\_\-mpi.hpp File Reference}
+\label{let3d__mpi_8hpp}\index{fmm3d_mpi/let3d_mpi.hpp@{fmm3d\_\-mpi/let3d\_\-mpi.hpp}}
+
+
+{\tt \#include \char`\"{}common/vec3t.hpp\char`\"{}}\par
+{\tt \#include \char`\"{}common/nummat.hpp\char`\"{}}\par
+{\tt \#include \char`\"{}comobject\_\-mpi.hpp\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Let3d\_\-MPI}
+\begin{CompactList}\small\item\em LET = Local Essential Tree. See detailed description for more information. \item\end{CompactList}\item 
+class {\bf Let3d\_\-MPI::Node\-Ext}
+\begin{CompactList}\small\item\em {\bf Node\-Ext}{\rm (p.\,\pageref{classLet3d__MPI_1_1NodeExt})} stores information for a node such U, v, w, and X-lists as well as indices for contributor, evaluator and user nodes. \item\end{CompactList}\item 
+class {\bf Let3d\_\-MPI::Node}
+\begin{CompactList}\small\item\em The {\bf Node}{\rm (p.\,\pageref{classLet3d__MPI_1_1Node})} class stores information for a node or box in the octree. See for more detailed information. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum \{ \par
+{\bf LET\_\-CBTRNODE} =  1, 
+{\bf LET\_\-USERNODE} =  2, 
+{\bf LET\_\-EVTRNODE} =  4, 
+{\bf LET\_\-OWNRNODE} =  8, 
+\par
+{\bf LET\_\-SRCENODE} =  16
+ \}
+\end{CompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}anonymous enum}\label{let3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef}
+
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{LET_CBTRNODE@{LET\_\-CBTRNODE}!let3d_mpi.hpp@{let3d\_\-mpi.hpp}}\index{let3d_mpi.hpp@{let3d\_\-mpi.hpp}!LET_CBTRNODE@{LET\_\-CBTRNODE}}\item[{\em 
+LET\_\-CBTRNODE\label{let3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efbdc2fa12ef59a2115edf9a7465249d08}
+}]this processor is a contributor to this (tree) node \index{LET_USERNODE@{LET\_\-USERNODE}!let3d_mpi.hpp@{let3d\_\-mpi.hpp}}\index{let3d_mpi.hpp@{let3d\_\-mpi.hpp}!LET_USERNODE@{LET\_\-USERNODE}}\item[{\em 
+LET\_\-USERNODE\label{let3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efb1bc42142d5c9d361be39bcafd715bb6}
+}]this processor is a user to this (tree) node \index{LET_EVTRNODE@{LET\_\-EVTRNODE}!let3d_mpi.hpp@{let3d\_\-mpi.hpp}}\index{let3d_mpi.hpp@{let3d\_\-mpi.hpp}!LET_EVTRNODE@{LET\_\-EVTRNODE}}\item[{\em 
+LET\_\-EVTRNODE\label{let3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efac1af3b6a1e6fbf670aa39fd00c30523}
+}]this processor is a evaluator to this (tree) node \index{LET_OWNRNODE@{LET\_\-OWNRNODE}!let3d_mpi.hpp@{let3d\_\-mpi.hpp}}\index{let3d_mpi.hpp@{let3d\_\-mpi.hpp}!LET_OWNRNODE@{LET\_\-OWNRNODE}}\item[{\em 
+LET\_\-OWNRNODE\label{let3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516efab9b53cee58560318adb7d8e93384679}
+}]this processor is the owner to this (tree) node \index{LET_SRCENODE@{LET\_\-SRCENODE}!let3d_mpi.hpp@{let3d\_\-mpi.hpp}}\index{let3d_mpi.hpp@{let3d\_\-mpi.hpp}!LET_SRCENODE@{LET\_\-SRCENODE}}\item[{\em 
+LET\_\-SRCENODE\label{let3d__mpi_8hpp_dca29a1140aadadfd92b34a02fa516ef_dca29a1140aadadfd92b34a02fa516ef5bc3fd64406b06827f31ac5f17bba16a}
+}]this (tree) node has source points in it \end{description}
+\end{Desc}
+
+
+
+Definition at line 27 of file let3d\_\-mpi.hpp.
+
+\footnotesize\begin{verbatim}27      {
+29   LET_CBTRNODE = 1,
+31   LET_USERNODE = 2,
+33   LET_EVTRNODE = 4,
+35   LET_OWNRNODE = 8,
+37   LET_SRCENODE = 16 
+38 };
+\end{verbatim}\normalsize 
+
+
