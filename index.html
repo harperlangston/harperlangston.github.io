@@ -26,15 +26,16 @@
     <section class="intro">
       <h1>M. Harper Langston</h1>
       <!-- Edit this line to describe your current role. -->
-      <p class="lede">Computational scientist working on fast multipole methods, fast solvers and preconditioners,
-        high-performance and parallel computing, and tensor decompositions.</p>
+      <p class="lede">Principal Engineer at Qualcomm AI Research and Development. I work on efficient machine learning,
+        fast multipole methods, fast solvers and preconditioners, polynomial optimization, and high-performance computing.</p>
       <ul class="contact">
         <li><a href="mailto:harperlangston@gmail.com">harperlangston@gmail.com</a></li>
         <li><a href="m_harper_langston_cv.pdf">CV (PDF)</a></li>
+        <li><a href="https://scholar.google.com/citations?user=I1-ydOQAAAAJ">Google Scholar</a></li>
         <li><a href="https://github.com/harperlangston">GitHub</a></li>
         <li><a href="code/">Code &amp; repositories</a></li>
       </ul>
-      <p class="stats">29 publications · 6 patents · PhD, NYU Courant Institute</p>
+      <p class="stats">31 publications · 15 patents · PhD, NYU Courant Institute</p>
     </section>
 
     <section id="publications">
@@ -72,6 +73,19 @@
           <p class="venue">International Conference on Learning Representations (ICLR), 2025</p>
           <div class="links"><a href="https://arxiv.org/abs/2407.11306" target=_blank rel=noopener>arXiv</a><a href="https://arxiv.org/pdf/2407.11306" target=_blank rel=noopener>PDF</a><a href="https://iclr.cc/virtual/2025/poster/29269" target=_blank rel=noopener>ICLR</a></div>
           <details><summary>Abstract</summary><p>We present Polynomial Attention Drop-in Replacement (PADRe), a novel and unifying framework designed to replace the conventional self-attention mechanism in transformer models. Notably, several recent alternative attention mechanisms, including Hyena, Mamba, SimA, Conv2Former, and Castling-ViT, can be viewed as specific instances of our PADRe framework. PADRe leverages polynomial functions and draws upon established results from approximation theory, enhancing computational efficiency without compromising accuracy. PADRe&#x27;s key components include multiplicative nonlinearities, which we implement using straightforward, hardware-friendly operations such as Hadamard products, incurring only linear computational and memory costs. PADRe further avoids the need for using complex functions such as Softmax, yet it maintains comparable or superior accuracy compared to traditional self-attention. We assess the effectiveness of PADRe as a drop-in replacement for self-attention across diverse computer vision tasks. These tasks include image classification, image-based 2D object detection, and 3D point cloud object detection. Empirical results demonstrate that PADRe runs significantly faster than the conventional self-attention (11x~43x faster on server GPU and mobile NPU) while maintaining similar accuracy when substituting self-attention in the transformer models.</p></details>
+        </div>
+      </article>
+      </div>
+      <h3 class="year">2022</h3>
+      <div class="year-group">
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3>Fast Multipole Method (FMM)-Based Particle Accelerator Simulations in the Context of Tune Depression Studies</h3>
+          <p class="authors"><strong>M. Harper Langston</strong>, Richard Lethin, Pierre-David Letourneau, Julia Wei</p>
+          <p class="venue">18th International Conference on Accelerator and Large Experimental Physics Control Systems (ICALEPCS 2021), 2022</p>
+          
+          
         </div>
       </article>
       </div>
@@ -282,6 +296,16 @@
           <details><summary>Abstract</summary><p>In Lattice QCD (LQCD) simulations, the most computation intensive part is the inversion of the fermion Dirac matrix, M. The recurring component of the matrix inversions is the application of the Dirac matrix on a fermion vector. For Wilson fermions, the Dirac matrix can be written as M = 1 − κD, up to a normalization factor, where κ is the hopping parameter, and D is the derivative part of the fermion matrix, the Dslash operator. The matrix-vector multiplication in LQCD essentially reduces to the application of the Dslash operator on a fermion vector. The motivations for this work are to see if source-to-source code generators can produce reasonably performant code if only given a naive implementation of the Dslash operator as an input; to investigate optimization strategies in terms of SIMD vectorization, OpenMP multithreading and multinode scaling with MPI. To produce efficient Dslash code, optimizations in terms of data layout, SIMD, OpenMP scaling and internode communications have been studied. By vectorizing and changing the memory access pattern, we obtained 34% peak single-core performance in single precision. On single node, OpenMP scaling deteriorates after 16 threads. Multinode strong scaling is limited by the communication cost.</p></details>
         </div>
       </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3>PUMA-V: An Interactive Visual Tool for Code Optimization and Parallelization Based on the Polyhedral Model</h3>
+          <p class="authors">Eric Papenhausen, Klaus Mueller, <strong>M. Harper Langston</strong>, Benoit Meister, Richard Lethin</p>
+          <p class="venue">2016 New York Scientific Data Summit (NYSDS), pp. 1–4, 2016</p>
+          
+          
+        </div>
+      </article>
       </div>
       <h3 class="year">2015</h3>
       <div class="year-group">
@@ -419,6 +443,46 @@
       <article class="pub">
         <div class="thumb thumb-empty" aria-hidden="true"></div>
         <div class="pub-body">
+          <h3>MACH-B: Multipole Accelerator Codes for Hadron Beams — DOE Phase I Final Technical Report</h3>
+          <p class="authors"><strong>M. Harper Langston</strong>, Pierre-David Letourneau, Julia Wei, Richard Lethin, A. Ryan</p>
+          <p class="venue">Technical Report, Reservoir Labs, 2021</p>
+          
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3>Correlating and Analyzing Network Data through Interpretable Decompositions (CANDID)</h3>
+          <p class="authors">M. Baskaran, J. Ezick, T. Henretty, B. von Hofe, D. Leggas, <strong>M. H. Langston</strong>, et al.</p>
+          <p class="venue">Technical Report, Reservoir Labs, 2021</p>
+          
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3>Fast Multipole Method Approaches in Particle Accelerator Simulations for the Computational and Intensity Frontiers</h3>
+          <p class="authors"><strong>M. Harper Langston</strong>, Pierre-David Letourneau, Julia Wei, Richard Lethin</p>
+          <p class="venue">Snowmass 2021 Letter of Interest</p>
+          
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3>Ensign</h3>
+          <p class="authors">M. Baskaran, T. Henretty, D. Leggas, B. von Hofe, <strong>M. H. Langston</strong>, J. Ezick, et al.</p>
+          <p class="venue">Technical Report, Reservoir Labs, 2020</p>
+          
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
           <h3>Adaptive Inhomogeneous PDE Solvers for Complex Geometries</h3>
           <p class="authors"><strong>H. Langston</strong>, L. Greengard, and D. Zorin</p>
           <p class="venue">In preparation </p>
@@ -437,6 +501,16 @@
         </div>
       </article>
       <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3>PUMA-V: Polyhedral User Mapping Assistant and Visualizer — Final Technical Report</h3>
+          <p class="authors"><strong>M. H. Langston</strong>, M. Lin, E. Papenhausen, B. Meister, A. Konstantinidis, et al.</p>
+          <p class="venue">Technical Report, Reservoir Labs, New York, NY, 2016</p>
+          
+          
+        </div>
+      </article>
+      <article class="pub">
         <img class="thumb" src="papers/3runtimes.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="papers/3runtimes.pdf">A Tale of Three Runtimes</a></h3>
@@ -444,6 +518,16 @@
           <p class="venue">Preprint, arXiv:1409.1914, 2014 </p>
           <div class="links"><a href="papers/3runtimes.pdf">PDF</a><a href="https://arxiv.org/abs/1409.1914" target=_blank rel=noopener>arXiv</a></div>
           <details><summary>Abstract</summary><p>This contribution discusses the automatic generation of event-driven, tuple-space based programs for task-oriented execution models from a sequential C specification. We developed a hierarchical mapping solution using auto-parallelizing compiler technology to target three different runtimes relying on event-driven tasks (EDTs). Our solution benefits from the important observation that loop types encode short, transitive relations among EDTs that are compact and efficiently evaluated at runtime. In this context, permutable loops are of particular importance as they translate immediately into conservative point-to-point synchronizations of distance 1. Our solution generates calls into a runtime-agnostic C++ layer, which we have retargeted to Intel&#x27;s Concurrent Collections (CnC), ETI&#x27;s SWARM, and the Open Community Runtime (OCR). Experience with other runtime systems motivates our introduction of support for hierarchical async-finishes in CnC. Experimental data is provided to show the benefit of automatically generated code for EDT-based runtimes as well as comparisons across runtimes.</p></details>
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3>DOE Advanced Scientific Computing Advisory Subcommittee (ASCAC) Report: Top Ten Exascale Research Challenges</h3>
+          <p class="authors">R. Lucas, J. Ang, K. Bergman, S. Borkar, W. Carlson, L. Carrington, G. Chiu, et al. (including <strong>M. H. Langston</strong>)</p>
+          <p class="venue">U.S. Department of Energy, Office of Science, 2014</p>
+          
+          
         </div>
       </article>
       <article class="pub">
@@ -471,13 +555,104 @@
 
     <section id="patents">
       <h2>Patents</h2>
+      <h3 class="year">Granted · 15</h3>
       <div class="year-group">
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US12229216B2/" target=_blank rel=noopener>Kinematic Invariant-Space Maximum Entropy Tracker (KISMET)</a></h3>
+          <p class="authors">Lawrence Craig Weintraub, <strong>Matthew Harper Langston</strong>, Julia Wei, Richard Lethin, Aimee Kristine Nogoy, Mitchell Harris, Paul Mountcastle</p>
+          <p class="venue">US 12,229,216 B2 · Granted February 18, 2025</p>
+          <div class="links"><a href="https://patents.google.com/patent/US12229216B2/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US11907549B2/" target=_blank rel=noopener>Systems and Methods for Minimizing Communications</a></h3>
+          <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
+          <p class="venue">US 11,907,549 B2 · Granted February 20, 2024</p>
+          <div class="links"><a href="https://patents.google.com/patent/US11907549B2/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US11789769B2/" target=_blank rel=noopener>System and Method for Generation of Event Driven, Tuple-Space Based Programs</a></h3>
+          <p class="authors">Muthu M. Baskaran, Thomas Henretty, <strong>M. H. Langston</strong>, Richard A. Lethin, Benoit J. Meister, Nicolas T. Vasilache, David E. Wohlford</p>
+          <p class="venue">US 11,789,769 B2 · Granted October 17, 2023</p>
+          <div class="links"><a href="https://patents.google.com/patent/US11789769B2/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US11726197B2/" target=_blank rel=noopener>Systems and Methods for Efficient Targeting</a></h3>
+          <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
+          <p class="venue">US 11,726,197 B2 · Granted August 15, 2023</p>
+          <div class="links"><a href="https://patents.google.com/patent/US11726197B2/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US11500557B2/" target=_blank rel=noopener>Systems and Methods for Energy Proportional Scheduling</a></h3>
+          <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
+          <p class="venue">US 11,500,557 B2 · Granted November 15, 2022</p>
+          <div class="links"><a href="https://patents.google.com/patent/US11500557B2/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US11068178B2/" target=_blank rel=noopener>Systems and Methods for Minimizing Communications</a></h3>
+          <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
+          <p class="venue">US 11,068,178 B2 · Granted July 20, 2021</p>
+          <div class="links"><a href="https://patents.google.com/patent/US11068178B2/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US10564949B2/" target=_blank rel=noopener>System and Method for Generation of Event Driven, Tuple-Space Based Programs</a></h3>
+          <p class="authors">Muthu M. Baskaran, Thomas Henretty, <strong>M. H. Langston</strong>, Richard A. Lethin, Benoit J. Meister, Nicolas T. Vasilache, David E. Wohlford</p>
+          <p class="venue">US 10,564,949 B2 · Granted February 18, 2020</p>
+          <div class="links"><a href="https://patents.google.com/patent/US10564949B2/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US10540107B2/" target=_blank rel=noopener>Systems and Methods for Energy Proportional Scheduling</a></h3>
+          <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
+          <p class="venue">US 10,540,107 B2 · Granted January 21, 2020</p>
+          <div class="links"><a href="https://patents.google.com/patent/US10540107B2/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US10496304B2/" target=_blank rel=noopener>Systems and Methods for Minimizing Communications</a></h3>
+          <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
+          <p class="venue">US 10,496,304 B2 · Granted December 3, 2019</p>
+          <div class="links"><a href="https://patents.google.com/patent/US10496304B2/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
       <article class="pub">
         <img class="thumb" src="papers/Targeting.png" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patentimages.storage.googleapis.com/5a/eb/44/ce2fa33fda01d1/US10466349.pdf">Systems and Methods for Efficient Targeting</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
-          <p class="venue">US 10,466,349 B2 · Published November 5, 2019 </p>
+          <p class="venue">US 10,466,349 B2 · Granted November 5, 2019 </p>
           <div class="links"><a href="https://patentimages.storage.googleapis.com/5a/eb/44/ce2fa33fda01d1/US10466349.pdf" target=_blank rel=noopener>PDF</a><a href="https://patents.google.com/patent/US10466349B2/" target=_blank rel=noopener>Google Patents</a></div>
           <details><summary>Abstract</summary><p>A system for determining the physical path of an object can map several candidate paths to a suitable path space that can be explored using a convex optimization technique. The optimization technique may take advantage of the typical sparsity of the path space and can identify a likely physical path using a function of sensor observation as constraints. A track of an object can also be determined using a track model and a convex optimization technique.</p></details>
         </div>
@@ -487,7 +662,7 @@
         <div class="pub-body">
           <h3><a href="https://patentimages.storage.googleapis.com/24/01/e0/614b430190ff34/US10209971.pdf">Systems and Methods for Approximation Based Optimization of Data Processors</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Richard A. Lethin, Janice O. McMahon, Benoit J. Meister, Paul Mountcastle</p>
-          <p class="venue">US 10,209,971 B2 · Published February 19, 2019 </p>
+          <p class="venue">US 10,209,971 B2 · Granted February 19, 2019 </p>
           <div class="links"><a href="https://patentimages.storage.googleapis.com/24/01/e0/614b430190ff34/US10209971.pdf" target=_blank rel=noopener>PDF</a><a href="https://patents.google.com/patent/US10209971B2/" target=_blank rel=noopener>Google Patents</a></div>
           <details><summary>Abstract</summary><p>A compilation system can apply a smoothness constraint to the arguments of a compute-bound function invoked in a software program, to ensure that the value(s) of one or more function arguments are within specified respective threshold(s) from selected nominal value(s). If the constraint is satisfied, the function invocation is replaced with an approximation thereof. The smoothness constraint may be determined for a range of value(s) of function argument(s) so as to determine a neighborhood within which the function can be replaced with an approximation thereof. The replacement of the function with an approximation thereof can facilitate simultaneous optimization of computation accuracy, performance, and energy/power consumption.</p></details>
         </div>
@@ -495,20 +670,20 @@
       <article class="pub">
         <img class="thumb" src="papers/power_eff.png" alt="" loading="lazy" width="96">
         <div class="pub-body">
-          <h3><a href="https://patentimages.storage.googleapis.com/02/a5/0a/987d18479f02c0/US20150309779A1.pdf">Systems and methods for power optimization of processors</a></h3>
+          <h3><a href="https://patents.google.com/patent/US10180828B2/">Systems and methods for power optimization of processors</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Richard A. Lethin, Janice O. McMahon, Benoit J. Meister, Paul Mountcastle, Benoit Pradelle</p>
-          <p class="venue">US 2015/0309779 A1 · Published January 15, 2019 </p>
-          <div class="links"><a href="https://patentimages.storage.googleapis.com/02/a5/0a/987d18479f02c0/US20150309779A1.pdf" target=_blank rel=noopener>PDF</a><a href="https://patents.google.com/patent/US20150309779A1/" target=_blank rel=noopener>Google Patents</a></div>
+          <p class="venue">US 10,180,828 B2 · Granted January 15, 2019 </p>
+          <div class="links"><a href="https://patents.google.com/patent/US10180828B2/" target=_blank rel=noopener>Google Patents</a></div>
           <details><summary>Abstract</summary><p>A compilation system generates one or more energy windows in a program to be executed on a data processors such that power/energy consumption of the data processor can be adjusted in which window, so as to minimize the overall power/energy consumption of the data processor during the execution of the program. The size(s) of the energy window(s) and/or power option(s) in each window can be determined according to one or more parameters of the data processor and/or one or more characteristics of the energy window(s).</p></details>
         </div>
       </article>
       <article class="pub">
         <img class="thumb" src="papers/radar_convex.png" alt="" loading="lazy" width="96">
         <div class="pub-body">
-          <h3><a href="https://patentimages.storage.googleapis.com/4f/33/c1/3e5525dffea634/US20150309097A1.pdf">Systems and methods for joint angle-frequency determination</a></h3>
+          <h3><a href="https://patents.google.com/patent/US10145871B2/">Systems and methods for joint angle-frequency determination</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, <strong>M. H. Langston</strong>, Richard A. Lethin, Janice O. McMahon, Benoit J. Meister, Paul Mountcastle</p>
-          <p class="venue">US 2015/0309097 A1 · Published December 4, 2018 </p>
-          <div class="links"><a href="https://patentimages.storage.googleapis.com/4f/33/c1/3e5525dffea634/US20150309097A1.pdf" target=_blank rel=noopener>PDF</a><a href="https://patents.google.com/patent/US20150309097A1/" target=_blank rel=noopener>Google Patents</a></div>
+          <p class="venue">US 10,145,871 B2 · Granted December 4, 2018 </p>
+          <div class="links"><a href="https://patents.google.com/patent/US10145871B2/" target=_blank rel=noopener>Google Patents</a></div>
           <details><summary>Abstract</summary><p>A system for data acquisition and processing includes a selector for obtaining samples from one or more sensors, each of which is configured to collect a sample during one or more sampling intervals forming a dwell period. The selector is configured to obtain only a subset of samples of a complete set of samples that can be collected during a dwell period. A solver is configured to solve an underdetermined system based on the collected samples and a mapping relation/phase function, to jointly determine one or more angles and one or more frequencies of transmissions received by the one or more sensors.</p></details>
         </div>
       </article>
@@ -517,7 +692,7 @@
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US10095434B2/">Systems and Methods for Efficient Determination of Task Dependences After Loop Tiling</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
-          <p class="venue">US 10,095,434 B2 · Published October 9, 2018 </p>
+          <p class="venue">US 10,095,434 B2 · Granted October 9, 2018 </p>
           <div class="links"><a href="https://patents.google.com/patent/US10095434B2/" target=_blank rel=noopener>Google Patents</a></div>
           <details><summary>Abstract</summary><p>A compilation system can compile a program to be executed using an event driven tasks (EDT) system that requires knowledge of dependencies between program statement instances, and generate the required dependencies efficiently when a tiling transformation is applied. To this end, the system may use pre-tiling dependencies and can derive post-tiling dependencies via an analysis of the tiling to be applied.</p></details>
         </div>
@@ -527,9 +702,102 @@
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US9471377B2/">Systems and methods for parallelizing and optimizing sparse tensor computations</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, <strong>M. H. Langston</strong>, Richard A. Lethin, Benoit J. Meister, Nicolas T. Vasilache</p>
-          <p class="venue">US 9,471,377 B2 · Published October 18, 2016 </p>
+          <p class="venue">US 9,471,377 B2 · Granted October 18, 2016 </p>
           <div class="links"><a href="https://patents.google.com/patent/US9471377B2/" target=_blank rel=noopener>Google Patents</a></div>
           <details><summary>Abstract</summary><p>A scheduling system can schedule several operations for parallel execution on a number of work processors. At least one of the operations is not to be executed, and the determination of which operation or operations are not to be executed and which ones are to be executed can be made only at run time. The scheduling system partitions a subset operations that excludes the one or more operation that are not to be executed into several groups based on, at least in part, an irregularity of operations resulting from the one or more operation that are not to be executed. In addition, the partitioning is based on, at least in part, locality of data elements associated with the subset of operations to be executed or loading of the several work processors.</p></details>
+        </div>
+      </article>
+      </div>
+      <h3 class="year">Published applications · 9</h3>
+      <div class="year-group">
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US20260050766A1/" target=_blank rel=noopener>Efficient Attention in Transformer Neural Networks Using State Space Models</a></h3>
+          <p class="authors">Mukul Gagrani, Junyoung Park, Raghavv Goel, Dalton James Jones, Wonseok Jeon, Matthew James Morse, <strong>Matthew Harper Langston</strong>, Mingu Lee, Christopher Lott</p>
+          <p class="venue">US 2026/0050766 A1 · Published February 19, 2026</p>
+          <div class="links"><a href="https://patents.google.com/patent/US20260050766A1/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US20260044449A1/" target=_blank rel=noopener>Efficient Machine Learning Caching via Attention Output-Based Token Eviction</a></h3>
+          <p class="authors">Raghavv Goel, Mukul Gagrani, Junyoung Park, Dalton James Jones, Mingu Lee, Wonseok Jeon, Matthew James Morse, <strong>Matthew Harper Langston</strong>, Christopher Lott</p>
+          <p class="venue">US 2026/0044449 A1 · Published February 12, 2026</p>
+          <div class="links"><a href="https://patents.google.com/patent/US20260044449A1/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/WO2026035335A1/" target=_blank rel=noopener>Memory-Constrained Attention in Machine Learning</a></h3>
+          <p class="authors">Dalton James Jones, Junyoung Park, Matthew James Morse, Raghavv Goel, Mukul Gagrani, Mingu Lee, <strong>Matthew Harper Langston</strong>, Pierre-David Letourneau, Christopher Lott</p>
+          <p class="venue">WO 2026/035335 A1 · Published February 12, 2026</p>
+          <div class="links"><a href="https://patents.google.com/patent/WO2026035335A1/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US20250315651A1/" target=_blank rel=noopener>Polynomial Based Transformer</a></h3>
+          <p class="authors">Pierre-David Letourneau, Manish Kumar Singh, Hong Cai, <strong>Matthew Harper Langston</strong>, Dalton James Jones, Fatih Murat Porikli</p>
+          <p class="venue">US 2025/0315651 A1 · Published October 9, 2025</p>
+          <div class="links"><a href="https://patents.google.com/patent/US20250315651A1/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US20250086431A1/" target=_blank rel=noopener>Accelerating Complex Workloads Using Sparse Fast Chebyshev Interpolation</a></h3>
+          <p class="authors">Pierre-David Letourneau, Dalton James Jones, Matthew James Morse, <strong>Matthew Harper Langston</strong></p>
+          <p class="venue">US 2025/0086431 A1 · Published March 13, 2025</p>
+          <div class="links"><a href="https://patents.google.com/patent/US20250086431A1/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US20240354363A1/" target=_blank rel=noopener>Identifying Quadratic Programming Solutions</a></h3>
+          <p class="authors">Pierre-David Letourneau, Rania Hassen, Gary McGrath, <strong>Matthew Harper Langston</strong></p>
+          <p class="venue">US 2024/0354363 A1 · Published October 24, 2024</p>
+          <div class="links"><a href="https://patents.google.com/patent/US20240354363A1/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US20230244935A1/" target=_blank rel=noopener>Training of Neural Network with Polynomial Solver</a></h3>
+          <p class="authors">Pierre-David Letourneau, <strong>Matthew Harper Langston</strong>, Richard Lethin, Matthew James Morse</p>
+          <p class="venue">US 2023/0244935 A1 · Published August 3, 2023</p>
+          <div class="links"><a href="https://patents.google.com/patent/US20230244935A1/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/US20220374757A1/" target=_blank rel=noopener>Efficient Computation of Hamiltonians for Ising Processors</a></h3>
+          <p class="authors">Pierre-David Letourneau, <strong>Matthew Harper Langston</strong>, Noah Isaac Amsel, Richard Lethin</p>
+          <p class="venue">US 2022/0374757 A1 · Published November 24, 2022</p>
+          <div class="links"><a href="https://patents.google.com/patent/US20220374757A1/" target=_blank rel=noopener>Google Patents</a></div>
+          
+        </div>
+      </article>
+      <article class="pub">
+        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <div class="pub-body">
+          <h3><a href="https://patents.google.com/patent/WO2022232671A1/" target=_blank rel=noopener>Fast-Multidimensional Global Polynomial Solver (FM-GPS)</a></h3>
+          <p class="authors">Pierre-David Letourneau, <strong>Matthew Harper Langston</strong>, Richard Lethin, Matthew James Morse</p>
+          <p class="venue">WO 2022/232671 A1 · Published November 3, 2022</p>
+          <div class="links"><a href="https://patents.google.com/patent/WO2022232671A1/" target=_blank rel=noopener>Google Patents</a></div>
+          
         </div>
       </article>
       </div>
