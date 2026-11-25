@@ -132,7 +132,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/bis_accelerator.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3>Boundary Integral Solver Approaches for Particle Accelerator Simulation Problems and Deployment on NERSC Hardware</h3>
           <p class="authors">Julia Wei, <strong>M. Harper Langston</strong>, Pierre-David Letourneau, Matthew J. Morse, Larry Weintraub, Aimee Nogoy, Noah Amsel, Richard Lethin</p>
@@ -147,10 +147,10 @@
       <article class="pub">
         <img class="thumb" src="papers/AIC.png" alt="" loading="lazy" width="96">
         <div class="pub-body">
-          <h3><a href="https://www.reservoir.com/wp-content/uploads/2021/04/Approximate_Inverse_Chain_Preconditioner_Iteration_Count_Case_Study_Spectral_Support_Solvers.pdf">Approximate Inverse Chain Preconditioner: Iteration Count Case Study for Spectral Support Solvers</a></h3>
+          <h3><a href="https://www.osti.gov/servlets/purl/1673301">Approximate Inverse Chain Preconditioner: Iteration Count Case Study for Spectral Support Solvers</a></h3>
           <p class="authors"><strong>M. Harper Langston</strong>, Pierre-David Letourneau, Julia Wei, Larry Weintraub, Mitchell Harris, Richard Lethin, Eric Papenhausen, Meifeng Lin</p>
           <p class="venue">IEEE High Performance Extreme Computing Conference (HPEC) 2020 </p>
-          <div class="links"><a href="https://www.reservoir.com/wp-content/uploads/2021/04/Approximate_Inverse_Chain_Preconditioner_Iteration_Count_Case_Study_Spectral_Support_Solvers.pdf" target=_blank rel=noopener>PDF</a></div>
+          <div class="links"><a href="https://www.osti.gov/servlets/purl/1673301" target=_blank rel=noopener>PDF</a></div>
           <details><summary>Abstract</summary><p>As the growing availability of computational power slows, there has been an increasing reliance on algorithmic advances. However, faster algorithms alone will not necessarily bridge the gap in allowing computational scientists to study problems at the edge of scientific discovery in the next several decades. Often, it is necessary to simplify or precondition solvers to accelerate the study of large systems of linear equations commonly seen in a number of scientific fields. Preconditioning a problem to increase efficiency is often seen as the best approach; yet, preconditioners which are fast, smart, and efficient do not always exist. Following the progress of [1], we present a new preconditioner for symmetric diagonally dominant (SDD) systems of linear equations. These systems are common in certain PDEs, network science, and supervised learning among others. Based on spectra support graph theory, this new preconditioner builds off of the work of [2], computing and applying a V-cycle chain of approximate inverse matrices. This preconditioner approach is both algebraic in nature as well as hierarchically-constrained depending on the condition number of the system to be solved. Due to its generation of an Approximate Inverse Chain of matrices, we refer to this as the AIC preconditioner. We further accelerate the AIC preconditioner by utilizing precomputations to simplify setup and multiplications in the context of an iterative Krylov-subspace solver. While these iterative solvers can greatly reduce solution time, the number of iterations can grow large quickly in the absence of good preconditioners. Initial results for the AIC preconditioner have shown a very large reduction in iteration counts for SDD systems as compared to standard preconditioners such as Incomplete Cholesky (ICC) and Multigrid (MG). We further show significant reduction in iteration counts against the more advanced Combinatorial Multigrid (CMG) preconditioner. We have further developed no-fill sparsification techniques to ensure that the computational cost of applying the AIC preconditioner does not grow prohibitively large as the depth of the V-cycle grows for systems with larger condition numbers. Our numerical results have shown that these sparsifiers maintain the sparsity structure of our system while also displaying significant reductions in iteration counts.</p><p class="kw"><span>Keywords</span> spectral support solver, linear systems, fast solvers, preconditioners, multigrid, graph laplacian, benchmarking, iterative solvers, precomputations, approximate inverse chain, sparsifiers, iterative solvers</p></details>
         </div>
       </article>
@@ -317,7 +317,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pumav_nysds.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3>PUMA-V: An Interactive Visual Tool for Code Optimization and Parallelization Based on the Polyhedral Model</h3>
           <p class="authors">Eric Papenhausen, Klaus Mueller, <strong>M. Harper Langston</strong>, Benoit Meister, Richard Lethin</p>
@@ -461,27 +461,29 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/machb_report.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3>MACH-B: Multipole Accelerator Codes for Hadron Beams — DOE Phase I Final Technical Report</h3>
           <p class="authors"><strong>M. Harper Langston</strong>, Pierre-David Letourneau, Julia Wei, Richard Lethin, A. Ryan</p>
           <p class="venue">Technical Report, Reservoir Labs, 2021</p>
           
           
+          <div class="links"><a href="https://www.osti.gov/biblio/1775298" target=_blank rel=noopener>OSTI</a></div>
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/candid.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3>Correlating and Analyzing Network Data through Interpretable Decompositions (CANDID)</h3>
           <p class="authors">M. Baskaran, J. Ezick, T. Henretty, B. von Hofe, D. Leggas, <strong>M. H. Langston</strong>, et al.</p>
           <p class="venue">Technical Report, Reservoir Labs, 2021</p>
           
           
+          <div class="links"><a href="https://www.osti.gov/biblio/1755776" target=_blank rel=noopener>OSTI</a></div>
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/snowmass_loi.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3>Fast Multipole Method Approaches in Particle Accelerator Simulations for the Computational and Intensity Frontiers</h3>
           <p class="authors"><strong>M. Harper Langston</strong>, Pierre-David Letourneau, Julia Wei, Richard Lethin</p>
@@ -491,17 +493,18 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/ensign.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3>Ensign</h3>
           <p class="authors">M. Baskaran, T. Henretty, D. Leggas, B. von Hofe, <strong>M. H. Langston</strong>, J. Ezick, et al.</p>
           <p class="venue">Technical Report, Reservoir Labs, 2020</p>
           
           
+          <div class="links"><a href="https://www.osti.gov/doecode/biblio/49554" target=_blank rel=noopener>OSTI</a></div>
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/inhomogeneous_pde.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3>Adaptive Inhomogeneous PDE Solvers for Complex Geometries</h3>
           <p class="authors"><strong>H. Langston</strong>, L. Greengard, and D. Zorin</p>
@@ -521,13 +524,14 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pumav_report.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3>PUMA-V: Polyhedral User Mapping Assistant and Visualizer — Final Technical Report</h3>
           <p class="authors"><strong>M. H. Langston</strong>, M. Lin, E. Papenhausen, B. Meister, A. Konstantinidis, et al.</p>
           <p class="venue">Technical Report, Reservoir Labs, New York, NY, 2016</p>
           
           
+          <div class="links"><a href="https://www.osti.gov/biblio/1252959" target=_blank rel=noopener>OSTI</a></div>
         </div>
       </article>
       <article class="pub">
@@ -577,7 +581,7 @@
       <h3 class="year">Granted · 15</h3>
       <div class="year-group">
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US12229216.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US12229216B2/" target=_blank rel=noopener>Kinematic Invariant-Space Maximum Entropy Tracker (KISMET)</a></h3>
           <p class="authors">Lawrence Craig Weintraub, <strong>Matthew Harper Langston</strong>, Julia Wei, Richard Lethin, Aimee Kristine Nogoy, Mitchell Harris, Paul Mountcastle</p>
@@ -587,7 +591,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US11907549.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US11907549B2/" target=_blank rel=noopener>Systems and Methods for Minimizing Communications</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
@@ -597,7 +601,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US11789769.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US11789769B2/" target=_blank rel=noopener>System and Method for Generation of Event Driven, Tuple-Space Based Programs</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, <strong>M. H. Langston</strong>, Richard A. Lethin, Benoit J. Meister, Nicolas T. Vasilache, David E. Wohlford</p>
@@ -607,7 +611,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US11726197.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US11726197B2/" target=_blank rel=noopener>Systems and Methods for Efficient Targeting</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
@@ -617,7 +621,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US11500557.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US11500557B2/" target=_blank rel=noopener>Systems and Methods for Energy Proportional Scheduling</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
@@ -627,7 +631,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US11068178.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US11068178B2/" target=_blank rel=noopener>Systems and Methods for Minimizing Communications</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
@@ -637,7 +641,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US10564949.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US10564949B2/" target=_blank rel=noopener>System and Method for Generation of Event Driven, Tuple-Space Based Programs</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, <strong>M. H. Langston</strong>, Richard A. Lethin, Benoit J. Meister, Nicolas T. Vasilache, David E. Wohlford</p>
@@ -647,7 +651,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US10540107.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US10540107B2/" target=_blank rel=noopener>Systems and Methods for Energy Proportional Scheduling</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
@@ -657,7 +661,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US10496304.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US10496304B2/" target=_blank rel=noopener>Systems and Methods for Minimizing Communications</a></h3>
           <p class="authors">Muthu M. Baskaran, Thomas Henretty, Ann Johnson, Athanasios Konstantinidis, <strong>M. H. Langston</strong>, Janice O. McMahon, Benoit J. Meister, Paul D. Mountcastle, Aale Naqvi, Benoit Pradelle, Tahina Ramananandro, Sanket Tavarageri, Richard A. Lethin</p>
@@ -740,7 +744,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/caote.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US20260044449A1/" target=_blank rel=noopener>Efficient Machine Learning Caching via Attention Output-Based Token Eviction</a></h3>
           <p class="authors">Raghavv Goel, Mukul Gagrani, Junyoung Park, Dalton James Jones, Mingu Lee, Wonseok Jeon, Matthew James Morse, <strong>Matthew Harper Langston</strong>, Christopher Lott</p>
@@ -760,7 +764,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/padre.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US20250315651A1/" target=_blank rel=noopener>Polynomial Based Transformer</a></h3>
           <p class="authors">Pierre-David Letourneau, Manish Kumar Singh, Hong Cai, <strong>Matthew Harper Langston</strong>, Dalton James Jones, Fatih Murat Porikli</p>
@@ -770,7 +774,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US20250086431.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US20250086431A1/" target=_blank rel=noopener>Accelerating Complex Workloads Using Sparse Fast Chebyshev Interpolation</a></h3>
           <p class="authors">Pierre-David Letourneau, Dalton James Jones, Matthew James Morse, <strong>Matthew Harper Langston</strong></p>
@@ -780,7 +784,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US20240354363.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US20240354363A1/" target=_blank rel=noopener>Identifying Quadratic Programming Solutions</a></h3>
           <p class="authors">Pierre-David Letourneau, Rania Hassen, Gary McGrath, <strong>Matthew Harper Langston</strong></p>
@@ -790,7 +794,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US20230244935.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US20230244935A1/" target=_blank rel=noopener>Training of Neural Network with Polynomial Solver</a></h3>
           <p class="authors">Pierre-David Letourneau, <strong>Matthew Harper Langston</strong>, Richard Lethin, Matthew James Morse</p>
@@ -800,7 +804,7 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US20220374757.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
           <h3><a href="https://patents.google.com/patent/US20220374757A1/" target=_blank rel=noopener>Efficient Computation of Hamiltonians for Ising Processors</a></h3>
           <p class="authors">Pierre-David Letourneau, <strong>Matthew Harper Langston</strong>, Noah Isaac Amsel, Richard Lethin</p>
@@ -810,12 +814,12 @@
         </div>
       </article>
       <article class="pub">
-        <div class="thumb thumb-empty" aria-hidden="true"></div>
+        <img class="thumb" src="papers/pat_US20220374687.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
-          <h3><a href="https://patents.google.com/patent/WO2022232671A1/" target=_blank rel=noopener>Fast-Multidimensional Global Polynomial Solver (FM-GPS)</a></h3>
+          <h3><a href="https://patents.google.com/patent/US20220374687A1/" target=_blank rel=noopener>Fast-Multidimensional Global Polynomial Solver (FM-GPS)</a></h3>
           <p class="authors">Pierre-David Letourneau, <strong>Matthew Harper Langston</strong>, Richard Lethin, Matthew James Morse</p>
-          <p class="venue">WO 2022/232671 A1 · Published November 3, 2022</p>
-          <div class="links"><a href="https://patents.google.com/patent/WO2022232671A1/" target=_blank rel=noopener>Google Patents</a></div>
+          <p class="venue">US 2022/0374687 A1 · Published November 24, 2022</p>
+          <div class="links"><a href="https://patents.google.com/patent/US20220374687A1/" target=_blank rel=noopener>Google Patents</a></div>
           
         </div>
       </article>
