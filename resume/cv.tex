@@ -1,0 +1,222 @@
+% Curriculum Vitae -- M. Harper Langston
+%
+% Build:   python3 build_lists.py && latexmk -pdf cv.tex
+%
+% Publications, preprints/reports and patents are generated from the website
+% (../index.html) by build_lists.py, so add new papers there and re-run it.
+% Everything else is edited directly in this file.
+%
+% Items marked \todo{...} print in red: fill them in, then delete the \todo.
+
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}                 % Palatino, to match the website's headings
+\usepackage[scaled=0.9]{helvet}
+\usepackage{microtype}
+\usepackage[margin=0.85in,top=0.75in,bottom=0.8in]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{1F5F8B}
+\definecolor{muted}{HTML}{5C6370}
+\definecolor{award}{HTML}{8A5A00}
+
+\hypersetup{pdftitle={M. Harper Langston -- Curriculum Vitae}, pdfauthor={M. Harper Langston}}
+
+% ---------- layout helpers ----------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize\color{muted}M. Harper Langston \textperiodcentered{} Curriculum Vitae}
+\fancyfoot[R]{\footnotesize\color{muted}\thepage\ of \pageref{LastPage}}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{1pt}{\color{accent!40}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+
+\newcommand{\todo}[1]{{\color{red}\textbf{[#1]}}}
+
+% \job{Organization}{Location}{Title}{Dates}{description}
+\newcommand{\job}[5]{%
+  \textbf{#1}\hfill{\color{muted}#2}\\
+  \textit{#3}\hfill{\color{muted}#4}%
+  \ifx&#5&\else\\[1pt]{\small #5}\fi
+  \par\vspace{6pt}}
+
+% \role{Title}{Dates} -- an extra role at the same organization
+\newcommand{\role}[2]{\textit{#1}\hfill{\color{muted}#2}\par\vspace{2pt}}
+
+% Publication lists
+\newcommand{\yearhead}[1]{\par\vspace{5pt}{\small\bfseries\color{muted}#1}\par\vspace{2pt}}
+\newcommand{\subhead}[1]{\par\vspace{6pt}{\bfseries #1}\par\vspace{3pt}}
+\newcommand{\award}[1]{\,{\color{award}\textbf{(#1)}}}
+\newcounter{pubno}
+\newcommand{\pub}[4]{%
+  \stepcounter{pubno}%
+  \par\noindent\hangindent=2.4em\hangafter=1
+  \makebox[2.4em][l]{\small\color{muted}[\thepubno]}%
+  \textbf{#1}. {\small #2}. \textit{\small #3}.#4\par\vspace{3pt}}
+\newcommand{\resetpubs}[1]{\setcounter{pubno}{0}\renewcommand{\thepubno}{#1\arabic{pubno}}}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt}
+
+% ---------- document ----------
+\begin{document}
+
+{\centering
+  {\fontsize{24}{28}\selectfont\bfseries M. Harper Langston}\\[4pt]
+  {\large Principal Engineer, Qualcomm AI Research}\\[6pt]
+  {\small\color{muted}
+    \href{https://harperlangston.com}{harperlangston.com} \enspace\textperiodcentered\enspace
+    \href{mailto:harperlangston@gmail.com}{harperlangston@gmail.com} \enspace\textperiodcentered\enspace
+    \href{https://github.com/harperlangston}{github.com/harperlangston} \enspace\textperiodcentered\enspace
+    \href{https://scholar.google.com/citations?user=I1-ydOQAAAAJ}{Google Scholar}}\par}
+
+\section{Research Interests}
+Efficient machine learning (attention and KV-cache compression, polynomial and linear attention, hardware-aware
+inference), global polynomial and combinatorial optimization, fast multipole methods and fast solvers,
+preconditioners and multigrid, tensor decompositions, and high-performance and parallel computing.
+
+\section{Experience}
+
+\job{Qualcomm AI Research, Qualcomm Technologies, Inc.}{\todo{location}}
+    {Principal Engineer}{\todo{start date} -- Present}
+    {Research on efficient machine learning and optimization: KV-cache selection and eviction for LLM inference
+     (QUOKA, CAOTE), polynomial attention replacements for vision transformers (PADRe), NPU-friendly linear
+     attention, global polynomial optimization, and learned optimizer schedules. \todo{add team, scope, leadership}}
+
+\job{Reservoir Labs, Inc.}{New York, NY}
+    {Managing Engineer}{Feb 2015 -- \todo{end date}}
+    {Managed a team of engineers and researchers developing algorithms and software for signal processing,
+     machine learning, fast solvers, fast Fourier transforms, tensor decompositions, fast polynomial solvers and
+     radar. PI for DOE SBIR projects including MACH-B (Multipole Accelerator Codes for Hadron Beams) and PUMA-V,
+     managing subcontractors at Stony Brook University and Brookhaven National Laboratory; managed additional
+     SBIR and government projects and wrote funding proposals. Introduced code review and project tracking.
+     Production and research software in C/C++, Java and Python.}
+\vspace{-4pt}
+\role{Senior Research Engineer}{Nov 2012 -- Jan 2015}
+{\small HPC research for the exascale software stack; power-efficient tools for GPUs and distributed-memory CPUs;
+ sparse tensor decompositions; graph sparsification and solvers for diagonally dominant systems; fast
+ multidimensional solvers; the R-Stream auto-parallelizing compiler.}\par\vspace{6pt}
+
+\job{Courant Institute of Mathematical Sciences, New York University}{New York, NY}
+    {Adjunct Assistant Professor}{2013 -- \todo{end date or Present}}
+    {Designed and taught graduate courses in the Mathematics and Computer Science departments.}
+
+\job{Perceptive Pixel}{New York, NY and Washington, DC}
+    {Software Engineer}{Jan 2012 -- Nov 2012}
+    {Tools and software for multi-touch hardware: recording, playback and visualization of touch-sensor input,
+     synchronized video capture, and multi-user document manipulation; supported CNN applications during the
+     2012 election season. C++.}
+
+\job{Courant Institute of Mathematical Sciences, New York University}{New York, NY}
+    {Research Assistant}{Sep 2003 -- Aug 2008; Sep 2010 -- Jan 2012}
+    {Fast, parallel, scalable 3D PDE solvers in complex geometries with non-homogeneous forces; adaptive particle
+     and vortex methods; visualization of embedded-boundary fluid simulations. Supported by DOE and PPPL.}
+
+\job{Center for Plasma Edge Simulation}{New York, NY and Washington, DC}
+    {Research Scientist}{Jul 2010 -- Sep 2010}
+    {FMM-based cross-verification tools for plasma edge simulation codes in 3D toroidal geometries (DOE, PPPL).}
+
+\job{Georgia Institute of Technology}{Atlanta, GA}
+    {Computational Science and Engineering Research Scientist}{Sep 2008 -- Apr 2010}
+    {Brain-tumor growth modeling for predictive medical imaging: multi-threaded diffusion and multigrid elasticity
+     solvers with parallel octree registration (NIH, DoD; with the University of Pennsylvania). Research Affiliate,
+     May 2010 -- May 2011.}
+
+\textbf{Earlier positions}\par\vspace{2pt}
+{\small
+\begin{itemize}
+  \item Junior Research Scientist, NYU Media Research Lab, Nov 2000 -- Aug 2002 (teleimmersive responsive workbench).
+  \item Webmaster, NYU Computer Science Department, Dec 2000 -- May 2002.
+  \item Software Engineering Contractor, Jaron Lanier / Advanced Network \& Services, Sep -- Nov 2001.
+  \item Operations/Database Developer, Mighty Seven Networks, Jan -- Sep 2001.
+  \item Innovation and Technology Management Research Specialist, McKinsey \& Company, Oct 1997 -- Nov 2000.
+  \item Mathematics Department Research Assistant, Bowdoin College, Jan -- May 1997 (with Wells Johnson).
+\end{itemize}}
+
+\section{Education}
+
+\job{New York University, Courant Institute of Mathematical Sciences}{New York, NY}
+    {Ph.D., Computer Science}{January 2012}
+    {Dissertation: \textit{An Adaptive Fast Volume Solver in Three Dimensions for Free-Space, Periodic and
+     Dirichlet Boundary Conditions}. Advisors: Denis Zorin and Leslie Greengard. McCracken Fellowship.}
+
+\job{New York University, Courant Institute of Mathematical Sciences}{New York, NY}
+    {M.S., Scientific Computing}{May 2003}
+    {Thesis: \textit{Investigation of Computational and Visualization Methods for the Incompressible
+     Navier--Stokes Equations}. Advisors: Denis Zorin and George Biros; academic advisor: Michael Shelley.}
+
+\job{Bowdoin College}{Brunswick, ME}
+    {B.A., Mathematics and Russian Language, Magna Cum Laude}{June 1997}
+    {Smyth Mathematics Prize (1995); James Bowdoin Scholar (1994--1997). Also: Middlebury College Intensive
+     Russian Summer Program (1994).}
+
+\section{Honors and Awards}
+\begin{itemize}
+  \item Best Paper Award, IEEE High Performance Extreme Computing Conference (HPEC), 2017.
+  \item Best Paper Finalist, ACM/IEEE Supercomputing (SC09), 2009.
+  \item Best Student Paper and Gordon Bell Prize Finalist, ACM/IEEE Supercomputing (SC03), 2003.
+  \item McCracken Fellowship, New York University.
+  \item Smyth Mathematics Prize, Bowdoin College, 1995; James Bowdoin Scholar, 1994--1997.
+  \item \todo{add recent honors}
+\end{itemize}
+
+\section{Publications}
+{\small\color{muted}Conference, journal and workshop papers, newest first.}\par
+\input{generated/publications.tex}
+
+\section{Preprints and Technical Reports}
+\resetpubs{R}
+\input{generated/reports.tex}
+
+\section{Patents}
+\resetpubs{P}
+\input{generated/patents.tex}
+
+\section{Selected Invited Talks and Posters}
+\begin{itemize}
+  \item \todo{add 2019--2026 talks, e.g.\ ICLR 2025 and 2026, ICML 2026, NeurIPS OPT 2026 posters}
+  \item DARPA ITA3 Program Review, Orlando, FL, 2018: \textit{PARallel Fast Algorithms for Imaging Through Everything (PARFAITE)}.
+  \item New York Scientific Data Summit (NYSDS), New York, NY, 2016: \textit{A Tool for Exploring Parallel Software Transformations}.
+  \item DOE Office of Nuclear Physics SBIR/STTR Exchange Meeting, Gaithersburg, MD, 2016: \textit{Polyhedral Mapping Assistant and Visualizer (PUMA-V)}.
+  \item IEEE VISSOFT, Bremen, Germany, 2015: \textit{Polyhedral User Mapping and Assistant Visualizer Tool for the R-Stream Auto-Parallelizing Compiler}.
+  \item DARPA PERFECT PI Annual Meeting, Arlington, VA: \textit{Multi-Threaded Low-Communication FFTs on Heterogeneous Architectures (CPU + GPU)}.
+  \item IEEE HPEC, Waltham, MA, 2013: \textit{Re-Introduction of Communication-Avoiding FMM-Accelerated FFTs with GPU Acceleration}.
+  \item NSF RTG Symposium, Courant Institute, New York, NY, Sep 2012: \textit{An Adaptive FMM-Based PDE Solver in Three Dimensions for Various Boundary Conditions and Geometries}.
+  \item NASA Langley Research Center, Safety Critical Avionics Systems Branch, Hampton, VA, Mar 2012: \textit{An Adaptive FMM-Based Free-Space PDE Solver in Three Dimensions}.
+  \item Center for Plasma Edge Simulation Annual Conference, Georgia Tech, Atlanta, GA, Dec 2008: \textit{Further Developments in FMM Solvers}.
+  \item Frontiers in Applied and Computational Mathematics, NJIT, Newark, NJ, May 2008: \textit{Fast Elliptic PDE Solver for Non-Homogeneous Force Distributions in Complex Geometries}.
+  \item Princeton Plasma Physics Laboratory, Computational Plasma Physics Seminar, Princeton, NJ, Mar 2008: \textit{A Kernel-Independent FMM-Based Elliptic PDE Solver in Complex Geometries with Non-homogeneous Force Distributions}.
+  \item Center for Plasma Edge Simulation Annual Conference, ORNL, Oak Ridge, TN, Dec 2007: \textit{FMM-Based Solvers}.
+\end{itemize}
+
+\section{Teaching}
+\begin{itemize}
+  \item Adjunct Assistant Professor, Courant Institute, NYU: graduate courses in Mathematics and Computer Science, 2013 -- \todo{end}. \todo{list courses}
+  \item Adjunct Instructor, Graduate Discrete Mathematics, Courant Institute, NYU, Summers 2004--2008.
+  \item Teaching Assistant, Courant Institute, NYU: Graduate Computer Graphics (Ken Perlin), Fall 2004;
+        Graduate Experiments in Motion Capture (Chris Bregler), Spring 2004; Undergraduate Numerical Computing
+        (Olof Widlund), Fall 2002.
+  \item Recitation Leader, Undergraduate Algorithms (Allan Gottlieb), Courant Institute, NYU, Fall 2003.
+\end{itemize}
+
+\section{Professional Service}
+\begin{itemize}
+  \item Referee, SIAM Journal on Scientific Computing (SISC). \todo{add recent reviewing, e.g.\ ICLR, ICML, NeurIPS}
+  \item Reviewer, SC08 and SC09 (International Conference for High Performance Computing, Networking, Storage
+        and Analysis); SIGGRAPH 2004--2007.
+  \item Contributor, DOE ASCAC Subcommittee Report \textit{Top Ten Exascale Research Challenges}, 2014.
+  \item Text reviewer: K.~Ferland, \textit{Discrete Mathematics: An Introduction to Proofs and Combinatorics},
+        1st ed., Houghton Mifflin, 2009; G.~Chartrand, A.~D.~Polimeni and P.~Zhang, \textit{Mathematical Proofs:
+        A Transition to Advanced Mathematics}, 2nd ed., Addison Wesley, 2007.
+\end{itemize}
+
+\end{document}

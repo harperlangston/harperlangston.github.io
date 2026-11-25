@@ -12,7 +12,7 @@ Plain HTML and CSS. There is no build step: edit a file, commit, push, and the s
 | `code/index.html` | Code page. Pulls your public GitHub repos automatically when the page loads |
 | `assets/style.css` | All styling (light and dark mode) |
 | `papers/` | Paper PDFs and the thumbnails shown next to each entry |
-| `m_harper_langston_cv.pdf` | CV linked from the top of the main page |
+| `resume/` | CV: the PDF linked from the main page, plus the LaTeX source for the new CV (see `resume/README.md`) |
 | `kifmm3d/` | KIFMM3D documentation (old URLs kept working) |
 | `CNAME` | Tells GitHub Pages to serve the site at harperlangston.com |
 | `.nojekyll` | Serve files as-is (no Jekyll processing) |
