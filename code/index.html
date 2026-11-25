@@ -76,6 +76,7 @@
         <div class="meta"><span><span class="dot" style="background:#555555"></span>C</span><span class="tag">fork</span></div>
       </a>
     </div>
+    <p class="note" id="private"></p>
     <p class="note" id="note"></p>
   </main>
 
@@ -92,6 +93,10 @@
     // Repos to hide from this page (by name), and repos to pin to the top, in order.
     var HIDE = [];
     var PIN = ['fmmvol3d', 'LIC'];
+    // Total number of repositories on the account, public + private. Update this by hand;
+    // GitHub only reveals private repositories to the signed-in owner.
+    var TOTAL_REPOS = 23;
+    var publicCount = 17; // replaced with the live count from GitHub when the page loads
 
     var COLORS = { 'C++': '#f34b7d', 'C': '#555555', 'Python': '#3572A5', 'Perl': '#0298c3', 'Shell': '#89e051',
       'JavaScript': '#f1e05a', 'TypeScript': '#3178c6', 'Fortran': '#4d41b1', 'Julia': '#a270ba', 'MATLAB': '#e16737',
@@ -108,6 +113,10 @@
         c.hidden = hide; if (!hide) shown++;
       });
       count.textContent = shown + (shown === 1 ? ' public repository' : ' public repositories');
+      var priv = TOTAL_REPOS - publicCount;
+      document.getElementById('private').textContent = priv > 0
+        ? 'Plus ' + priv + ' private ' + (priv === 1 ? 'repository' : 'repositories') + ' (research and work code that isn’t public).'
+        : '';
     }
     toggle.addEventListener('change', applyFilter);
     applyFilter();
@@ -115,6 +124,7 @@
     fetch('https://api.github.com/users/' + USER + '/repos?per_page=100&type=owner&sort=updated')
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then(function (repos) {
+        publicCount = repos.length;
         repos = repos.filter(function (r) { return HIDE.indexOf(r.name) < 0; });
         repos.sort(function (a, b) {
           var pa = PIN.indexOf(a.name), pb = PIN.indexOf(b.name);
