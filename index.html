@@ -35,7 +35,7 @@
         <li><a href="https://github.com/harperlangston">GitHub</a></li>
         <li><a href="code/">Code &amp; repositories</a></li>
       </ul>
-      <p class="stats">33 publications · 15 patents · PhD, NYU Courant Institute</p>
+      <p class="stats">34 publications · 15 patents · PhD, NYU Courant Institute</p>
     </section>
 
     <section id="publications">
@@ -70,6 +70,16 @@
           <p class="venue">International Conference on Learning Representations (ICLR), 2026</p>
           <div class="links"><a href="https://arxiv.org/abs/2602.08722" target=_blank rel=noopener>arXiv</a><a href="https://arxiv.org/pdf/2602.08722" target=_blank rel=noopener>PDF</a></div>
           <details><summary>Abstract</summary><p>We present QUOKA: Query-oriented KV selection for efficient attention, a training-free and hardware-agnostic sparse attention algorithm for accelerating transformer inference under chunked prefill. While many queries focus on a smaller group of keys in the attention operator, we observe that queries with low cosine similarity with respect to the mean query interact more strongly with more keys and have the greatest contribution to final attention logits. By prioritizing these low cosine similarity queries, the behavior of full attention during the prefill stage can be closely approximated. QUOKA leverages this observation, accelerating attention by (1) first retaining a small set of representative queries and (2) then subselecting the keys most aligned with those queries. Through experiments on Needle-In-A-Haystack, LongBench, RULER, and Math500, we show that, while realizing a 3x reduction in time-to-first-token, 5x speedup in attention on Nvidia GPUs and up to nearly a 7x speedup on Intel Xeon CPUs, QUOKA achieves near-baseline accuracy, utilizing 88% fewer key-value pairs per attention evaluation.</p></details>
+        </div>
+      </article>
+      <article class="pub">
+        <img class="thumb" src="papers/caote.jpg" alt="" loading="lazy" width="96">
+        <div class="pub-body">
+          <h3><a href="https://arxiv.org/abs/2504.14051">CAOTE: Optimizing KV Cache Memory Through Attention Output Error-based Token Eviction</a></h3>
+          <p class="authors">Raghavv Goel, Junyoung Park, Mukul Gagrani, Dalton Jones, Matthew Morse, <strong>M. Harper Langston</strong>, Christopher Lott, Mingu Lee</p>
+          <p class="venue">ICLR 2026 Workshop on Memory for LLM-Based Agentic Systems (MemAgents), 2026</p>
+          <div class="links"><a href="https://iclr.cc/virtual/2026/10021222" target=_blank rel=noopener>ICLR</a><a href="https://arxiv.org/abs/2504.14051" target=_blank rel=noopener>arXiv</a><a href="https://arxiv.org/pdf/2504.14051" target=_blank rel=noopener>PDF</a></div>
+          <details><summary>Abstract</summary><p>While long context support of large language models has extended their abilities, it also incurs challenges in memory and compute which become crucial bottlenecks in resource-restricted devices. Token eviction, a widely adopted post-training methodology designed to alleviate these bottlenecks by evicting less important tokens from the cache, typically uses attention scores as proxy metrics for token importance. However, attention scores lack information about the contribution of tokens to the attention output. We propose a simple eviction criterion based on the contribution of cached tokens to attention outputs. Our method, CAOTE, optimizes for eviction error due to token eviction by seamlessly integrating attention scores and value vectors; it is the first method to use value vector information on top of attention-based eviction scores. Additionally, CAOTE can act as a meta-heuristic method with flexible usage with any token eviction method. We show that CAOTE, when combined with state-of-the-art attention score-based methods, always improves accuracies on downstream tasks, indicating the importance of leveraging information from values during the token eviction process.</p></details>
         </div>
       </article>
       <article class="pub">
@@ -420,16 +430,6 @@
     <section id="reports">
       <h2>Selected technical reports and preprints</h2>
       <div class="year-group">
-      <article class="pub">
-        <img class="thumb" src="papers/caote.jpg" alt="" loading="lazy" width="96">
-        <div class="pub-body">
-          <h3><a href="https://arxiv.org/abs/2504.14051">CAOTE: KV Caching through Attention Output Error based Token Eviction</a></h3>
-          <p class="authors">Raghavv Goel, Junyoung Park, Mukul Gagrani, Dalton Jones, Matthew Morse, <strong>Harper Langston</strong>, Mingu Lee, Chris Lott</p>
-          <p class="venue">Preprint, arXiv:2504.14051, 2025</p>
-          <div class="links"><a href="https://arxiv.org/abs/2504.14051" target=_blank rel=noopener>arXiv</a><a href="https://arxiv.org/pdf/2504.14051" target=_blank rel=noopener>PDF</a></div>
-          <details><summary>Abstract</summary><p>While long context support of large language models has extended their abilities, it also incurs challenges in memory and compute which become crucial bottlenecks in resource-restricted devices. Token eviction, a widely adopted post-training methodology designed to alleviate these bottlenecks by evicting less important tokens from the cache, typically uses attention scores as proxy metrics for token importance. However, attention scores lack information about the contribution of tokens to the attention output. We propose a simple eviction criterion based on the contribution of cached tokens to attention outputs. Our method, CAOTE, optimizes for eviction error due to token eviction by seamlessly integrating attention scores and value vectors; it is the first method to use value vector information on top of attention-based eviction scores. Additionally, CAOTE can act as a meta-heuristic method with flexible usage with any token eviction method. We show that CAOTE, when combined with state-of-the-art attention score-based methods, always improves accuracies on downstream tasks, indicating the importance of leveraging information from values during the token eviction process.</p></details>
-        </div>
-      </article>
       <article class="pub">
         <img class="thumb" src="papers/poly_constrained.jpg" alt="" loading="lazy" width="96">
         <div class="pub-body">
